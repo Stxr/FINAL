@@ -15,13 +15,13 @@
 //////////////////////////////////////////////////////////////////////////////////
 	 
 //IO方向设置
-#define CT_SDA_IN()  {GPIOF->CRH&=0XFFFFFF0F;GPIOF->CRH|=8<<4;}
-#define CT_SDA_OUT() {GPIOF->CRH&=0XFFFFFF0F;GPIOF->CRH|=3<<4;}
+#define CT_SDA_IN()  {GPIOB->CRH&=0X80000000;}
+#define CT_SDA_OUT() {GPIOB->CRH&=0X30000000;}
 
 //IO操作函数	 
-#define CT_IIC_SCL    PBout(1) 			//SCL     
-#define CT_IIC_SDA    PFout(9) 			//SDA	 
-#define CT_READ_SDA   PFin(9)  			//输入SDA 
+#define CT_IIC_SCL    PBout(13) 			//SCL     
+#define CT_IIC_SDA    PBout(15) 			//SDA	 
+#define CT_READ_SDA   PBin(15)  			//输入SDA 
  
 
 //IIC所有操作函数

@@ -18,8 +18,8 @@
 
 
 //IO操作函数	 
-#define OTT_RST    		PFout(11)	//OTT2001A复位引脚
-#define OTT_INT    		PFin(10)	//OTT2001A中断引脚	
+#define OTT_RST    		PGout(11)	//OTT2001A复位引脚  PF11-->PG11
+#define OTT_INT    		PGin(8)	//OTT2001A中断引脚	   PF10-->PG8
  
 //通过OTT_SET_REG指令,可以查询到这个信息 
 //注意,这里的X,Y和屏幕的坐标系刚好是反的.

@@ -16,8 +16,8 @@
 
 //与电容触摸屏连接的芯片引脚(未包含IIC引脚) 
 //IO操作函数	 
-#define FT_RST    				PFout(11)	//FT5206复位引脚
-#define FT_INT    				PFin(10)	//FT5206中断引脚	
+#define FT_RST    				PGout(11)	//FT5206复位引脚  PF11-->PG11
+#define FT_INT    				PGin(8)	//FT5206中断引脚	    PF10-->PG8
 
 //I2C读写命令	
 #define FT_CMD_WR 				0X70    	//写命令

@@ -457,7 +457,7 @@ u8 TP_Init(void)
 		//注意,时钟使能之后,对GPIO的操作才有效
 		//所以上拉之前,必须使能时钟.才能实现真正的上拉输出
    	 	
-	 	RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOB|RCC_APB2Periph_GPIOG, ENABLE);	 //使能PB,PF端口时钟
+	 RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOB|RCC_APB2Periph_GPIOG, ENABLE);	 //使能PB,PF端口时钟
 		
 		GPIO_InitStructure.GPIO_Pin = GPIO_Pin_13;				 // PB1端口配置  CLK:PB1-->PB13
 	 	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_Out_PP; 		 //推挽输出
@@ -489,13 +489,13 @@ u8 TP_Init(void)
  
 		TP_Read_XY(&tp_dev.x[0],&tp_dev.y[0]);//第一次读取初始化	 
 		AT24CXX_Init();			//初始化24CXX
-		if(TP_Get_Adjdata())return 0;//已经校准
-		else			  		//未校准?
-		{ 										    
-			LCD_Clear(WHITE);	//清屏
-			TP_Adjust();  		//屏幕校准  
-		}			
-		TP_Get_Adjdata();	
+//		if(TP_Get_Adjdata())return 0;//已经校准
+//		else			  		//未校准?
+//		{ 										    
+//			LCD_Clear(WHITE);	//清屏
+//			TP_Adjust();  		//屏幕校准  
+//		}			
+//		TP_Get_Adjdata();	
 	}
 	return 1; 									 
 }

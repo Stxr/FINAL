@@ -1,6 +1,6 @@
 ..\obj\mypage.o: ..\MYPAGE\mypage.c
 ..\obj\mypage.o: ..\MYPAGE\mypage.h
-..\obj\mypage.o: ..\HARDWARE\LED\led.h
+..\obj\mypage.o: ..\SYSTEM\delay\delay.h
 ..\obj\mypage.o: ..\SYSTEM\sys\sys.h
 ..\obj\mypage.o: ..\USER\stm32f10x.h
 ..\obj\mypage.o: ..\CORE\core_cm3.h
@@ -17,8 +17,6 @@
 ..\obj\mypage.o: ..\FWLIB\STM32F10x_FWLib\inc\stm32f10x_tim.h
 ..\obj\mypage.o: ..\FWLIB\STM32F10x_FWLib\inc\stm32f10x_usart.h
 ..\obj\mypage.o: ..\FWLIB\STM32F10x_FWLib\inc\misc.h
-..\obj\mypage.o: ..\HARDWARE\BEEP\beep.h
-..\obj\mypage.o: ..\SYSTEM\delay\delay.h
 ..\obj\mypage.o: ..\HARDWARE\KEY\key.h
 ..\obj\mypage.o: ..\HARDWARE\LCD\ILI93xx.h
 ..\obj\mypage.o: E:\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
@@ -31,9 +29,7 @@
 ..\obj\mypage.o: ..\HARDWARE\TOUCH\ott2001a.h
 ..\obj\mypage.o: ..\HARDWARE\TOUCH\gt9147.h
 ..\obj\mypage.o: ..\HARDWARE\TOUCH\ft5206.h
-..\obj\mypage.o: ..\HARDWARE\SRAM\sram.h
 ..\obj\mypage.o: ..\HARDWARE\TIMER\timer.h
-..\obj\mypage.o: ..\HARDWARE\SDIO\sdio_sdcard.h
 ..\obj\mypage.o: ..\MALLOC\malloc.h
 ..\obj\mypage.o: ..\EMWIN\STemWin\inc\GUI.h
 ..\obj\mypage.o: ..\EMWIN\STemWin\inc\GUI_ConfDefaults.h
@@ -42,14 +38,11 @@
 ..\obj\mypage.o: ..\EMWIN\STemWin\inc\LCD.h
 ..\obj\mypage.o: ..\EMWIN\STemWin\inc\Global.h
 ..\obj\mypage.o: ..\EMWIN\STemWin\inc\GUI_Version.h
+..\obj\mypage.o: ..\TEXT\fontupd.h
+..\obj\mypage.o: ..\FATFS\exfuns\exfuns.h
 ..\obj\mypage.o: ..\FATFS\src\ff.h
 ..\obj\mypage.o: ..\FATFS\src\integer.h
 ..\obj\mypage.o: ..\FATFS\src\ffconf.h
-..\obj\mypage.o: ..\FATFS\exfuns\exfuns.h
-..\obj\mypage.o: ..\HARDWARE\W25QXX\w25qxx.h
-..\obj\mypage.o: ..\TEXT\fontupd.h
-..\obj\mypage.o: ..\EMWIN\STemWinHZ\EmWinHZFont.h
-..\obj\mypage.o: ..\EMWIN_DEMO\EMWIN_PICTURE\BMP\bmpdisplay.h
 ..\obj\mypage.o: ..\UCOSIII\uCOS_CONFIG\includes.h
 ..\obj\mypage.o: E:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
 ..\obj\mypage.o: E:\Keil_v5\ARM\ARMCC\Bin\..\include\ctype.h
@@ -72,6 +65,7 @@
 ..\obj\mypage.o: ..\UCOSIII\uC-LIB\lib_math.h
 ..\obj\mypage.o: ..\UCOSIII\uCOS_CONFIG\app_cfg.h
 ..\obj\mypage.o: ..\UCOSIII\UCOS_BSP\bsp.h
+..\obj\mypage.o: ..\EMWIN_DEMO\EMWIN_PICTURE\BMP\bmpdisplay.h
 ..\obj\mypage.o: ..\EMWIN\STemWin\inc\WM.h
 ..\obj\mypage.o: ..\EMWIN\STemWin\inc\WM_GUI.h
 ..\obj\mypage.o: ..\EMWIN\STemWin\inc\DIALOG.h
@@ -110,3 +104,5 @@
 ..\obj\mypage.o: ..\EMWIN\STemWin\inc\TEXT.h
 ..\obj\mypage.o: ..\EMWIN\STemWin\inc\TREEVIEW.h
 ..\obj\mypage.o: ..\EMWIN\STemWin\inc\KNOB.h
+..\obj\mypage.o: ..\USMART\usmart.h
+..\obj\mypage.o: ..\USMART\usmart_str.h

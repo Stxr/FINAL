@@ -13,8 +13,11 @@
 //Copyright(C) 广州市星翼电子科技有限公司 2009-2019
 //All rights reserved									  
 ////////////////////////////////////////////////////////////////////////////////// 
-#define LED0 PBout(5)// PB5
-#define LED1 PEout(5)// PE5	
+#define LED0 PFout(6)// PB5
+#define LED1 PFout(7)// PE5	
+#define LED2 PFout(8)// PE5	
+#define LED3 PFout(9)// PE5	
+#define LED4 PFout(10)// PE5	
 
 void LED_Init(void);//初始化
 

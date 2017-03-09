@@ -19,8 +19,8 @@
 ////////////////////////////////////////////////////////////////////////////////// 
 
 //IO操作函数	   
-#define GT_RST    		PFout(11)	//GT9147复位引脚
-#define GT_INT    		PFin(10)	//GT9147中断引脚	
+#define GT_RST    		PFout(11)	//GT9147复位引脚  PF11-->PG11
+#define GT_INT    		PGin(8)	//GT9147中断引脚	 PF10-->PG8
  
 //I2C读写命令	
 #define GT_CMD_WR 		0X28     	//写命令

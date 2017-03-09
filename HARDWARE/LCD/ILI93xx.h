@@ -96,7 +96,7 @@ extern u16  BACK_COLOR; //背景颜色.默认为白色
 
 //////////////////////////////////////////////////////////////////////////////////	 
 //-----------------LCD端口定义---------------- 
-#define	LCD_LED PBout(0) //LCD背光  PB0 	    
+#define	LCD_LED PBout(12) //LCD背光  PB0 	    
 //LCD地址结构体
 typedef struct
 {

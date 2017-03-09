@@ -110,3 +110,5 @@
 ..\obj\main.o: ..\EMWIN\STemWin\inc\TREEVIEW.h
 ..\obj\main.o: ..\EMWIN\STemWin\inc\KNOB.h
 ..\obj\main.o: ..\MYPAGE\mypage.h
+..\obj\main.o: ..\USMART\usmart.h
+..\obj\main.o: ..\USMART\usmart_str.h

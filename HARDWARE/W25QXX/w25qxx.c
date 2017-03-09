@@ -27,17 +27,17 @@ u16 W25QXX_TYPE=W25Q128;	//默认是W25Q128
 void W25QXX_Init(void)
 {	
   GPIO_InitTypeDef GPIO_InitStructure;
-	RCC_APB2PeriphClockCmd(	RCC_APB2Periph_GPIOB, ENABLE );//PORTB时钟使能 
+	RCC_APB2PeriphClockCmd(	RCC_APB2Periph_GPIOA, ENABLE );//PORTB时钟使能 
 
-	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_12;  // PB12 推挽 
+	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_4;  // PB12 推挽 
  	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_Out_PP;  //推挽输出
 	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
- 	GPIO_Init(GPIOB, &GPIO_InitStructure);
- 	GPIO_SetBits(GPIOB,GPIO_Pin_12);
+ 	GPIO_Init(GPIOA, &GPIO_InitStructure);
+ 	GPIO_SetBits(GPIOA,GPIO_Pin_4);
  
-        W25QXX_CS=1;				//SPI FLASH不选中
-	SPI2_Init();		   	//初始化SPI
-	SPI2_SetSpeed(SPI_BaudRatePrescaler_2);//设置为18M时钟,高速模式
+  W25QXX_CS=1;				//SPI FLASH不选中
+	SPI1_Init();		   	//初始化SPI
+	SPI1_SetSpeed(SPI_BaudRatePrescaler_2);//设置为18M时钟,高速模式
 	W25QXX_TYPE=W25QXX_ReadID();//读取FLASH ID.  
 
 }  
@@ -54,8 +54,8 @@ u8 W25QXX_ReadSR(void)
 {  
 	u8 byte=0;   
 	W25QXX_CS=0;                            //使能器件   
-	SPI2_ReadWriteByte(W25X_ReadStatusReg); //发送读取状态寄存器命令    
-	byte=SPI2_ReadWriteByte(0Xff);          //读取一个字节  
+	SPI1_ReadWriteByte(W25X_ReadStatusReg); //发送读取状态寄存器命令    
+	byte=SPI1_ReadWriteByte(0Xff);          //读取一个字节  
 	W25QXX_CS=1;                            //取消片选     
 	return byte;   
 } 
@@ -64,8 +64,8 @@ u8 W25QXX_ReadSR(void)
 void W25QXX_Write_SR(u8 sr)   
 {   
 	W25QXX_CS=0;                            //使能器件   
-	SPI2_ReadWriteByte(W25X_WriteStatusReg);//发送写取状态寄存器命令    
-	SPI2_ReadWriteByte(sr);               	//写入一个字节  
+	SPI1_ReadWriteByte(W25X_WriteStatusReg);//发送写取状态寄存器命令    
+	SPI1_ReadWriteByte(sr);               	//写入一个字节  
 	W25QXX_CS=1;                            //取消片选     	      
 }   
 //W25QXX写使能	
@@ -73,7 +73,7 @@ void W25QXX_Write_SR(u8 sr)
 void W25QXX_Write_Enable(void)   
 {
 	W25QXX_CS=0;                          	//使能器件   
-    SPI2_ReadWriteByte(W25X_WriteEnable); 	//发送写使能  
+  SPI1_ReadWriteByte(W25X_WriteEnable); 	//发送写使能  
 	W25QXX_CS=1;                           	//取消片选     	      
 } 
 //W25QXX写禁止	
@@ -81,7 +81,7 @@ void W25QXX_Write_Enable(void)
 void W25QXX_Write_Disable(void)   
 {  
 	W25QXX_CS=0;                            //使能器件   
-    SPI2_ReadWriteByte(W25X_WriteDisable);  //发送写禁止指令    
+  SPI1_ReadWriteByte(W25X_WriteDisable);  //发送写禁止指令    
 	W25QXX_CS=1;                            //取消片选     	      
 } 		
 //读取芯片ID
@@ -95,12 +95,12 @@ u16 W25QXX_ReadID(void)
 {
 	u16 Temp = 0;	  
 	W25QXX_CS=0;				    
-	SPI2_ReadWriteByte(0x90);//发送读取ID命令	    
-	SPI2_ReadWriteByte(0x00); 	    
-	SPI2_ReadWriteByte(0x00); 	    
-	SPI2_ReadWriteByte(0x00); 	 			   
-	Temp|=SPI2_ReadWriteByte(0xFF)<<8;  
-	Temp|=SPI2_ReadWriteByte(0xFF);	 
+	SPI1_ReadWriteByte(0x90);//发送读取ID命令	    
+	SPI1_ReadWriteByte(0x00); 	    
+	SPI1_ReadWriteByte(0x00); 	    
+	SPI1_ReadWriteByte(0x00); 	 			   
+	Temp|=SPI1_ReadWriteByte(0xFF)<<8;  
+	Temp|=SPI1_ReadWriteByte(0xFF);	 
 	W25QXX_CS=1;				    
 	return Temp;
 }   		    
@@ -113,13 +113,13 @@ void W25QXX_Read(u8* pBuffer,u32 ReadAddr,u16 NumByteToRead)
 { 
  	u16 i;   										    
 	W25QXX_CS=0;                            	//使能器件   
-    SPI2_ReadWriteByte(W25X_ReadData);         	//发送读取命令   
-    SPI2_ReadWriteByte((u8)((ReadAddr)>>16));  	//发送24bit地址    
-    SPI2_ReadWriteByte((u8)((ReadAddr)>>8));   
-    SPI2_ReadWriteByte((u8)ReadAddr);   
+    SPI1_ReadWriteByte(W25X_ReadData);         	//发送读取命令   
+    SPI1_ReadWriteByte((u8)((ReadAddr)>>16));  	//发送24bit地址    
+    SPI1_ReadWriteByte((u8)((ReadAddr)>>8));   
+    SPI1_ReadWriteByte((u8)ReadAddr);   
     for(i=0;i<NumByteToRead;i++)
 	{ 
-        pBuffer[i]=SPI2_ReadWriteByte(0XFF);   	//循环读数  
+        pBuffer[i]=SPI1_ReadWriteByte(0XFF);   	//循环读数  
     }
 	W25QXX_CS=1;  				    	      
 }  
@@ -132,12 +132,12 @@ void W25QXX_Write_Page(u8* pBuffer,u32 WriteAddr,u16 NumByteToWrite)
 {
  	u16 i;  
     W25QXX_Write_Enable();                  	//SET WEL 
-	W25QXX_CS=0;                            	//使能器件   
-    SPI2_ReadWriteByte(W25X_PageProgram);      	//发送写页命令   
-    SPI2_ReadWriteByte((u8)((WriteAddr)>>16)); 	//发送24bit地址    
-    SPI2_ReadWriteByte((u8)((WriteAddr)>>8));   
-    SPI2_ReadWriteByte((u8)WriteAddr);   
-    for(i=0;i<NumByteToWrite;i++)SPI2_ReadWriteByte(pBuffer[i]);//循环写数  
+		W25QXX_CS=0;                            	//使能器件   
+    SPI1_ReadWriteByte(W25X_PageProgram);      	//发送写页命令   
+    SPI1_ReadWriteByte((u8)((WriteAddr)>>16)); 	//发送24bit地址    
+    SPI1_ReadWriteByte((u8)((WriteAddr)>>8));   
+    SPI1_ReadWriteByte((u8)WriteAddr);   
+    for(i=0;i<NumByteToWrite;i++)SPI1_ReadWriteByte(pBuffer[i]);//循环写数  
 	W25QXX_CS=1;                            	//取消片选 
 	W25QXX_Wait_Busy();					   		//等待写入结束
 } 
@@ -183,7 +183,7 @@ void W25QXX_Write(u8* pBuffer,u32 WriteAddr,u16 NumByteToWrite)
 	u16 secremain;	   
  	u16 i;    
 	u8 * W25QXX_BUF;	  
-   	W25QXX_BUF=W25QXX_BUFFER;	     
+   W25QXX_BUF=W25QXX_BUFFER;	     
  	secpos=WriteAddr/4096;//扇区地址  
 	secoff=WriteAddr%4096;//在扇区内的偏移
 	secremain=4096-secoff;//扇区剩余空间大小   
@@ -213,7 +213,7 @@ void W25QXX_Write(u8* pBuffer,u32 WriteAddr,u16 NumByteToWrite)
 			secoff=0;//偏移位置为0 	 
 
 		   	pBuffer+=secremain;  				//指针偏移
-			WriteAddr+=secremain;				//写地址偏移	   
+				WriteAddr+=secremain;				//写地址偏移	   
 		   	NumByteToWrite-=secremain;			//字节数递减
 			if(NumByteToWrite>4096)secremain=4096;//下一个扇区还是写不完
 			else secremain=NumByteToWrite;		//下一个扇区可以写完了
@@ -224,10 +224,10 @@ void W25QXX_Write(u8* pBuffer,u32 WriteAddr,u16 NumByteToWrite)
 //等待时间超长...
 void W25QXX_Erase_Chip(void)   
 {                                   
-    W25QXX_Write_Enable();                 	 	//SET WEL 
-    W25QXX_Wait_Busy();   
-  	W25QXX_CS=0;                            	//使能器件   
-    SPI2_ReadWriteByte(W25X_ChipErase);        	//发送片擦除命令  
+  W25QXX_Write_Enable();                 	 	//SET WEL 
+  W25QXX_Wait_Busy();   
+  W25QXX_CS=0;                            	//使能器件   
+  SPI1_ReadWriteByte(W25X_ChipErase);        	//发送片擦除命令  
 	W25QXX_CS=1;                            	//取消片选     	      
 	W25QXX_Wait_Busy();   				   		//等待芯片擦除结束
 }   
@@ -242,11 +242,11 @@ void W25QXX_Erase_Sector(u32 Dst_Addr)
     W25QXX_Write_Enable();                  	//SET WEL 	 
     W25QXX_Wait_Busy();   
   	W25QXX_CS=0;                            	//使能器件   
-    SPI2_ReadWriteByte(W25X_SectorErase);      	//发送扇区擦除指令 
-    SPI2_ReadWriteByte((u8)((Dst_Addr)>>16));  	//发送24bit地址    
-    SPI2_ReadWriteByte((u8)((Dst_Addr)>>8));   
-    SPI2_ReadWriteByte((u8)Dst_Addr);  
-	W25QXX_CS=1;                            	//取消片选     	      
+    SPI1_ReadWriteByte(W25X_SectorErase);      	//发送扇区擦除指令 
+    SPI1_ReadWriteByte((u8)((Dst_Addr)>>16));  	//发送24bit地址    
+    SPI1_ReadWriteByte((u8)((Dst_Addr)>>8));   
+    SPI1_ReadWriteByte((u8)Dst_Addr);  
+		W25QXX_CS=1;                            	//取消片选     	      
     W25QXX_Wait_Busy();   				   		//等待擦除完成
 }  
 //等待空闲
@@ -258,16 +258,16 @@ void W25QXX_Wait_Busy(void)
 void W25QXX_PowerDown(void)   
 { 
   	W25QXX_CS=0;                           	 	//使能器件   
-    SPI2_ReadWriteByte(W25X_PowerDown);        //发送掉电命令  
-	W25QXX_CS=1;                            	//取消片选     	      
+    SPI1_ReadWriteByte(W25X_PowerDown);        //发送掉电命令  
+		W25QXX_CS=1;                            	//取消片选     	      
     delay_us(3);                               //等待TPD  
 }   
 //唤醒
 void W25QXX_WAKEUP(void)   
 {  
   	W25QXX_CS=0;                            	//使能器件   
-    SPI2_ReadWriteByte(W25X_ReleasePowerDown);	//  send W25X_PowerDown command 0xAB    
-	W25QXX_CS=1;                            	//取消片选     	      
+    SPI1_ReadWriteByte(W25X_ReleasePowerDown);	//  send W25X_PowerDown command 0xAB    
+		W25QXX_CS=1;                            	//取消片选     	      
     delay_us(3);                            	//等待TRES1
 }   
 

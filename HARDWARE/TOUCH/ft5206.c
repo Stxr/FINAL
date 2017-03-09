@@ -66,19 +66,19 @@ void FT5206_RD_Reg(u16 reg,u8 *buf,u8 len)
 u8 FT5206_Init(void)
 {
 	u8 temp[2];  		
- 	GPIO_InitTypeDef  GPIO_InitStructure;	
-	RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOF, ENABLE);	 //使能PF端口时钟
+ GPIO_InitTypeDef  GPIO_InitStructure;	
+	RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOG, ENABLE);	 //使能PF端口时钟
 
-	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_11;				 // PF11端口配置
+	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_11;				 // PF11端口配置  PF11-->PG11
   GPIO_InitStructure.GPIO_Mode = GPIO_Mode_Out_PP; 		 //推挽输出
 	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
-	GPIO_Init(GPIOF, &GPIO_InitStructure);//PF11推挽输出
-	GPIO_SetBits(GPIOF,GPIO_Pin_1);//上拉
+	GPIO_Init(GPIOG, &GPIO_InitStructure);//PF11推挽输出
+	GPIO_SetBits(GPIOG,GPIO_Pin_11);//上拉
 		
-  GPIO_InitStructure.GPIO_Pin = GPIO_Pin_10;				 // PB2端口配置
+  GPIO_InitStructure.GPIO_Pin = GPIO_Pin_8;				 // PF10端口配置 PF10-->PG8
 	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IPU; 		 //上拉输入
-	GPIO_Init(GPIOF, &GPIO_InitStructure);//PF10上拉输入
-	GPIO_SetBits(GPIOF,GPIO_Pin_10);//上拉		
+	GPIO_Init(GPIOG, &GPIO_InitStructure);//PF10上拉输入
+	GPIO_SetBits(GPIOG,GPIO_Pin_8);//上拉		
 
 	CT_IIC_Init();      	//初始化电容屏的I2C总线  
 	FT_RST=0;				//复位
