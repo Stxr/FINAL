@@ -464,9 +464,9 @@ ARM Macro Assembler    Page 8
 Command Line: --debug --xref --diag_suppress=9931 --cpu=Cortex-M3 --apcs=interw
 ork --depend=..\obj\cpu_a.d -o..\obj\cpu_a.o -IC:\Users\Stxr\Desktop\FINAL\USER
 \RTE -IE:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0\Device\Include -IE:\Keil_v5
-\ARM\CMSIS\Include --predefine="__MICROLIB SETA 1" --predefine="__UVISION_VERSI
-ON SETA 521" --predefine="STM32F10X_HD SETA 1" --list=.\cpu_a.lst ..\UCOSIII\uC
--CPU\ARM-Cortex-M3\RealView\cpu_a.asm
+\ARM\CMSIS\Include --predefine="__UVISION_VERSION SETA 521" --predefine="STM32F
+10X_HD SETA 1" --list=.\cpu_a.lst ..\UCOSIII\uC-CPU\ARM-Cortex-M3\RealView\cpu_
+a.asm
 
 
 
@@ -560,4 +560,4 @@ Symbol: CPU_WaitForInt
       At line 46 in file ..\UCOSIII\uC-CPU\ARM-Cortex-M3\RealView\cpu_a.asm
 Comment: CPU_WaitForInt used once
 10 symbols
-343 symbols in table
+342 symbols in table

@@ -14,6 +14,7 @@
 #include "includes.h"
 //#include "bitmapdisplay.h"
 #include "bmpdisplay.h"
+#include "EmWinHZFont.h"
 #include "WM.h"
 #include "DIALOG.h"
 #include "usmart.h"

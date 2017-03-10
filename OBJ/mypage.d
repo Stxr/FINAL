@@ -66,6 +66,7 @@
 ..\obj\mypage.o: ..\UCOSIII\uCOS_CONFIG\app_cfg.h
 ..\obj\mypage.o: ..\UCOSIII\UCOS_BSP\bsp.h
 ..\obj\mypage.o: ..\EMWIN_DEMO\EMWIN_PICTURE\BMP\bmpdisplay.h
+..\obj\mypage.o: ..\EMWIN\STemWinHZ\EmWinHZFont.h
 ..\obj\mypage.o: ..\EMWIN\STemWin\inc\WM.h
 ..\obj\mypage.o: ..\EMWIN\STemWin\inc\WM_GUI.h
 ..\obj\mypage.o: ..\EMWIN\STemWin\inc\DIALOG.h
