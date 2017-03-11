@@ -874,6 +874,11 @@
               <FileType>1</FileType>
               <FilePath>..\EMWIN\STemWinHZ\GUI_UC_EncodeNone.c</FilePath>
             </File>
+            <File>
+              <FileName>GUI_FontHZ32.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\EMWIN\STemWinHZ\GUI_FontHZ32.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>

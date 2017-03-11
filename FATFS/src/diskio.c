@@ -30,7 +30,7 @@
 #define FLASH_SECTOR_SIZE 	512			  
 //对于W25Q128
 //前12M字节给fatfs用,12M字节后,用于存放字库,字库占用3.09M.	剩余部分,给客户自己用	 			    
-u16	    FLASH_SECTOR_COUNT=2048*12;	//W25Q1218,前12M字节给FATFS占用
+u16	    FLASH_SECTOR_COUNT=2048*6;	//W25Q1218,前12M字节给FATFS占用  2048*12-->2048*6
 #define FLASH_BLOCK_SIZE   	8     	//每个BLOCK有8个扇区
 
 

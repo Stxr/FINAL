@@ -29,7 +29,9 @@ __packed typedef struct
 	u32 f16addr;			//gbk16地址
 	u32 gbk16size;			//gbk16的大小		 
 	u32 f24addr;			//gbk24地址
-	u32 gkb24size;			//gbk24的大小 
+	u32 gbk24size;			//gbk24的大小 
+	u32 f32addr;			//gbk32地址
+	u32 gbk32size;			//gbk32的大小 
 }_font_info; 
 
 

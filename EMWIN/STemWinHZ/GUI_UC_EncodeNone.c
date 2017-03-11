@@ -34,7 +34,7 @@ Purpose     : Encoding routines for non unicode systems (default)
 */
 static U16 _GetCharCode(const char GUI_UNI_PTR * s) 
 {
-	if((*s) > 0XA0)
+	if((*s) > 0X81) //0xA0-->0X81
 	{
 		return *(const U16 GUI_UNI_PTR *)s;
 	}
@@ -51,7 +51,7 @@ static U16 _GetCharCode(const char GUI_UNI_PTR * s)
 static int _GetCharSize(const char GUI_UNI_PTR * s) 
 {
 	GUI_USE_PARA(s);
-	if((*s) > 0XA0)
+	if((*s) > 0XA0) //0XA0-->0X81
 	{
 		return 2;
 	}
@@ -68,7 +68,7 @@ static int _GetCharSize(const char GUI_UNI_PTR * s)
 static int _CalcSizeOfChar(U16 Char) 
 {
 	GUI_USE_PARA(Char);
-	if(Char > 0XA0A0)
+	if(Char > 0XA0A0) //0XA0A0-->0X4081
 	{
 		return 2;
 	}
@@ -84,7 +84,7 @@ static int _CalcSizeOfChar(U16 Char)
 */
 static int _Encode(char *s, U16 Char) 
 {
-	if(Char >0XA0A0)
+	if(Char >0XA0A0) //0XA0A0-->0X4081  
 	{
 		*((U16*)s) = (U16)(Char);
 		return 2;

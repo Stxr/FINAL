@@ -69,6 +69,7 @@ static void GUI_GetDataFromMemory(const GUI_FONT_PROP GUI_UNI_PTR *pProp, U16P c
 	if(memcmp(&EMWINFONT,&GUI_FontHZ12,sizeof(GUI_FONT)) == 0) size=12;			//12字体
 	else if(memcmp(&EMWINFONT,&GUI_FontHZ16,sizeof(GUI_FONT)) == 0) size=16;	//16字体
 	else if(memcmp(&EMWINFONT,&GUI_FontHZ24,sizeof(GUI_FONT)) == 0)	size=24;	//24字体
+	else if(memcmp(&EMWINFONT,&GUI_FontHZ32,sizeof(GUI_FONT)) == 0)	size=32;	//32字体
 		
 	csize = (size/8+((size%8)?1:0))*(size);	//得到字体一个字符对应点阵集所占的字节数	
     if (c < 0x80)	//英文字符地址偏移算法
@@ -83,6 +84,8 @@ static void GUI_GetDataFromMemory(const GUI_FONT_PROP GUI_UNI_PTR *pProp, U16P c
 				break;
 			case 24:
 				for(t=0;t<48;t++) GUI_FontDataBuf[t]=emwin_asc2_2412[c-0x20][t];
+			case 32:
+				for(t=0;t<64;t++) GUI_FontDataBuf[t]=emwin_asc2_3216[c-0x20][t];
 				break;	
 		} 
 	}
@@ -109,6 +112,8 @@ static void GUI_GetDataFromMemory(const GUI_FONT_PROP GUI_UNI_PTR *pProp, U16P c
 				break;
 			case 24:
 				W25QXX_Read(GUI_FontDataBuf,foffset+ftinfo.f24addr,csize);
+			case 32:
+				W25QXX_Read(GUI_FontDataBuf,foffset+ftinfo.f32addr,csize);
 				break;	
 		} 
 	}   	

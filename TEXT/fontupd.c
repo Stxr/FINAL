@@ -20,9 +20,9 @@
 ////////////////////////////////////////////////////////////////////////////////// 	 
 
 //字库区域占用的总扇区数大小(3个字库+unigbk表+字库信息=3238700字节,约占791个W25QXX扇区)
-#define FONTSECSIZE	 	791
+#define FONTSECSIZE	 	1539 //791-->1539
 //字库存放起始地址 
-#define FONTINFOADDR 	1024*1024*12 					//WarShip STM32F103 V3是从12M地址以后开始存放字库
+#define FONTINFOADDR 	1024*1024*6 					//WarShip STM32F103 V3是从12M地址以后开始存放字库 12-->6
 														//前面12M被fatfs占用了.
 														//12M以后紧跟3个字库+UNIGBK.BIN,总大小3.09M,被字库占用了,不能动!
 														//15.10M以后,用户可以自由使用.建议用最后的100K字节比较好.
@@ -31,6 +31,7 @@
 _font_info ftinfo;
 
 //字库存放在磁盘中的路径
+u8*const GBK32_PATH="/SYSTEM/FONT/GBK32.FON";		//GBK32的存放位置
 u8*const GBK24_PATH="/SYSTEM/FONT/GBK24.FON";		//GBK24的存放位置
 u8*const GBK16_PATH="/SYSTEM/FONT/GBK16.FON";		//GBK16的存放位置
 u8*const GBK12_PATH="/SYSTEM/FONT/GBK12.FON";		//GBK12的存放位置
@@ -60,7 +61,7 @@ u32 fupd_prog(u16 x,u16 y,u8 size,u32 fsize,u32 pos)
 //x,y:坐标
 //size:字体大小
 //fxpath:路径
-//fx:更新的内容 0,ungbk;1,gbk12;2,gbk16;3,gbk24;
+//fx:更新的内容 0,ungbk;1,gbk12;2,gbk16;3,gbk24,4,gbk32;
 //返回值:0,成功;其他,失败.
 u8 updata_fontx(u16 x,u16 y,u8 size,u8 *fxpath,u8 fx)
 {
@@ -98,8 +99,12 @@ u8 updata_fontx(u16 x,u16 y,u8 size,u8 *fxpath,u8 fx)
 				break;
 			case 3:
 				ftinfo.f24addr=ftinfo.f16addr+ftinfo.gbk16size;	//GBK16之后，紧跟GBK24字库
-				ftinfo.gkb24size=fftemp->fsize;					//GBK24字库大小
+				ftinfo.gbk24size=fftemp->fsize;					//GBK24字库大小
 				flashaddr=ftinfo.f24addr;						//GBK24的起始地址
+			case 4:
+				ftinfo.f32addr=ftinfo.f24addr+ftinfo.gbk24size;	//GBK24之后，紧跟GBK32字库
+				ftinfo.gbk32size=fftemp->fsize;					//GBK32字库大小
+				flashaddr=ftinfo.f32addr;						//GBK32的起始地址
 				break;
 		} 
 			
@@ -161,7 +166,11 @@ u8 update_font(u16 x,u16 y,u8 size,u8* src)
 	strcpy((char*)pname,(char*)src);	//copy src内容到pname
 	strcat((char*)pname,(char*)GBK24_PATH); 
  	res=f_open(fftemp,(const TCHAR*)pname,FA_READ); 
- 	if(res)rval|=1<<7;//打开文件失败   
+ 	if(res)rval|=1<<7;//打开文件失败
+	strcpy((char*)pname,(char*)src);	//copy src内容到pname
+	strcat((char*)pname,(char*)GBK32_PATH); 
+ 	res=f_open(fftemp,(const TCHAR*)pname,FA_READ); 
+ 	if(res)rval|=1<<8;//打开文件失败
 	myfree(SRAMIN,fftemp);//释放内存
 	if(rval==0)//字库文件都存在.
 	{  
@@ -197,6 +206,11 @@ u8 update_font(u16 x,u16 y,u8 size,u8* src)
 		strcat((char*)pname,(char*)GBK24_PATH); 
 		res=updata_fontx(x+20*size/2,y,size,pname,3);	//更新GBK24.FON
 		if(res){myfree(SRAMIN,pname);return 4;}
+		LCD_ShowString(x,y,240,320,size,"Updating GBK32.BIN  ");
+		strcpy((char*)pname,(char*)src);				//copy src内容到pname
+		strcat((char*)pname,(char*)GBK32_PATH); 
+		res=updata_fontx(x+20*size/2,y,size,pname,4);	//更新GBK32.FON
+		if(res){myfree(SRAMIN,pname);return 5;}
 		//全部更新好了
 		ftinfo.fontok=0XAA;
 		W25QXX_Write((u8*)&ftinfo,FONTINFOADDR,sizeof(ftinfo));	//保存字库信息
