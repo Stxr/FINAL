@@ -132,22 +132,22 @@ int main(void)
 	f_mount(fs[0],"0:",1);	//挂载SD卡
 	f_mount(fs[1],"1:",1);	//挂载FLASH
 	
-	while(SD_Init())		//检测SD卡
-	{
-		LCD_ShowString(30,90,200,16,16,"SD Card Failed!");
-		delay_ms(200);
-		LCD_Fill(30,90,200+30,70+16,WHITE);
-		delay_ms(200);		    
-	}
-//	
-//	while(font_init())		//初始化字库
+//	while(SD_Init())		//检测SD卡
 //	{
-//		LCD_ShowString(30,70,200,16,16,"Font Error!");
-//		update_font(30,90,16,"0:");	//如果字库不存在就更新字库
-//		delay_ms(2000);
-//		LCD_Clear(WHITE);	//清屏
-//		break;
+//		LCD_ShowString(30,90,200,16,16,"SD Card Failed!");
+//		delay_ms(200);
+//		LCD_Fill(30,90,200+30,70+16,WHITE);
+//		delay_ms(200);		    
 //	}
+//	
+	while(font_init())		//初始化字库
+	{
+		LCD_ShowString(30,70,200,16,16,"Font Error!");
+		update_font(30,90,16,"0:");	//如果字库不存在就更新字库
+		delay_ms(2000);
+		LCD_Clear(WHITE);	//清屏
+		break;
+	}
 	TP_Init();				//触摸屏初始化
 	
 	OSInit(&err);		//初始化UCOSIII
