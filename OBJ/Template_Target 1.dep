@@ -1,5 +1,5 @@
 Dependencies for Project 'Template', Target 'Target 1': (DO NOT MODIFY !)
-F (.\main.c)(0x58C39F97)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O3 --apcs=interwork -I ..\HARDWARE\LED -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\USER -I ..\STM32F10x_FWLib\inc -I ..\CORE -I ..\FWLIB\STM32F10x_FWLib\inc -I ..\HARDWARE\KEY -I ..\HARDWARE\LCD -I ..\HARDWARE\IIC -I ..\HARDWARE\24CXX -I ..\HARDWARE\SPI -I ..\HARDWARE\FLASH -I ..\HARDWARE\TOUCH -I ..\HARDWARE\SRAM -I ..\HARDWARE\TIMER -I ..\HARDWARE\SDIO -I ..\HARDWARE\BEEP -I ..\HARDWARE\W25QXX -I ..\MALLOC -I ..\USMART -I ..\TEXT -I ..\FATFS\src -I ..\FATFS\exfuns -I ..\UCOSIII\uC-CPU -I ..\UCOSIII\uC-LIB -I ..\UCOSIII\UCOS_BSP -I ..\UCOSIII\uCOS_CONFIG -I ..\UCOSIII\uCOS-III\Source -I ..\UCOSIII\uC-LIB\Ports\ARM-Cortex-M3\RealView -I ..\UCOSIII\uCOS-III\Ports\ARM-Cortex-M3\Generic\RealView -I ..\UCOSIII\uC-CPU\ARM-Cortex-M3\RealView -I ..\EMWIN\STemWin\Config -I ..\EMWIN\STemWinPNG -I ..\EMWIN\STemWin\inc -I ..\EMWIN\STemWinHZ -I ..\EMWIN_DEMO\EMWIN_PICTURE\BMP -I ..\MYPAGE-IC:\Users\Stxr\Desktop\FINAL\USER\RTE-IE:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0\Device\Include-IE:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="521" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o ..\obj\main.o --omf_browse ..\obj\main.crf --depend ..\obj\main.d)
+F (.\main.c)(0x58C4ED32)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O3 --apcs=interwork -I ..\HARDWARE\LED -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\USER -I ..\STM32F10x_FWLib\inc -I ..\CORE -I ..\FWLIB\STM32F10x_FWLib\inc -I ..\HARDWARE\KEY -I ..\HARDWARE\LCD -I ..\HARDWARE\IIC -I ..\HARDWARE\24CXX -I ..\HARDWARE\SPI -I ..\HARDWARE\FLASH -I ..\HARDWARE\TOUCH -I ..\HARDWARE\SRAM -I ..\HARDWARE\TIMER -I ..\HARDWARE\SDIO -I ..\HARDWARE\BEEP -I ..\HARDWARE\W25QXX -I ..\MALLOC -I ..\USMART -I ..\TEXT -I ..\FATFS\src -I ..\FATFS\exfuns -I ..\UCOSIII\uC-CPU -I ..\UCOSIII\uC-LIB -I ..\UCOSIII\UCOS_BSP -I ..\UCOSIII\uCOS_CONFIG -I ..\UCOSIII\uCOS-III\Source -I ..\UCOSIII\uC-LIB\Ports\ARM-Cortex-M3\RealView -I ..\UCOSIII\uCOS-III\Ports\ARM-Cortex-M3\Generic\RealView -I ..\UCOSIII\uC-CPU\ARM-Cortex-M3\RealView -I ..\EMWIN\STemWin\Config -I ..\EMWIN\STemWinPNG -I ..\EMWIN\STemWin\inc -I ..\EMWIN\STemWinHZ -I ..\EMWIN_DEMO\EMWIN_PICTURE\BMP -I ..\MYPAGE-IC:\Users\Stxr\Desktop\FINAL\USER\RTE-IE:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0\Device\Include-IE:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="521" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o ..\obj\main.o --omf_browse ..\obj\main.crf --depend ..\obj\main.d)
 I (..\HARDWARE\LED\led.h)(0x58C10157)
 I (..\SYSTEM\sys\sys.h)(0x555AE364)
 I (..\USER\stm32f10x.h)(0x4D783CB4)
@@ -45,9 +45,9 @@ I (..\FATFS\src\ff.h)(0x54F2F5B9)
 I (..\FATFS\src\integer.h)(0x54D8A8D8)
 I (..\FATFS\src\ffconf.h)(0x54F2F338)
 I (..\FATFS\exfuns\exfuns.h)(0x54FA7D9B)
-I (..\HARDWARE\W25QXX\w25qxx.h)(0x58C39F46)
-I (..\TEXT\fontupd.h)(0x58C410D4)
-I (..\EMWIN\STemWinHZ\EmWinHZFont.h)(0x58C3B0A2)
+I (..\HARDWARE\W25QXX\w25qxx.h)(0x58C42AC2)
+I (..\TEXT\fontupd.h)(0x58C4E70E)
+I (..\EMWIN\STemWinHZ\EmWinHZFont.h)(0x58C4B19D)
 I (..\EMWIN_DEMO\EMWIN_PICTURE\BMP\bmpdisplay.h)(0x552F7055)
 I (..\UCOSIII\uCOS_CONFIG\includes.h)(0x5469F03F)
 I (E:\Keil_v5\ARM\ARMCC\include\string.h)(0x574E3E26)
@@ -106,7 +106,7 @@ I (..\EMWIN\STemWin\inc\SPINBOX.h)(0x548F1217)
 I (..\EMWIN\STemWin\inc\TEXT.h)(0x548F121E)
 I (..\EMWIN\STemWin\inc\TREEVIEW.h)(0x548F121D)
 I (..\EMWIN\STemWin\inc\KNOB.h)(0x548F1217)
-I (..\MYPAGE\mypage.h)(0x58C29F0E)
+I (..\MYPAGE\mypage.h)(0x58C4B240)
 I (..\USMART\usmart.h)(0x528CCEDB)
 I (..\USMART\usmart_str.h)(0x528CCEDB)
 F (.\stm32f10x_it.c)(0x552DF155)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O3 --apcs=interwork -I ..\HARDWARE\LED -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\USER -I ..\STM32F10x_FWLib\inc -I ..\CORE -I ..\FWLIB\STM32F10x_FWLib\inc -I ..\HARDWARE\KEY -I ..\HARDWARE\LCD -I ..\HARDWARE\IIC -I ..\HARDWARE\24CXX -I ..\HARDWARE\SPI -I ..\HARDWARE\FLASH -I ..\HARDWARE\TOUCH -I ..\HARDWARE\SRAM -I ..\HARDWARE\TIMER -I ..\HARDWARE\SDIO -I ..\HARDWARE\BEEP -I ..\HARDWARE\W25QXX -I ..\MALLOC -I ..\USMART -I ..\TEXT -I ..\FATFS\src -I ..\FATFS\exfuns -I ..\UCOSIII\uC-CPU -I ..\UCOSIII\uC-LIB -I ..\UCOSIII\UCOS_BSP -I ..\UCOSIII\uCOS_CONFIG -I ..\UCOSIII\uCOS-III\Source -I ..\UCOSIII\uC-LIB\Ports\ARM-Cortex-M3\RealView -I ..\UCOSIII\uCOS-III\Ports\ARM-Cortex-M3\Generic\RealView -I ..\UCOSIII\uC-CPU\ARM-Cortex-M3\RealView -I ..\EMWIN\STemWin\Config -I ..\EMWIN\STemWinPNG -I ..\EMWIN\STemWin\inc -I ..\EMWIN\STemWinHZ -I ..\EMWIN_DEMO\EMWIN_PICTURE\BMP -I ..\MYPAGE-IC:\Users\Stxr\Desktop\FINAL\USER\RTE-IE:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0\Device\Include-IE:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="521" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o ..\obj\stm32f10x_it.o --omf_browse ..\obj\stm32f10x_it.crf --depend ..\obj\stm32f10x_it.d)
@@ -441,8 +441,8 @@ I (E:\Keil_v5\ARM\ARMCC\include\string.h)(0x574E3E26)
 I (..\SYSTEM\sys\sys.h)(0x555AE364)
 I (..\SYSTEM\usart\usart.h)(0x50513AC4)
 I (E:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x574E3E26)
-F (..\HARDWARE\W25QXX\w25qxx.c)(0x58C168A6)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O3 --apcs=interwork -I ..\HARDWARE\LED -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\USER -I ..\STM32F10x_FWLib\inc -I ..\CORE -I ..\FWLIB\STM32F10x_FWLib\inc -I ..\HARDWARE\KEY -I ..\HARDWARE\LCD -I ..\HARDWARE\IIC -I ..\HARDWARE\24CXX -I ..\HARDWARE\SPI -I ..\HARDWARE\FLASH -I ..\HARDWARE\TOUCH -I ..\HARDWARE\SRAM -I ..\HARDWARE\TIMER -I ..\HARDWARE\SDIO -I ..\HARDWARE\BEEP -I ..\HARDWARE\W25QXX -I ..\MALLOC -I ..\USMART -I ..\TEXT -I ..\FATFS\src -I ..\FATFS\exfuns -I ..\UCOSIII\uC-CPU -I ..\UCOSIII\uC-LIB -I ..\UCOSIII\UCOS_BSP -I ..\UCOSIII\uCOS_CONFIG -I ..\UCOSIII\uCOS-III\Source -I ..\UCOSIII\uC-LIB\Ports\ARM-Cortex-M3\RealView -I ..\UCOSIII\uCOS-III\Ports\ARM-Cortex-M3\Generic\RealView -I ..\UCOSIII\uC-CPU\ARM-Cortex-M3\RealView -I ..\EMWIN\STemWin\Config -I ..\EMWIN\STemWinPNG -I ..\EMWIN\STemWin\inc -I ..\EMWIN\STemWinHZ -I ..\EMWIN_DEMO\EMWIN_PICTURE\BMP -I ..\MYPAGE-IC:\Users\Stxr\Desktop\FINAL\USER\RTE-IE:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0\Device\Include-IE:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="521" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o ..\obj\w25qxx.o --omf_browse ..\obj\w25qxx.crf --depend ..\obj\w25qxx.d)
-I (..\HARDWARE\W25QXX\w25qxx.h)(0x58C39F46)
+F (..\HARDWARE\W25QXX\w25qxx.c)(0x58C42AD3)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O3 --apcs=interwork -I ..\HARDWARE\LED -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\USER -I ..\STM32F10x_FWLib\inc -I ..\CORE -I ..\FWLIB\STM32F10x_FWLib\inc -I ..\HARDWARE\KEY -I ..\HARDWARE\LCD -I ..\HARDWARE\IIC -I ..\HARDWARE\24CXX -I ..\HARDWARE\SPI -I ..\HARDWARE\FLASH -I ..\HARDWARE\TOUCH -I ..\HARDWARE\SRAM -I ..\HARDWARE\TIMER -I ..\HARDWARE\SDIO -I ..\HARDWARE\BEEP -I ..\HARDWARE\W25QXX -I ..\MALLOC -I ..\USMART -I ..\TEXT -I ..\FATFS\src -I ..\FATFS\exfuns -I ..\UCOSIII\uC-CPU -I ..\UCOSIII\uC-LIB -I ..\UCOSIII\UCOS_BSP -I ..\UCOSIII\uCOS_CONFIG -I ..\UCOSIII\uCOS-III\Source -I ..\UCOSIII\uC-LIB\Ports\ARM-Cortex-M3\RealView -I ..\UCOSIII\uCOS-III\Ports\ARM-Cortex-M3\Generic\RealView -I ..\UCOSIII\uC-CPU\ARM-Cortex-M3\RealView -I ..\EMWIN\STemWin\Config -I ..\EMWIN\STemWinPNG -I ..\EMWIN\STemWin\inc -I ..\EMWIN\STemWinHZ -I ..\EMWIN_DEMO\EMWIN_PICTURE\BMP -I ..\MYPAGE-IC:\Users\Stxr\Desktop\FINAL\USER\RTE-IE:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0\Device\Include-IE:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="521" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o ..\obj\w25qxx.o --omf_browse ..\obj\w25qxx.crf --depend ..\obj\w25qxx.d)
+I (..\HARDWARE\W25QXX\w25qxx.h)(0x58C42AC2)
 I (..\SYSTEM\sys\sys.h)(0x555AE364)
 I (..\USER\stm32f10x.h)(0x4D783CB4)
 I (..\CORE\core_cm3.h)(0x4D523B58)
@@ -479,8 +479,8 @@ I (..\FWLIB\STM32F10x_FWLib\inc\stm32f10x_spi.h)(0x4D783BB4)
 I (..\FWLIB\STM32F10x_FWLib\inc\stm32f10x_tim.h)(0x4D783BB4)
 I (..\FWLIB\STM32F10x_FWLib\inc\stm32f10x_usart.h)(0x4D783BB4)
 I (..\FWLIB\STM32F10x_FWLib\inc\misc.h)(0x4D783BB4)
-F (..\MYPAGE\mypage.c)(0x58C29F20)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O3 --apcs=interwork -I ..\HARDWARE\LED -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\USER -I ..\STM32F10x_FWLib\inc -I ..\CORE -I ..\FWLIB\STM32F10x_FWLib\inc -I ..\HARDWARE\KEY -I ..\HARDWARE\LCD -I ..\HARDWARE\IIC -I ..\HARDWARE\24CXX -I ..\HARDWARE\SPI -I ..\HARDWARE\FLASH -I ..\HARDWARE\TOUCH -I ..\HARDWARE\SRAM -I ..\HARDWARE\TIMER -I ..\HARDWARE\SDIO -I ..\HARDWARE\BEEP -I ..\HARDWARE\W25QXX -I ..\MALLOC -I ..\USMART -I ..\TEXT -I ..\FATFS\src -I ..\FATFS\exfuns -I ..\UCOSIII\uC-CPU -I ..\UCOSIII\uC-LIB -I ..\UCOSIII\UCOS_BSP -I ..\UCOSIII\uCOS_CONFIG -I ..\UCOSIII\uCOS-III\Source -I ..\UCOSIII\uC-LIB\Ports\ARM-Cortex-M3\RealView -I ..\UCOSIII\uCOS-III\Ports\ARM-Cortex-M3\Generic\RealView -I ..\UCOSIII\uC-CPU\ARM-Cortex-M3\RealView -I ..\EMWIN\STemWin\Config -I ..\EMWIN\STemWinPNG -I ..\EMWIN\STemWin\inc -I ..\EMWIN\STemWinHZ -I ..\EMWIN_DEMO\EMWIN_PICTURE\BMP -I ..\MYPAGE-IC:\Users\Stxr\Desktop\FINAL\USER\RTE-IE:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0\Device\Include-IE:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="521" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o ..\obj\mypage.o --omf_browse ..\obj\mypage.crf --depend ..\obj\mypage.d)
-I (..\MYPAGE\mypage.h)(0x58C29F0E)
+F (..\MYPAGE\mypage.c)(0x58C4ED4D)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O3 --apcs=interwork -I ..\HARDWARE\LED -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\USER -I ..\STM32F10x_FWLib\inc -I ..\CORE -I ..\FWLIB\STM32F10x_FWLib\inc -I ..\HARDWARE\KEY -I ..\HARDWARE\LCD -I ..\HARDWARE\IIC -I ..\HARDWARE\24CXX -I ..\HARDWARE\SPI -I ..\HARDWARE\FLASH -I ..\HARDWARE\TOUCH -I ..\HARDWARE\SRAM -I ..\HARDWARE\TIMER -I ..\HARDWARE\SDIO -I ..\HARDWARE\BEEP -I ..\HARDWARE\W25QXX -I ..\MALLOC -I ..\USMART -I ..\TEXT -I ..\FATFS\src -I ..\FATFS\exfuns -I ..\UCOSIII\uC-CPU -I ..\UCOSIII\uC-LIB -I ..\UCOSIII\UCOS_BSP -I ..\UCOSIII\uCOS_CONFIG -I ..\UCOSIII\uCOS-III\Source -I ..\UCOSIII\uC-LIB\Ports\ARM-Cortex-M3\RealView -I ..\UCOSIII\uCOS-III\Ports\ARM-Cortex-M3\Generic\RealView -I ..\UCOSIII\uC-CPU\ARM-Cortex-M3\RealView -I ..\EMWIN\STemWin\Config -I ..\EMWIN\STemWinPNG -I ..\EMWIN\STemWin\inc -I ..\EMWIN\STemWinHZ -I ..\EMWIN_DEMO\EMWIN_PICTURE\BMP -I ..\MYPAGE-IC:\Users\Stxr\Desktop\FINAL\USER\RTE-IE:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0\Device\Include-IE:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="521" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o ..\obj\mypage.o --omf_browse ..\obj\mypage.crf --depend ..\obj\mypage.d)
+I (..\MYPAGE\mypage.h)(0x58C4B240)
 I (..\SYSTEM\delay\delay.h)(0x555AC87B)
 I (..\SYSTEM\sys\sys.h)(0x555AE364)
 I (..\USER\stm32f10x.h)(0x4D783CB4)
@@ -518,7 +518,7 @@ I (..\EMWIN\STemWin\inc\GUI_Type.h)(0x55BC501A)
 I (..\EMWIN\STemWin\inc\LCD.h)(0x548F121E)
 I (..\EMWIN\STemWin\inc\Global.h)(0x548F121D)
 I (..\EMWIN\STemWin\inc\GUI_Version.h)(0x548F121D)
-I (..\TEXT\fontupd.h)(0x58C410D4)
+I (..\TEXT\fontupd.h)(0x58C4E70E)
 I (..\FATFS\exfuns\exfuns.h)(0x54FA7D9B)
 I (..\FATFS\src\ff.h)(0x54F2F5B9)
 I (..\FATFS\src\integer.h)(0x54D8A8D8)
@@ -545,7 +545,7 @@ I (..\UCOSIII\uC-LIB\lib_math.h)(0x52736048)
 I (..\UCOSIII\uCOS_CONFIG\app_cfg.h)(0x54EECEDD)
 I (..\UCOSIII\UCOS_BSP\bsp.h)(0x55097DA7)
 I (..\EMWIN_DEMO\EMWIN_PICTURE\BMP\bmpdisplay.h)(0x552F7055)
-I (..\EMWIN\STemWinHZ\EmWinHZFont.h)(0x58C3B0A2)
+I (..\EMWIN\STemWinHZ\EmWinHZFont.h)(0x58C4B19D)
 I (..\EMWIN\STemWin\inc\WM.h)(0x548F121E)
 I (..\EMWIN\STemWin\inc\WM_GUI.h)(0x548F121D)
 I (..\EMWIN\STemWin\inc\DIALOG.h)(0x548F1219)
@@ -1390,7 +1390,7 @@ I (..\UCOSIII\uCOS_CONFIG\lib_cfg.h)(0x5458922F)
 I (..\UCOSIII\uC-LIB\lib_str.h)(0x52736048)
 I (..\UCOSIII\uC-LIB\lib_ascii.h)(0x52736048)
 F (..\UCOSIII\uC-CPU\ARM-Cortex-M3\RealView\cpu_a.asm)(0x5011F816)(--cpu Cortex-M3 -g --apcs=interwork --pd "__MICROLIB SETA 1"-IC:\Users\Stxr\Desktop\FINAL\USER\RTE-IE:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0\Device\Include-IE:\Keil_v5\ARM\CMSIS\Include--pd "__UVISION_VERSION SETA 521" --pd "STM32F10X_HD SETA 1"--list .\cpu_a.lst --xref -o ..\obj\cpu_a.o --depend ..\obj\cpu_a.d)
-F (..\EMWIN\STemWinHZ\GUICharPEx.c)(0x58C3B0A2)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O3 --apcs=interwork -I ..\HARDWARE\LED -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\USER -I ..\STM32F10x_FWLib\inc -I ..\CORE -I ..\FWLIB\STM32F10x_FWLib\inc -I ..\HARDWARE\KEY -I ..\HARDWARE\LCD -I ..\HARDWARE\IIC -I ..\HARDWARE\24CXX -I ..\HARDWARE\SPI -I ..\HARDWARE\FLASH -I ..\HARDWARE\TOUCH -I ..\HARDWARE\SRAM -I ..\HARDWARE\TIMER -I ..\HARDWARE\SDIO -I ..\HARDWARE\BEEP -I ..\HARDWARE\W25QXX -I ..\MALLOC -I ..\USMART -I ..\TEXT -I ..\FATFS\src -I ..\FATFS\exfuns -I ..\UCOSIII\uC-CPU -I ..\UCOSIII\uC-LIB -I ..\UCOSIII\UCOS_BSP -I ..\UCOSIII\uCOS_CONFIG -I ..\UCOSIII\uCOS-III\Source -I ..\UCOSIII\uC-LIB\Ports\ARM-Cortex-M3\RealView -I ..\UCOSIII\uCOS-III\Ports\ARM-Cortex-M3\Generic\RealView -I ..\UCOSIII\uC-CPU\ARM-Cortex-M3\RealView -I ..\EMWIN\STemWin\Config -I ..\EMWIN\STemWinPNG -I ..\EMWIN\STemWin\inc -I ..\EMWIN\STemWinHZ -I ..\EMWIN_DEMO\EMWIN_PICTURE\BMP -I ..\MYPAGE-IC:\Users\Stxr\Desktop\FINAL\USER\RTE-IE:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0\Device\Include-IE:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="521" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o ..\obj\guicharpex.o --omf_browse ..\obj\guicharpex.crf --depend ..\obj\guicharpex.d)
+F (..\EMWIN\STemWinHZ\GUICharPEx.c)(0x58C4ECFF)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O3 --apcs=interwork -I ..\HARDWARE\LED -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\USER -I ..\STM32F10x_FWLib\inc -I ..\CORE -I ..\FWLIB\STM32F10x_FWLib\inc -I ..\HARDWARE\KEY -I ..\HARDWARE\LCD -I ..\HARDWARE\IIC -I ..\HARDWARE\24CXX -I ..\HARDWARE\SPI -I ..\HARDWARE\FLASH -I ..\HARDWARE\TOUCH -I ..\HARDWARE\SRAM -I ..\HARDWARE\TIMER -I ..\HARDWARE\SDIO -I ..\HARDWARE\BEEP -I ..\HARDWARE\W25QXX -I ..\MALLOC -I ..\USMART -I ..\TEXT -I ..\FATFS\src -I ..\FATFS\exfuns -I ..\UCOSIII\uC-CPU -I ..\UCOSIII\uC-LIB -I ..\UCOSIII\UCOS_BSP -I ..\UCOSIII\uCOS_CONFIG -I ..\UCOSIII\uCOS-III\Source -I ..\UCOSIII\uC-LIB\Ports\ARM-Cortex-M3\RealView -I ..\UCOSIII\uCOS-III\Ports\ARM-Cortex-M3\Generic\RealView -I ..\UCOSIII\uC-CPU\ARM-Cortex-M3\RealView -I ..\EMWIN\STemWin\Config -I ..\EMWIN\STemWinPNG -I ..\EMWIN\STemWin\inc -I ..\EMWIN\STemWinHZ -I ..\EMWIN_DEMO\EMWIN_PICTURE\BMP -I ..\MYPAGE-IC:\Users\Stxr\Desktop\FINAL\USER\RTE-IE:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0\Device\Include-IE:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="521" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o ..\obj\guicharpex.o --omf_browse ..\obj\guicharpex.crf --depend ..\obj\guicharpex.d)
 I (E:\Keil_v5\ARM\ARMCC\include\stddef.h)(0x574E3E26)
 I (..\EMWIN\STemWin\inc\GUI_Private.h)(0x548F121D)
 I (..\EMWIN\STemWin\inc\GUI.h)(0x548F121D)
@@ -1422,15 +1422,15 @@ I (..\FWLIB\STM32F10x_FWLib\inc\stm32f10x_spi.h)(0x4D783BB4)
 I (..\FWLIB\STM32F10x_FWLib\inc\stm32f10x_tim.h)(0x4D783BB4)
 I (..\FWLIB\STM32F10x_FWLib\inc\stm32f10x_usart.h)(0x4D783BB4)
 I (..\FWLIB\STM32F10x_FWLib\inc\misc.h)(0x4D783BB4)
-I (..\TEXT\fontupd.h)(0x58C410D4)
-I (..\HARDWARE\W25QXX\w25qxx.h)(0x58C39F46)
+I (..\TEXT\fontupd.h)(0x58C4E70E)
+I (..\HARDWARE\W25QXX\w25qxx.h)(0x58C42AC2)
 I (..\SYSTEM\usart\usart.h)(0x50513AC4)
 I (E:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x574E3E26)
-I (..\EMWIN\STemWinHZ\EmWin_ASCII_Font.h)(0x58C3B094)
+I (..\EMWIN\STemWinHZ\EmWin_ASCII_Font.h)(0x58C4B19D)
 I (..\HARDWARE\LCD\ili93xx.h)(0x58C1475A)
 I (E:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x574E3E26)
 I (E:\Keil_v5\ARM\ARMCC\include\string.h)(0x574E3E26)
-I (..\EMWIN\STemWinHZ\EmWinHZFont.h)(0x58C3B0A2)
+I (..\EMWIN\STemWinHZ\EmWinHZFont.h)(0x58C4B19D)
 F (..\EMWIN\STemWinHZ\GUI_FontHZ12.c)(0x552E6270)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O3 --apcs=interwork -I ..\HARDWARE\LED -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\USER -I ..\STM32F10x_FWLib\inc -I ..\CORE -I ..\FWLIB\STM32F10x_FWLib\inc -I ..\HARDWARE\KEY -I ..\HARDWARE\LCD -I ..\HARDWARE\IIC -I ..\HARDWARE\24CXX -I ..\HARDWARE\SPI -I ..\HARDWARE\FLASH -I ..\HARDWARE\TOUCH -I ..\HARDWARE\SRAM -I ..\HARDWARE\TIMER -I ..\HARDWARE\SDIO -I ..\HARDWARE\BEEP -I ..\HARDWARE\W25QXX -I ..\MALLOC -I ..\USMART -I ..\TEXT -I ..\FATFS\src -I ..\FATFS\exfuns -I ..\UCOSIII\uC-CPU -I ..\UCOSIII\uC-LIB -I ..\UCOSIII\UCOS_BSP -I ..\UCOSIII\uCOS_CONFIG -I ..\UCOSIII\uCOS-III\Source -I ..\UCOSIII\uC-LIB\Ports\ARM-Cortex-M3\RealView -I ..\UCOSIII\uCOS-III\Ports\ARM-Cortex-M3\Generic\RealView -I ..\UCOSIII\uC-CPU\ARM-Cortex-M3\RealView -I ..\EMWIN\STemWin\Config -I ..\EMWIN\STemWinPNG -I ..\EMWIN\STemWin\inc -I ..\EMWIN\STemWinHZ -I ..\EMWIN_DEMO\EMWIN_PICTURE\BMP -I ..\MYPAGE-IC:\Users\Stxr\Desktop\FINAL\USER\RTE-IE:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0\Device\Include-IE:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="521" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o ..\obj\gui_fonthz12.o --omf_browse ..\obj\gui_fonthz12.crf --depend ..\obj\gui_fonthz12.d)
 I (..\EMWIN\STemWin\inc\GUI.h)(0x548F121D)
 I (..\EMWIN\STemWin\inc\GUI_ConfDefaults.h)(0x548F121D)
@@ -1455,7 +1455,7 @@ I (..\EMWIN\STemWin\inc\GUI_Type.h)(0x55BC501A)
 I (..\EMWIN\STemWin\inc\LCD.h)(0x548F121E)
 I (..\EMWIN\STemWin\inc\Global.h)(0x548F121D)
 I (..\EMWIN\STemWin\inc\GUI_Version.h)(0x548F121D)
-F (..\EMWIN\STemWinHZ\GUI_UC_EncodeNone.c)(0x58C416C6)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O3 --apcs=interwork -I ..\HARDWARE\LED -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\USER -I ..\STM32F10x_FWLib\inc -I ..\CORE -I ..\FWLIB\STM32F10x_FWLib\inc -I ..\HARDWARE\KEY -I ..\HARDWARE\LCD -I ..\HARDWARE\IIC -I ..\HARDWARE\24CXX -I ..\HARDWARE\SPI -I ..\HARDWARE\FLASH -I ..\HARDWARE\TOUCH -I ..\HARDWARE\SRAM -I ..\HARDWARE\TIMER -I ..\HARDWARE\SDIO -I ..\HARDWARE\BEEP -I ..\HARDWARE\W25QXX -I ..\MALLOC -I ..\USMART -I ..\TEXT -I ..\FATFS\src -I ..\FATFS\exfuns -I ..\UCOSIII\uC-CPU -I ..\UCOSIII\uC-LIB -I ..\UCOSIII\UCOS_BSP -I ..\UCOSIII\uCOS_CONFIG -I ..\UCOSIII\uCOS-III\Source -I ..\UCOSIII\uC-LIB\Ports\ARM-Cortex-M3\RealView -I ..\UCOSIII\uCOS-III\Ports\ARM-Cortex-M3\Generic\RealView -I ..\UCOSIII\uC-CPU\ARM-Cortex-M3\RealView -I ..\EMWIN\STemWin\Config -I ..\EMWIN\STemWinPNG -I ..\EMWIN\STemWin\inc -I ..\EMWIN\STemWinHZ -I ..\EMWIN_DEMO\EMWIN_PICTURE\BMP -I ..\MYPAGE-IC:\Users\Stxr\Desktop\FINAL\USER\RTE-IE:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0\Device\Include-IE:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="521" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o ..\obj\gui_uc_encodenone.o --omf_browse ..\obj\gui_uc_encodenone.crf --depend ..\obj\gui_uc_encodenone.d)
+F (..\EMWIN\STemWinHZ\GUI_UC_EncodeNone.c)(0x58C4B19D)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O3 --apcs=interwork -I ..\HARDWARE\LED -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\USER -I ..\STM32F10x_FWLib\inc -I ..\CORE -I ..\FWLIB\STM32F10x_FWLib\inc -I ..\HARDWARE\KEY -I ..\HARDWARE\LCD -I ..\HARDWARE\IIC -I ..\HARDWARE\24CXX -I ..\HARDWARE\SPI -I ..\HARDWARE\FLASH -I ..\HARDWARE\TOUCH -I ..\HARDWARE\SRAM -I ..\HARDWARE\TIMER -I ..\HARDWARE\SDIO -I ..\HARDWARE\BEEP -I ..\HARDWARE\W25QXX -I ..\MALLOC -I ..\USMART -I ..\TEXT -I ..\FATFS\src -I ..\FATFS\exfuns -I ..\UCOSIII\uC-CPU -I ..\UCOSIII\uC-LIB -I ..\UCOSIII\UCOS_BSP -I ..\UCOSIII\uCOS_CONFIG -I ..\UCOSIII\uCOS-III\Source -I ..\UCOSIII\uC-LIB\Ports\ARM-Cortex-M3\RealView -I ..\UCOSIII\uCOS-III\Ports\ARM-Cortex-M3\Generic\RealView -I ..\UCOSIII\uC-CPU\ARM-Cortex-M3\RealView -I ..\EMWIN\STemWin\Config -I ..\EMWIN\STemWinPNG -I ..\EMWIN\STemWin\inc -I ..\EMWIN\STemWinHZ -I ..\EMWIN_DEMO\EMWIN_PICTURE\BMP -I ..\MYPAGE-IC:\Users\Stxr\Desktop\FINAL\USER\RTE-IE:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0\Device\Include-IE:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="521" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o ..\obj\gui_uc_encodenone.o --omf_browse ..\obj\gui_uc_encodenone.crf --depend ..\obj\gui_uc_encodenone.d)
 I (..\EMWIN\STemWin\inc\GUI_Private.h)(0x548F121D)
 I (..\EMWIN\STemWin\inc\GUI.h)(0x548F121D)
 I (..\EMWIN\STemWin\inc\GUI_ConfDefaults.h)(0x548F121D)
@@ -1468,7 +1468,7 @@ I (..\EMWIN\STemWin\inc\LCD_Protected.h)(0x548F121D)
 I (..\EMWIN\STemWin\inc\GUI_Debug.h)(0x548F121D)
 I (E:\Keil_v5\ARM\ARMCC\include\stddef.h)(0x574E3E26)
 I (..\EMWIN\STemWin\inc\WM_GUI.h)(0x548F121D)
-F (..\EMWIN\STemWinHZ\GUI_FontHZ32.c)(0x58C3B0BB)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O3 --apcs=interwork -I ..\HARDWARE\LED -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\USER -I ..\STM32F10x_FWLib\inc -I ..\CORE -I ..\FWLIB\STM32F10x_FWLib\inc -I ..\HARDWARE\KEY -I ..\HARDWARE\LCD -I ..\HARDWARE\IIC -I ..\HARDWARE\24CXX -I ..\HARDWARE\SPI -I ..\HARDWARE\FLASH -I ..\HARDWARE\TOUCH -I ..\HARDWARE\SRAM -I ..\HARDWARE\TIMER -I ..\HARDWARE\SDIO -I ..\HARDWARE\BEEP -I ..\HARDWARE\W25QXX -I ..\MALLOC -I ..\USMART -I ..\TEXT -I ..\FATFS\src -I ..\FATFS\exfuns -I ..\UCOSIII\uC-CPU -I ..\UCOSIII\uC-LIB -I ..\UCOSIII\UCOS_BSP -I ..\UCOSIII\uCOS_CONFIG -I ..\UCOSIII\uCOS-III\Source -I ..\UCOSIII\uC-LIB\Ports\ARM-Cortex-M3\RealView -I ..\UCOSIII\uCOS-III\Ports\ARM-Cortex-M3\Generic\RealView -I ..\UCOSIII\uC-CPU\ARM-Cortex-M3\RealView -I ..\EMWIN\STemWin\Config -I ..\EMWIN\STemWinPNG -I ..\EMWIN\STemWin\inc -I ..\EMWIN\STemWinHZ -I ..\EMWIN_DEMO\EMWIN_PICTURE\BMP -I ..\MYPAGE-IC:\Users\Stxr\Desktop\FINAL\USER\RTE-IE:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0\Device\Include-IE:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="521" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o ..\obj\gui_fonthz32.o --omf_browse ..\obj\gui_fonthz32.crf --depend ..\obj\gui_fonthz32.d)
+F (..\EMWIN\STemWinHZ\GUI_FontHZ32.c)(0x58C4B19D)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O3 --apcs=interwork -I ..\HARDWARE\LED -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\USER -I ..\STM32F10x_FWLib\inc -I ..\CORE -I ..\FWLIB\STM32F10x_FWLib\inc -I ..\HARDWARE\KEY -I ..\HARDWARE\LCD -I ..\HARDWARE\IIC -I ..\HARDWARE\24CXX -I ..\HARDWARE\SPI -I ..\HARDWARE\FLASH -I ..\HARDWARE\TOUCH -I ..\HARDWARE\SRAM -I ..\HARDWARE\TIMER -I ..\HARDWARE\SDIO -I ..\HARDWARE\BEEP -I ..\HARDWARE\W25QXX -I ..\MALLOC -I ..\USMART -I ..\TEXT -I ..\FATFS\src -I ..\FATFS\exfuns -I ..\UCOSIII\uC-CPU -I ..\UCOSIII\uC-LIB -I ..\UCOSIII\UCOS_BSP -I ..\UCOSIII\uCOS_CONFIG -I ..\UCOSIII\uCOS-III\Source -I ..\UCOSIII\uC-LIB\Ports\ARM-Cortex-M3\RealView -I ..\UCOSIII\uCOS-III\Ports\ARM-Cortex-M3\Generic\RealView -I ..\UCOSIII\uC-CPU\ARM-Cortex-M3\RealView -I ..\EMWIN\STemWin\Config -I ..\EMWIN\STemWinPNG -I ..\EMWIN\STemWin\inc -I ..\EMWIN\STemWinHZ -I ..\EMWIN_DEMO\EMWIN_PICTURE\BMP -I ..\MYPAGE-IC:\Users\Stxr\Desktop\FINAL\USER\RTE-IE:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0\Device\Include-IE:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="521" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o ..\obj\gui_fonthz32.o --omf_browse ..\obj\gui_fonthz32.crf --depend ..\obj\gui_fonthz32.d)
 I (..\EMWIN\STemWin\inc\GUI.h)(0x548F121D)
 I (..\EMWIN\STemWin\inc\GUI_ConfDefaults.h)(0x548F121D)
 I (..\EMWIN\STemWin\Config\GUIConf.h)(0x553B4681)
@@ -1482,7 +1482,7 @@ I (..\FATFS\src\integer.h)(0x54D8A8D8)
 I (..\FATFS\src\ffconf.h)(0x54F2F338)
 I (..\FATFS\src\diskio.h)(0x54D8A8D8)
 I (E:\Keil_v5\ARM\ARMCC\include\stdarg.h)(0x574E3E26)
-F (..\FATFS\src\diskio.c)(0x58C3A4AB)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O3 --apcs=interwork -I ..\HARDWARE\LED -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\USER -I ..\STM32F10x_FWLib\inc -I ..\CORE -I ..\FWLIB\STM32F10x_FWLib\inc -I ..\HARDWARE\KEY -I ..\HARDWARE\LCD -I ..\HARDWARE\IIC -I ..\HARDWARE\24CXX -I ..\HARDWARE\SPI -I ..\HARDWARE\FLASH -I ..\HARDWARE\TOUCH -I ..\HARDWARE\SRAM -I ..\HARDWARE\TIMER -I ..\HARDWARE\SDIO -I ..\HARDWARE\BEEP -I ..\HARDWARE\W25QXX -I ..\MALLOC -I ..\USMART -I ..\TEXT -I ..\FATFS\src -I ..\FATFS\exfuns -I ..\UCOSIII\uC-CPU -I ..\UCOSIII\uC-LIB -I ..\UCOSIII\UCOS_BSP -I ..\UCOSIII\uCOS_CONFIG -I ..\UCOSIII\uCOS-III\Source -I ..\UCOSIII\uC-LIB\Ports\ARM-Cortex-M3\RealView -I ..\UCOSIII\uCOS-III\Ports\ARM-Cortex-M3\Generic\RealView -I ..\UCOSIII\uC-CPU\ARM-Cortex-M3\RealView -I ..\EMWIN\STemWin\Config -I ..\EMWIN\STemWinPNG -I ..\EMWIN\STemWin\inc -I ..\EMWIN\STemWinHZ -I ..\EMWIN_DEMO\EMWIN_PICTURE\BMP -I ..\MYPAGE-IC:\Users\Stxr\Desktop\FINAL\USER\RTE-IE:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0\Device\Include-IE:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="521" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o ..\obj\diskio.o --omf_browse ..\obj\diskio.crf --depend ..\obj\diskio.d)
+F (..\FATFS\src\diskio.c)(0x58C4E889)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O3 --apcs=interwork -I ..\HARDWARE\LED -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\USER -I ..\STM32F10x_FWLib\inc -I ..\CORE -I ..\FWLIB\STM32F10x_FWLib\inc -I ..\HARDWARE\KEY -I ..\HARDWARE\LCD -I ..\HARDWARE\IIC -I ..\HARDWARE\24CXX -I ..\HARDWARE\SPI -I ..\HARDWARE\FLASH -I ..\HARDWARE\TOUCH -I ..\HARDWARE\SRAM -I ..\HARDWARE\TIMER -I ..\HARDWARE\SDIO -I ..\HARDWARE\BEEP -I ..\HARDWARE\W25QXX -I ..\MALLOC -I ..\USMART -I ..\TEXT -I ..\FATFS\src -I ..\FATFS\exfuns -I ..\UCOSIII\uC-CPU -I ..\UCOSIII\uC-LIB -I ..\UCOSIII\UCOS_BSP -I ..\UCOSIII\uCOS_CONFIG -I ..\UCOSIII\uCOS-III\Source -I ..\UCOSIII\uC-LIB\Ports\ARM-Cortex-M3\RealView -I ..\UCOSIII\uCOS-III\Ports\ARM-Cortex-M3\Generic\RealView -I ..\UCOSIII\uC-CPU\ARM-Cortex-M3\RealView -I ..\EMWIN\STemWin\Config -I ..\EMWIN\STemWinPNG -I ..\EMWIN\STemWin\inc -I ..\EMWIN\STemWinHZ -I ..\EMWIN_DEMO\EMWIN_PICTURE\BMP -I ..\MYPAGE-IC:\Users\Stxr\Desktop\FINAL\USER\RTE-IE:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0\Device\Include-IE:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="521" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o ..\obj\diskio.o --omf_browse ..\obj\diskio.crf --depend ..\obj\diskio.d)
 I (..\FATFS\src\diskio.h)(0x54D8A8D8)
 I (..\FATFS\src\integer.h)(0x54D8A8D8)
 I (..\HARDWARE\SDIO\sdio_sdcard.h)(0x5507D865)
@@ -1500,7 +1500,7 @@ I (..\FWLIB\STM32F10x_FWLib\inc\stm32f10x_spi.h)(0x4D783BB4)
 I (..\FWLIB\STM32F10x_FWLib\inc\stm32f10x_tim.h)(0x4D783BB4)
 I (..\FWLIB\STM32F10x_FWLib\inc\stm32f10x_usart.h)(0x4D783BB4)
 I (..\FWLIB\STM32F10x_FWLib\inc\misc.h)(0x4D783BB4)
-I (..\HARDWARE\W25QXX\w25qxx.h)(0x58C39F46)
+I (..\HARDWARE\W25QXX\w25qxx.h)(0x58C42AC2)
 I (..\SYSTEM\sys\sys.h)(0x555AE364)
 I (..\MALLOC\malloc.h)(0x58A98726)
 F (..\FATFS\exfuns\exfuns.c)(0x54FA7DA4)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O3 --apcs=interwork -I ..\HARDWARE\LED -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\USER -I ..\STM32F10x_FWLib\inc -I ..\CORE -I ..\FWLIB\STM32F10x_FWLib\inc -I ..\HARDWARE\KEY -I ..\HARDWARE\LCD -I ..\HARDWARE\IIC -I ..\HARDWARE\24CXX -I ..\HARDWARE\SPI -I ..\HARDWARE\FLASH -I ..\HARDWARE\TOUCH -I ..\HARDWARE\SRAM -I ..\HARDWARE\TIMER -I ..\HARDWARE\SDIO -I ..\HARDWARE\BEEP -I ..\HARDWARE\W25QXX -I ..\MALLOC -I ..\USMART -I ..\TEXT -I ..\FATFS\src -I ..\FATFS\exfuns -I ..\UCOSIII\uC-CPU -I ..\UCOSIII\uC-LIB -I ..\UCOSIII\UCOS_BSP -I ..\UCOSIII\uCOS_CONFIG -I ..\UCOSIII\uCOS-III\Source -I ..\UCOSIII\uC-LIB\Ports\ARM-Cortex-M3\RealView -I ..\UCOSIII\uCOS-III\Ports\ARM-Cortex-M3\Generic\RealView -I ..\UCOSIII\uC-CPU\ARM-Cortex-M3\RealView -I ..\EMWIN\STemWin\Config -I ..\EMWIN\STemWinPNG -I ..\EMWIN\STemWin\inc -I ..\EMWIN\STemWinHZ -I ..\EMWIN_DEMO\EMWIN_PICTURE\BMP -I ..\MYPAGE-IC:\Users\Stxr\Desktop\FINAL\USER\RTE-IE:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0\Device\Include-IE:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="521" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o ..\obj\exfuns.o --omf_browse ..\obj\exfuns.crf --depend ..\obj\exfuns.d)
@@ -1560,7 +1560,7 @@ F (..\FATFS\exfuns\mycc936.c)(0x55095B98)(--c99 -c --cpu Cortex-M3 -D__MICROLIB 
 I (..\FATFS\src\ff.h)(0x54F2F5B9)
 I (..\FATFS\src\integer.h)(0x54D8A8D8)
 I (..\FATFS\src\ffconf.h)(0x54F2F338)
-I (..\TEXT\fontupd.h)(0x58C410D4)
+I (..\TEXT\fontupd.h)(0x58C4E70E)
 I (..\USER\stm32f10x.h)(0x4D783CB4)
 I (..\CORE\core_cm3.h)(0x4D523B58)
 I (E:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x574E3E26)
@@ -1575,10 +1575,10 @@ I (..\FWLIB\STM32F10x_FWLib\inc\stm32f10x_spi.h)(0x4D783BB4)
 I (..\FWLIB\STM32F10x_FWLib\inc\stm32f10x_tim.h)(0x4D783BB4)
 I (..\FWLIB\STM32F10x_FWLib\inc\stm32f10x_usart.h)(0x4D783BB4)
 I (..\FWLIB\STM32F10x_FWLib\inc\misc.h)(0x4D783BB4)
-I (..\HARDWARE\W25QXX\w25qxx.h)(0x58C39F46)
+I (..\HARDWARE\W25QXX\w25qxx.h)(0x58C42AC2)
 I (..\SYSTEM\sys\sys.h)(0x555AE364)
-F (..\TEXT\fontupd.c)(0x58C41184)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O3 --apcs=interwork -I ..\HARDWARE\LED -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\USER -I ..\STM32F10x_FWLib\inc -I ..\CORE -I ..\FWLIB\STM32F10x_FWLib\inc -I ..\HARDWARE\KEY -I ..\HARDWARE\LCD -I ..\HARDWARE\IIC -I ..\HARDWARE\24CXX -I ..\HARDWARE\SPI -I ..\HARDWARE\FLASH -I ..\HARDWARE\TOUCH -I ..\HARDWARE\SRAM -I ..\HARDWARE\TIMER -I ..\HARDWARE\SDIO -I ..\HARDWARE\BEEP -I ..\HARDWARE\W25QXX -I ..\MALLOC -I ..\USMART -I ..\TEXT -I ..\FATFS\src -I ..\FATFS\exfuns -I ..\UCOSIII\uC-CPU -I ..\UCOSIII\uC-LIB -I ..\UCOSIII\UCOS_BSP -I ..\UCOSIII\uCOS_CONFIG -I ..\UCOSIII\uCOS-III\Source -I ..\UCOSIII\uC-LIB\Ports\ARM-Cortex-M3\RealView -I ..\UCOSIII\uCOS-III\Ports\ARM-Cortex-M3\Generic\RealView -I ..\UCOSIII\uC-CPU\ARM-Cortex-M3\RealView -I ..\EMWIN\STemWin\Config -I ..\EMWIN\STemWinPNG -I ..\EMWIN\STemWin\inc -I ..\EMWIN\STemWinHZ -I ..\EMWIN_DEMO\EMWIN_PICTURE\BMP -I ..\MYPAGE-IC:\Users\Stxr\Desktop\FINAL\USER\RTE-IE:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0\Device\Include-IE:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="521" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o ..\obj\fontupd.o --omf_browse ..\obj\fontupd.crf --depend ..\obj\fontupd.d)
-I (..\TEXT\fontupd.h)(0x58C410D4)
+F (..\TEXT\fontupd.c)(0x58C4E911)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O3 --apcs=interwork -I ..\HARDWARE\LED -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\USER -I ..\STM32F10x_FWLib\inc -I ..\CORE -I ..\FWLIB\STM32F10x_FWLib\inc -I ..\HARDWARE\KEY -I ..\HARDWARE\LCD -I ..\HARDWARE\IIC -I ..\HARDWARE\24CXX -I ..\HARDWARE\SPI -I ..\HARDWARE\FLASH -I ..\HARDWARE\TOUCH -I ..\HARDWARE\SRAM -I ..\HARDWARE\TIMER -I ..\HARDWARE\SDIO -I ..\HARDWARE\BEEP -I ..\HARDWARE\W25QXX -I ..\MALLOC -I ..\USMART -I ..\TEXT -I ..\FATFS\src -I ..\FATFS\exfuns -I ..\UCOSIII\uC-CPU -I ..\UCOSIII\uC-LIB -I ..\UCOSIII\UCOS_BSP -I ..\UCOSIII\uCOS_CONFIG -I ..\UCOSIII\uCOS-III\Source -I ..\UCOSIII\uC-LIB\Ports\ARM-Cortex-M3\RealView -I ..\UCOSIII\uCOS-III\Ports\ARM-Cortex-M3\Generic\RealView -I ..\UCOSIII\uC-CPU\ARM-Cortex-M3\RealView -I ..\EMWIN\STemWin\Config -I ..\EMWIN\STemWinPNG -I ..\EMWIN\STemWin\inc -I ..\EMWIN\STemWinHZ -I ..\EMWIN_DEMO\EMWIN_PICTURE\BMP -I ..\MYPAGE-IC:\Users\Stxr\Desktop\FINAL\USER\RTE-IE:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0\Device\Include-IE:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="521" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o ..\obj\fontupd.o --omf_browse ..\obj\fontupd.crf --depend ..\obj\fontupd.d)
+I (..\TEXT\fontupd.h)(0x58C4E70E)
 I (..\USER\stm32f10x.h)(0x4D783CB4)
 I (..\CORE\core_cm3.h)(0x4D523B58)
 I (E:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x574E3E26)
@@ -1596,7 +1596,7 @@ I (..\FWLIB\STM32F10x_FWLib\inc\misc.h)(0x4D783BB4)
 I (..\FATFS\src\ff.h)(0x54F2F5B9)
 I (..\FATFS\src\integer.h)(0x54D8A8D8)
 I (..\FATFS\src\ffconf.h)(0x54F2F338)
-I (..\HARDWARE\W25QXX\w25qxx.h)(0x58C39F46)
+I (..\HARDWARE\W25QXX\w25qxx.h)(0x58C42AC2)
 I (..\SYSTEM\sys\sys.h)(0x555AE364)
 I (..\HARDWARE\LCD\ILI93xx.h)(0x58C1475A)
 I (E:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x574E3E26)
@@ -1622,7 +1622,7 @@ I (..\FWLIB\STM32F10x_FWLib\inc\stm32f10x_spi.h)(0x4D783BB4)
 I (..\FWLIB\STM32F10x_FWLib\inc\stm32f10x_tim.h)(0x4D783BB4)
 I (..\FWLIB\STM32F10x_FWLib\inc\stm32f10x_usart.h)(0x4D783BB4)
 I (..\FWLIB\STM32F10x_FWLib\inc\misc.h)(0x4D783BB4)
-I (..\EMWIN\STemWinHZ\EmWinHZFont.h)(0x58C3B0A2)
+I (..\EMWIN\STemWinHZ\EmWinHZFont.h)(0x58C4B19D)
 I (..\EMWIN\STemWin\inc\GUI.h)(0x548F121D)
 I (..\EMWIN\STemWin\inc\GUI_ConfDefaults.h)(0x548F121D)
 I (..\EMWIN\STemWin\Config\GUIConf.h)(0x553B4681)

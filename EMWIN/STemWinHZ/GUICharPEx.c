@@ -112,6 +112,7 @@ static void GUI_GetDataFromMemory(const GUI_FONT_PROP GUI_UNI_PTR *pProp, U16P c
 				break;
 			case 24:
 				W25QXX_Read(GUI_FontDataBuf,foffset+ftinfo.f24addr,csize);
+			break;
 			case 32:
 				W25QXX_Read(GUI_FontDataBuf,foffset+ftinfo.f32addr,csize);
 				break;	

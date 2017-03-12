@@ -22,7 +22,7 @@
 //字库区域占用的总扇区数大小(3个字库+unigbk表+字库信息=3238700字节,约占791个W25QXX扇区)
 #define FONTSECSIZE	 	1539 //791-->1539
 //字库存放起始地址 
-#define FONTINFOADDR 	1024*1024*6 					//WarShip STM32F103 V3是从12M地址以后开始存放字库 12-->6
+#define FONTINFOADDR 	1024*1024*5 					//WarShip STM32F103 V3是从12M地址以后开始存放字库 12-->6
 														//前面12M被fatfs占用了.
 														//12M以后紧跟3个字库+UNIGBK.BIN,总大小3.09M,被字库占用了,不能动!
 														//15.10M以后,用户可以自由使用.建议用最后的100K字节比较好.
@@ -101,6 +101,7 @@ u8 updata_fontx(u16 x,u16 y,u8 size,u8 *fxpath,u8 fx)
 				ftinfo.f24addr=ftinfo.f16addr+ftinfo.gbk16size;	//GBK16之后，紧跟GBK24字库
 				ftinfo.gbk24size=fftemp->fsize;					//GBK24字库大小
 				flashaddr=ftinfo.f24addr;						//GBK24的起始地址
+			break;
 			case 4:
 				ftinfo.f32addr=ftinfo.f24addr+ftinfo.gbk24size;	//GBK24之后，紧跟GBK32字库
 				ftinfo.gbk32size=fftemp->fsize;					//GBK32字库大小

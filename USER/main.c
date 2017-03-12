@@ -90,7 +90,7 @@ void led0_task(void *p_arg);
 
 //字库更新任务
 //设置任务优先级
-#define FONTUPDATA_TASK_PRIO		7
+#define FONTUPDATA_TASK_PRIO		6
 //任务堆栈大小
 #define FONTUPDATA_STK_SIZE			128
 //任务控制块
@@ -132,14 +132,18 @@ int main(void)
 	f_mount(fs[0],"0:",1);	//挂载SD卡
 	f_mount(fs[1],"1:",1);	//挂载FLASH
 	
-	while(SD_Init())		//检测SD卡
-	{
-		LCD_ShowString(30,90,200,16,16,"SD Card Failed!");
-		delay_ms(200);
-		LCD_Fill(30,90,200+30,70+16,WHITE);
-		delay_ms(200);		    
-	}
+//	while(SD_Init())		//检测SD卡
+//	{
+//		LCD_ShowString(30,90,200,16,16,"SD Card Failed!");
+//		delay_ms(200);
+//		LCD_Fill(30,90,200+30,70+16,WHITE);
+//		delay_ms(200);		    
+//	}
 //	
+//LCD_ShowString(30,70,200,16,16,"Font Error!");
+//		update_font(30,90,16,"0:");	//如果字库不存在就更新字库
+//		delay_ms(2000);
+//		LCD_Clear(WHITE);	//清屏
 	while(font_init())		//初始化字库
 	{
 		LCD_ShowString(30,70,200,16,16,"Font Error!");
@@ -209,7 +213,7 @@ void start_task(void *p_arg)
                  (void*       )0,
                  (OS_OPT      )OS_OPT_TASK_STK_CHK|OS_OPT_TASK_STK_CLR,
                  (OS_ERR*     )&err);
-	//触摸屏任务
+								 	//触摸屏任务
 	OSTaskCreate((OS_TCB*     )&TouchTaskTCB,
 				 (CPU_CHAR*   )"Touch task",
                  (OS_TASK_PTR )touch_task,
@@ -237,6 +241,20 @@ void start_task(void *p_arg)
                  (void*       )0,
                  (OS_OPT      )OS_OPT_TASK_STK_CHK|OS_OPT_TASK_STK_CLR,
                  (OS_ERR*     )&err);
+								 
+	OSTaskCreate((OS_TCB*     )&FontupdataTaskTCB,		
+				 (CPU_CHAR*   )"Fontupdata task", 		
+                 (OS_TASK_PTR )fontupdata_task, 			
+                 (void*       )0,					
+                 (OS_PRIO	  )FONTUPDATA_TASK_PRIO,     
+                 (CPU_STK*    )&FONTUPDATA_TASK_STK[0],	
+                 (CPU_STK_SIZE)FONTUPDATA_STK_SIZE/10,	
+                 (CPU_STK_SIZE)FONTUPDATA_STK_SIZE,		
+                 (OS_MSG_QTY  )0,					
+                 (OS_TICK	  )0,  					
+                 (void*       )0,					
+                 (OS_OPT      )OS_OPT_TASK_STK_CHK|OS_OPT_TASK_STK_CLR,
+                 (OS_ERR*     )&err);
 
 	OS_TaskSuspend((OS_TCB*)&StartTaskTCB,&err);		//挂起开始任务
 	OS_CRITICAL_EXIT();	//退出临界区
@@ -245,44 +263,7 @@ void start_task(void *p_arg)
 
 //EMWINDEMO任务
 void emwindemo_task(void *pdata){
-	//OS_ERR err;
-//	GUI_MEMDEV_Handle hMem;
-//	GUI_PID_STATE touchState;//触摸状态
-//	FIL fp;
-//	char *buff;
-//	unsigned int num;
-//	buff=(char*)mymalloc(0,3840);
-//	f_open(&fp,(const TCHAR*)"0:/SYSTEM/SYSICO/systemsetting.bin",FA_READ);//打开文件，将文件句柄放在fp中
-
-//	GUI_SetBkColor(GUI_BLUE);
-//	GUI_SetColor(GUI_RED);
-//	GUI_CURSOR_Show();
-//	GUI_SetFont(&GUI_FontHZ16);
-//	GUI_Clear();
-	MainTask();
-//	LCD_Scan_Dir(L2R_U2D);//从左到右,从上到下
-//	LCD_Set_Window(0,0,240,320);
-//	LCD_SetCursor(0,0);//设置光标位置
-//	LCD_WriteRAM_Prepare();   	//开始写入GRAM
-//
-//	for(int y=0;y<40;y++){
-//		f_read(&fp,buff,3840,(UINT*)&num);//从文件将数据存入数组里,自己会不断的增加
-//		for(int i=0;i<3840;i+=2){
-//			LCD_WR_DATA(image_getcolor(0,(u8*)buff+i));
-//		}
-//		//f_lseek(&fp,fp.fptr+480);//f_read中对num的操作已经可以让系统连续读了，并不需要手工操作
-// }
-//	myfree(buff);
-//	f_close(&fp);
-
-
-	//hMem=GUI_MEMDEV_Create(0,0,240,320);
-	//GUI_MEMDEV_Select(hMem);
-	//dispbmpex("0:/SYSTEM/SYSICO/systemsetting.bmp",0,0,0,1,1);
-	//GUI_MEMDEV_Select(0);
-	//GUI_MEMDEV_CopyToLCDAt(hMem,0,0);
-	GUI_Delay(1000);
-		//GUI_Clear();
+		MainTask();
 }
 
 //TOUCH任务
@@ -306,46 +287,26 @@ void led0_task(void *p_arg)
 		OSTimeDlyHMSM(0,0,0,500,OS_OPT_TIME_PERIODIC,&err);//延时500ms
 	}
 }
-//void touchMeasure_task(void *p_arg){
-//	OS_ERR err;
-//	GUI_PID_STATE touchState;//触摸状态
-//	while(1){
-//		LED1=!LED1;
-//		GUI_PID_GetState(&touchState);
-//		GUI_DispDecAt(touchState.x,10,50,6);//显示x值
-//		GUI_DispDecAt(touchState.y,10,50+16,6);//显示y值
-//		GUI_DispDecAt(touchState.Pressed,10,50+16+16,6);
-////		GUI_DispDecAt(GUI_TOUCH_X_MeasureX(),10,50,6);
-////		GUI_DispDecAt(GUI_TOUCH_X_MeasureY(),20,100,6);
-//		OSTimeDlyHMSM(0,0,0,50,OS_OPT_TIME_PERIODIC,&err);//延时50ms
-//	}
-//}
-
-// void myScreen(void){
-// 	//GUI_Init();
-// 	GUI_SetBkColor(MYCOLOR_TITLE_BACKGROUND);
-// 	GUI_Clear();
-// 	//背景
-// 	GUI_SetBkColor(MYCOLOR_TEXT_BACKGROUND);
-// 	GUI_ClearRect(0, 109, 240, 320);
-// 	//横线
-// 	GUI_SetPenSize(1);
-// 	GUI_SetColor(MYCOLOR_LINE);
-// 	GUI_DrawHLine(109, 0, 240);
-// 	GUI_DrawHLine(160, 0, 240);
-// 	GUI_DrawHLine(212, 0, 240);
-// 	GUI_DrawLine(0, 262, 240, 262);
-// 	//字体
-// 	GUI_SetColor(MYCOLOR_TITLE_TEXT);
-// 	GUI_SetBkColor(MYCOLOR_TITLE_BACKGROUND);
-// 	GUI_SetFont(&GUI_FontHZ24);
-// 	GUI_DispStringHCenterAt("系统设置", 120, 51.6);
-//
-// 	GUI_SetColor(MYCOLOR_CONTENT_TEXT);
-// 	GUI_SetBkColor(MYCOLOR_TEXT_BACKGROUND);
-// 	GUI_SetFont(&GUI_FontHZ16);
-// 	GUI_DispStringHCenterAt("个性设置", 120, 137.5-10);
-// 	GUI_DispStringHCenterAt("系统升级", 120, 188.2-10);
-// 	GUI_DispStringHCenterAt("系统信息", 120, 239.8-10);
-// 	GUI_DispStringHCenterAt("关于我们", 120, 293.4-10);
-// }
+void fontupdata_task(void *pdata)
+{
+	OS_ERR err;
+	while(1)
+	{
+		if(WK_UP == 0)				//KEY_UP键按下
+		{
+			OSTimeDlyHMSM(0,0,2,0,OS_OPT_TIME_PERIODIC,&err);//延时2s
+			if(WK_UP == 0)			//还是KEY_UP键
+			{
+				LCD_Clear(WHITE);
+				OSSchedLock(&err);		//调度器上锁
+				LCD_ShowString(10,50,250,30,16,"Font Updataing,Please Wait...");
+				update_font(10,70,16,"0:");//更新字库
+				LCD_Clear(WHITE);
+				POINT_COLOR = RED;
+				LCD_ShowString(10,50,280,30,16,"Font Updata finshed,Please Restart!");
+				OSSchedUnlock(&err);	//调度器解锁
+			}
+		}
+		OSTimeDlyHMSM(0,0,0,10,OS_OPT_TIME_PERIODIC,&err);//延时10ms
+	}
+}

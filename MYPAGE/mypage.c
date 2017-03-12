@@ -529,7 +529,7 @@ void pageSetting(WM_MESSAGE *pMsg) {
 		//–¥◊÷
 		GUI_SetColor(MYCOLOR_TITLE_TEXT);
 		GUI_SetBkColor(MYCOLOR_TITLE_BACKGROUND);
-		GUI_SetFont(&GUI_FontHZ16);
+		GUI_SetFont(&GUI_FontHZ32);
 		GUI_DispStringHCenterAt("œµÕ≥…Ë÷√", 120, 51.6);
 
 		GUI_SetColor(MYCOLOR_CONTENT_TEXT);
