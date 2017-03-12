@@ -11,6 +11,7 @@
 #include "GUI.h"
 #include "includes.h"
 #include  "beep.h"
+#include "step_motor.h"
 //#include "bitmapdisplay.h"
 #include "bmpdisplay.h"
 #include "EmWinHZFont.h"

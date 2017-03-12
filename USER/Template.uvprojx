@@ -335,7 +335,7 @@
               <MiscControls></MiscControls>
               <Define>STM32F10X_HD,USE_STDPERIPH_DRIVER</Define>
               <Undefine></Undefine>
-              <IncludePath>..\HARDWARE\LED;..\SYSTEM\delay;..\SYSTEM\sys;..\SYSTEM\usart;..\USER;..\STM32F10x_FWLib\inc;..\CORE;..\FWLIB\STM32F10x_FWLib\inc;..\HARDWARE\KEY;..\HARDWARE\LCD;..\HARDWARE\IIC;..\HARDWARE\24CXX;..\HARDWARE\SPI;..\HARDWARE\FLASH;..\HARDWARE\TOUCH;..\HARDWARE\SRAM;..\HARDWARE\TIMER;..\HARDWARE\SDIO;..\HARDWARE\BEEP;..\HARDWARE\W25QXX;..\MALLOC;..\USMART;..\TEXT;..\FATFS\src;..\FATFS\exfuns;..\UCOSIII\uC-CPU;..\UCOSIII\uC-LIB;..\UCOSIII\UCOS_BSP;..\UCOSIII\uCOS_CONFIG;..\UCOSIII\uCOS-III\Source;..\UCOSIII\uC-LIB\Ports\ARM-Cortex-M3\RealView;..\UCOSIII\uCOS-III\Ports\ARM-Cortex-M3\Generic\RealView;..\UCOSIII\uC-CPU\ARM-Cortex-M3\RealView;..\EMWIN\STemWin\Config;..\EMWIN\STemWinPNG;..\EMWIN\STemWin\inc;..\EMWIN\STemWinHZ;..\EMWIN_DEMO\EMWIN_PICTURE\BMP;..\MYPAGE</IncludePath>
+              <IncludePath>..\HARDWARE\LED;..\SYSTEM\delay;..\SYSTEM\sys;..\SYSTEM\usart;..\USER;..\STM32F10x_FWLib\inc;..\CORE;..\FWLIB\STM32F10x_FWLib\inc;..\HARDWARE\KEY;..\HARDWARE\LCD;..\HARDWARE\IIC;..\HARDWARE\24CXX;..\HARDWARE\SPI;..\HARDWARE\FLASH;..\HARDWARE\TOUCH;..\HARDWARE\SRAM;..\HARDWARE\TIMER;..\HARDWARE\SDIO;..\HARDWARE\BEEP;..\HARDWARE\W25QXX;..\MALLOC;..\USMART;..\TEXT;..\FATFS\src;..\FATFS\exfuns;..\UCOSIII\uC-CPU;..\UCOSIII\uC-LIB;..\UCOSIII\UCOS_BSP;..\UCOSIII\uCOS_CONFIG;..\UCOSIII\uCOS-III\Source;..\UCOSIII\uC-LIB\Ports\ARM-Cortex-M3\RealView;..\UCOSIII\uCOS-III\Ports\ARM-Cortex-M3\Generic\RealView;..\UCOSIII\uC-CPU\ARM-Cortex-M3\RealView;..\EMWIN\STemWin\Config;..\EMWIN\STemWinPNG;..\EMWIN\STemWin\inc;..\EMWIN\STemWinHZ;..\EMWIN_DEMO\EMWIN_PICTURE\BMP;..\MYPAGE;..\HARDWARE\STEP_MOTOR</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -415,11 +415,6 @@
               <FilePath>..\HARDWARE\LCD\ILI93xx.c</FilePath>
             </File>
             <File>
-              <FileName>sram.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\HARDWARE\SRAM\sram.c</FilePath>
-            </File>
-            <File>
               <FileName>myiic.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\HARDWARE\IIC\myiic.c</FilePath>
@@ -438,21 +433,6 @@
               <FileName>ctiic.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\HARDWARE\TOUCH\ctiic.c</FilePath>
-            </File>
-            <File>
-              <FileName>ft5206.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\HARDWARE\TOUCH\ft5206.c</FilePath>
-            </File>
-            <File>
-              <FileName>gt9147.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\HARDWARE\TOUCH\gt9147.c</FilePath>
-            </File>
-            <File>
-              <FileName>ott2001a.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\HARDWARE\TOUCH\ott2001a.c</FilePath>
             </File>
             <File>
               <FileName>touch.c</FileName>
@@ -483,6 +463,11 @@
               <FileName>mypage.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\MYPAGE\mypage.c</FilePath>
+            </File>
+            <File>
+              <FileName>step_motor.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\HARDWARE\STEP_MOTOR\step_motor.c</FilePath>
             </File>
           </Files>
         </Group>

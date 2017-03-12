@@ -110,3 +110,4 @@
 ..\obj\main.o: ..\EMWIN\STemWin\inc\KNOB.h
 ..\obj\main.o: ..\MYPAGE\mypage.h
 ..\obj\main.o: ..\HARDWARE\FLASH\flash.h
+..\obj\main.o: ..\HARDWARE\STEP_MOTOR\step_motor.h

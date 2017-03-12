@@ -123,6 +123,7 @@ int main(void)
  	LED_Init();			    //LED端口初始化
 	TFTLCD_Init();			//LCD初始化	
 	KEY_Init();	 			//按键初始化
+	stepMotor_Init(); //步进电机初始化
 	BEEP_Init();			//初始化蜂鸣器
 	//FSMC_SRAM_Init();		//初始化SRAM
 	my_mem_init(SRAMIN); 	//初始化内部内存池
