@@ -1,12 +1,12 @@
 #include "led.h"
-//#include "beep.h"
+#include "beep.h"
 #include "delay.h"
 #include "key.h"
 #include "sys.h"
 #include "ILI93xx.h"
 #include "usart.h"	 
 #include "24cxx.h"
-#include "flash.h"
+//#include "flash.h"
 #include "touch.h"
 #include "sram.h"
 #include "timer.h"
@@ -104,7 +104,7 @@ void fontupdata_task(void *p_arg);
 //设置任务优先级
 #define EMWINDEMO_TASK_PRIO			8
 //任务堆栈大小
-#define EMWINDEMO_STK_SIZE			2048
+#define EMWINDEMO_STK_SIZE			1024
 //任务控制块
 OS_TCB EmwindemoTaskTCB;
 //任务堆栈
@@ -123,10 +123,10 @@ int main(void)
  	LED_Init();			    //LED端口初始化
 	TFTLCD_Init();			//LCD初始化	
 	KEY_Init();	 			//按键初始化
-//	BEEP_Init();			//初始化蜂鸣器
-	FSMC_SRAM_Init();		//初始化SRAM
+	BEEP_Init();			//初始化蜂鸣器
+	//FSMC_SRAM_Init();		//初始化SRAM
 	my_mem_init(SRAMIN); 	//初始化内部内存池
-	my_mem_init(SRAMEX);  	//初始化外部内存池
+//	my_mem_init(SRAMEX);  	//初始化外部内存池
 	
 	exfuns_init();			//为fatfs文件系统分配内存
 	f_mount(fs[0],"0:",1);	//挂载SD卡
@@ -242,19 +242,19 @@ void start_task(void *p_arg)
                  (OS_OPT      )OS_OPT_TASK_STK_CHK|OS_OPT_TASK_STK_CLR,
                  (OS_ERR*     )&err);
 								 
-//	OSTaskCreate((OS_TCB*     )&FontupdataTaskTCB,		
-//				 (CPU_CHAR*   )"Fontupdata task", 		
-//								 (OS_TASK_PTR )fontupdata_task, 			
-//								 (void*       )0,					
-//								 (OS_PRIO	  )FONTUPDATA_TASK_PRIO,     
-//								 (CPU_STK*    )&FONTUPDATA_TASK_STK[0],	
-//								 (CPU_STK_SIZE)FONTUPDATA_STK_SIZE/10,	
-//								 (CPU_STK_SIZE)FONTUPDATA_STK_SIZE,		
-//								 (OS_MSG_QTY  )0,					
-//								 (OS_TICK	  )0,  					
-//								 (void*       )0,					
-//								 (OS_OPT      )OS_OPT_TASK_STK_CHK|OS_OPT_TASK_STK_CLR,
-//								 (OS_ERR*     )&err);
+	OSTaskCreate((OS_TCB*     )&FontupdataTaskTCB,		
+				 (CPU_CHAR*   )"Fontupdata task", 		
+								 (OS_TASK_PTR )fontupdata_task, 			
+								 (void*       )0,					
+								 (OS_PRIO	  )FONTUPDATA_TASK_PRIO,     
+								 (CPU_STK*    )&FONTUPDATA_TASK_STK[0],	
+								 (CPU_STK_SIZE)FONTUPDATA_STK_SIZE/10,	
+								 (CPU_STK_SIZE)FONTUPDATA_STK_SIZE,		
+								 (OS_MSG_QTY  )0,					
+								 (OS_TICK	  )0,  					
+								 (void*       )0,					
+								 (OS_OPT      )OS_OPT_TASK_STK_CHK|OS_OPT_TASK_STK_CLR,
+								 (OS_ERR*     )&err);
 
 	OS_TaskSuspend((OS_TCB*)&StartTaskTCB,&err);		//挂起开始任务
 	OS_CRITICAL_EXIT();	//退出临界区
@@ -287,26 +287,26 @@ void led0_task(void *p_arg)
 		OSTimeDlyHMSM(0,0,0,500,OS_OPT_TIME_PERIODIC,&err);//延时500ms
 	}
 }
-//void fontupdata_task(void *pdata)
-//{
-//	OS_ERR err;
-//	while(1)
-//	{
-//		if(WK_UP == 0)				//KEY_UP键按下
-//		{
-//			OSTimeDlyHMSM(0,0,2,0,OS_OPT_TIME_PERIODIC,&err);//延时2s
-//			if(WK_UP == 0)			//还是KEY_UP键
-//			{
-//				LCD_Clear(WHITE);
-//				OSSchedLock(&err);		//调度器上锁
-//				LCD_ShowString(10,50,250,30,16,"Font Updataing,Please Wait...");
-//				update_font(10,70,16,"0:");//更新字库
-//				LCD_Clear(WHITE);
-//				POINT_COLOR = RED;
-//				LCD_ShowString(10,50,280,30,16,"Font Updata finshed,Please Restart!");
-//				OSSchedUnlock(&err);	//调度器解锁
-//			}
-//		}
-//		OSTimeDlyHMSM(0,0,0,10,OS_OPT_TIME_PERIODIC,&err);//延时10ms
-//	}
-//}
+void fontupdata_task(void *pdata)
+{
+	OS_ERR err;
+	while(1)
+	{
+		if(WK_UP == 0)				//KEY_UP键按下
+		{
+			OSTimeDlyHMSM(0,0,2,0,OS_OPT_TIME_PERIODIC,&err);//延时2s
+			if(WK_UP == 0)			//还是KEY_UP键
+			{
+				LCD_Clear(WHITE);
+				OSSchedLock(&err);		//调度器上锁
+				LCD_ShowString(10,50,250,30,16,"Font Updataing,Please Wait...");
+				update_font(10,70,16,"0:");//更新字库
+				LCD_Clear(WHITE);
+				POINT_COLOR = RED;
+				LCD_ShowString(10,50,280,30,16,"Font Updata finshed,Please Restart!");
+				OSSchedUnlock(&err);	//调度器解锁
+			}
+		}
+		OSTimeDlyHMSM(0,0,0,10,OS_OPT_TIME_PERIODIC,&err);//延时10ms
+	}
+}

@@ -225,11 +225,13 @@ void pageDisplay(WM_MESSAGE *pMsg) {
 				else //pause
 				{
 						if (!strcmp("暂停", buttonString)) {
+							BEEP=1;
 						sscanf("开始", "%s", &buttonString);
 						WM_InvalidateWindow(pMsg->hWin); //使窗口无效，从而进行更新 致敬ios
 						WM_DeleteTimer(hTimer);
 					}
 					else {
+						BEEP=0;
 						sscanf("暂停", "%s", &buttonString);
 						WM_InvalidateWindow(pMsg->hWin); //使窗口无效，从而进行更新
 						hTimer = WM_CreateTimer(pMsg->hWin, 0, 1000, 0);

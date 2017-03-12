@@ -432,24 +432,24 @@ u8 TP_Init(void)
 {	
 	if(lcddev.id==0X5510)				//4.3寸电容触摸屏
 	{
-		if(GT9147_Init()==0)			//是GT9147
-		{ 
-			tp_dev.scan=GT9147_Scan;	//扫描函数指向GT9147触摸屏扫描
-		}else
-		{
-			OTT2001A_Init();
-			tp_dev.scan=OTT2001A_Scan;	//扫描函数指向OTT2001A触摸屏扫描
-		}
-		tp_dev.touchtype|=0X80;			//电容屏 
-		tp_dev.touchtype|=lcddev.dir&0X01;//横屏还是竖屏 
-		return 0;
-	}else if(lcddev.id==0X1963)			//7寸电容触摸屏
-	{
-		FT5206_Init();
-		tp_dev.scan=FT5206_Scan;		//扫描函数指向GT9147触摸屏扫描		
-		tp_dev.touchtype|=0X80;			//电容屏 
-		tp_dev.touchtype|=lcddev.dir&0X01;//横屏还是竖屏 
-		return 0;
+//		if(GT9147_Init()==0)			//是GT9147
+//		{ 
+//			tp_dev.scan=GT9147_Scan;	//扫描函数指向GT9147触摸屏扫描
+//		}else
+//		{
+//			OTT2001A_Init();
+//			tp_dev.scan=OTT2001A_Scan;	//扫描函数指向OTT2001A触摸屏扫描
+//		}
+//		tp_dev.touchtype|=0X80;			//电容屏 
+//		tp_dev.touchtype|=lcddev.dir&0X01;//横屏还是竖屏 
+//		return 0;
+//	}else if(lcddev.id==0X1963)			//7寸电容触摸屏
+//	{
+//		FT5206_Init();
+//		tp_dev.scan=FT5206_Scan;		//扫描函数指向GT9147触摸屏扫描		
+//		tp_dev.touchtype|=0X80;			//电容屏 
+//		tp_dev.touchtype|=lcddev.dir&0X01;//横屏还是竖屏 
+//		return 0;
 	}else
 	{
 	  GPIO_InitTypeDef  GPIO_InitStructure;
