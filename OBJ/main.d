@@ -16,7 +16,6 @@
 ..\obj\main.o: ..\FWLIB\STM32F10x_FWLib\inc\stm32f10x_tim.h
 ..\obj\main.o: ..\FWLIB\STM32F10x_FWLib\inc\stm32f10x_usart.h
 ..\obj\main.o: ..\FWLIB\STM32F10x_FWLib\inc\misc.h
-..\obj\main.o: ..\HARDWARE\BEEP\beep.h
 ..\obj\main.o: ..\SYSTEM\delay\delay.h
 ..\obj\main.o: ..\HARDWARE\KEY\key.h
 ..\obj\main.o: ..\HARDWARE\LCD\ILI93xx.h
@@ -110,5 +109,3 @@
 ..\obj\main.o: ..\EMWIN\STemWin\inc\TREEVIEW.h
 ..\obj\main.o: ..\EMWIN\STemWin\inc\KNOB.h
 ..\obj\main.o: ..\MYPAGE\mypage.h
-..\obj\main.o: ..\USMART\usmart.h
-..\obj\main.o: ..\USMART\usmart_str.h

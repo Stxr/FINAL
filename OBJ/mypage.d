@@ -25,11 +25,6 @@
 ..\obj\mypage.o: ..\HARDWARE\24CXX\24cxx.h
 ..\obj\mypage.o: ..\HARDWARE\IIC\myiic.h
 ..\obj\mypage.o: ..\HARDWARE\FLASH\flash.h
-..\obj\mypage.o: ..\HARDWARE\TOUCH\touch.h
-..\obj\mypage.o: ..\HARDWARE\TOUCH\ott2001a.h
-..\obj\mypage.o: ..\HARDWARE\TOUCH\gt9147.h
-..\obj\mypage.o: ..\HARDWARE\TOUCH\ft5206.h
-..\obj\mypage.o: ..\HARDWARE\TIMER\timer.h
 ..\obj\mypage.o: ..\MALLOC\malloc.h
 ..\obj\mypage.o: ..\EMWIN\STemWin\inc\GUI.h
 ..\obj\mypage.o: ..\EMWIN\STemWin\inc\GUI_ConfDefaults.h
@@ -38,11 +33,6 @@
 ..\obj\mypage.o: ..\EMWIN\STemWin\inc\LCD.h
 ..\obj\mypage.o: ..\EMWIN\STemWin\inc\Global.h
 ..\obj\mypage.o: ..\EMWIN\STemWin\inc\GUI_Version.h
-..\obj\mypage.o: ..\TEXT\fontupd.h
-..\obj\mypage.o: ..\FATFS\exfuns\exfuns.h
-..\obj\mypage.o: ..\FATFS\src\ff.h
-..\obj\mypage.o: ..\FATFS\src\integer.h
-..\obj\mypage.o: ..\FATFS\src\ffconf.h
 ..\obj\mypage.o: ..\UCOSIII\uCOS_CONFIG\includes.h
 ..\obj\mypage.o: E:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
 ..\obj\mypage.o: E:\Keil_v5\ARM\ARMCC\Bin\..\include\ctype.h
@@ -105,5 +95,3 @@
 ..\obj\mypage.o: ..\EMWIN\STemWin\inc\TEXT.h
 ..\obj\mypage.o: ..\EMWIN\STemWin\inc\TREEVIEW.h
 ..\obj\mypage.o: ..\EMWIN\STemWin\inc\KNOB.h
-..\obj\mypage.o: ..\USMART\usmart.h
-..\obj\mypage.o: ..\USMART\usmart_str.h

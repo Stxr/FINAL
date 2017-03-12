@@ -1,3 +1,5 @@
+#ifndef _MYPAGE_H_
+#define _MYPAGE_H_
 #include "delay.h"
 #include "key.h"
 #include "sys.h"
@@ -5,21 +7,15 @@
 #include "usart.h"
 #include "24cxx.h"
 #include "flash.h"
-#include "touch.h"
-#include "timer.h"
 #include "malloc.h"
 #include "GUI.h"
-#include "fontupd.h"
-#include "exfuns.h"
 #include "includes.h"
 //#include "bitmapdisplay.h"
 #include "bmpdisplay.h"
 #include "EmWinHZFont.h"
 #include "WM.h"
 #include "DIALOG.h"
-#include "usmart.h"
 //#include "image2lcd.h"
-#include <stdio.h>
 #define MYCOLOR_TITLE_BACKGROUND 0Xf1edec
 #define MYCOLOR_TEXT_BACKGROUND 0Xffffff
 #define MYCOLOR_TITLE_TEXT 0X3e4040
@@ -65,3 +61,4 @@ void W_pageShuyeDisplay(void);
 void createMultipage(WM_HWIN *hWnd, int *page);
 
 void MainTask(void);
+#endif

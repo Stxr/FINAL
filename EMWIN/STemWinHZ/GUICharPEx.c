@@ -84,6 +84,7 @@ static void GUI_GetDataFromMemory(const GUI_FONT_PROP GUI_UNI_PTR *pProp, U16P c
 				break;
 			case 24:
 				for(t=0;t<48;t++) GUI_FontDataBuf[t]=emwin_asc2_2412[c-0x20][t];
+			break;
 			case 32:
 				for(t=0;t<64;t++) GUI_FontDataBuf[t]=emwin_asc2_3216[c-0x20][t];
 				break;	
