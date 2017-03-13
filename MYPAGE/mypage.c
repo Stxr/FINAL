@@ -1,22 +1,22 @@
 #include "mypage.h"
-float shuyeData[4][5];
-int my_index=0;
+float shuyeData[4][5]={0};
+u8 my_index=0;
 float data[5];
 int testdata = 0,testdata1=0;
 MULTIPAGE_Handle aMultipage;
 typedef struct {
 	U32 color;
-	int id;
+	u8 id;
 }mydata;
 char buffer_left[20], buffer_used[20], buffer_speed[4];
 mydata data_send[4] = { { GUI_GREEN ,1 },{ GUI_GREEN ,2 },{ GUI_GREEN ,3 },{ GUI_GREEN ,4 } };
 mydata change_data;
 WM_HTIMER hTimer;
 
-int id_bottle = 0;
+u8 id_bottle = 0;
 WM_HWIN hchild[4];
 int speed = 0;
-
+int isChange=-1;
 
 GUI_WIDGET_CREATE_INFO _aDialogNumPad[] = {
 	//
@@ -36,8 +36,32 @@ GUI_WIDGET_CREATE_INFO _aDialogNumPad[] = {
 	{ BUTTON_CreateIndirect,   "0",      GUI_ID_USER + 0,		180, 26,  60,  26},
 	{ BUTTON_CreateIndirect,   ".",      GUI_ID_USER + 10,		180, 52,  60,  26},
 };
-
-
+GUI_WIDGET_CREATE_INFO _aDialogCreate4[] = {
+	{ WINDOW_CreateIndirect,    "Dialog 4",               0,            0,   0, 240, 212, FRAMEWIN_CF_MOVEABLE },
+	{ EDIT_CreateIndirect,		"bottle1",     GUI_ID_EDIT0,           90,  17,  30,  20, EDIT_CF_HCENTER },
+	{ EDIT_CreateIndirect,      "speed1",       GUI_ID_EDIT1,           50,  50,  30,  15, EDIT_CF_HCENTER },
+	{ EDIT_CreateIndirect,      "speed2",       GUI_ID_EDIT2,           170,  50,  30,  15, EDIT_CF_HCENTER },
+	{ EDIT_CreateIndirect,      "time1",       GUI_ID_EDIT3,           50,  85,  30,  15, EDIT_CF_HCENTER },
+	{ EDIT_CreateIndirect,      "time2",       GUI_ID_EDIT4,           170,  85,  30,  15, EDIT_CF_HCENTER }
+};
+BUTTON_SKINFLEX_PROPS MY_BUTTON_SKIN_ENABLE = {
+	{ MYCOLOR_LINE,MYCOLOR_PAGESHUYESETTING_TITLE_BACKGROUND,MYCOLOR_PAGESHUYESETTING_TITLE_BACKGROUND },
+	{ MYCOLOR_PAGESHUYESETTING_TITLE_BACKGROUND,MYCOLOR_PAGESHUYESETTING_TITLE_BACKGROUND },
+	{ MYCOLOR_PAGESHUYESETTING_TITLE_BACKGROUND,MYCOLOR_PAGESHUYESETTING_TITLE_BACKGROUND },0
+};
+BUTTON_SKINFLEX_PROPS MY_BUTTON_SKIN_PRESSED = {
+	{ MYCOLOR_LINE,GUI_WHITE,GUI_WHITE },
+	{ GUI_WHITE,GUI_WHITE },
+	{ GUI_WHITE,GUI_WHITE },0
+};
+MULTIPAGE_SKINFLEX_PROPS multipage_skin_SELECTED = {
+	GUI_WHITE,{ GUI_WHITE,GUI_WHITE },{ GUI_WHITE ,GUI_WHITE },0Xe3d7d4,GUI_BLACK
+};
+MULTIPAGE_SKINFLEX_PROPS multipage_skin_ENABLE = {
+	GUI_YELLOW,{ MYCOLOR_PAGESHUYESETTING_TITLE_BACKGROUND,MYCOLOR_PAGESHUYESETTING_TITLE_BACKGROUND },
+	{ MYCOLOR_PAGESHUYESETTING_TITLE_BACKGROUND ,MYCOLOR_PAGESHUYESETTING_TITLE_BACKGROUND },
+	MYCOLOR_PAGESHUYESETTING_TITLE_BACKGROUND,GUI_BLACK
+};
 /*********************************************************************
 *
 *       Public code
@@ -49,11 +73,12 @@ GUI_WIDGET_CREATE_INFO _aDialogNumPad[] = {
 *       MainTask
 */
 void MainTask(void) {
-	GUI_Init();
-	WM_EnableMemdev(WM_HBKWIN); //启用储存设备
+	// GUI_Init();
+//	WM_EnableMemdev(WM_HBKWIN); //启用储存设备
 	W_pageShuyeSetting(0);
 	while (1) {
-		GUI_Delay(500);
+		GUI_Delay(1000);
+		printf("use:%d\n",my_mem_perused(SRAMIN));
 	}
 }
 void W_pageDisplay(void) {
@@ -69,24 +94,10 @@ void W_pageSetting(void) {
 	GUI_Exec();
 	GUI_SetColor(MYCOLOR_TITLE_TEXT);
 	GUI_SetBkColor(MYCOLOR_TITLE_BACKGROUND);
-	//while (1)
-	//{
-	//	GUI_Delay(20);
-	//}
 
 }
 void W_pageShuyeSetting(int page) {
 	WM_HWIN hWnd, hNumPad;
-	BUTTON_SKINFLEX_PROPS MY_BUTTON_SKIN_ENABLE = {
-		{ MYCOLOR_LINE,MYCOLOR_PAGESHUYESETTING_TITLE_BACKGROUND,MYCOLOR_PAGESHUYESETTING_TITLE_BACKGROUND },
-		{ MYCOLOR_PAGESHUYESETTING_TITLE_BACKGROUND,MYCOLOR_PAGESHUYESETTING_TITLE_BACKGROUND },
-		{ MYCOLOR_PAGESHUYESETTING_TITLE_BACKGROUND,MYCOLOR_PAGESHUYESETTING_TITLE_BACKGROUND },0
-	};
-	BUTTON_SKINFLEX_PROPS MY_BUTTON_SKIN_PRESSED = {
-		{ MYCOLOR_LINE,GUI_WHITE,GUI_WHITE },
-		{ GUI_WHITE,GUI_WHITE },
-		{ GUI_WHITE,GUI_WHITE },0
-	};
 	hWnd = WM_CreateWindow(0, 0, 240, 320, WM_CF_SHOW, pageShuyeSetting, 0);
 	BUTTON_SetDefaultSkin(BUTTON_SKIN_FLEX);
 	BUTTON_SetSkinFlexProps(&MY_BUTTON_SKIN_ENABLE, 2);
@@ -121,6 +132,7 @@ void _cbchild1(WM_MESSAGE *pMsg) {
 }
 void pageDisplay(WM_MESSAGE *pMsg) {
 	WM_PID_STATE_CHANGED_INFO  *pState;
+	GUI_RECT InvalidateRect = { 175,206,222,225 };
 	static char buttonString[6]="暂停";
 	switch (pMsg->MsgId)
 	{
@@ -158,7 +170,24 @@ void pageDisplay(WM_MESSAGE *pMsg) {
 		else {
 			WM_ShowWindow(hchild[id_bottle]);
 		}
-		WM_InvalidateWindow(pMsg->hWin); //使窗口无效，从而进行更新
+		//由于单片机的速度问题，只更新部分窗口，以达到视觉优化
+		InvalidateRect.x0 = 170;
+		InvalidateRect.y0 = 206;
+		InvalidateRect.x1 = 222;
+		InvalidateRect.y1 = 225;
+		WM_InvalidateRect(pMsg->hWin, &InvalidateRect);
+		InvalidateRect.y0 = 262;
+		InvalidateRect.y1 = 284;
+		WM_InvalidateRect(pMsg->hWin, &InvalidateRect);
+		if (isChange != speed) {
+			isChange = speed;
+			InvalidateRect.x0 = 127;
+			InvalidateRect.y0 = 55;
+			InvalidateRect.x1 = 161;
+			InvalidateRect.y1 = 105;
+			WM_InvalidateRect(pMsg->hWin, &InvalidateRect);
+		}
+		//WM_InvalidateWindow(pMsg->hWin); //使窗口无效，从而进行更新
 		WM_RestartTimer(hTimer, 1000);
 		break;
 
@@ -215,6 +244,7 @@ void pageDisplay(WM_MESSAGE *pMsg) {
 		if ((pState->StatePrev == 0) && (pState->State == 1)) {
 			if (pState->y >= 296) {
 				if (pState->x < 120) {
+					hTimer = WM_CreateTimer(pMsg->hWin, 0, 1000, 0);//防止死机
 					for (int i = 0; i < 4; i++) {
 						shuyeData[i][3] /= 60;
 						shuyeData[i][4] /= 60;
@@ -224,7 +254,7 @@ void pageDisplay(WM_MESSAGE *pMsg) {
 				}
 				else //pause
 				{
-						if (!strcmp("暂停", buttonString)) {
+					if (!strcmp("暂停", buttonString)) {
 							BEEP=1;
 						sprintf(buttonString, "%s","开始");
 						WM_InvalidateWindow(pMsg->hWin); //使窗口无效，从而进行更新 致敬ios
@@ -249,6 +279,7 @@ void pageDisplay(WM_MESSAGE *pMsg) {
 }
 void pageShuyeDisplay(WM_MESSAGE *pMsg) {
 	WM_PID_STATE_CHANGED_INFO  *pState;
+	// char *tempt=(char *)mymalloc(SRAMIN,sizeof(char)*20);
 	char tempt[20];
 	switch (pMsg->MsgId)
 	{
@@ -258,15 +289,15 @@ void pageShuyeDisplay(WM_MESSAGE *pMsg) {
 
 		//画框
 		GUI_SetBkColor(MYCOLOR_PAGESHUYESETTING_CONTENT);
-		GUI_ClearRect(0, 60.8, 240, 296);
+		GUI_ClearRect(0, 60, 240, 296);
 		GUI_SetBkColor(MYCOLOR_PAGESHUYESETTING_BOTTON_BACKGROUND);
 		GUI_ClearRect(0, 296, 240, 320);
 		//画线
 		GUI_SetPenSize(1);
 		GUI_SetColor(MYCOLOR_LINE);
-		GUI_DrawHLine(60.8, 0, 240);
-		GUI_DrawHLine(119.2, 0, 240);
-		GUI_DrawHLine(177.6, 0, 240);
+		GUI_DrawHLine(60, 0, 240);
+		GUI_DrawHLine(119, 0, 240);
+		GUI_DrawHLine(177, 0, 240);
 		GUI_DrawHLine(236, 0, 240);
 		GUI_DrawHLine(295, 0, 240);
 		GUI_SetColor(GUI_WHITE);
@@ -275,15 +306,15 @@ void pageShuyeDisplay(WM_MESSAGE *pMsg) {
 		GUI_SetColor(MYCOLOR_PAGESHUYESETTING_TITLE_TEXT);
 		GUI_SetBkColor(MYCOLOR_PAGESHUYESETTING_TITLE_BACKGROUND);
 		GUI_SetFont(&GUI_FontHZ24);
-		GUI_DispStringAt("设置预览", 72, 23.4);
+		GUI_DispStringAt("设置预览", 72, 23);
 
 		GUI_SetColor(MYCOLOR_PAGESHUYESETTING_CONTENT_TEXT1);
 		GUI_SetBkColor(GUI_WHITE);
 		GUI_SetFont(&GUI_FontHZ16);
-		GUI_DispStringAt("一", 12.4, 60.8+20.4);
-		GUI_DispStringAt("二", 12.4, 119.2+20.4);
-		GUI_DispStringAt("三", 12.4, 177.6+20.4);
-		GUI_DispStringAt("四", 12.4, 236+20.4);
+		GUI_DispStringAt("一", 12, 60.8+20.4);
+		GUI_DispStringAt("二", 12, 119.2+20.4);
+		GUI_DispStringAt("三", 12, 177.6+20.4);
+		GUI_DispStringAt("四", 12, 236+20.4);
 
 		GUI_SetColor(GUI_WHITE);
 		GUI_SetBkColor(MYCOLOR_PAGESHUYESETTING_BOTTON_BACKGROUND);
@@ -338,7 +369,8 @@ void pageShuyeDisplay(WM_MESSAGE *pMsg) {
 		GUI_DispStringAt(tempt, 155, 177.6 + 40.8);
 		sprintf(tempt, "时间:%.1f min", shuyeData[3][4]);
 		GUI_DispStringAt(tempt, 155, 236 + 40.8);
-
+		// myfree(SRAMIN,tempt); //释放内存tempt
+		break;
 	case WM_PID_STATE_CHANGED:
 		pState = (WM_PID_STATE_CHANGED_INFO *)pMsg->Data.p;
 		if ((pState->StatePrev == 0) && (pState->State == 1)) {
@@ -377,6 +409,7 @@ void pageShuyeDisplay(WM_MESSAGE *pMsg) {
 void pageShuyeSetting(WM_MESSAGE *pMsg) {
 	WM_PID_STATE_CHANGED_INFO  *pState;
 	GUI_HWIN hItem;
+	// char *s=mymalloc(SRAMIN,sizeof(char)*5);
 	char s[5];
 	switch (pMsg->MsgId)
 	{
@@ -423,9 +456,7 @@ void pageShuyeSetting(WM_MESSAGE *pMsg) {
 		GUI_DispStringAt("时间:            ", 85, 213);
 		GUI_DispStringAt("容量:        ml", 85, 243);
 		GUI_DispStringAt("时间:            ", 85, 263);
-
-
-
+		break;
 	case WM_PID_STATE_CHANGED:
 		pState = (WM_PID_STATE_CHANGED_INFO *)pMsg->Data.p;
 		if ((pState->StatePrev == 0) && (pState->State == 1)) {
@@ -446,6 +477,7 @@ void pageShuyeSetting(WM_MESSAGE *pMsg) {
 							//}
 						}
 					}
+					// myfree(SRAMIN,s);
 					WM_DeleteWindow(pMsg->hWin);
 					W_pageShuyeDisplay();
 				}
@@ -486,7 +518,7 @@ void pageHome(WM_MESSAGE *pMsg) {
 		GUI_SetColor(MYCOLOR_PAGEHOME_SETTING_TEXT);
 		GUI_SetBkColor(MYCOLOR_PAGEHOME_SHUYE_BACKGROUND);
 		GUI_SetFont(&GUI_FontHZ16);
-		GUI_DispStringHCenterAt("输液设置", 120, 218);
+		GUI_DispStringHCenterAt("输液设置", 120, 222);
 		GUI_SetBkColor(MYCOLOR_PAGEHOME_SYSTEM_BACKGROUND);
 		GUI_DispStringHCenterAt("系统设置", 120, 280);
 		break;
@@ -542,7 +574,7 @@ void pageSetting(WM_MESSAGE *pMsg) {
 		GUI_DispStringHCenterAt("系统状态", 120, 192.8 + 10);
 		GUI_DispStringHCenterAt("关于我们", 120, 235.2 + 10);
 		GUI_DispStringHCenterAt("返回", 120, 277.6 + 10);
-
+		break;
 	case WM_PID_STATE_CHANGED:
 		pState = (WM_PID_STATE_CHANGED_INFO *)pMsg->Data.p;
 		if ((pState->StatePrev == 0) && (pState->State == 1)) {
@@ -574,23 +606,6 @@ void pageSetting(WM_MESSAGE *pMsg) {
 }
 void createMultipage(WM_HWIN *hWnd,int *page) {
 	WM_HWIN pageBottle;
-
-	MULTIPAGE_SKINFLEX_PROPS multipage_skin_SELECTED = {
-		GUI_WHITE,{ GUI_WHITE,GUI_WHITE },{ GUI_WHITE ,GUI_WHITE },0Xe3d7d4,GUI_BLACK
-	};
-	MULTIPAGE_SKINFLEX_PROPS multipage_skin_ENABLE = {
-		GUI_YELLOW,{ MYCOLOR_PAGESHUYESETTING_TITLE_BACKGROUND,MYCOLOR_PAGESHUYESETTING_TITLE_BACKGROUND },
-		{ MYCOLOR_PAGESHUYESETTING_TITLE_BACKGROUND ,MYCOLOR_PAGESHUYESETTING_TITLE_BACKGROUND },
-		MYCOLOR_PAGESHUYESETTING_TITLE_BACKGROUND,GUI_BLACK
-	};
-	GUI_WIDGET_CREATE_INFO _aDialogCreate4[] = {
-		{ WINDOW_CreateIndirect,    "Dialog 4",               0,            0,   0, 240, 212, FRAMEWIN_CF_MOVEABLE },
-		{ EDIT_CreateIndirect,		"bottle1",     GUI_ID_EDIT0,           90,  17,  30,  20, EDIT_CF_HCENTER },
-		{ EDIT_CreateIndirect,      "speed1",       GUI_ID_EDIT1,           50,  50,  30,  15, EDIT_CF_HCENTER },
-		{ EDIT_CreateIndirect,      "speed2",       GUI_ID_EDIT2,           170,  50,  30,  15, EDIT_CF_HCENTER },
-		{ EDIT_CreateIndirect,      "time1",       GUI_ID_EDIT3,           50,  85,  30,  15, EDIT_CF_HCENTER },
-		{ EDIT_CreateIndirect,      "time2",       GUI_ID_EDIT4,           170,  85,  30,  15, EDIT_CF_HCENTER }
-	};
 
 	MULTIPAGE_SetDefaultSkin(MULTIPAGE_SKIN_FLEX);
 
@@ -729,7 +744,7 @@ void _cbBottle4(WM_MESSAGE *pMsg) {
 				EDIT_SetText(hEdit1, buff);
 				//hEdit1 = WM_GetDialogItem(pMsg->hWin, GUI_ID_EDIT1);
 				//sprintf(buff, "%.1f", data[1]);
-				//EDIT_SetText(hEdit1, buff);				
+				//EDIT_SetText(hEdit1, buff);
 			case GUI_ID_EDIT4:
 
 				break;

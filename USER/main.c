@@ -293,6 +293,7 @@ void fontupdata_task(void *pdata)
 	OS_ERR err;
 	while(1)
 	{
+		LED1 = !LED1;
 		if(WK_UP == 0)				//KEY_UP键按下
 		{
 			OSTimeDlyHMSM(0,0,2,0,OS_OPT_TIME_PERIODIC,&err);//延时2s
@@ -308,6 +309,6 @@ void fontupdata_task(void *pdata)
 				OSSchedUnlock(&err);	//调度器解锁
 			}
 		}
-		OSTimeDlyHMSM(0,0,0,10,OS_OPT_TIME_PERIODIC,&err);//延时10ms
+		OSTimeDlyHMSM(0,0,0,50,OS_OPT_TIME_PERIODIC,&err);//延时10ms
 	}
 }
