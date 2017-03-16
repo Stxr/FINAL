@@ -488,7 +488,7 @@ u8 TP_Init(void)
 	 	GPIO_SetBits(GPIOG,GPIO_Pin_8);//上拉		
  
 		TP_Read_XY(&tp_dev.x[0],&tp_dev.y[0]);//第一次读取初始化	 
-		AT24CXX_Init();			//初始化24CXX
+//		AT24CXX_Init();			//初始化24CXX
 //		if(TP_Get_Adjdata())return 0;//已经校准
 //		else			  		//未校准?
 //		{ 										    

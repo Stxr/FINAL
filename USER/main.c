@@ -153,6 +153,7 @@ int main(void)
 		LCD_Clear(WHITE);	//清屏
 		break;
 	}
+	AT24CXX_Init();			//初始化24CXX
 	TP_Init();				//触摸屏初始化
 	
 	OSInit(&err);		//初始化UCOSIII
@@ -296,18 +297,21 @@ void fontupdata_task(void *pdata)
 		LED1 = !LED1;
 		if(WK_UP == 0)				//KEY_UP键按下
 		{
-			OSTimeDlyHMSM(0,0,2,0,OS_OPT_TIME_PERIODIC,&err);//延时2s
-			if(WK_UP == 0)			//还是KEY_UP键
-			{
-				LCD_Clear(WHITE);
-				OSSchedLock(&err);		//调度器上锁
-				LCD_ShowString(10,50,250,30,16,"Font Updataing,Please Wait...");
-				update_font(10,70,16,"0:");//更新字库
-				LCD_Clear(WHITE);
-				POINT_COLOR = RED;
-				LCD_ShowString(10,50,280,30,16,"Font Updata finshed,Please Restart!");
-				OSSchedUnlock(&err);	//调度器解锁
-			}
+//			OSTimeDlyHMSM(0,0,2,0,OS_OPT_TIME_PERIODIC,&err);//延时2s
+//			if(WK_UP == 0)			//还是KEY_UP键
+//			{
+//				LCD_Clear(WHITE);
+//				OSSchedLock(&err);		//调度器上锁
+//				LCD_ShowString(10,50,250,30,16,"Font Updataing,Please Wait...");
+//				update_font(10,70,16,"0:");//更新字库
+//				LCD_Clear(WHITE);
+//				POINT_COLOR = RED;
+//				LCD_ShowString(10,50,280,30,16,"Font Updata finshed,Please Restart!");
+//				OSSchedUnlock(&err);	//调度器解锁
+//			}
+			stepMotor_Distance(3,STEPMOTOR_OUT,5,500);
+		}else if(KEY1==0){
+			stepMotor_Distance(3,STEPMOTOR_IN,5,500);
 		}
 		OSTimeDlyHMSM(0,0,0,50,OS_OPT_TIME_PERIODIC,&err);//延时10ms
 	}
