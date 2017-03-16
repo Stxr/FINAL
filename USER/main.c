@@ -125,7 +125,7 @@ int main(void)
 	KEY_Init();	 			//按键初始化
 	stepMotor_Init(); //步进电机初始化
 	BEEP_Init();			//初始化蜂鸣器
-	//FSMC_SRAM_Init();		//初始化SRAM
+	//FSMC_SRA oM_Init();		//初始化SRAM
 	my_mem_init(SRAMIN); 	//初始化内部内存池
 //	my_mem_init(SRAMEX);  	//初始化外部内存池
 	
@@ -142,7 +142,7 @@ int main(void)
 //	}
 //	
 //LCD_ShowString(30,70,200,16,16,"Font Error!");
-//		update_font(30,90,16,"0:");	//如果字库不存在就更新字库
+	//	update_font(30,90,16,"0:");	//如果字库不存在就更新字库
 //		delay_ms(2000);
 //		LCD_Clear(WHITE);	//清屏
 	while(font_init())		//初始化字库

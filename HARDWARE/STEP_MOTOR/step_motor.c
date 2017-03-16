@@ -21,7 +21,7 @@ void stepMotor_Init(void){
 	GPIO_Init(GPIOE, &GPIO_InitStructure);
 	GPIO_ResetBits(GPIOE,GPIO_Pin_0);
 }
-int stepMoter_run(int id,int dir,int speed){
+int stepMotor_Run(int id,int dir,int speed){
 	switch (id) {
 		case 1:
 			stepMotor_dir1=dir;
@@ -54,5 +54,15 @@ int stepMoter_run(int id,int dir,int speed){
 		default:
 			break;
 	}
+	return 0;
+}
+void stepMotor_Distance(int id,int dir,int speed,int distance){ 
+	int i=0;
+	for(i=0;i<distance/3;i++){
+		stepMotor_Run(id,dir,speed);
+	}
+}
+int stepMotor_Reset(int id){
+	stepMotor_Distance(id,STEPMOTOR_IN,5,1090); //先复位为最短
 	return 0;
 }
