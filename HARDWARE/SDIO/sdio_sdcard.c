@@ -70,10 +70,10 @@ SD_Error SD_Init(void)
   GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;		 //IO口速度为50MHz
   GPIO_Init(GPIOD, &GPIO_InitStructure);					 //根据设定参数初始化PD2
 
-  GPIO_InitStructure.GPIO_Pin = GPIO_Pin_7;	//PD7 上拉输入
+  GPIO_InitStructure.GPIO_Pin = GPIO_Pin_7;	//PC7 上拉输入
   GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IPU; 		 //复用推挽输出
   GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;		 //IO口速度为50MHz
-  GPIO_Init(GPIOD, &GPIO_InitStructure);					 //根据设定参数初始化PD7
+  GPIO_Init(GPIOC, &GPIO_InitStructure);					 //根据设定参数初始化PC7
  
  	//SDIO外设寄存器设置为默认值 			   	   
 	SDIO_DeInit();
