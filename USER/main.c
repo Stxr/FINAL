@@ -123,6 +123,7 @@ int main(void)
  	LED_Init();			    //LED端口初始化
 	TFTLCD_Init();			//LCD初始化	
 	KEY_Init();	 			//按键初始化
+	AT24CXX_Init();			//初始化24CXX
 	stepMotor_Init(); //步进电机初始化
 	BEEP_Init();			//初始化蜂鸣器
 	//FSMC_SRA oM_Init();		//初始化SRAM
@@ -153,7 +154,6 @@ int main(void)
 		LCD_Clear(WHITE);	//清屏
 		break;
 	}
-	AT24CXX_Init();			//初始化24CXX
 	TP_Init();				//触摸屏初始化
 	
 	OSInit(&err);		//初始化UCOSIII
@@ -309,9 +309,16 @@ void fontupdata_task(void *pdata)
 //				LCD_ShowString(10,50,280,30,16,"Font Updata finshed,Please Restart!");
 //				OSSchedUnlock(&err);	//调度器解锁
 //			}
-			stepMotor_Distance(3,STEPMOTOR_OUT,5,500);
+			stepMotor_Distance(3,5,150);
 		}else if(KEY1==0){
-			stepMotor_Distance(3,STEPMOTOR_IN,5,500);
+			stepMotor_Distance(3,5,-250);
+		}else if(KEY2==0){
+			AT24CXX_WriteOneByte(0,0); //清除初始化
+			printf("stepInit:0X%0X\r\n",AT24CXX_ReadOneByte(0));//打印初始化信息
+			stepMotor_Reset(1);
+			stepMotor_Reset(2);
+			stepMotor_Reset(3);
+			stepMotor_Reset(4);
 		}
 		OSTimeDlyHMSM(0,0,0,50,OS_OPT_TIME_PERIODIC,&err);//延时10ms
 	}

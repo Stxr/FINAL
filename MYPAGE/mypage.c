@@ -75,9 +75,8 @@ void MainTask(void) {
 	W_pageShuyeSetting(0);
 	while (1) {
 		GUI_Delay(1000);
-		printf("use:%d\n",my_mem_perused(SRAMIN));
-		printf("id_bottle:%d\n",id_bottle);
-		printf("id_bottle:%d\n",id_bottle);
+//		printf("use:%d\n",my_mem_perused(SRAMIN));
+//		printf("id_bottle:%d\n",id_bottle);
 	}
 }
 void W_pageDisplay(void) {
@@ -85,6 +84,10 @@ void W_pageDisplay(void) {
 	//memset(buffer1, 0, sizeof(char));
 	buffer1[0] = '\0'; //数组假清零
 	buffer3[0] = '\0'; //数组假清零
+	stepMotor_Reset(1);
+	stepMotor_Reset(2);
+	stepMotor_Reset(3);
+	stepMotor_Reset(4);
 	WM_CreateWindow(0, 0, 240, 320, WM_CF_SHOW, pageDisplay, 0);
 }
 void W_pageHome(void) {
@@ -134,46 +137,52 @@ void _cbchild1(WM_MESSAGE *pMsg) {
 }
 void pageDisplay(WM_MESSAGE *pMsg) {
 	WM_PID_STATE_CHANGED_INFO  *pState;
-
 	GUI_RECT InvalidateRect = { 175,206,222,225 };
 	static char buttonString[6]="暂停";
-	id_bottle = 0;//从第一个开始计数
 	switch (pMsg->MsgId)
 	{
 	case WM_TIMER:
-		if (shuyeData[id_bottle][0] == 0 || (shuyeData[id_bottle][3] == 0 && shuyeData[id_bottle][4] == 0)) {
+		if (shuyeData[id_bottle][0] == 0 || (shuyeData[id_bottle][3] <= 0 && shuyeData[id_bottle][4] <= 0)) { //shuyeData[][3]和shuyeData[][4]有可能小于0
 			id_bottle++;
 			if (id_bottle >= 4) id_bottle = 0;
 		}
 		if (shuyeData[id_bottle][3] > 0 || shuyeData[id_bottle][4] > 0) { //剩余输液时间是否为0
 			Time_Used++;
-			if (shuyeData[id_bottle][3] != 0) {
- 				Time_Left = --shuyeData[id_bottle][3];
-				speed = shuyeData[id_bottle][1];
+			if (Time_Used % 2) {
+				WM_HideWindow(hchild[id_bottle]);
 			}
 			else {
+				WM_ShowWindow(hchild[id_bottle]);
+			}
+			if (shuyeData[id_bottle][3] != 0) { //速率1
+ 				Time_Left = --shuyeData[id_bottle][3];
+				if(speed!=shuyeData[id_bottle][1]){
+					speed = shuyeData[id_bottle][1];
+					stepMotor_Distance(id_bottle+1,5,speed*100); //speed越大，distance越小
+				}
+			}
+			else { //速率2
 				change_data.color = GUI_BLUE;
 				change_data.id = id_bottle+1;
 				WM_SetUserData(hchild[id_bottle], &change_data, sizeof(mydata));
 				Time_Left = --shuyeData[id_bottle][4];
-				speed = shuyeData[id_bottle][2];
+				if(speed != shuyeData[id_bottle][2]){
+					stepMotor_Distance(id_bottle+1,5,(shuyeData[id_bottle][1]-shuyeData[id_bottle][2])*100); //
+					speed = shuyeData[id_bottle][2];
+				}				
 			}
-			if (shuyeData[id_bottle][4] == 0 && shuyeData[id_bottle][3]==0) {
+			if (shuyeData[id_bottle][4] <= 0 && shuyeData[id_bottle][3] <= 0) { //输液完成
 				change_data.color = GUI_BLACK;
-				change_data.id = id_bottle+1;
+				change_data.id = id_bottle+1;//标号从0开始，显示从1开始
 				WM_SetUserData(hchild[id_bottle], &change_data, sizeof(mydata));
+				WM_ShowWindow(hchild[id_bottle]);
 			}
 		}
 		sprintf(buffer3, "%d", speed);
 		sprintf(buffer1, "%02d:%02d:%02d", Time_Left / 3600, Time_Left / 60, Time_Left%60);
 		sprintf(buffer2, "%02d:%02d:%02d", Time_Used / 3600, Time_Used / 60, Time_Used % 60);
 		//Time_Left--;
-		if (Time_Used % 2) {
-			WM_HideWindow(hchild[id_bottle]);
-		}
-		else {
-			WM_ShowWindow(hchild[id_bottle]);
-		}
+
 		//由于单片机的速度问题，只更新部分窗口，以达到视觉优化
 		InvalidateRect.x0 = 170;
 		InvalidateRect.y0 = 206;
