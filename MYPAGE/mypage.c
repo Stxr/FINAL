@@ -17,29 +17,29 @@ MULTIPAGE_Handle aMultipage;
 
 GUI_WIDGET_CREATE_INFO _aDialogNumPad[] = {
 	//
-	//  Function                 Text      Id					 Px   Py   Dx   Dy
+	//  Function                 Text      Id					       Px   Py   Dx   Dy
 	//
-	{ WINDOW_CreateIndirect,    0,        0,				      0,	 217, 240,  78 },
-	{ BUTTON_CreateIndirect,   "7",      GUI_ID_USER + 7,		 0,  0,  60,  26 },
-	{ BUTTON_CreateIndirect,   "8",      GUI_ID_USER + 8,		60,  0,  60,  26},
-	{ BUTTON_CreateIndirect,   "9",      GUI_ID_USER + 9,	   120,  0,  60,  26},
-	{ BUTTON_CreateIndirect,   "4",      GUI_ID_USER + 4,		 0,	 26,  60,  26},
-	{ BUTTON_CreateIndirect,   "5",      GUI_ID_USER + 5,		60,	 26,  60,  26},
-	{ BUTTON_CreateIndirect,   "6",      GUI_ID_USER + 6,	   120,  26,  60,  26},
-	{ BUTTON_CreateIndirect,   "1",      GUI_ID_USER + 1,		 0,	 52,  60,  26},
-	{ BUTTON_CreateIndirect,   "2",      GUI_ID_USER + 2,		60,	 52,  60,  26},
-	{ BUTTON_CreateIndirect,   "3",      GUI_ID_USER + 3,		120, 52,  60,  26},
-	{ BUTTON_CreateIndirect,   "Del",    GUI_ID_USER + 11,		180, 0,  60,  26},
-	{ BUTTON_CreateIndirect,   "0",      GUI_ID_USER + 0,		180, 26,  60,  26},
-	{ BUTTON_CreateIndirect,   ".",      GUI_ID_USER + 10,		180, 52,  60,  26},
+	{ WINDOW_CreateIndirect,    0,        0,				         0,	 162, 320,  60},
+	{ BUTTON_CreateIndirect,   "7",      GUI_ID_USER + 7,		 0,    0,  80,  20},
+	{ BUTTON_CreateIndirect,   "8",      GUI_ID_USER + 8,		80,    0,  80,  20},
+	{ BUTTON_CreateIndirect,   "9",      GUI_ID_USER + 9,	 160,    0,  80,  20},
+	{ BUTTON_CreateIndirect,   "4",      GUI_ID_USER + 4,		 0,	 	20,  80,  20},
+	{ BUTTON_CreateIndirect,   "5",      GUI_ID_USER + 5,		80,	 	20,  80,  20},
+	{ BUTTON_CreateIndirect,   "6",      GUI_ID_USER + 6,	 160,  	20,  80,  20},
+	{ BUTTON_CreateIndirect,   "1",      GUI_ID_USER + 1,		 0,	 	38,  80,  20},
+	{ BUTTON_CreateIndirect,   "2",      GUI_ID_USER + 2,		80,	 	38,  80,  20},
+	{ BUTTON_CreateIndirect,   "3",      GUI_ID_USER + 3,	 160,		38,  80,  20},
+	{ BUTTON_CreateIndirect,   "Del",    GUI_ID_USER + 11, 240, 	 0,  80,  20},
+	{ BUTTON_CreateIndirect,   "0",      GUI_ID_USER + 0,	 240, 	20,  80,  20},
+	{ BUTTON_CreateIndirect,   ".",      GUI_ID_USER + 10, 240, 	38,  80,  20},
 };
 GUI_WIDGET_CREATE_INFO _aDialogCreate4[] = {
-	{ WINDOW_CreateIndirect,    "Dialog 4",               0,            0,   0, 240, 212, FRAMEWIN_CF_MOVEABLE },
-	{ EDIT_CreateIndirect,		"bottle1",     GUI_ID_EDIT0,           90,  17,  30,  20, EDIT_CF_HCENTER },
-	{ EDIT_CreateIndirect,      "speed1",       GUI_ID_EDIT1,           50,  50,  30,  15, EDIT_CF_HCENTER },
-	{ EDIT_CreateIndirect,      "speed2",       GUI_ID_EDIT2,           170,  50,  30,  15, EDIT_CF_HCENTER },
-	{ EDIT_CreateIndirect,      "time1",       GUI_ID_EDIT3,           50,  85,  30,  15, EDIT_CF_HCENTER },
-	{ EDIT_CreateIndirect,      "time2",       GUI_ID_EDIT4,           170,  85,  30,  15, EDIT_CF_HCENTER }
+	{ WINDOW_CreateIndirect,    "Dialog 4",               0,         0,   0, 320, 159, FRAMEWIN_CF_MOVEABLE },
+	{ EDIT_CreateIndirect,		  "bottle1",     GUI_ID_EDIT0,         150,  9,  50,  20, EDIT_CF_HCENTER },
+	{ EDIT_CreateIndirect,      "speed1",       GUI_ID_EDIT1,        66,  37,  30,  15, EDIT_CF_HCENTER },
+	{ EDIT_CreateIndirect,      "speed2",       GUI_ID_EDIT2,        226,  37,  30,  15, EDIT_CF_HCENTER },
+	{ EDIT_CreateIndirect,      "time1",       GUI_ID_EDIT3,         66,  64,  30,  15, EDIT_CF_HCENTER },
+	{ EDIT_CreateIndirect,      "time2",       GUI_ID_EDIT4,         226,  64,  30,  15, EDIT_CF_HCENTER }
 };
 BUTTON_SKINFLEX_PROPS MY_BUTTON_SKIN_ENABLE = {
 	{ MYCOLOR_LINE,MYCOLOR_PAGESHUYESETTING_TITLE_BACKGROUND,MYCOLOR_PAGESHUYESETTING_TITLE_BACKGROUND },
@@ -84,18 +84,18 @@ void W_pageDisplay(void) {
 	//memset(buffer1, 0, sizeof(char));
 	buffer1[0] = '\0'; //数组假清零
 	buffer3[0] = '\0'; //数组假清零
-	stepMotor_Reset(1);
-	stepMotor_Reset(2);
-	stepMotor_Reset(3);
-	stepMotor_Reset(4);
-	WM_CreateWindow(0, 0, 240, 320, WM_CF_SHOW, pageDisplay, 0);
+//	stepMotor_Reset(1);
+//	stepMotor_Reset(2);
+//	stepMotor_Reset(3);
+//	stepMotor_Reset(4);
+	WM_CreateWindow(0, 0, 320, 240, WM_CF_SHOW, pageDisplay, 0);
 }
 void W_pageHome(void) {
-	WM_CreateWindow(0, 0, 240, 320, WM_CF_SHOW, pageHome, 0);
+	WM_CreateWindow(0, 0, 320, 240, WM_CF_SHOW, pageHome, 0);
 	GUI_Exec();
 }
 void W_pageSetting(void) {
-	WM_CreateWindow(0, 0, 240, 320, WM_CF_SHOW, pageSetting, 0);
+	WM_CreateWindow(0, 0, 320, 240, WM_CF_SHOW, pageSetting, 0);
 	GUI_Exec();
 	GUI_SetColor(MYCOLOR_TITLE_TEXT);
 	GUI_SetBkColor(MYCOLOR_TITLE_BACKGROUND);
@@ -103,7 +103,7 @@ void W_pageSetting(void) {
 }
 void W_pageShuyeSetting(int page) {
 	WM_HWIN hWnd, hNumPad;
-	hWnd = WM_CreateWindow(0, 0, 240, 320, WM_CF_SHOW, pageShuyeSetting, 0);
+	hWnd = WM_CreateWindow(0, 0, 320, 240, WM_CF_SHOW, pageShuyeSetting, 0);
 	BUTTON_SetDefaultSkin(BUTTON_SKIN_FLEX);
 	BUTTON_SetSkinFlexProps(&MY_BUTTON_SKIN_ENABLE, 2);
 	BUTTON_SetSkinFlexProps(&MY_BUTTON_SKIN_PRESSED, 0);
@@ -114,7 +114,7 @@ void W_pageShuyeSetting(int page) {
 }
 void W_pageShuyeDisplay(void) {
 	id_bottle = 0; //很神奇
-	WM_CreateWindow(0, 0, 240, 320, WM_CF_SHOW, pageShuyeDisplay, 0);
+	WM_CreateWindow(0, 0, 320, 240, WM_CF_SHOW, pageShuyeDisplay, 0);
 }
 void _cbchild1(WM_MESSAGE *pMsg) {
 	// mydata data_receive;
@@ -158,7 +158,7 @@ void pageDisplay(WM_MESSAGE *pMsg) {
  				Time_Left = --shuyeData[id_bottle][3];
 				if(speed!=shuyeData[id_bottle][1]){
 					speed = shuyeData[id_bottle][1];
-					stepMotor_Distance(id_bottle+1,5,speed*100); //speed越大，distance越小
+//					stepMotor_Distance(id_bottle+1,5,speed*100); //speed越大，distance越小
 				}
 			}
 			else { //速率2
@@ -167,7 +167,7 @@ void pageDisplay(WM_MESSAGE *pMsg) {
 				WM_SetUserData(hchild[id_bottle], &change_data, sizeof(mydata));
 				Time_Left = --shuyeData[id_bottle][4];
 				if(speed != shuyeData[id_bottle][2]){
-					stepMotor_Distance(id_bottle+1,5,(shuyeData[id_bottle][1]-shuyeData[id_bottle][2])*100); //
+//					stepMotor_Distance(id_bottle+1,5,(shuyeData[id_bottle][1]-shuyeData[id_bottle][2])*100); //
 					speed = shuyeData[id_bottle][2];
 				}				
 			}
@@ -184,20 +184,20 @@ void pageDisplay(WM_MESSAGE *pMsg) {
 		//Time_Left--;
 
 		//由于单片机的速度问题，只更新部分窗口，以达到视觉优化
-		InvalidateRect.x0 = 170;
-		InvalidateRect.y0 = 206;
-		InvalidateRect.x1 = 222;
-		InvalidateRect.y1 = 225;
+		InvalidateRect.x0 = 226;
+		InvalidateRect.y0 = 154;
+		InvalidateRect.x1 = 296;
+		InvalidateRect.y1 = 168;
 		WM_InvalidateRect(pMsg->hWin, &InvalidateRect);
-		InvalidateRect.y0 = 262;
-		InvalidateRect.y1 = 284;
+		InvalidateRect.y0 = 190;
+		InvalidateRect.y1 = 224;
 		WM_InvalidateRect(pMsg->hWin, &InvalidateRect);
 		if (isChange != speed) {
 			isChange = speed;
-			InvalidateRect.x0 = 127;
-			InvalidateRect.y0 = 55;
-			InvalidateRect.x1 = 161;
-			InvalidateRect.y1 = 105;
+			InvalidateRect.x0 = 169;
+			InvalidateRect.y0 = 41;
+			InvalidateRect.x1 = 214;
+			InvalidateRect.y1 = 78;
 			WM_InvalidateRect(pMsg->hWin, &InvalidateRect);
 		}
 		//WM_InvalidateWindow(pMsg->hWin); //使窗口无效，从而进行更新
@@ -209,37 +209,40 @@ void pageDisplay(WM_MESSAGE *pMsg) {
 		GUI_SetBkColor(MYCOLOR_PAGEDISPLAY_BACKGROUND);
 		GUI_Clear();
 		GUI_SetBkColor(MYCOLOR_PAGEDISPLAY_BUTTON);
-		GUI_ClearRect(0, 296, 240, 320);
+		GUI_ClearRect(0, 222, 320, 240);
 		GUI_SetColor(GUI_WHITE);
-		GUI_DrawVLine(120, 296, 320);
+		GUI_DrawVLine(160, 222, 320);
 		//写字
 		GUI_SetFont(&GUI_FontHZ24);
 		GUI_SetColor(MYCOLOR_PAGEDISPLAY_TEXT1);
 		GUI_SetBkColor(MYCOLOR_PAGEDISPLAY_BACKGROUND);
-		GUI_DispStringAt("输液速率", 5, 56);
-		GUI_DispStringAt("输液瓶数", 5, 126);
-		GUI_DispStringAt("输液时间", 5, 224);
+		GUI_DispStringAt("输液速率", 7, 42);
+		GUI_DispStringAt("输液瓶数", 7, 102);
+		GUI_DispStringAt("输液时间", 7, 168);
 		GUI_SetColor(MYCOLOR_PAGEDISPLAY_TEXT2);
-		GUI_DispStringAt("已用", 150, 182);
-		GUI_DispStringAt("剩余", 150, 236);
+		GUI_DispStringAt("已用", 130, 154);
+		GUI_DispStringAt("剩余", 130, 190);
 		GUI_SetColor(MYCOLOR_PAGEDISPLAY_TEXT3);
-		GUI_DispStringHCenterAt(buffer2, 175, 206);
-		GUI_DispStringHCenterAt(buffer1, 175, 262);
+		GUI_DispStringHCenterAt(buffer2, 233, 154);
+		GUI_DispStringHCenterAt(buffer1, 233, 190);
 		GUI_SetFont(&GUI_FontD36x48);
-		GUI_DispStringAt(buffer3, 126, 56);//需要大一点的字体
+		GUI_DispStringAt(buffer3, 168, 42);//需要大一点的字体
+		GUI_SetFont(&GUI_FontHZ12);
+		GUI_GotoY(75);
+		GUI_DispString(" 毫升/分");
 										//按钮字体
 		GUI_SetFont(&GUI_FontHZ16);
 		GUI_SetColor(GUI_WHITE);
 		GUI_SetBkColor(MYCOLOR_PAGEDISPLAY_BUTTON);
-		GUI_DispStringHCenterAt("返回", 60, 300);
-		GUI_DispStringHCenterAt(buttonString, 180, 300);
+		GUI_DispStringHCenterAt("返回", 80, 225);
+		GUI_DispStringHCenterAt(buttonString, 240, 225);
 
 		break;
 	case WM_CREATE:
 		hTimer = WM_CreateTimer(pMsg->hWin, 0, 1000, 0);
 		for (int i = 0; i < 4; i++) {
 			if (shuyeData[i][0] == 0)continue;//如果容量为0，则不创建
-			hchild[i] = WM_CreateWindowAsChild(129 + i * 26, 126, 18, 18, pMsg->hWin, WM_CF_SHOW, _cbchild1, sizeof(mydata));
+			hchild[i] = WM_CreateWindowAsChild(172 + i * 34, 105, 18, 18, pMsg->hWin, WM_CF_SHOW, _cbchild1, sizeof(mydata));
 			change_data.id = i + 1;
 			change_data.color = GUI_GREEN;
 			WM_SetUserData(hchild[i], &change_data, sizeof(mydata));
@@ -257,8 +260,8 @@ void pageDisplay(WM_MESSAGE *pMsg) {
 	case WM_PID_STATE_CHANGED:
 		pState = (WM_PID_STATE_CHANGED_INFO *)pMsg->Data.p;
 		if ((pState->StatePrev == 0) && (pState->State == 1)) {
-			if (pState->y >= 296) {
-				if (pState->x < 120) {
+			if (pState->y >= 222) {
+				if (pState->x < 160) {
 					hTimer = WM_CreateTimer(pMsg->hWin, 0, 1000, 0);//防止死机
 					for (int i = 0; i < 4; i++) {
 						shuyeData[i][3] /= 60;
@@ -270,7 +273,7 @@ void pageDisplay(WM_MESSAGE *pMsg) {
 				else //pause
 				{
 					if (!strcmp("暂停", buttonString)) {
-							BEEP=1;
+						BEEP=1;
 						sprintf(buttonString, "%s","开始");
 						WM_InvalidateWindow(pMsg->hWin); //使窗口无效，从而进行更新 致敬ios
 						WM_DeleteTimer(hTimer);
@@ -304,105 +307,105 @@ void pageShuyeDisplay(WM_MESSAGE *pMsg) {
 
 		//画框
 		GUI_SetBkColor(MYCOLOR_PAGESHUYESETTING_CONTENT);
-		GUI_ClearRect(0, 60, 240, 296);
+		GUI_ClearRect(0, 45, 320, 222);
 		GUI_SetBkColor(MYCOLOR_PAGESHUYESETTING_BOTTON_BACKGROUND);
-		GUI_ClearRect(0, 296, 240, 320);
+		GUI_ClearRect(0, 222, 320, 240);
 		//画线
 		GUI_SetPenSize(1);
 		GUI_SetColor(MYCOLOR_LINE);
-		GUI_DrawHLine(60, 0, 240);
-		GUI_DrawHLine(119, 0, 240);
-		GUI_DrawHLine(177, 0, 240);
-		GUI_DrawHLine(236, 0, 240);
-		GUI_DrawHLine(295, 0, 240);
+		GUI_DrawHLine(45, 0, 320);
+		GUI_DrawHLine(89, 0, 320);
+		GUI_DrawHLine(133, 0, 320);
+		GUI_DrawHLine(177, 0, 320);
+		GUI_DrawHLine(221, 0, 320);
 		GUI_SetColor(GUI_WHITE);
-		GUI_DrawVLine(120, 296, 320);
+		GUI_DrawVLine(160, 222, 320);
 		//写字
 		GUI_SetColor(MYCOLOR_PAGESHUYESETTING_TITLE_TEXT);
 		GUI_SetBkColor(MYCOLOR_PAGESHUYESETTING_TITLE_BACKGROUND);
 		GUI_SetFont(&GUI_FontHZ24);
-		GUI_DispStringAt("设置预览", 72, 23);
+		GUI_DispStringHCenterAt("设置预览", 160, 17);
 
 		GUI_SetColor(MYCOLOR_PAGESHUYESETTING_CONTENT_TEXT1);
 		GUI_SetBkColor(GUI_WHITE);
 		GUI_SetFont(&GUI_FontHZ16);
-		GUI_DispStringAt("一", 12, 60.8+20.4);
-		GUI_DispStringAt("二", 12, 119.2+20.4);
-		GUI_DispStringAt("三", 12, 177.6+20.4);
-		GUI_DispStringAt("四", 12, 236+20.4);
+		GUI_DispStringAt("一号瓶", 16, 60);
+		GUI_DispStringAt("二号瓶", 16, 105);
+		GUI_DispStringAt("三号瓶", 16, 148);
+		GUI_DispStringAt("四号瓶", 16, 192);
 
 		GUI_SetColor(GUI_WHITE);
 		GUI_SetBkColor(MYCOLOR_PAGESHUYESETTING_BOTTON_BACKGROUND);
-		GUI_DispStringHCenterAt("返回", 60, 300);
-		GUI_DispStringHCenterAt("确定", 180, 300);
+		GUI_DispStringHCenterAt("返回", 80, 225);
+		GUI_DispStringHCenterAt("确定", 240, 225);
 
 		GUI_SetColor(MYCOLOR_PAGESHUYESETTING_CONTENT_TEXT2);
 		GUI_SetBkColor(GUI_WHITE);
 		GUI_SetFont(&GUI_FontHZ12);
 
-		sprintf(buffer1, "容量:%.1f ml", shuyeData[0][0]);
-		GUI_DispStringAt(buffer1, 110, 60.8 + 4.8);
-		sprintf(buffer1, "容量:%.1f ml", shuyeData[1][0]);
-		GUI_DispStringAt(buffer1, 110, 119.2 + 4.8);
-		sprintf(buffer1, "容量:%.1f ml", shuyeData[2][0]);
-		GUI_DispStringAt(buffer1, 110, 177.6 + 4.8);
-		sprintf(buffer1, "容量:%.1f ml", shuyeData[3][0]);
-		GUI_DispStringAt(buffer1, 110, 236 + 4.8);
+		sprintf(buffer1, "容量:%.1f 毫升", shuyeData[0][0]);
+		GUI_DispStringAt(buffer1, 156, 49);
+		sprintf(buffer1, "容量:%.1f 毫升", shuyeData[1][0]);
+		GUI_DispStringAt(buffer1, 156, 93);
+		sprintf(buffer1, "容量:%.1f 毫升", shuyeData[2][0]);
+		GUI_DispStringAt(buffer1, 156, 137);
+		sprintf(buffer1, "容量:%.1f 毫升", shuyeData[3][0]);
+		GUI_DispStringAt(buffer1, 156, 180);
 
-		sprintf(buffer1, "速度:%.1f ml/min", shuyeData[0][1]);
-		GUI_DispStringAt(buffer1,    60, 60.8 + 22);
-		sprintf(buffer1, "速度:%.1f ml/min", shuyeData[1][1]);
-		GUI_DispStringAt(buffer1, 60, 119.2+ 22);
-		sprintf(buffer1, "速度:%.1f ml/min", shuyeData[2][1]);
-		GUI_DispStringAt(buffer1, 60, 177.6+ 22);
-		sprintf(buffer1, "速度:%.1f ml/min", shuyeData[3][1]);
-		GUI_DispStringAt(buffer1,60, 236+ 22);
+		sprintf(buffer1, "速度:%.1f 毫升/分", shuyeData[0][1]);
+		GUI_DispStringAt(buffer1, 90, 62);
+		sprintf(buffer1, "速度:%.1f 毫升/分", shuyeData[1][1]);
+		GUI_DispStringAt(buffer1, 90, 106);
+		sprintf(buffer1, "速度:%.1f 毫升/分", shuyeData[2][1]);
+		GUI_DispStringAt(buffer1, 90, 150);
+		sprintf(buffer1, "速度:%.1f 毫升/分", shuyeData[3][1]);
+		GUI_DispStringAt(buffer1,90, 193);
 
-		sprintf(buffer1, "时间:%.1f min", shuyeData[0][3]);
-		GUI_DispStringAt(buffer1, 60, 60.8 + 40.8);
-		sprintf(buffer1, "时间:%.1f min", shuyeData[1][3]);
-		GUI_DispStringAt(buffer1, 60, 119.2 + 40.8);
-		sprintf(buffer1, "时间:%.1f min", shuyeData[2][3]);
-		GUI_DispStringAt(buffer1, 60, 177.6 + 40.8);
-		sprintf(buffer1, "时间:%.1f min", shuyeData[3][3]);
-		GUI_DispStringAt(buffer1, 60, 236 + 40.8);
+		sprintf(buffer1, "时间:%.1f 分", shuyeData[0][3]);
+		GUI_DispStringAt(buffer1, 90, 76);
+		sprintf(buffer1, "时间:%.1f 分", shuyeData[1][3]);
+		GUI_DispStringAt(buffer1, 90, 120);
+		sprintf(buffer1, "时间:%.1f 分", shuyeData[2][3]);
+		GUI_DispStringAt(buffer1, 90, 163);
+		sprintf(buffer1, "时间:%.1f 分", shuyeData[3][3]);
+		GUI_DispStringAt(buffer1, 90, 207);
 
-		sprintf(buffer1, "速度:%.1f ml/min", shuyeData[0][2]);
-		GUI_DispStringAt(buffer1, 155, 60.8 + 22);
-		sprintf(buffer1, "速度:%.1f ml/min", shuyeData[1][2]);
-		GUI_DispStringAt(buffer1, 155, 119.2 + 22);
-		sprintf(buffer1, "速度:%.1f ml/min", shuyeData[2][2]);
-		GUI_DispStringAt(buffer1, 155, 177.6 + 22);
-		sprintf(buffer1, "速度:%.1f ml/min", shuyeData[3][2]);
-		GUI_DispStringAt(buffer1, 155, 236 + 22);
+		sprintf(buffer1, "速度:%.1f 毫升/分", shuyeData[0][2]);
+		GUI_DispStringAt(buffer1, 207, 62);
+		sprintf(buffer1, "速度:%.1f 毫升/分", shuyeData[1][2]);
+		GUI_DispStringAt(buffer1, 207, 106);
+		sprintf(buffer1, "速度:%.1f 毫升/分", shuyeData[2][2]);
+		GUI_DispStringAt(buffer1, 207, 150);
+		sprintf(buffer1, "速度:%.1f 毫升/分", shuyeData[3][2]);
+		GUI_DispStringAt(buffer1, 207, 193);
 
-		sprintf(buffer1, "时间:%.1f min", shuyeData[0][4]);
-		GUI_DispStringAt(buffer1, 155, 60.8 + 40.8);
-		sprintf(buffer1, "时间:%.1f min", shuyeData[1][4]);
-		GUI_DispStringAt(buffer1, 155, 119.2 + 40.8);
-		sprintf(buffer1, "时间:%.1f min", shuyeData[2][4]);
-		GUI_DispStringAt(buffer1, 155, 177.6 + 40.8);
-		sprintf(buffer1, "时间:%.1f min", shuyeData[3][4]);
-		GUI_DispStringAt(buffer1, 155, 236 + 40.8);
+		sprintf(buffer1, "时间:%.1f 分", shuyeData[0][4]);
+		GUI_DispStringAt(buffer1, 207, 76);
+		sprintf(buffer1, "时间:%.1f 分", shuyeData[1][4]);
+		GUI_DispStringAt(buffer1, 207, 120);
+		sprintf(buffer1, "时间:%.1f 分", shuyeData[2][4]);
+		GUI_DispStringAt(buffer1, 207, 163);
+		sprintf(buffer1, "时间:%.1f 分", shuyeData[3][4]);
+		GUI_DispStringAt(buffer1, 207, 207);
 		break;
 	case WM_PID_STATE_CHANGED:
 		pState = (WM_PID_STATE_CHANGED_INFO *)pMsg->Data.p;
 		if ((pState->StatePrev == 0) && (pState->State == 1)) {
 				WM_DeleteWindow(pMsg->hWin);
-			if (pState->y > 60.8 && pState->y < 119.2) {
+			if (pState->y > 45 && pState->y < 89) {
 				W_pageShuyeSetting(0);
 			}
-			else if (pState->y > 119.2 && pState->y < 177.6) {
+			else if (pState->y > 89 && pState->y < 133) {
 				W_pageShuyeSetting(1);
 			}
-			else if (pState->y > 177.6 && pState->y < 236) {
+			else if (pState->y > 133 && pState->y < 177) {
 				W_pageShuyeSetting(2);
 			}
-			else if (pState->y > 236 && pState->y < 296) {
+			else if (pState->y > 177 && pState->y < 222) {
 				W_pageShuyeSetting(3);
 			}
-			else if (pState->y >= 296) {
-				if (pState->x < 120) {
+			else if (pState->y >= 222) {
+				if (pState->x < 160) {
 					W_pageShuyeSetting(0);
 				}
 				else {
@@ -432,50 +435,50 @@ void pageShuyeSetting(WM_MESSAGE *pMsg) {
 		GUI_Clear();
 
 		//画框
-		GUI_SetBkColor(MYCOLOR_PAGESHUYESETTING_CONTENT);
-		GUI_ClearRect(0, 85, 240, 296);
+//		GUI_SetBkColor(MYCOLOR_PAGESHUYESETTING_CONTENT);
+//		GUI_ClearRect(0, 64, 320, 222);
 		GUI_SetBkColor(MYCOLOR_PAGESHUYESETTING_BOTTON_BACKGROUND);
-		GUI_ClearRect(0, 296, 240, 320);
+		GUI_ClearRect(0, 222, 320, 240);
 		//画线
-		GUI_SetPenSize(1);
-		GUI_SetColor(MYCOLOR_LINE);
-		GUI_DrawHLine(85, 0, 240);
-		GUI_DrawHLine(136, 0, 240);
-		GUI_DrawHLine(187, 0, 240);
-		GUI_DrawHLine(238, 0, 240);
-		GUI_DrawHLine(295, 0, 240);
+//		GUI_SetPenSize(1);
+//		GUI_SetColor(MYCOLOR_LINE);
+//		GUI_DrawHLine(63, 0, 320);
+//		GUI_DrawHLine(102, 0, 320);
+//		GUI_DrawHLine(140, 0, 320);
+//		GUI_DrawHLine(178, 0, 320);
+//		GUI_DrawHLine(221, 0, 320);
 		GUI_SetColor(GUI_WHITE);
-		GUI_DrawVLine(120, 296, 320);
+		GUI_DrawVLine(160, 222, 320);
 		//写字
 		GUI_SetColor(MYCOLOR_PAGESHUYESETTING_TITLE_TEXT);
 		GUI_SetBkColor(MYCOLOR_PAGESHUYESETTING_TITLE_BACKGROUND);
 		GUI_SetFont(&GUI_FontHZ24);
-		GUI_DispStringHCenterAt("预设置", 120, 40);
+		GUI_DispStringHCenterAt("预设置", 160, 15);
 
 
 		GUI_SetFont(&GUI_FontHZ16);
 		GUI_SetColor(GUI_WHITE);
 		GUI_SetBkColor(MYCOLOR_PAGESHUYESETTING_BOTTON_BACKGROUND);
-		GUI_DispStringHCenterAt("返回", 60, 300);
-		GUI_DispStringHCenterAt("确定", 180, 300);
+		GUI_DispStringHCenterAt("返回", 80, 225);
+		GUI_DispStringHCenterAt("确定", 240, 225); 
 
 		// GUI_SetColor(MYCOLOR_PAGESHUYESETTING_CONTENT_TEXT2);
 		// GUI_SetBkColor(GUI_WHITE);
 		// GUI_SetFont(&GUI_FontHZ16);
-		// GUI_DispStringAt("容量:        ml", 85, 90);
+		// GUI_DispStringAt("容量:        毫升", 85, 90);
 		// GUI_DispStringAt("时间:            ", 85, 110);
-		// GUI_DispStringAt("容量:        ml", 85, 140);
+		// GUI_DispStringAt("容量:        毫升", 85, 140);
 		// GUI_DispStringAt("时间:            ", 85, 160);
-		// GUI_DispStringAt("容量:        ml", 85, 193);
+		// GUI_DispStringAt("容量:        毫升", 85, 193);
 		// GUI_DispStringAt("时间:            ", 85, 213);
-		// GUI_DispStringAt("容量:        ml", 85, 243);
+		// GUI_DispStringAt("容量:        毫升", 85, 243);
 		// GUI_DispStringAt("时间:            ", 85, 263);
 		break;
 	case WM_PID_STATE_CHANGED:
 		pState = (WM_PID_STATE_CHANGED_INFO *)pMsg->Data.p;
 		if ((pState->StatePrev == 0) && (pState->State == 1)) {
-			if (pState->y >= 296) {
-				if (pState->x < 120) {
+			if (pState->y >= 222) {
+				if (pState->x < 160) {
 					WM_DeleteWindow(pMsg->hWin);
 					W_pageHome();
 				}
@@ -512,38 +515,38 @@ void pageHome(WM_MESSAGE *pMsg) {
 
 		//画框
 		GUI_SetBkColor(MYCOLOR_PAGEHOME_SHUYE_BACKGROUND);
-		GUI_ClearRect(0, 197, 240, 259);
+		GUI_ClearRect(0, 147, 320, 194);
 		GUI_SetBkColor(MYCOLOR_PAGEHOME_SYSTEM_BACKGROUND);
-		GUI_ClearRect(0, 259, 240, 320);
+		GUI_ClearRect(0, 194, 320, 240);
 
 		//画线
 		GUI_SetPenSize(1);
 		GUI_SetColor(MYCOLOR_LINE);
-		GUI_DrawHLine(197, 0, 240);
-		GUI_DrawHLine(259, 0, 240);
+		GUI_DrawHLine(147, 0, 320);
+		GUI_DrawHLine(194, 0, 320);
 
 		//写字
 		GUI_SetColor(MYCOLOR_PAGEHOME_TITLE_TEXT);
 		GUI_SetBkColor(MYCOLOR_PAGEHOME_TITLE_BACKGROUND);
 		GUI_SetFont(&GUI_FontHZ24);
-		GUI_DispStringHCenterAt("MULTI-全自动", 120, 70);
-		GUI_DispStringHCenterAt("智能输液宝", 120, 100);
+		GUI_DispStringHCenterAt("MULTI-全自动", 160, 52);
+		GUI_DispStringHCenterAt("智能输液宝", 160, 75);
 
 		GUI_SetColor(MYCOLOR_PAGEHOME_SETTING_TEXT);
 		GUI_SetBkColor(MYCOLOR_PAGEHOME_SHUYE_BACKGROUND);
 		GUI_SetFont(&GUI_FontHZ16);
-		GUI_DispStringHCenterAt("输液设置", 120, 222);
+		GUI_DispStringHCenterAt("输液设置", 160, 166);
 		GUI_SetBkColor(MYCOLOR_PAGEHOME_SYSTEM_BACKGROUND);
-		GUI_DispStringHCenterAt("系统设置", 120, 280);
+		GUI_DispStringHCenterAt("系统设置", 160, 210);
 		break;
 	case WM_PID_STATE_CHANGED:
 		pState = (WM_PID_STATE_CHANGED_INFO *)pMsg->Data.p;
 		if ((pState->StatePrev == 0) && (pState->State == 1)) {
-			if (pState->y < 259 && pState->y>197) {//输液设置
+			if (pState->y < 194 && pState->y>147) {//输液设置
 				WM_DeleteWindow(pMsg->hWin);
 				W_pageShuyeSetting(0);
 			}
-			else if (pState->y > 259 && pState->y < 320) {//系统设置
+			else if (pState->y > 194 && pState->y < 240) {//系统设置
 														  //GUI_DispStringAt("1", 0, 0);
 				WM_DeleteWindow(pMsg->hWin);
 				W_pageSetting();
@@ -565,49 +568,49 @@ void pageSetting(WM_MESSAGE *pMsg) {
 		//GUI_DispString("hello,emwin");
 		//画背景
 		GUI_SetBkColor(MYCOLOR_TEXT_BACKGROUND);
-		GUI_ClearRect(0, 109, 240, 320);
+ 		GUI_ClearRect(0, 82, 320, 240);
 		//画线
 		GUI_SetPenSize(1);
 		GUI_SetColor(MYCOLOR_LINE);
-		GUI_DrawHLine(109, 0, 240);
-		GUI_DrawHLine(150, 0, 240);
-		GUI_DrawHLine(193, 0, 240);
-		GUI_DrawLine(0, 235, 240, 235);
-		GUI_DrawHLine(278, 0, 240);
+		GUI_DrawHLine(82, 0, 320);
+		GUI_DrawHLine(112, 0, 320);
+		GUI_DrawHLine(144, 0, 320);
+		GUI_DrawLine(0, 176, 320, 176);
+		GUI_DrawHLine(208, 0, 320);
 		//写字
 		GUI_SetColor(MYCOLOR_TITLE_TEXT);
 		GUI_SetBkColor(MYCOLOR_TITLE_BACKGROUND);
 		GUI_SetFont(&GUI_FontHZ32);
-		GUI_DispStringHCenterAt("系统设置", 120, 51.6);
+		GUI_DispStringHCenterAt("系统设置", 160, 39);
 
 		GUI_SetColor(MYCOLOR_CONTENT_TEXT);
 		GUI_SetBkColor(MYCOLOR_TEXT_BACKGROUND);
 		GUI_SetFont(&GUI_FontHZ16);
-		GUI_DispStringHCenterAt("个性设置", 120, 108 + 10);
-		GUI_DispStringHCenterAt("系统升级", 120, 150.4 + 10);
-		GUI_DispStringHCenterAt("系统状态", 120, 192.8 + 10);
-		GUI_DispStringHCenterAt("关于我们", 120, 235.2 + 10);
-		GUI_DispStringHCenterAt("返回", 120, 277.6 + 10);
+		GUI_DispStringHCenterAt("个性设置", 160, 88);
+		GUI_DispStringHCenterAt("系统升级", 160, 120);
+		GUI_DispStringHCenterAt("系统状态", 160, 152);
+		GUI_DispStringHCenterAt("关于我们", 160, 183);
+		GUI_DispStringHCenterAt("返回", 160, 216);
 		break;
 	case WM_PID_STATE_CHANGED:
 		pState = (WM_PID_STATE_CHANGED_INFO *)pMsg->Data.p;
 		if ((pState->StatePrev == 0) && (pState->State == 1)) {
-			if (pState->y < 17.9&&pState->x>191) {
+			if (pState->y < 13&&pState->x>254) {
 				GUI_DispStringAt("0", 0, 0);
 			}
-			else if (pState->y > 108 && pState->y < 150) {
+			else if (pState->y > 81 && pState->y < 112) {
 				GUI_DispStringAt("1", 0, 0);
 			}
-			else if (pState->y >= 150 && pState->y<193) {
+			else if (pState->y >= 112 && pState->y<144) {
 				GUI_DispStringAt("2", 0, 0);
 			}
-			else if (pState->y >= 193 && pState->y <= 235) {
+			else if (pState->y >= 144 && pState->y <= 176) {
 				GUI_DispStringAt("3", 0, 0);
 			}
-			else if (pState->y >= 235 && pState->y <= 278) {
+			else if (pState->y >= 176 && pState->y <= 208) {
 				GUI_DispStringAt("4", 0, 0);
 			}
-			else if (pState->y >= 278) {
+			else if (pState->y >= 208) {
 				WM_DeleteWindow(pMsg->hWin);
 				W_pageHome();
 			}
@@ -618,7 +621,7 @@ void pageSetting(WM_MESSAGE *pMsg) {
 	}
 
 }
-void createMultipage(WM_HWIN *hWnd,int *page) {
+	void createMultipage(WM_HWIN *hWnd,int *page) {
 	WM_HWIN pageBottle;
 
 	MULTIPAGE_SetDefaultSkin(MULTIPAGE_SKIN_FLEX);
@@ -626,16 +629,16 @@ void createMultipage(WM_HWIN *hWnd,int *page) {
 	MULTIPAGE_SetSkinFlexProps(&multipage_skin_SELECTED, MULTIPAGE_SKINFLEX_PI_SELECTED);
 	MULTIPAGE_SetSkinFlexProps(&multipage_skin_ENABLE, MULTIPAGE_SKINFLEX_PI_ENABLED);
 
-	aMultipage = MULTIPAGE_CreateEx(0, 84, 240, 212, *hWnd, WM_CF_SHOW, 0, 0);
+	aMultipage = MULTIPAGE_CreateEx(0, 45, 320, 159, *hWnd, WM_CF_SHOW, 0, 0);
 	MULTIPAGE_SetFont(aMultipage, &GUI_Font16B_1);
 	pageBottle = GUI_CreateDialogBox(_aDialogCreate4, GUI_COUNTOF(_aDialogCreate4), _cbBottle4, WM_UNATTACHED, 0, 0);
-	MULTIPAGE_AddPage(aMultipage, pageBottle, "     1      ");
+	MULTIPAGE_AddPage(aMultipage, pageBottle, "       1         ");
 	pageBottle = GUI_CreateDialogBox(_aDialogCreate4, GUI_COUNTOF(_aDialogCreate4), _cbBottle4, WM_UNATTACHED, 0, 0);
-	MULTIPAGE_AddPage(aMultipage, pageBottle, "     2      ");
+	MULTIPAGE_AddPage(aMultipage, pageBottle, "       2         ");
 	pageBottle = GUI_CreateDialogBox(_aDialogCreate4, GUI_COUNTOF(_aDialogCreate4), _cbBottle4, WM_UNATTACHED, 0, 0);
-	MULTIPAGE_AddPage(aMultipage, pageBottle, "     3      ");
+	MULTIPAGE_AddPage(aMultipage, pageBottle, "       3         ");
 	pageBottle = GUI_CreateDialogBox(_aDialogCreate4, GUI_COUNTOF(_aDialogCreate4), _cbBottle4, WM_UNATTACHED, 0, 0);
-	MULTIPAGE_AddPage(aMultipage, pageBottle, "     4      ");
+	MULTIPAGE_AddPage(aMultipage, pageBottle, "       4         ");
 	MULTIPAGE_SelectPage(aMultipage, *page);
 
 }
@@ -651,19 +654,19 @@ void _cbBottle4(WM_MESSAGE *pMsg) {
 		GUI_Clear();
 		GUI_SetFont(&GUI_FontHZ24);
 		GUI_SetColor(GUI_BLACK);
-		GUI_DispStringAt("容量:", 16, 16);
+		GUI_DispStringAt("容量:", 86, 7);
 		GUI_SetFont(&GUI_FontHZ16);
-		GUI_DispStringAt("ML", 130, 24);
+		GUI_DispStringAt("毫升", 210, 13);
 		GUI_SetFont(&GUI_FontHZ16);
-		GUI_DispStringAt("速率1:", 5, 50);
-		GUI_DispStringAt("时间1:", 5, 85);
-		GUI_DispStringAt("速率2:", 125, 50);
-		GUI_DispStringAt("时间2:", 125, 85);
-		GUI_SetFont(&GUI_Font10_1);
-		GUI_DispStringAt("ml/min", 80, 50+3);
-		GUI_DispStringAt("min", 80, 85+3);
-		GUI_DispStringAt("ml/min", 200, 50+3);
-		GUI_DispStringAt("min", 200, 85+3);
+		GUI_DispStringAt("速率1:", 6, 35);
+		GUI_DispStringAt("时间1:", 6, 63);
+		GUI_DispStringAt("速率2:", 166, 35);
+		GUI_DispStringAt("时间2:", 166, 63);
+		GUI_SetFont(&GUI_FontHZ12);
+		GUI_DispStringAt("毫升/分", 106, 39);
+		GUI_DispStringAt("分", 106, 65);
+		GUI_DispStringAt("毫升/分", 266, 39);
+		GUI_DispStringAt("分", 266, 65);
 		break;
 	case WM_INIT_DIALOG:
 		id_bottle++;
@@ -749,7 +752,7 @@ void _cbBottle4(WM_MESSAGE *pMsg) {
 					//shuyeData[id_bottle][1] = shuyeData[id_bottle][0] / shuyeData[id_bottle][3];
 				}
 				else {//改小值了
-					shuyeData[id_bottle][2] = 5;//默认是5ml/min
+					shuyeData[id_bottle][2] = 5;//默认是5ml/分
 					shuyeData[id_bottle][4] = (shuyeData[id_bottle][0] - shuyeData[id_bottle][1] * shuyeData[id_bottle][3]) / shuyeData[id_bottle][2];
 				}
 				hEdit = WM_GetDialogItem(pMsg->hWin, GUI_ID_EDIT2);

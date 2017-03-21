@@ -9,9 +9,9 @@
 #define STEPMOTOR_IN 0
 #define STEPMOTOR_MAX 900
 #define STEPMOTOR_MIN 0
-#define stepMotor_dir1 PFout(3)
-#define stepMotor_step1 PFout(4)
-#define stepMotor_enable1 PFout(5)
+#define stepMotor_dir1 PFout(13)
+#define stepMotor_step1 PFout(11)
+#define stepMotor_enable1 PFout(14)
 
 #define stepMotor_dir2 PDout(11)
 #define stepMotor_step2 PDout(12)

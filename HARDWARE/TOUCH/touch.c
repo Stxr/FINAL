@@ -94,23 +94,32 @@ u16 TP_Read_XOY(u8 xy)
 	u16 buf[READ_TIMES];
 	u16 sum=0;
 	u16 temp;
-	for(i=0;i<READ_TIMES;i++)buf[i]=TP_Read_AD(xy);		 		    
-	for(i=0;i<READ_TIMES-1; i++)//排序
-	{
-		for(j=i+1;j<READ_TIMES;j++)
-		{
-			if(buf[i]>buf[j])//升序排列
-			{
-				temp=buf[i];
-				buf[i]=buf[j];
-				buf[j]=temp;
-			}
+	for(i=0;i<READ_TIMES;i++)buf[i]=TP_Read_AD(xy);		 	
+	for(i=1;i<READ_TIMES;i++){ //排序 插入排序
+		j=i-1;
+		temp=buf[i];
+		while(buf[j]>temp&&j>0){
+			buf[j+1]=buf[j];
+			j--;
 		}
-	}	  
+		buf[j+1]=temp;
+	}	
+//	for(i=0;i<READ_TIMES-1; i++)//排序
+//	{
+//		for(j=i+1;j<READ_TIMES;j++)
+//		{
+//			if(buf[i]>buf[j])//升序排列
+//			{
+//				temp=buf[i];
+//				buf[i]=buf[j];
+//				buf[j]=temp;
+//			}
+//		}
+//	}	  
 	sum=0;
 	for(i=LOST_VAL;i<READ_TIMES-LOST_VAL;i++)sum+=buf[i];
 	temp=sum/(READ_TIMES-2*LOST_VAL);
-	return temp;   
+	return 4095-temp;   //DFT_SCAN_DIR 为 R2L_D2U 时需要设置
 } 
 //读取x,y坐标
 //最小值不能少于100.
@@ -488,14 +497,14 @@ u8 TP_Init(void)
 	 	GPIO_SetBits(GPIOG,GPIO_Pin_8);//上拉		
  
 		TP_Read_XY(&tp_dev.x[0],&tp_dev.y[0]);//第一次读取初始化	 
-//		AT24CXX_Init();			//初始化24CXX
-//		if(TP_Get_Adjdata())return 0;//已经校准
-//		else			  		//未校准?
-//		{ 										    
-//			LCD_Clear(WHITE);	//清屏
-//			TP_Adjust();  		//屏幕校准  
-//		}			
-//		TP_Get_Adjdata();	
+		AT24CXX_Init();			//初始化24CXX
+		if(TP_Get_Adjdata())return 0;//已经校准
+		else			  		//未校准?
+		{ 										    
+			LCD_Clear(WHITE);	//清屏
+			TP_Adjust();  		//屏幕校准  
+		}			
+		TP_Get_Adjdata();	
 	}
 	return 1; 									 
 }

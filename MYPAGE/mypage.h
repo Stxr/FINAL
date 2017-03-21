@@ -42,6 +42,8 @@
 
 #define MULTIPAGE_PI_ENABLED MULTIPAGE_SKINFLEX_PI_ENABLED
 
+#define SCREEN_X 1
+#define SCREEN_Y 1
 
 
 static WM_CALLBACK * _pEditCallback;
