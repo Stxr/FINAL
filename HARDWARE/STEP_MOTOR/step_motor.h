@@ -1,5 +1,16 @@
 #ifndef __STEPMOTOR_H
 #define __STEPMOTOR_H
+/*
+	id		电机初始值   量程
+	
+	1      
+	
+	2				150				 400
+	
+	3				100				 350
+	
+	4				100				 350
+*/
 #include "sys.h"
 #include "delay.h"
 #include "GUI.h"

@@ -89,8 +89,10 @@ u8 stepMotor_Reset(u8 id){
 	int i=0;
 	i=AT24CXX_ReadOneByte(0);
 	if((i&(0xf0|1<<(id-1)))==(0xf0|1<<(id-1))){ //如果之前已经初始化了 高四位为1
+		printf("已经初始化了\r\n");
 		stepMotor_Distance(id,5,-STEPMOTOR_MAX); //
 	}else{//第一次初始化
+		printf("第一次初始化\r\n");
 		AT24CXX_WriteOneByte(0,(i|0xf0)|1<<(id-1));//初始化 ，低四位哪一位初始化就把哪一位置一
 		for(i=0;i<333;i++){ //复位为0
 			stepMotor_Run(id,STEPMOTOR_IN,5);

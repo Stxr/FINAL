@@ -1,6 +1,7 @@
 #ifndef __BEEP_H
 #define __BEEP_H	 
 #include "sys.h"
+#include "delay.h"
 //////////////////////////////////////////////////////////////////////////////////	 
 //本程序只供学习使用，未经作者许可，不得用于其它任何用途
 //ALIENTEK战舰STM32开发板
@@ -17,6 +18,6 @@
 #define BEEP PEout(2)	// BEEP,蜂鸣器接口		   
 
 void BEEP_Init(void);	//初始化
-		 				    
+void BEEP_ms(u16 time);		 				    
 #endif
 

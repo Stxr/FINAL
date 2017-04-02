@@ -4,16 +4,19 @@ typedef struct {
 	u8 id;
 }mydata;
 mydata change_data;
-
-int Time_Left = 0,Time_Used=0,speed=0;
-int isChange=-1;
+int Time_Left = 0,Time_Used=0;
+u8 speed = 0,isChange = 143;
 float shuyeData[4][5]={0};
-u8 id_bottle=0;
-char buffer1[20], buffer2[20], buffer3[5];//三个公用内存空间
-
+u8 id_bottle=0,last_bottle = 0;
+char buffer1[20],buffer3[5];//三个公用内存空间
+//char buttonString[6]="暂停";
+char  *buttonString, *buffer2;
+u8 i;//计数用
 WM_HTIMER hTimer;
 WM_HWIN hchild[4];
 MULTIPAGE_Handle aMultipage;
+//typedef  void (*fun)(void);				//定义一个函数类型的参数.   
+//fun BaseStart;
 
 GUI_WIDGET_CREATE_INFO _aDialogNumPad[] = {
 	//
@@ -79,15 +82,20 @@ void MainTask(void) {
 //		printf("id_bottle:%d\n",id_bottle);
 	}
 }
+void SoftReset(void)
+{
+	__set_FAULTMASK(1); // 关闭所有中端
+	NVIC_SystemReset();// 复位
+}
 void W_pageDisplay(void) {
 	id_bottle = 0; //很神奇
 	//memset(buffer1, 0, sizeof(char));
 	buffer1[0] = '\0'; //数组假清零
 	buffer3[0] = '\0'; //数组假清零
-//	stepMotor_Reset(1);
-//	stepMotor_Reset(2);
-//	stepMotor_Reset(3);
-//	stepMotor_Reset(4);
+	stepMotor_Reset(1);
+	stepMotor_Reset(2);
+	stepMotor_Reset(3);
+	stepMotor_Reset(4);
 	WM_CreateWindow(0, 0, 320, 240, WM_CF_SHOW, pageDisplay, 0);
 }
 void W_pageHome(void) {
@@ -110,7 +118,6 @@ void W_pageShuyeSetting(int page) {
 	hNumPad = GUI_CreateDialogBox(_aDialogNumPad, GUI_COUNTOF(_aDialogNumPad), _cbDialogNumPad, hWnd, 0, 0); /* Create the numpad dialog */
 	WM_SetStayOnTop(hNumPad, 1);
 	createMultipage(&hWnd,&page);
-
 }
 void W_pageShuyeDisplay(void) {
 	id_bottle = 0; //很神奇
@@ -138,7 +145,6 @@ void _cbchild1(WM_MESSAGE *pMsg) {
 void pageDisplay(WM_MESSAGE *pMsg) {
 	WM_PID_STATE_CHANGED_INFO  *pState;
 	GUI_RECT InvalidateRect = { 175,206,222,225 };
-	static char buttonString[6]="暂停";
 	switch (pMsg->MsgId)
 	{
 	case WM_TIMER:
@@ -155,10 +161,16 @@ void pageDisplay(WM_MESSAGE *pMsg) {
 				WM_ShowWindow(hchild[id_bottle]);
 			}
 			if (shuyeData[id_bottle][3] != 0) { //速率1
+				if(shuyeData[id_bottle][4]==0){  //如果没有速率2了，自动变蓝
+					change_data.color = GUI_BLUE;
+					change_data.id = id_bottle+1;
+					WM_SetUserData(hchild[id_bottle], &change_data, sizeof(mydata));
+				}
  				Time_Left = --shuyeData[id_bottle][3];
 				if(speed!=shuyeData[id_bottle][1]){
-					speed = shuyeData[id_bottle][1];
-//					stepMotor_Distance(id_bottle+1,5,speed*100); //speed越大，distance越小
+				 	speed = shuyeData[id_bottle][1]; 
+					BEEP_ms(500);			//切换的时候长响
+					stepMotor_Distance(id_bottle+1,5,speed*50); //speed越大，distance越小
 				}
 			}
 			else { //速率2
@@ -167,15 +179,32 @@ void pageDisplay(WM_MESSAGE *pMsg) {
 				WM_SetUserData(hchild[id_bottle], &change_data, sizeof(mydata));
 				Time_Left = --shuyeData[id_bottle][4];
 				if(speed != shuyeData[id_bottle][2]){
-//					stepMotor_Distance(id_bottle+1,5,(shuyeData[id_bottle][1]-shuyeData[id_bottle][2])*100); //
+					BEEP_ms(100);    //切换速率短响
+					stepMotor_Distance(id_bottle+1,5,(shuyeData[id_bottle][1]-shuyeData[id_bottle][2])*50); //
 					speed = shuyeData[id_bottle][2];
 				}				
+			} 
+			if(id_bottle == last_bottle){  //如果是最后一瓶了
+				if(shuyeData[id_bottle][3] ==0 || shuyeData[id_bottle][4]==0){ //最后的速率
+					if(Time_Left==60){ //最后一分钟响两声
+						BEEP_ms(100);
+						GUI_Delay(200);
+						BEEP_ms(100);
+					}
+					if(Time_Left<=10){ //最后10s倒计时
+						BEEP_ms(100);
+					}
+				}
+			
 			}
 			if (shuyeData[id_bottle][4] <= 0 && shuyeData[id_bottle][3] <= 0) { //输液完成
 				change_data.color = GUI_BLACK;
 				change_data.id = id_bottle+1;//标号从0开始，显示从1开始
 				WM_SetUserData(hchild[id_bottle], &change_data, sizeof(mydata));
 				WM_ShowWindow(hchild[id_bottle]);
+				if(id_bottle == last_bottle){ //如果是最后一瓶
+					BEEP = 1; //一直响
+				}
 			}
 		}
 		sprintf(buffer3, "%d", speed);
@@ -192,10 +221,10 @@ void pageDisplay(WM_MESSAGE *pMsg) {
 		InvalidateRect.y0 = 190;
 		InvalidateRect.y1 = 224;
 		WM_InvalidateRect(pMsg->hWin, &InvalidateRect);
-		if (isChange != speed) {
+		if (isChange != speed) { //更新速度
 			isChange = speed;
 			InvalidateRect.x0 = 169;
-			InvalidateRect.y0 = 41;
+			InvalidateRect.y0 = 20;
 			InvalidateRect.x1 = 214;
 			InvalidateRect.y1 = 78;
 			WM_InvalidateRect(pMsg->hWin, &InvalidateRect);
@@ -226,9 +255,9 @@ void pageDisplay(WM_MESSAGE *pMsg) {
 		GUI_DispStringHCenterAt(buffer2, 233, 154);
 		GUI_DispStringHCenterAt(buffer1, 233, 190);
 		GUI_SetFont(&GUI_FontD36x48);
-		GUI_DispStringAt(buffer3, 168, 42);//需要大一点的字体
+		GUI_DispStringAt(buffer3, 168, 30);//需要大一点的字体
 		GUI_SetFont(&GUI_FontHZ12);
-		GUI_GotoY(75);
+		GUI_GotoY(63);
 		GUI_DispString(" 毫升/分");
 										//按钮字体
 		GUI_SetFont(&GUI_FontHZ16);
@@ -239,31 +268,28 @@ void pageDisplay(WM_MESSAGE *pMsg) {
 
 		break;
 	case WM_CREATE:
+		buttonString = (char *) malloc(sizeof(char)*6);
+		buffer2 = (char *)malloc(sizeof(char)*20);
+		sprintf(buttonString, "%s", "暂停");
 		hTimer = WM_CreateTimer(pMsg->hWin, 0, 1000, 0);
-		for (int i = 0; i < 4; i++) {
+		for (i = 0; i < 4; i++) {
 			if (shuyeData[i][0] == 0)continue;//如果容量为0，则不创建
+			last_bottle = i; //记录最后瓶子的序号
 			hchild[i] = WM_CreateWindowAsChild(172 + i * 34, 105, 18, 18, pMsg->hWin, WM_CF_SHOW, _cbchild1, sizeof(mydata));
 			change_data.id = i + 1;
 			change_data.color = GUI_GREEN;
 			WM_SetUserData(hchild[i], &change_data, sizeof(mydata));
 		}
-
-		//display
-		//GUI_SetColor(MYCOLOR_PAGESHUYESETTING_CONTENT_TEXT2);
-		//for (int i = 0; i < 4; i++) {
-		//	for (int j = 0; j < 5; j++) {
-		//		GUI_DispDecAt(shuyeData[i][j], 50*j, 50*i, 5);
-		//	}
-		//}
 		break;
 
 	case WM_PID_STATE_CHANGED:
 		pState = (WM_PID_STATE_CHANGED_INFO *)pMsg->Data.p;
 		if ((pState->StatePrev == 0) && (pState->State == 1)) {
 			if (pState->y >= 222) {
-				if (pState->x < 160) {
+				if (pState->x < 160) { //返回了
+					BEEP=0;//关闭蜂鸣器
 					hTimer = WM_CreateTimer(pMsg->hWin, 0, 1000, 0);//防止死机
-					for (int i = 0; i < 4; i++) {
+					for (i = 0; i < 4; i++) {
 						shuyeData[i][3] /= 60;
 						shuyeData[i][4] /= 60;
 					}
@@ -273,14 +299,16 @@ void pageDisplay(WM_MESSAGE *pMsg) {
 				else //pause
 				{
 					if (!strcmp("暂停", buttonString)) {
-						BEEP=1;
+						BEEP_ms(200);
 						sprintf(buttonString, "%s","开始");
+						printf("%s",buttonString);
 						WM_InvalidateWindow(pMsg->hWin); //使窗口无效，从而进行更新 致敬ios
 						WM_DeleteTimer(hTimer);
 					}
 					else {
-						BEEP=0;
+						BEEP_ms(500); //开始
 						sprintf(buttonString, "%s", "暂停");
+						printf("%s",buttonString);
 						WM_InvalidateWindow(pMsg->hWin); //使窗口无效，从而进行更新
 						hTimer = WM_CreateTimer(pMsg->hWin, 0, 1000, 0);
 					}
@@ -289,6 +317,8 @@ void pageDisplay(WM_MESSAGE *pMsg) {
 		}
 		break;
 	case WM_DELETE:
+		free(buttonString);
+		free(buffer2);
 		WM_DeleteTimer(hTimer);
 		id_bottle = 0;
 	default:
@@ -409,7 +439,7 @@ void pageShuyeDisplay(WM_MESSAGE *pMsg) {
 					W_pageShuyeSetting(0);
 				}
 				else {
-					for (int i = 0; i < 4; i++) {
+					for (i = 0; i < 4; i++) {
 						shuyeData[i][3] *= 60;//分钟化秒
 						shuyeData[i][4] *= 60;
 					}
@@ -598,17 +628,19 @@ void pageSetting(WM_MESSAGE *pMsg) {
 			if (pState->y < 13&&pState->x>254) {
 				GUI_DispStringAt("0", 0, 0);
 			}
-			else if (pState->y > 81 && pState->y < 112) {
+			else if (pState->y > 81 && pState->y < 112) {	//个性设置
 				GUI_DispStringAt("1", 0, 0);
 			}
-			else if (pState->y >= 112 && pState->y<144) {
-				GUI_DispStringAt("2", 0, 0);
+			else if (pState->y >= 112 && pState->y<144) { //系统升级
+//				Jump2Base(FLASH_BASE_ADDR); //回到初始地址
+					SoftReset(); //复位 升级
 			}
-			else if (pState->y >= 144 && pState->y <= 176) {
+			else if (pState->y >= 144 && pState->y <= 176) { //系统状态
 				GUI_DispStringAt("3", 0, 0);
 			}
 			else if (pState->y >= 176 && pState->y <= 208) {
-				GUI_DispStringAt("4", 0, 0);
+				WM_DeleteWindow(pMsg->hWin);
+				W_aboutUs(); //关于我们
 			}
 			else if (pState->y >= 208) {
 				WM_DeleteWindow(pMsg->hWin);
@@ -670,7 +702,7 @@ void _cbBottle4(WM_MESSAGE *pMsg) {
 		break;
 	case WM_INIT_DIALOG:
 		id_bottle++;
-		for (int i = 0; i < 5; i++) {
+		for (i = 0; i < 5; i++) {
 			hEdit = WM_GetDialogItem(pMsg->hWin, GUI_ID_EDIT0 + i);
 			if (i == 0) {
 				EDIT_SetFont(hEdit, &GUI_Font24B_1);
@@ -712,7 +744,7 @@ void _cbBottle4(WM_MESSAGE *pMsg) {
 			//EDIT_GetText(hEdit, c_valume, 4);
 			//sscanf(c_valume, "%f", &data[0]);
 			id_bottle = MULTIPAGE_GetSelection(aMultipage);
-			for (int i = 0; i < 5; i++) {   // save the data to shuyeData
+			for (i = 0; i < 5; i++) {   // save the data to shuyeData
 				hEdit = WM_GetDialogItem(pMsg->hWin, GUI_ID_EDIT0+i);
 				EDIT_GetText(hEdit, buffer3, 5);
 				sscanf(buffer3, "%f", &shuyeData[id_bottle][i]);//写入数据
@@ -721,7 +753,7 @@ void _cbBottle4(WM_MESSAGE *pMsg) {
 			{
 			case GUI_ID_EDIT0:
 				shuyeData[id_bottle][1] = shuyeData[id_bottle][2] = shuyeData[id_bottle][3] = shuyeData[id_bottle][4] = 0;
-				for (int i = 1; i <= 4; i++) {
+				for (i = 1; i <= 4; i++) {
 					hEdit = WM_GetDialogItem(pMsg->hWin, GUI_ID_EDIT0+i);
 					EDIT_SetText(hEdit, "\0");
 					shuyeData[id_bottle][i] = 0;
@@ -889,5 +921,51 @@ void _cbEdit(WM_MESSAGE * pMsg) {
 	}
 	if (_pEditCallback) {
 		_pEditCallback(pMsg);
+	}
+}
+void W_aboutUs(void) {
+	WM_CreateWindow(0, 0, 320, 240, WM_CF_SHOW, _cbaboutus, 0);
+}
+void _cbaboutus(WM_MESSAGE *pMsg) {
+	WM_PID_STATE_CHANGED_INFO  *pState;
+	switch (pMsg->MsgId) {
+	case WM_PAINT:
+		GUI_SetBkColor(MYCOLOR_TITLE_BACKGROUND);
+		GUI_Clear();
+		GUI_SetBkColor(MYCOLOR_TEXT_BACKGROUND);
+		GUI_ClearRect(0, 208, 320, 240);
+		GUI_SetPenSize(1);
+		GUI_SetColor(MYCOLOR_LINE);
+		GUI_DrawHLine(208, 0, 320);
+
+		GUI_SetFont(&GUI_FontHZ16);
+		GUI_SetColor(MYCOLOR_CONTENT_TEXT);
+		GUI_DispStringHCenterAt("返回", 160, 216);
+		GUI_SetFont(&GUI_FontHZ32);
+		GUI_SetColor(GUI_BLACK);
+		GUI_SetBkColor(MYCOLOR_TITLE_BACKGROUND);
+		GUI_DispStringHCenterAt("制作人员",160,10);
+		GUI_SetColor(GUI_BLUE);
+		GUI_SetFont(&GUI_FontHZ24);	
+		GUI_DispStringHCenterAt("唐湘润", 80, 80);
+		GUI_DispStringHCenterAt("赵伟博", 240, 80);
+		GUI_DispStringHCenterAt("潘栋", 80, 110);
+		GUI_DispStringHCenterAt("杨丽", 240, 110);
+		GUI_DispStringHCenterAt("徐毛琳", 80, 140);
+		GUI_DispStringHCenterAt("王宸", 240, 140);
+		
+		break;
+	case WM_PID_STATE_CHANGED:
+		pState = (WM_PID_STATE_CHANGED_INFO *)pMsg->Data.p;
+		if ((pState->StatePrev == 0) && (pState->State == 1)) {
+			if (pState->y >= 208) { //返回
+				WM_DeleteWindow(pMsg->hWin);
+				W_pageSetting();
+			}
+		}
+		break;
+
+	default:
+		WM_DefaultProc(pMsg);
 	}
 }

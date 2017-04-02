@@ -63,6 +63,7 @@ void W_pageSetting(void);
 void W_pageDisplay(void);
 void W_pageShuyeDisplay(void);
 void createMultipage(WM_HWIN *hWnd, int *page);
-
+void W_aboutUs(void);
+void _cbaboutus(WM_MESSAGE *pMsg);
 void MainTask(void);
 #endif

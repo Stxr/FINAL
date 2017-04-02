@@ -309,9 +309,9 @@ void fontupdata_task(void *pdata)
 //				LCD_ShowString(10,50,280,30,16,"Font Updata finshed,Please Restart!");
 //				OSSchedUnlock(&err);	//调度器解锁
 //			}
-			stepMotor_Distance(3,5,150);
+			stepMotor_Distance(1,5,150);
 		}else if(KEY1==0){
-			stepMotor_Distance(3,5,-250);
+			stepMotor_Distance(1,5,-250);
 		}else if(KEY2==0){
 			AT24CXX_WriteOneByte(0,0); //清除初始化
 			printf("stepInit:0X%0X\r\n",AT24CXX_ReadOneByte(0));//打印初始化信息

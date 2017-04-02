@@ -1,4 +1,5 @@
 #include "beep.h"
+
 //////////////////////////////////////////////////////////////////////////////////	 
 //本程序只供学习使用，未经作者许可，不得用于其它任何用途
 //ALIENTEK战舰STM32开发板
@@ -28,4 +29,9 @@ void BEEP_Init(void)
  
  GPIO_ResetBits(GPIOE,GPIO_Pin_2);//输出0，关闭蜂鸣器输出
 
+}
+void BEEP_ms(u16 time){
+	BEEP=1;
+	delay_ms(time);
+	BEEP=0;
 }

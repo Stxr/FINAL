@@ -16,3 +16,4 @@
 ..\obj\beep.o: ..\FWLIB\STM32F10x_FWLib\inc\stm32f10x_tim.h
 ..\obj\beep.o: ..\FWLIB\STM32F10x_FWLib\inc\stm32f10x_usart.h
 ..\obj\beep.o: ..\FWLIB\STM32F10x_FWLib\inc\misc.h
+..\obj\beep.o: ..\SYSTEM\delay\delay.h
