@@ -95,9 +95,12 @@ u8 stepMotor_Reset(u8 id){
 		printf("第一次初始化\r\n");
 		AT24CXX_WriteOneByte(0,(i|0xf0)|1<<(id-1));//初始化 ，低四位哪一位初始化就把哪一位置一
 		for(i=0;i<333;i++){ //复位为0
-			stepMotor_Run(id,STEPMOTOR_IN,5);
+			stepMotor_Run(id,STEPMOTOR_IN,5); 
 		}
-		AT24CXX_WriteLenByte(id*2,0,2);//初始为0
+	for(i=0;i<abs(STEPMOTOR_MIN)/3;i++){ //复位到最小值
+		stepMotor_Run(id,STEPMOTOR_OUT,5);
+	}
+		AT24CXX_WriteLenByte(id*2,STEPMOTOR_MIN,2);//初始为0
 	}
 	printf("stepInit%d:0X%0X \r\n",id,AT24CXX_ReadOneByte(0));//打印初始化信息
 	printf("stepMotor_Reset OK!\r\n");

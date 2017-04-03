@@ -111,3 +111,4 @@
 ..\obj\main.o: ..\MYPAGE\mypage.h
 ..\obj\main.o: ..\HARDWARE\FLASH\flash.h
 ..\obj\main.o: ..\HARDWARE\STEP_MOTOR\step_motor.h
+..\obj\main.o: ..\HARDWARE\SIGN\jump_sign.h

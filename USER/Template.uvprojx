@@ -137,7 +137,7 @@
           </Flash1>
           <bUseTDR>1</bUseTDR>
           <Flash2>Segger\JL2CM3.dll</Flash2>
-          <Flash3></Flash3>
+          <Flash3>"" ()</Flash3>
           <Flash4></Flash4>
           <pFcarmOut></pFcarmOut>
           <pFcarmGrp></pFcarmGrp>
@@ -310,7 +310,7 @@
           </ArmAdsMisc>
           <Cads>
             <interw>1</interw>
-            <Optim>4</Optim>
+            <Optim>1</Optim>
             <oTime>0</oTime>
             <SplitLS>0</SplitLS>
             <OneElfS>0</OneElfS>
@@ -335,7 +335,7 @@
               <MiscControls></MiscControls>
               <Define>STM32F10X_HD,USE_STDPERIPH_DRIVER</Define>
               <Undefine></Undefine>
-              <IncludePath>..\HARDWARE\LED;..\SYSTEM\delay;..\SYSTEM\sys;..\SYSTEM\usart;..\USER;..\STM32F10x_FWLib\inc;..\CORE;..\FWLIB\STM32F10x_FWLib\inc;..\HARDWARE\KEY;..\HARDWARE\LCD;..\HARDWARE\IIC;..\HARDWARE\24CXX;..\HARDWARE\SPI;..\HARDWARE\FLASH;..\HARDWARE\TOUCH;..\HARDWARE\SRAM;..\HARDWARE\TIMER;..\HARDWARE\SDIO;..\HARDWARE\BEEP;..\HARDWARE\W25QXX;..\MALLOC;..\USMART;..\TEXT;..\FATFS\src;..\FATFS\exfuns;..\UCOSIII\uC-CPU;..\UCOSIII\uC-LIB;..\UCOSIII\UCOS_BSP;..\UCOSIII\uCOS_CONFIG;..\UCOSIII\uCOS-III\Source;..\UCOSIII\uC-LIB\Ports\ARM-Cortex-M3\RealView;..\UCOSIII\uCOS-III\Ports\ARM-Cortex-M3\Generic\RealView;..\UCOSIII\uC-CPU\ARM-Cortex-M3\RealView;..\EMWIN\STemWin\Config;..\EMWIN\STemWinPNG;..\EMWIN\STemWin\inc;..\EMWIN\STemWinHZ;..\EMWIN_DEMO\EMWIN_PICTURE\BMP;..\MYPAGE;..\HARDWARE\STEP_MOTOR</IncludePath>
+              <IncludePath>..\HARDWARE\LED;..\SYSTEM\delay;..\SYSTEM\sys;..\SYSTEM\usart;..\USER;..\STM32F10x_FWLib\inc;..\CORE;..\FWLIB\STM32F10x_FWLib\inc;..\HARDWARE\KEY;..\HARDWARE\LCD;..\HARDWARE\IIC;..\HARDWARE\24CXX;..\HARDWARE\SPI;..\HARDWARE\FLASH;..\HARDWARE\TOUCH;..\HARDWARE\SRAM;..\HARDWARE\TIMER;..\HARDWARE\SDIO;..\HARDWARE\BEEP;..\HARDWARE\W25QXX;..\MALLOC;..\USMART;..\TEXT;..\FATFS\src;..\FATFS\exfuns;..\UCOSIII\uC-CPU;..\UCOSIII\uC-LIB;..\UCOSIII\UCOS_BSP;..\UCOSIII\uCOS_CONFIG;..\UCOSIII\uCOS-III\Source;..\UCOSIII\uC-LIB\Ports\ARM-Cortex-M3\RealView;..\UCOSIII\uCOS-III\Ports\ARM-Cortex-M3\Generic\RealView;..\UCOSIII\uC-CPU\ARM-Cortex-M3\RealView;..\EMWIN\STemWin\Config;..\EMWIN\STemWinPNG;..\EMWIN\STemWin\inc;..\EMWIN\STemWinHZ;..\EMWIN_DEMO\EMWIN_PICTURE\BMP;..\MYPAGE;..\HARDWARE\STEP_MOTOR;..\HARDWARE\SIGN</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -468,6 +468,11 @@
               <FileName>step_motor.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\HARDWARE\STEP_MOTOR\step_motor.c</FilePath>
+            </File>
+            <File>
+              <FileName>jump_sign.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\HARDWARE\SIGN\jump_sign.c</FilePath>
             </File>
           </Files>
         </Group>

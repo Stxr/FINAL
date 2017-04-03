@@ -23,6 +23,7 @@
 #include "WM.h"
 #include "DIALOG.h"
 #include "mypage.h"
+#include "jump_sign.h"
 /************************************************
  ALIENTEK精英STM32开发板STemWin实验
  STemWin BMP图片显示 
@@ -111,7 +112,7 @@ OS_TCB EmwindemoTaskTCB;
 CPU_STK EMWINDEMO_TASK_STK[EMWINDEMO_STK_SIZE];
 //emwindemo_task任务
 void emwindemo_task(void *p_arg);
-
+int testSpeed=0;
 int main(void)
 {	
 	OS_ERR err;
@@ -126,6 +127,7 @@ int main(void)
 	AT24CXX_Init();			//初始化24CXX
 	stepMotor_Init(); //步进电机初始化
 	BEEP_Init();			//初始化蜂鸣器
+	jumpSign_Init(); //初始化
 	//FSMC_SRA oM_Init();		//初始化SRAM
 	my_mem_init(SRAMIN); 	//初始化内部内存池
 //	my_mem_init(SRAMEX);  	//初始化外部内存池
@@ -283,10 +285,25 @@ void touch_task(void *p_arg)
 void led0_task(void *p_arg)
 {
 	OS_ERR err;
+	u8 i=0,count=0;
 	while(1)
 	{
-		LED0 = !LED0;
-		OSTimeDlyHMSM(0,0,0,500,OS_OPT_TIME_PERIODIC,&err);//延时500ms
+		
+		if(i>=10 * 3){ //3s 取样一次
+			i=0;
+			testSpeed = count;
+			count=0;
+			printf("count:%d\r\n",testSpeed);
+			LED0 = !LED0;
+		}
+		i++;
+		if(JUMP_SIGN==0){
+			count++;
+			while(JUMP_SIGN == 0){
+				delay_ms(5);
+			}
+		}
+		OSTimeDlyHMSM(0,0,0,100,OS_OPT_TIME_PERIODIC,&err);//延时200ms
 	}
 }
 void fontupdata_task(void *pdata)

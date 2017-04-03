@@ -18,8 +18,8 @@
 #include "includes.h"
 #define STEPMOTOR_OUT 1
 #define STEPMOTOR_IN 0
-#define STEPMOTOR_MAX 900
-#define STEPMOTOR_MIN 0
+#define STEPMOTOR_MAX  400
+#define STEPMOTOR_MIN 120
 #define stepMotor_dir1 PFout(13)
 #define stepMotor_step1 PFout(11)
 #define stepMotor_enable1 PFout(14)

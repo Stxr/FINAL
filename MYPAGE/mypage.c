@@ -1,14 +1,17 @@
 #include "mypage.h"
+extern int testSpeed;
 typedef struct {
 	U32 color;
 	u8 id;
 }mydata;
 mydata change_data;
-int Time_Left = 0,Time_Used=0;
-u8 speed = 0,isChange = 143;
+//int Time_Left = 0,Time_Used=0;
+//u8 speed = 0
+//u8 isChange = 143;
 float shuyeData[4][5]={0};
 u8 id_bottle=0,last_bottle = 0;
-char buffer1[20],buffer3[5];//三个公用内存空间
+__align(8) char buffer1[20]; //8字节对齐
+char buffer3[5];//三个公用内存空间
 //char buttonString[6]="暂停";
 char  *buttonString, *buffer2;
 u8 i;//计数用
@@ -18,7 +21,14 @@ MULTIPAGE_Handle aMultipage;
 //typedef  void (*fun)(void);				//定义一个函数类型的参数.   
 //fun BaseStart;
 
-GUI_WIDGET_CREATE_INFO _aDialogNumPad[] = {
+static const GUI_WIDGET_CREATE_INFO _aDialogCreate[] = {
+	{ WINDOW_CreateIndirect,    0,        0,			100,	 58, 116,  91 },
+	{ TEXT_CreateIndirect,     "警告",     GUI_ID_TEXT0,    42,  3, 116,  22 },
+	{ TEXT_CreateIndirect,     "确定退出吗？",     GUI_ID_TEXT1,    16,  40, 116,  36 },
+	{ BUTTON_CreateIndirect,   "确定",     GUI_ID_OK,       58, 68,  58,  23 },
+	{ BUTTON_CreateIndirect,   "取消", GUI_ID_CANCEL,  0, 68,  58,  23 },
+};
+static const GUI_WIDGET_CREATE_INFO _aDialogNumPad[] = {
 	//
 	//  Function                 Text      Id					       Px   Py   Dx   Dy
 	//
@@ -54,14 +64,7 @@ BUTTON_SKINFLEX_PROPS MY_BUTTON_SKIN_PRESSED = {
 	{ GUI_WHITE,GUI_WHITE },
 	{ GUI_WHITE,GUI_WHITE },0
 };
-MULTIPAGE_SKINFLEX_PROPS multipage_skin_SELECTED = {
-	GUI_WHITE,{ GUI_WHITE,GUI_WHITE },{ GUI_WHITE ,GUI_WHITE },0Xe3d7d4,GUI_BLACK
-};
-MULTIPAGE_SKINFLEX_PROPS multipage_skin_ENABLE = {
-	GUI_YELLOW,{ MYCOLOR_PAGESHUYESETTING_TITLE_BACKGROUND,MYCOLOR_PAGESHUYESETTING_TITLE_BACKGROUND },
-	{ MYCOLOR_PAGESHUYESETTING_TITLE_BACKGROUND ,MYCOLOR_PAGESHUYESETTING_TITLE_BACKGROUND },
-	MYCOLOR_PAGESHUYESETTING_TITLE_BACKGROUND,GUI_BLACK
-};
+
 /*********************************************************************
 *
 *       Public code
@@ -77,6 +80,11 @@ void MainTask(void) {
 //	WM_EnableMemdev(WM_HBKWIN); //启用储存设备
 	W_pageShuyeSetting(0);
 	while (1) {
+		if(testSpeed >=15){
+			BEEP=1;
+		}else{
+			BEEP=0;
+		}
 		GUI_Delay(1000);
 //		printf("use:%d\n",my_mem_perused(SRAMIN));
 //		printf("id_bottle:%d\n",id_bottle);
@@ -88,14 +96,15 @@ void SoftReset(void)
 	NVIC_SystemReset();// 复位
 }
 void W_pageDisplay(void) {
+	BUTTON_SetSkinFlexProps(&MY_BUTTON_SKIN_ENABLE, 1); //设置皮肤样式
 	id_bottle = 0; //很神奇
 	//memset(buffer1, 0, sizeof(char));
 	buffer1[0] = '\0'; //数组假清零
 	buffer3[0] = '\0'; //数组假清零
-	stepMotor_Reset(1);
-	stepMotor_Reset(2);
-	stepMotor_Reset(3);
-	stepMotor_Reset(4);
+	stepMotor_Distance(1,5,STEPMOTOR_MAX);
+	stepMotor_Distance(1,5,STEPMOTOR_MAX);
+	stepMotor_Distance(1,5,STEPMOTOR_MAX);
+	stepMotor_Distance(1,5,STEPMOTOR_MAX);
 	WM_CreateWindow(0, 0, 320, 240, WM_CF_SHOW, pageDisplay, 0);
 }
 void W_pageHome(void) {
@@ -144,6 +153,8 @@ void _cbchild1(WM_MESSAGE *pMsg) {
 }
 void pageDisplay(WM_MESSAGE *pMsg) {
 	WM_PID_STATE_CHANGED_INFO  *pState;
+	static int *Time_Left=NULL,*Time_Used=NULL;
+	static u8 *speed=NULL,*isChange=NULL;
 	GUI_RECT InvalidateRect = { 175,206,222,225 };
 	switch (pMsg->MsgId)
 	{
@@ -153,8 +164,8 @@ void pageDisplay(WM_MESSAGE *pMsg) {
 			if (id_bottle >= 4) id_bottle = 0;
 		}
 		if (shuyeData[id_bottle][3] > 0 || shuyeData[id_bottle][4] > 0) { //剩余输液时间是否为0
-			Time_Used++;
-			if (Time_Used % 2) {
+			(*Time_Used)++;
+			if (*Time_Used % 2) {
 				WM_HideWindow(hchild[id_bottle]);
 			}
 			else {
@@ -166,32 +177,36 @@ void pageDisplay(WM_MESSAGE *pMsg) {
 					change_data.id = id_bottle+1;
 					WM_SetUserData(hchild[id_bottle], &change_data, sizeof(mydata));
 				}
- 				Time_Left = --shuyeData[id_bottle][3];
-				if(speed!=shuyeData[id_bottle][1]){
-				 	speed = shuyeData[id_bottle][1]; 
+ 				*Time_Left = --shuyeData[id_bottle][3];
+				if(*speed!=shuyeData[id_bottle][1]){
+				 	*speed = shuyeData[id_bottle][1]; 
 					BEEP_ms(500);			//切换的时候长响
-					stepMotor_Distance(id_bottle+1,5,speed*50); //speed越大，distance越小
+					stepMotor_Distance(id_bottle+1,5, STEPMOTOR_MAX - (*speed)*50); //speed越大，distance越小，流量越大。
 				}
 			}
 			else { //速率2
 				change_data.color = GUI_BLUE;
 				change_data.id = id_bottle+1;
 				WM_SetUserData(hchild[id_bottle], &change_data, sizeof(mydata));
-				Time_Left = --shuyeData[id_bottle][4];
-				if(speed != shuyeData[id_bottle][2]){
+				*Time_Left = --shuyeData[id_bottle][4];
+				if(*speed != shuyeData[id_bottle][2]){
 					BEEP_ms(100);    //切换速率短响
-					stepMotor_Distance(id_bottle+1,5,(shuyeData[id_bottle][1]-shuyeData[id_bottle][2])*50); //
-					speed = shuyeData[id_bottle][2];
-				}				
+					stepMotor_Distance(id_bottle+1,5,(shuyeData[id_bottle][1]-shuyeData[id_bottle][2])*50); //切换速率2
+					*speed = shuyeData[id_bottle][2];
+				}
+				//测试
+				if(  *speed <	testSpeed * 1.5f + 2 && *speed > testSpeed * 1.5f - 2 ){  //速度调节
+						stepMotor_Distance(id_bottle+1,5, (testSpeed * 1.5f - (*speed))*5); //如果比实际大，则挤压，一次前进0.05mm
+				}
 			} 
 			if(id_bottle == last_bottle){  //如果是最后一瓶了
 				if(shuyeData[id_bottle][3] ==0 || shuyeData[id_bottle][4]==0){ //最后的速率
-					if(Time_Left==60){ //最后一分钟响两声
+					if(*Time_Left==60){ //最后一分钟响两声
 						BEEP_ms(100);
 						GUI_Delay(200);
 						BEEP_ms(100);
 					}
-					if(Time_Left<=10){ //最后10s倒计时
+					if(*Time_Left<=10){ //最后10s倒计时
 						BEEP_ms(100);
 					}
 				}
@@ -207,9 +222,9 @@ void pageDisplay(WM_MESSAGE *pMsg) {
 				}
 			}
 		}
-		sprintf(buffer3, "%d", speed);
-		sprintf(buffer1, "%02d:%02d:%02d", Time_Left / 3600, Time_Left / 60, Time_Left%60);
-		sprintf(buffer2, "%02d:%02d:%02d", Time_Used / 3600, Time_Used / 60, Time_Used % 60);
+		sprintf(buffer3, "%d", *speed);
+		sprintf(buffer1, "%02d:%02d:%02d", (*Time_Left) / 3600, ((*Time_Left)-(*Time_Left) / 3600)/60, (*Time_Left)%60);
+		sprintf(buffer2, "%02d:%02d:%02d", (*Time_Used) / 3600, ((*Time_Left)-(*Time_Left) / 3600)/60, (*Time_Used) % 60);
 		//Time_Left--;
 
 		//由于单片机的速度问题，只更新部分窗口，以达到视觉优化
@@ -221,8 +236,8 @@ void pageDisplay(WM_MESSAGE *pMsg) {
 		InvalidateRect.y0 = 190;
 		InvalidateRect.y1 = 224;
 		WM_InvalidateRect(pMsg->hWin, &InvalidateRect);
-		if (isChange != speed) { //更新速度
-			isChange = speed;
+		if (*isChange != *speed) { //更新速度
+			*isChange = *speed;
 			InvalidateRect.x0 = 169;
 			InvalidateRect.y0 = 20;
 			InvalidateRect.x1 = 214;
@@ -238,7 +253,7 @@ void pageDisplay(WM_MESSAGE *pMsg) {
 		GUI_SetBkColor(MYCOLOR_PAGEDISPLAY_BACKGROUND);
 		GUI_Clear();
 		GUI_SetBkColor(MYCOLOR_PAGEDISPLAY_BUTTON);
-		GUI_ClearRect(0, 222, 320, 240);
+		GUI_ClearRect(0, 222, 320, 240); 
 		GUI_SetColor(GUI_WHITE);
 		GUI_DrawVLine(160, 222, 320);
 		//写字
@@ -268,6 +283,10 @@ void pageDisplay(WM_MESSAGE *pMsg) {
 
 		break;
 	case WM_CREATE:
+		isChange = (u8*)malloc(sizeof(u8));
+		speed =(u8*)malloc(sizeof(u8));
+		Time_Used =(int*)malloc(sizeof(int));
+		Time_Left =(int*)malloc(sizeof(int));
 		buttonString = (char *) malloc(sizeof(char)*6);
 		buffer2 = (char *)malloc(sizeof(char)*20);
 		sprintf(buttonString, "%s", "暂停");
@@ -287,14 +306,17 @@ void pageDisplay(WM_MESSAGE *pMsg) {
 		if ((pState->StatePrev == 0) && (pState->State == 1)) {
 			if (pState->y >= 222) {
 				if (pState->x < 160) { //返回了
-					BEEP=0;//关闭蜂鸣器
-					hTimer = WM_CreateTimer(pMsg->hWin, 0, 1000, 0);//防止死机
-					for (i = 0; i < 4; i++) {
-						shuyeData[i][3] /= 60;
-						shuyeData[i][4] /= 60;
+					if(!GUI_ExecDialogBox(_aDialogCreate, GUI_COUNTOF(_aDialogCreate), &_cbdialogAlert, pMsg->hWin, 0,0)){
+						BEEP=0;//关闭蜂鸣器
+						hTimer = WM_CreateTimer(pMsg->hWin, 0, 1000, 0);//防止死机
+						for (i = 0; i < 4; i++) {
+							shuyeData[i][3] /= 60;
+							shuyeData[i][4] /= 60;
+						}
+						WM_DeleteWindow(pMsg->hWin);
+						W_pageShuyeSetting(0);
 					}
-					WM_DeleteWindow(pMsg->hWin);
-					W_pageShuyeSetting(0);
+					
 				}
 				else //pause
 				{
@@ -317,6 +339,10 @@ void pageDisplay(WM_MESSAGE *pMsg) {
 		}
 		break;
 	case WM_DELETE:
+		free(isChange);
+		free(speed);
+		free(Time_Left);
+	  free(Time_Used);
 		free(buttonString);
 		free(buffer2);
 		WM_DeleteTimer(hTimer);
@@ -655,6 +681,14 @@ void pageSetting(WM_MESSAGE *pMsg) {
 }
 	void createMultipage(WM_HWIN *hWnd,int *page) {
 	WM_HWIN pageBottle;
+		MULTIPAGE_SKINFLEX_PROPS multipage_skin_SELECTED = {
+	GUI_WHITE,{ GUI_WHITE,GUI_WHITE },{ GUI_WHITE ,GUI_WHITE },0Xe3d7d4,GUI_BLACK
+};
+MULTIPAGE_SKINFLEX_PROPS multipage_skin_ENABLE = {
+	GUI_YELLOW,{ MYCOLOR_PAGESHUYESETTING_TITLE_BACKGROUND,MYCOLOR_PAGESHUYESETTING_TITLE_BACKGROUND },
+	{ MYCOLOR_PAGESHUYESETTING_TITLE_BACKGROUND ,MYCOLOR_PAGESHUYESETTING_TITLE_BACKGROUND },
+	MYCOLOR_PAGESHUYESETTING_TITLE_BACKGROUND,GUI_BLACK
+};
 
 	MULTIPAGE_SetDefaultSkin(MULTIPAGE_SKIN_FLEX);
 
@@ -965,6 +999,49 @@ void _cbaboutus(WM_MESSAGE *pMsg) {
 		}
 		break;
 
+	default:
+		WM_DefaultProc(pMsg);
+	}
+}
+static void _cbdialogAlert(WM_MESSAGE * pMsg) {
+	WM_HWIN hText1;
+	WM_HWIN hWin = pMsg->hWin;
+	int NCode, Id;
+	switch (pMsg->MsgId) {
+	case WM_INIT_DIALOG:
+		/* Get window handles for all widgets */
+		hText1 = WM_GetDialogItem(hWin, GUI_ID_TEXT0);
+		TEXT_SetTextColor(hText1, GUI_WHITE);
+		TEXT_SetFont(hText1, &GUI_FontHZ16);
+
+		hText1 = WM_GetDialogItem(hWin, GUI_ID_TEXT1);
+		TEXT_SetTextColor(hText1, GUI_BLACK);
+		TEXT_SetFont(hText1, &GUI_FontHZ16);
+	
+		hText1 = WM_GetDialogItem(hWin, GUI_ID_OK);
+		BUTTON_SetFont(hText1,&GUI_FontHZ12);
+		hText1 = WM_GetDialogItem(hWin, GUI_ID_CANCEL);
+		BUTTON_SetFont(hText1,&GUI_FontHZ12);
+		break;
+	case WM_PAINT:
+		GUI_SetBkColor(0xFEF5E1);
+		GUI_Clear();
+		GUI_SetBkColor(GUI_RED);
+		GUI_ClearRect(0, 0, 116, 22);
+		break;
+	case WM_NOTIFY_PARENT:
+		Id = WM_GetId(pMsg->hWinSrc);    /* Id of widget */
+		NCode = pMsg->Data.v;               /* Notification code */
+		switch (NCode) {
+		case WM_NOTIFICATION_RELEASED:      /* React only if released */
+			if (Id == GUI_ID_OK) {            /* OK Button */
+				GUI_EndDialog(hWin, 0);
+			}
+			if (Id == GUI_ID_CANCEL) {        /* Cancel Button */
+				GUI_EndDialog(hWin, 1);
+			}
+		}
+			break;
 	default:
 		WM_DefaultProc(pMsg);
 	}
