@@ -80,11 +80,11 @@ void MainTask(void) {
 //	WM_EnableMemdev(WM_HBKWIN); //启用储存设备
 	W_pageShuyeSetting(0);
 	while (1) {
-		if(testSpeed >=15){
-			BEEP=1;
-		}else{
-			BEEP=0;
-		}
+//		if(testSpeed >=30){
+//			BEEP=1;
+//		}else{
+//			BEEP=0;
+//		}
 		GUI_Delay(1000);
 //		printf("use:%d\n",my_mem_perused(SRAMIN));
 //		printf("id_bottle:%d\n",id_bottle);
@@ -101,10 +101,10 @@ void W_pageDisplay(void) {
 	//memset(buffer1, 0, sizeof(char));
 	buffer1[0] = '\0'; //数组假清零
 	buffer3[0] = '\0'; //数组假清零
-	stepMotor_Distance(1,5,STEPMOTOR_MAX);
-	stepMotor_Distance(1,5,STEPMOTOR_MAX);
-	stepMotor_Distance(1,5,STEPMOTOR_MAX);
-	stepMotor_Distance(1,5,STEPMOTOR_MAX);
+	stepMotor_Distance(1,5,STEPMOTOR_MAX-20-stepMotor_Read(1));
+	stepMotor_Distance(2,5,STEPMOTOR_MAX-stepMotor_Read(2)-100);
+	stepMotor_Distance(3,5,STEPMOTOR_MAX-stepMotor_Read(3)-100);
+	stepMotor_Distance(4,5,STEPMOTOR_MAX-stepMotor_Read(4)-100);
 	WM_CreateWindow(0, 0, 320, 240, WM_CF_SHOW, pageDisplay, 0);
 }
 void W_pageHome(void) {
@@ -177,28 +177,33 @@ void pageDisplay(WM_MESSAGE *pMsg) {
 					change_data.id = id_bottle+1;
 					WM_SetUserData(hchild[id_bottle], &change_data, sizeof(mydata));
 				}
- 				*Time_Left = --shuyeData[id_bottle][3];
-				if(*speed!=shuyeData[id_bottle][1]){
+				if(*Time_Left ==0){
 				 	*speed = shuyeData[id_bottle][1]; 
 					BEEP_ms(500);			//切换的时候长响
-					stepMotor_Distance(id_bottle+1,5, STEPMOTOR_MAX - (*speed)*50); //speed越大，distance越小，流量越大。
+					stepMotor_Distance(id_bottle+1,5,  -(*speed)*10); //speed越大，distance越小，流量越大。
+					*Time_Left = shuyeData[id_bottle][3];
 				}
+				shuyeData[id_bottle][3]=--(*Time_Left);
 			}
 			else { //速率2
 				change_data.color = GUI_BLUE;
 				change_data.id = id_bottle+1;
 				WM_SetUserData(hchild[id_bottle], &change_data, sizeof(mydata));
-				*Time_Left = --shuyeData[id_bottle][4];
-				if(*speed != shuyeData[id_bottle][2]){
+				if(*Time_Left == 0){
 					BEEP_ms(100);    //切换速率短响
-					stepMotor_Distance(id_bottle+1,5,(shuyeData[id_bottle][1]-shuyeData[id_bottle][2])*50); //切换速率2
+					stepMotor_Distance(id_bottle+1,5,(*speed-shuyeData[id_bottle][2])*10); //切换速率2
 					*speed = shuyeData[id_bottle][2];
+					*Time_Left = shuyeData[id_bottle][4];
 				}
+				shuyeData[id_bottle][4]=--(*Time_Left);
+
 				//测试
-				if(  *speed <	testSpeed * 1.5f + 2 && *speed > testSpeed * 1.5f - 2 ){  //速度调节
-						stepMotor_Distance(id_bottle+1,5, (testSpeed * 1.5f - (*speed))*5); //如果比实际大，则挤压，一次前进0.05mm
-				}
-			} 
+
+			}
+			if(  *speed >	testSpeed*3 + 3 || *speed < testSpeed*3  - 3 ){  //速度调节
+						stepMotor_Distance(id_bottle+1,5, (testSpeed*3 - (*speed))*1.5f); //如果比实际大，则挤压，一次前进0.01*3mm
+					printf("testSpeed:%d   speed:%d\r\n  ",testSpeed*3, *speed);
+				}			
 			if(id_bottle == last_bottle){  //如果是最后一瓶了
 				if(shuyeData[id_bottle][3] ==0 || shuyeData[id_bottle][4]==0){ //最后的速率
 					if(*Time_Left==60){ //最后一分钟响两声
@@ -210,7 +215,6 @@ void pageDisplay(WM_MESSAGE *pMsg) {
 						BEEP_ms(100);
 					}
 				}
-			
 			}
 			if (shuyeData[id_bottle][4] <= 0 && shuyeData[id_bottle][3] <= 0) { //输液完成
 				change_data.color = GUI_BLACK;
@@ -280,7 +284,14 @@ void pageDisplay(WM_MESSAGE *pMsg) {
 		GUI_SetBkColor(MYCOLOR_PAGEDISPLAY_BUTTON);
 		GUI_DispStringHCenterAt("返回", 80, 225);
 		GUI_DispStringHCenterAt(buttonString, 240, 225);
-
+	
+		// 调速提示
+		GUI_SetPenSize(2);
+		GUI_SetColor(0xFEF5E1);
+		GUI_DrawLine(129, 30, 112, 61);// /
+		GUI_DrawLine(112, 61, 129, 87);// \.
+		GUI_DrawLine(289, 30, 307, 61);// /
+		GUI_DrawLine(307, 61, 289, 87);// \.
 		break;
 	case WM_CREATE:
 		isChange = (u8*)malloc(sizeof(u8));
@@ -290,6 +301,7 @@ void pageDisplay(WM_MESSAGE *pMsg) {
 		buttonString = (char *) malloc(sizeof(char)*6);
 		buffer2 = (char *)malloc(sizeof(char)*20);
 		sprintf(buttonString, "%s", "暂停");
+		*Time_Left =0;
 		hTimer = WM_CreateTimer(pMsg->hWin, 0, 1000, 0);
 		for (i = 0; i < 4; i++) {
 			if (shuyeData[i][0] == 0)continue;//如果容量为0，则不创建
@@ -336,6 +348,31 @@ void pageDisplay(WM_MESSAGE *pMsg) {
 					}
 				}
 			}
+			else if (pState->y >= 30 && pState->y <= 87) {
+				if (pState->x >= 112 && pState->x <= 129) { //左边，减小speed
+					if (*speed <= 1) {
+						*speed = 1;
+						break;
+					}
+					if(*Time_Left != 0){
+						(*Time_Left)=(*Time_Left)*(*speed)/((*speed)-1);
+						(*speed)--;
+					}
+				}
+				else if (pState->x >= 289 && pState->x <= 307) {//右边，增大speed
+					if (*speed >= 20) {
+						*speed = 20;
+						break;
+					}
+					if(*Time_Left != 0){
+						(*Time_Left)=(*Time_Left)*(*speed)/((*speed)+1);
+						(*speed)++;
+					}
+					
+				}
+
+			}
+			
 		}
 		break;
 	case WM_DELETE:
@@ -643,10 +680,10 @@ void pageSetting(WM_MESSAGE *pMsg) {
 		GUI_SetBkColor(MYCOLOR_TEXT_BACKGROUND);
 		GUI_SetFont(&GUI_FontHZ16);
 		GUI_DispStringHCenterAt("个性设置", 160, 88);
-		GUI_DispStringHCenterAt("系统升级", 160, 120);
-		GUI_DispStringHCenterAt("系统状态", 160, 152);
+		GUI_DispStringHCenterAt("系统复位", 160, 120);
+		GUI_DispStringHCenterAt("重置电机", 160, 152);
 		GUI_DispStringHCenterAt("关于我们", 160, 183);
-		GUI_DispStringHCenterAt("返回", 160, 216);
+		GUI_DispStringHCenterAt("返回", 	  160, 216);
 		break;
 	case WM_PID_STATE_CHANGED:
 		pState = (WM_PID_STATE_CHANGED_INFO *)pMsg->Data.p;
@@ -661,8 +698,13 @@ void pageSetting(WM_MESSAGE *pMsg) {
 //				Jump2Base(FLASH_BASE_ADDR); //回到初始地址
 					SoftReset(); //复位 升级
 			}
-			else if (pState->y >= 144 && pState->y <= 176) { //系统状态
-				GUI_DispStringAt("3", 0, 0);
+			else if (pState->y >= 144 && pState->y <= 176) { //重置电机
+					AT24CXX_WriteOneByte(0,0); //清除初始化
+					printf("stepInit:0X%0X\r\n",AT24CXX_ReadOneByte(0));//打印初始化信息
+					stepMotor_Reset(1);
+					stepMotor_Reset(2);
+					stepMotor_Reset(3);
+					stepMotor_Reset(4);
 			}
 			else if (pState->y >= 176 && pState->y <= 208) {
 				WM_DeleteWindow(pMsg->hWin);

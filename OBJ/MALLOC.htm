@@ -3,9 +3,9 @@
 <title>Static Call Graph - [..\OBJ\MALLOC.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image ..\OBJ\MALLOC.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060300: Last Updated: Mon Apr 03 20:26:39 2017
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060300: Last Updated: Tue Apr 04 17:31:42 2017
 <BR><P>
-<H3>Maximum Stack Usage =       1044 bytes + Unknown(Functions without stacksize, Cycles, Untraceable Function Pointers)</H3><H3>
+<H3>Maximum Stack Usage =       1052 bytes + Unknown(Functions without stacksize, Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
 pageDisplay &rArr; W_pageShuyeSetting &rArr; createMultipage &rArr; MULTIPAGE_AddPage &rArr; MULTIPAGE_SelectPage &rArr; MULTIPAGE__UpdatePositions &rArr; _AddScrollbar &rArr; WM_SetSize &rArr; WM_ResizeWindow &rArr; WM__UpdateChildPositions &rArr;  WM_ResizeWindow (Cycle)
 <P>
@@ -33,7 +33,7 @@ Mutually Recursive functions
  <LI><a href="#[549]">WM_InvalidateWindowAndDescsEx</a>&nbsp;&nbsp;&nbsp;&rArr;&nbsp;&nbsp;&nbsp;<a href="#[549]">WM_InvalidateWindowAndDescsEx</a><BR>
  <LI><a href="#[543]">WM__InvalidateDrawAndDescs</a>&nbsp;&nbsp;&nbsp;&rArr;&nbsp;&nbsp;&nbsp;<a href="#[543]">WM__InvalidateDrawAndDescs</a><BR>
  <LI><a href="#[521]">WM_SendToParent</a>&nbsp;&nbsp;&nbsp;&rArr;&nbsp;&nbsp;&nbsp;<a href="#[54e]">WM__SendMessage</a><BR>
- <LI><a href="#[525]">_DeleteAllChildren</a>&nbsp;&nbsp;&nbsp;&rArr;&nbsp;&nbsp;&nbsp;<a href="#[1f0]">WM_DeleteWindow</a><BR>
+ <LI><a href="#[525]">_DeleteAllChildren</a>&nbsp;&nbsp;&nbsp;&rArr;&nbsp;&nbsp;&nbsp;<a href="#[1f2]">WM_DeleteWindow</a><BR>
  <LI><a href="#[572]">_PopFreeBlock</a>&nbsp;&nbsp;&nbsp;&rArr;&nbsp;&nbsp;&nbsp;<a href="#[591]">_EnlargeBlocks</a><BR>
  <LI><a href="#[400]">_Alloc</a>&nbsp;&nbsp;&nbsp;&rArr;&nbsp;&nbsp;&nbsp;<a href="#[405]">_InitOnce</a><BR>
  <LI><a href="#[593]">_Findy1</a>&nbsp;&nbsp;&nbsp;&rArr;&nbsp;&nbsp;&nbsp;<a href="#[593]">_Findy1</a><BR>
@@ -256,11 +256,11 @@ Function Pointers
  <LI><a href="#[65]">__main</a> from entry.o(.ARM.Collect$$$$00000000) referenced from startup_stm32f10x_hd.o(.text)
  <LI><a href="#[1b9]">_cbBottle4</a> from mypage.o(.text) referenced 4 times from mypage.o(.text)
  <LI><a href="#[63]">_cbDialogNumPad</a> from mypage.o(.text) referenced from mypage.o(.text)
- <LI><a href="#[209]">_cbEditAddKey</a> from mypage.o(.text) referenced from mypage.o(.text)
+ <LI><a href="#[20a]">_cbEditAddKey</a> from mypage.o(.text) referenced from mypage.o(.text)
  <LI><a href="#[8f]">_cbInvalidateOne</a> from wm_bringtotop.o(i._cbInvalidateOne) referenced from wm_bringtotop.o(i._BringToTop)
  <LI><a href="#[8e]">_cbPaintMemDev</a> from wm.o(i._cbPaintMemDev) referenced from wm.o(i.WM__Paint)
  <LI><a href="#[8b]">_cbTimer</a> from wm_timer.o(i._cbTimer) referenced from wm_timer.o(i.WM_CreateTimer)
- <LI><a href="#[1fd]">_cbaboutus</a> from mypage.o(.text) referenced from mypage.o(.text)
+ <LI><a href="#[1ff]">_cbaboutus</a> from mypage.o(.text) referenced from mypage.o(.text)
  <LI><a href="#[1de]">_cbchild1</a> from mypage.o(.text) referenced from mypage.o(.text)
  <LI><a href="#[61]">_cbdialogAlert</a> from mypage.o(.text) referenced from mypage.o(.text)
  <LI><a href="#[6f]">_sbackspace</a> from _sgetc.o(.text) referenced from __0sscanf.o(.text)
@@ -277,10 +277,10 @@ Function Pointers
  <LI><a href="#[5]">my_mem_init</a> from malloc.o(.text) referenced 2 times from malloc.o(.data)
  <LI><a href="#[6]">my_mem_perused</a> from malloc.o(.text) referenced 2 times from malloc.o(.data)
  <LI><a href="#[1e1]">pageDisplay</a> from mypage.o(.text) referenced from mypage.o(.text)
- <LI><a href="#[205]">pageHome</a> from mypage.o(.text) referenced from mypage.o(.text)
- <LI><a href="#[200]">pageSetting</a> from mypage.o(.text) referenced from mypage.o(.text)
- <LI><a href="#[1f9]">pageShuyeDisplay</a> from mypage.o(.text) referenced from mypage.o(.text)
- <LI><a href="#[206]">pageShuyeSetting</a> from mypage.o(.text) referenced from mypage.o(.text)
+ <LI><a href="#[206]">pageHome</a> from mypage.o(.text) referenced from mypage.o(.text)
+ <LI><a href="#[202]">pageSetting</a> from mypage.o(.text) referenced from mypage.o(.text)
+ <LI><a href="#[1fc]">pageShuyeDisplay</a> from mypage.o(.text) referenced from mypage.o(.text)
+ <LI><a href="#[207]">pageShuyeSetting</a> from mypage.o(.text) referenced from mypage.o(.text)
  <LI><a href="#[101]">start_task</a> from main.o(.text) referenced from main.o(.text)
  <LI><a href="#[fd]">touch_task</a> from main.o(.text) referenced from main.o(.text)
 </UL>
@@ -370,7 +370,7 @@ Global Symbols
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> main.o(.text)
 </UL>
-<P><STRONG><a name="[5f]"></a>main</STRONG> (Thumb, 544 bytes, Stack size 40 bytes, main.o(.text))
+<P><STRONG><a name="[5f]"></a>main</STRONG> (Thumb, 548 bytes, Stack size 40 bytes, main.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 736 + Unknown Stack Size
 <LI>Call Chain = main &rArr; update_font &rArr; updata_fontx &rArr; f_open &rArr; dir_register &rArr; dir_find &rArr; dir_next &rArr; create_chain &rArr; put_fat &rArr; move_window &rArr; sync_window &rArr; disk_write &rArr; SD_WriteDisk &rArr; SD_WriteBlock &rArr; SD_Init &rArr; SD_EnableWideBusOperation &rArr; SDEnWideBus &rArr; FindSCR &rArr; CmdResp1Error
 </UL>
@@ -850,6 +850,7 @@ Global Symbols
 <LI><a href="#[113]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;stepMotor_Init
 <LI><a href="#[f5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;stepMotor_Distance
 <LI><a href="#[f3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;fontupdata_task
+<LI><a href="#[202]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pageSetting
 </UL>
 
 <P><STRONG><a name="[f6]"></a>AT24CXX_WriteOneByte</STRONG> (Thumb, 80 bytes, Stack size 16 bytes, 24cxx.o(.text))
@@ -868,6 +869,7 @@ Global Symbols
 <LI><a href="#[14d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;AT24CXX_WriteLenByte
 <LI><a href="#[f9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;stepMotor_Reset
 <LI><a href="#[f3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;fontupdata_task
+<LI><a href="#[202]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pageSetting
 </UL>
 
 <P><STRONG><a name="[14d]"></a>AT24CXX_WriteLenByte</STRONG> (Thumb, 42 bytes, Stack size 24 bytes, 24cxx.o(.text))
@@ -886,7 +888,7 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[f7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;AT24CXX_ReadOneByte
 </UL>
-<BR>[Called By]<UL><LI><a href="#[211]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;stepMotor_Read
+<BR>[Called By]<UL><LI><a href="#[1fa]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;stepMotor_Read
 </UL>
 
 <P><STRONG><a name="[14f]"></a>AT24CXX_Check</STRONG> (Thumb, 46 bytes, Stack size 8 bytes, 24cxx.o(.text), UNUSED)
@@ -1653,7 +1655,7 @@ Global Symbols
 <LI><a href="#[1d3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_CreateDialogBox
 <LI><a href="#[1ce]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memcpy4
 </UL>
-<BR>[Called By]<UL><LI><a href="#[1f1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;W_pageShuyeSetting
+<BR>[Called By]<UL><LI><a href="#[1f3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;W_pageShuyeSetting
 </UL>
 
 <P><STRONG><a name="[63]"></a>_cbDialogNumPad</STRONG> (Thumb, 160 bytes, Stack size 48 bytes, mypage.o(.text))
@@ -1684,11 +1686,12 @@ Global Symbols
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> mypage.o(.text)
 </UL>
-<P><STRONG><a name="[1e1]"></a>pageDisplay</STRONG> (Thumb, 2358 bytes, Stack size 48 bytes, mypage.o(.text))
-<BR><BR>[Stack]<UL><LI>Max Depth = 1044 + Unknown Stack Size
+<P><STRONG><a name="[1e1]"></a>pageDisplay</STRONG> (Thumb, 2716 bytes, Stack size 56 bytes, mypage.o(.text))
+<BR><BR>[Stack]<UL><LI>Max Depth = 1052 + Unknown Stack Size
 <LI>Call Chain = pageDisplay &rArr; W_pageShuyeSetting &rArr; createMultipage &rArr; MULTIPAGE_AddPage &rArr; MULTIPAGE_SelectPage &rArr; MULTIPAGE__UpdatePositions &rArr; _AddScrollbar &rArr; WM_SetSize &rArr; WM_ResizeWindow &rArr; WM__UpdateChildPositions &rArr;  WM_ResizeWindow (Cycle)
 </UL>
 <BR>[Calls]<UL><LI><a href="#[162]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_ui2f
+<LI><a href="#[161]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_i2f
 <LI><a href="#[16e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_fsub
 <LI><a href="#[163]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_fmul
 <LI><a href="#[16a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_fdiv
@@ -1701,177 +1704,184 @@ Global Symbols
 <LI><a href="#[1e4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_ShowWindow
 <LI><a href="#[1e5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_SetUserData
 <LI><a href="#[1e8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_RestartTimer
-<LI><a href="#[1f3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_InvalidateWindow
+<LI><a href="#[1f5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_InvalidateWindow
 <LI><a href="#[1e7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_InvalidateRect
 <LI><a href="#[1e3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_HideWindow
-<LI><a href="#[1f0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_DeleteWindow
-<LI><a href="#[1f4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_DeleteTimer
-<LI><a href="#[1ee]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_CreateWindowAsChild
-<LI><a href="#[1ed]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_CreateTimer
+<LI><a href="#[1f2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_DeleteWindow
+<LI><a href="#[1f6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_DeleteTimer
+<LI><a href="#[1f0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_CreateWindowAsChild
+<LI><a href="#[1ef]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_CreateTimer
+<LI><a href="#[1ec]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_SetPenSize
 <LI><a href="#[1bc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_SetFont
 <LI><a href="#[1bd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_SetColor
 <LI><a href="#[1ba]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_SetBkColor
 <LI><a href="#[1ea]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_GotoY
-<LI><a href="#[1ef]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_ExecDialogBox
+<LI><a href="#[1f1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_ExecDialogBox
 <LI><a href="#[1e9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_DrawVLine
+<LI><a href="#[1ed]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_DrawLine
 <LI><a href="#[1e0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_DispStringHCenterAt
 <LI><a href="#[1be]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_DispStringAt
 <LI><a href="#[1eb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_DispString
 <LI><a href="#[1e6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_Delay
 <LI><a href="#[1dc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_ClearRect
 <LI><a href="#[1bb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_Clear
-<LI><a href="#[1f1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;W_pageShuyeSetting
+<LI><a href="#[1f3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;W_pageShuyeSetting
 <LI><a href="#[1b8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BEEP_ms
-<LI><a href="#[1f2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;strcmp
-<LI><a href="#[1ec]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;malloc
-<LI><a href="#[1f5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;free
+<LI><a href="#[1f4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;strcmp
+<LI><a href="#[1ee]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;malloc
+<LI><a href="#[1f7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;free
 <LI><a href="#[1c4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2sprintf
 <LI><a href="#[f8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2printf
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> mypage.o(.text)
 </UL>
-<P><STRONG><a name="[1f6]"></a>W_pageDisplay</STRONG> (Thumb, 100 bytes, Stack size 16 bytes, mypage.o(.text))
-<BR><BR>[Stack]<UL><LI>Max Depth = 820 + Unknown Stack Size
+<P><STRONG><a name="[1f8]"></a>W_pageDisplay</STRONG> (Thumb, 132 bytes, Stack size 24 bytes, mypage.o(.text))
+<BR><BR>[Stack]<UL><LI>Max Depth = 828 + Unknown Stack Size
 <LI>Call Chain = W_pageDisplay &rArr; stepMotor_Distance &rArr; stepMotor_Run &rArr; GUI_Delay &rArr; GUI_Exec &rArr; GUI_Exec1 &rArr; WM_Exec &rArr; _DrawNext &rArr; WM__Paint &rArr; GUI_MEMDEV_Draw &rArr; GUI_MEMDEV_CopyToLCD &rArr; GUI_MEMDEV_CopyToLCDAt &rArr; GUI_MEMDEV__WriteToActiveOpaque &rArr; _WriteToActiveOpaque_8 &rArr; GUI_MEMDEV_GetDataPtr &rArr; GUI_Lock &rArr; GUI_X_Lock &rArr; OSSemPend &rArr; OS_Pend &rArr; OS_TaskBlock &rArr; OS_TickListInsert
 </UL>
 <BR>[Calls]<UL><LI><a href="#[f5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;stepMotor_Distance
-<LI><a href="#[1f8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_CreateWindow
-<LI><a href="#[1f7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BUTTON_SetSkinFlexProps
+<LI><a href="#[1fa]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;stepMotor_Read
+<LI><a href="#[1fb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_CreateWindow
+<LI><a href="#[1f9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BUTTON_SetSkinFlexProps
 </UL>
-<BR>[Called By]<UL><LI><a href="#[1f9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pageShuyeDisplay
+<BR>[Called By]<UL><LI><a href="#[1fc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pageShuyeDisplay
 </UL>
 
-<P><STRONG><a name="[1f9]"></a>pageShuyeDisplay</STRONG> (Thumb, 1404 bytes, Stack size 24 bytes, mypage.o(.text))
+<P><STRONG><a name="[1fc]"></a>pageShuyeDisplay</STRONG> (Thumb, 1374 bytes, Stack size 24 bytes, mypage.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 1020 + Unknown Stack Size
 <LI>Call Chain = pageShuyeDisplay &rArr; W_pageShuyeSetting &rArr; createMultipage &rArr; MULTIPAGE_AddPage &rArr; MULTIPAGE_SelectPage &rArr; MULTIPAGE__UpdatePositions &rArr; _AddScrollbar &rArr; WM_SetSize &rArr; WM_ResizeWindow &rArr; WM__UpdateChildPositions &rArr;  WM_ResizeWindow (Cycle)
 </UL>
 <BR>[Calls]<UL><LI><a href="#[163]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_fmul
 <LI><a href="#[16b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_f2d
-<LI><a href="#[1f0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_DeleteWindow
-<LI><a href="#[1fa]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_SetPenSize
+<LI><a href="#[1f2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_DeleteWindow
+<LI><a href="#[1ec]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_SetPenSize
 <LI><a href="#[1bc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_SetFont
 <LI><a href="#[1bd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_SetColor
 <LI><a href="#[1ba]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_SetBkColor
 <LI><a href="#[1e9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_DrawVLine
-<LI><a href="#[1fb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_DrawHLine
+<LI><a href="#[1fd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_DrawHLine
 <LI><a href="#[1e0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_DispStringHCenterAt
 <LI><a href="#[1be]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_DispStringAt
 <LI><a href="#[1dc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_ClearRect
 <LI><a href="#[1bb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_Clear
-<LI><a href="#[1f1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;W_pageShuyeSetting
-<LI><a href="#[1f6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;W_pageDisplay
+<LI><a href="#[1f3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;W_pageShuyeSetting
+<LI><a href="#[1f8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;W_pageDisplay
 <LI><a href="#[1c4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2sprintf
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> mypage.o(.text)
 </UL>
-<P><STRONG><a name="[1fc]"></a>W_pageShuyeDisplay</STRONG> (Thumb, 34 bytes, Stack size 16 bytes, mypage.o(.text))
+<P><STRONG><a name="[1fe]"></a>W_pageShuyeDisplay</STRONG> (Thumb, 34 bytes, Stack size 16 bytes, mypage.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 444 + Unknown Stack Size
 <LI>Call Chain = W_pageShuyeDisplay &rArr; WM_CreateWindow &rArr; WM_CreateWindowAsChild &rArr; WM__SendMsgNoData &rArr; WM__SendMessage &rArr; WM_DefaultProc &rArr; WM_InvalidateWindow &rArr; WM_InvalidateRect &rArr; WM__InvalidateRectEx &rArr; WM__InvalidateRect &rArr;  WM__InvalidateRect (Cycle)
 </UL>
-<BR>[Calls]<UL><LI><a href="#[1f8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_CreateWindow
+<BR>[Calls]<UL><LI><a href="#[1fb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_CreateWindow
 </UL>
-<BR>[Called By]<UL><LI><a href="#[206]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pageShuyeSetting
+<BR>[Called By]<UL><LI><a href="#[207]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pageShuyeSetting
 </UL>
 
-<P><STRONG><a name="[1fd]"></a>_cbaboutus</STRONG> (Thumb, 242 bytes, Stack size 16 bytes, mypage.o(.text))
+<P><STRONG><a name="[1ff]"></a>_cbaboutus</STRONG> (Thumb, 334 bytes, Stack size 16 bytes, mypage.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 764 + Unknown Stack Size
 <LI>Call Chain = _cbaboutus &rArr; W_pageSetting &rArr; GUI_Exec &rArr; GUI_Exec1 &rArr; WM_Exec &rArr; _DrawNext &rArr; WM__Paint &rArr; GUI_MEMDEV_Draw &rArr; GUI_MEMDEV_CopyToLCD &rArr; GUI_MEMDEV_CopyToLCDAt &rArr; GUI_MEMDEV__WriteToActiveOpaque &rArr; _WriteToActiveOpaque_8 &rArr; GUI_MEMDEV_GetDataPtr &rArr; GUI_Lock &rArr; GUI_X_Lock &rArr; OSSemPend &rArr; OS_Pend &rArr; OS_TaskBlock &rArr; OS_TickListInsert
 </UL>
-<BR>[Calls]<UL><LI><a href="#[1f0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_DeleteWindow
+<BR>[Calls]<UL><LI><a href="#[1f2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_DeleteWindow
 <LI><a href="#[1cc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_DefaultProc
-<LI><a href="#[1fa]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_SetPenSize
+<LI><a href="#[1ec]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_SetPenSize
 <LI><a href="#[1bc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_SetFont
 <LI><a href="#[1bd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_SetColor
 <LI><a href="#[1ba]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_SetBkColor
-<LI><a href="#[1fb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_DrawHLine
+<LI><a href="#[1fd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_DrawHLine
 <LI><a href="#[1e0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_DispStringHCenterAt
 <LI><a href="#[1dc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_ClearRect
 <LI><a href="#[1bb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_Clear
-<LI><a href="#[1fe]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;W_pageSetting
+<LI><a href="#[200]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;W_pageSetting
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> mypage.o(.text)
 </UL>
-<P><STRONG><a name="[1ff]"></a>W_aboutUs</STRONG> (Thumb, 30 bytes, Stack size 16 bytes, mypage.o(.text))
+<P><STRONG><a name="[201]"></a>W_aboutUs</STRONG> (Thumb, 30 bytes, Stack size 16 bytes, mypage.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 444 + Unknown Stack Size
 <LI>Call Chain = W_aboutUs &rArr; WM_CreateWindow &rArr; WM_CreateWindowAsChild &rArr; WM__SendMsgNoData &rArr; WM__SendMessage &rArr; WM_DefaultProc &rArr; WM_InvalidateWindow &rArr; WM_InvalidateRect &rArr; WM__InvalidateRectEx &rArr; WM__InvalidateRect &rArr;  WM__InvalidateRect (Cycle)
 </UL>
-<BR>[Calls]<UL><LI><a href="#[1f8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_CreateWindow
+<BR>[Calls]<UL><LI><a href="#[1fb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_CreateWindow
 </UL>
-<BR>[Called By]<UL><LI><a href="#[200]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pageSetting
-</UL>
-
-<P><STRONG><a name="[202]"></a>SoftReset</STRONG> (Thumb, 38 bytes, Stack size 0 bytes, mypage.o(.text))
-<BR><BR>[Called By]<UL><LI><a href="#[200]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pageSetting
+<BR>[Called By]<UL><LI><a href="#[202]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pageSetting
 </UL>
 
-<P><STRONG><a name="[200]"></a>pageSetting</STRONG> (Thumb, 516 bytes, Stack size 16 bytes, mypage.o(.text))
-<BR><BR>[Stack]<UL><LI>Max Depth = 764 + Unknown Stack Size
-<LI>Call Chain = pageSetting &rArr; W_pageHome &rArr; GUI_Exec &rArr; GUI_Exec1 &rArr; WM_Exec &rArr; _DrawNext &rArr; WM__Paint &rArr; GUI_MEMDEV_Draw &rArr; GUI_MEMDEV_CopyToLCD &rArr; GUI_MEMDEV_CopyToLCDAt &rArr; GUI_MEMDEV__WriteToActiveOpaque &rArr; _WriteToActiveOpaque_8 &rArr; GUI_MEMDEV_GetDataPtr &rArr; GUI_Lock &rArr; GUI_X_Lock &rArr; OSSemPend &rArr; OS_Pend &rArr; OS_TaskBlock &rArr; OS_TickListInsert
+<P><STRONG><a name="[203]"></a>SoftReset</STRONG> (Thumb, 38 bytes, Stack size 0 bytes, mypage.o(.text))
+<BR><BR>[Called By]<UL><LI><a href="#[202]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pageSetting
 </UL>
-<BR>[Calls]<UL><LI><a href="#[1f0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_DeleteWindow
-<LI><a href="#[1fa]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_SetPenSize
+
+<P><STRONG><a name="[202]"></a>pageSetting</STRONG> (Thumb, 420 bytes, Stack size 16 bytes, mypage.o(.text))
+<BR><BR>[Stack]<UL><LI>Max Depth = 836 + Unknown Stack Size
+<LI>Call Chain = pageSetting &rArr; stepMotor_Reset &rArr; stepMotor_Distance &rArr; stepMotor_Run &rArr; GUI_Delay &rArr; GUI_Exec &rArr; GUI_Exec1 &rArr; WM_Exec &rArr; _DrawNext &rArr; WM__Paint &rArr; GUI_MEMDEV_Draw &rArr; GUI_MEMDEV_CopyToLCD &rArr; GUI_MEMDEV_CopyToLCDAt &rArr; GUI_MEMDEV__WriteToActiveOpaque &rArr; _WriteToActiveOpaque_8 &rArr; GUI_MEMDEV_GetDataPtr &rArr; GUI_Lock &rArr; GUI_X_Lock &rArr; OSSemPend &rArr; OS_Pend &rArr; OS_TaskBlock &rArr; OS_TickListInsert
+</UL>
+<BR>[Calls]<UL><LI><a href="#[f9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;stepMotor_Reset
+<LI><a href="#[f6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;AT24CXX_WriteOneByte
+<LI><a href="#[f7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;AT24CXX_ReadOneByte
+<LI><a href="#[1f2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_DeleteWindow
+<LI><a href="#[1ec]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_SetPenSize
 <LI><a href="#[1bc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_SetFont
 <LI><a href="#[1bd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_SetColor
 <LI><a href="#[1ba]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_SetBkColor
-<LI><a href="#[201]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_DrawLine
-<LI><a href="#[1fb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_DrawHLine
+<LI><a href="#[1ed]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_DrawLine
+<LI><a href="#[1fd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_DrawHLine
 <LI><a href="#[1e0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_DispStringHCenterAt
 <LI><a href="#[1be]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_DispStringAt
 <LI><a href="#[1dc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_ClearRect
 <LI><a href="#[1bb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_Clear
-<LI><a href="#[203]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;W_pageHome
-<LI><a href="#[202]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SoftReset
-<LI><a href="#[1ff]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;W_aboutUs
+<LI><a href="#[204]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;W_pageHome
+<LI><a href="#[203]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SoftReset
+<LI><a href="#[201]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;W_aboutUs
+<LI><a href="#[f8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2printf
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> mypage.o(.text)
 </UL>
-<P><STRONG><a name="[1fe]"></a>W_pageSetting</STRONG> (Thumb, 46 bytes, Stack size 16 bytes, mypage.o(.text))
+<P><STRONG><a name="[200]"></a>W_pageSetting</STRONG> (Thumb, 46 bytes, Stack size 16 bytes, mypage.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 748 + Unknown Stack Size
 <LI>Call Chain = W_pageSetting &rArr; GUI_Exec &rArr; GUI_Exec1 &rArr; WM_Exec &rArr; _DrawNext &rArr; WM__Paint &rArr; GUI_MEMDEV_Draw &rArr; GUI_MEMDEV_CopyToLCD &rArr; GUI_MEMDEV_CopyToLCDAt &rArr; GUI_MEMDEV__WriteToActiveOpaque &rArr; _WriteToActiveOpaque_8 &rArr; GUI_MEMDEV_GetDataPtr &rArr; GUI_Lock &rArr; GUI_X_Lock &rArr; OSSemPend &rArr; OS_Pend &rArr; OS_TaskBlock &rArr; OS_TickListInsert
 </UL>
-<BR>[Calls]<UL><LI><a href="#[1f8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_CreateWindow
+<BR>[Calls]<UL><LI><a href="#[1fb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_CreateWindow
 <LI><a href="#[1bd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_SetColor
 <LI><a href="#[1ba]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_SetBkColor
-<LI><a href="#[204]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_Exec
+<LI><a href="#[205]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_Exec
 </UL>
-<BR>[Called By]<UL><LI><a href="#[205]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pageHome
-<LI><a href="#[1fd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_cbaboutus
+<BR>[Called By]<UL><LI><a href="#[206]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pageHome
+<LI><a href="#[1ff]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_cbaboutus
 </UL>
 
-<P><STRONG><a name="[205]"></a>pageHome</STRONG> (Thumb, 258 bytes, Stack size 16 bytes, mypage.o(.text))
+<P><STRONG><a name="[206]"></a>pageHome</STRONG> (Thumb, 256 bytes, Stack size 16 bytes, mypage.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 1012 + Unknown Stack Size
 <LI>Call Chain = pageHome &rArr; W_pageShuyeSetting &rArr; createMultipage &rArr; MULTIPAGE_AddPage &rArr; MULTIPAGE_SelectPage &rArr; MULTIPAGE__UpdatePositions &rArr; _AddScrollbar &rArr; WM_SetSize &rArr; WM_ResizeWindow &rArr; WM__UpdateChildPositions &rArr;  WM_ResizeWindow (Cycle)
 </UL>
-<BR>[Calls]<UL><LI><a href="#[1f0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_DeleteWindow
-<LI><a href="#[1fa]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_SetPenSize
+<BR>[Calls]<UL><LI><a href="#[1f2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_DeleteWindow
+<LI><a href="#[1ec]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_SetPenSize
 <LI><a href="#[1bc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_SetFont
 <LI><a href="#[1bd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_SetColor
 <LI><a href="#[1ba]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_SetBkColor
-<LI><a href="#[1fb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_DrawHLine
+<LI><a href="#[1fd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_DrawHLine
 <LI><a href="#[1e0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_DispStringHCenterAt
 <LI><a href="#[1dc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_ClearRect
 <LI><a href="#[1bb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_Clear
-<LI><a href="#[1f1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;W_pageShuyeSetting
-<LI><a href="#[1fe]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;W_pageSetting
+<LI><a href="#[1f3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;W_pageShuyeSetting
+<LI><a href="#[200]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;W_pageSetting
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> mypage.o(.text)
 </UL>
-<P><STRONG><a name="[203]"></a>W_pageHome</STRONG> (Thumb, 34 bytes, Stack size 16 bytes, mypage.o(.text))
+<P><STRONG><a name="[204]"></a>W_pageHome</STRONG> (Thumb, 34 bytes, Stack size 16 bytes, mypage.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 748 + Unknown Stack Size
 <LI>Call Chain = W_pageHome &rArr; GUI_Exec &rArr; GUI_Exec1 &rArr; WM_Exec &rArr; _DrawNext &rArr; WM__Paint &rArr; GUI_MEMDEV_Draw &rArr; GUI_MEMDEV_CopyToLCD &rArr; GUI_MEMDEV_CopyToLCDAt &rArr; GUI_MEMDEV__WriteToActiveOpaque &rArr; _WriteToActiveOpaque_8 &rArr; GUI_MEMDEV_GetDataPtr &rArr; GUI_Lock &rArr; GUI_X_Lock &rArr; OSSemPend &rArr; OS_Pend &rArr; OS_TaskBlock &rArr; OS_TickListInsert
 </UL>
-<BR>[Calls]<UL><LI><a href="#[1f8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_CreateWindow
-<LI><a href="#[204]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_Exec
+<BR>[Calls]<UL><LI><a href="#[1fb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_CreateWindow
+<LI><a href="#[205]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_Exec
 </UL>
-<BR>[Called By]<UL><LI><a href="#[206]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pageShuyeSetting
-<LI><a href="#[200]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pageSetting
+<BR>[Called By]<UL><LI><a href="#[207]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pageShuyeSetting
+<LI><a href="#[202]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pageSetting
 </UL>
 
-<P><STRONG><a name="[206]"></a>pageShuyeSetting</STRONG> (Thumb, 194 bytes, Stack size 16 bytes, mypage.o(.text))
+<P><STRONG><a name="[207]"></a>pageShuyeSetting</STRONG> (Thumb, 436 bytes, Stack size 16 bytes, mypage.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 764 + Unknown Stack Size
 <LI>Call Chain = pageShuyeSetting &rArr; W_pageHome &rArr; GUI_Exec &rArr; GUI_Exec1 &rArr; WM_Exec &rArr; _DrawNext &rArr; WM__Paint &rArr; GUI_MEMDEV_Draw &rArr; GUI_MEMDEV_CopyToLCD &rArr; GUI_MEMDEV_CopyToLCDAt &rArr; GUI_MEMDEV__WriteToActiveOpaque &rArr; _WriteToActiveOpaque_8 &rArr; GUI_MEMDEV_GetDataPtr &rArr; GUI_Lock &rArr; GUI_X_Lock &rArr; OSSemPend &rArr; OS_Pend &rArr; OS_TaskBlock &rArr; OS_TickListInsert
 </UL>
-<BR>[Calls]<UL><LI><a href="#[1f0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_DeleteWindow
+<BR>[Calls]<UL><LI><a href="#[1f2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_DeleteWindow
 <LI><a href="#[1bc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_SetFont
 <LI><a href="#[1bd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_SetColor
 <LI><a href="#[1ba]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_SetBkColor
@@ -1879,57 +1889,57 @@ Global Symbols
 <LI><a href="#[1e0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_DispStringHCenterAt
 <LI><a href="#[1dc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_ClearRect
 <LI><a href="#[1bb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_Clear
-<LI><a href="#[203]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;W_pageHome
-<LI><a href="#[1fc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;W_pageShuyeDisplay
+<LI><a href="#[204]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;W_pageHome
+<LI><a href="#[1fe]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;W_pageShuyeDisplay
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> mypage.o(.text)
 </UL>
-<P><STRONG><a name="[1f1]"></a>W_pageShuyeSetting</STRONG> (Thumb, 94 bytes, Stack size 32 bytes, mypage.o(.text))
+<P><STRONG><a name="[1f3]"></a>W_pageShuyeSetting</STRONG> (Thumb, 94 bytes, Stack size 32 bytes, mypage.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 996 + Unknown Stack Size
 <LI>Call Chain = W_pageShuyeSetting &rArr; createMultipage &rArr; MULTIPAGE_AddPage &rArr; MULTIPAGE_SelectPage &rArr; MULTIPAGE__UpdatePositions &rArr; _AddScrollbar &rArr; WM_SetSize &rArr; WM_ResizeWindow &rArr; WM__UpdateChildPositions &rArr;  WM_ResizeWindow (Cycle)
 </UL>
-<BR>[Calls]<UL><LI><a href="#[208]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_SetStayOnTop
-<LI><a href="#[1f8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_CreateWindow
+<BR>[Calls]<UL><LI><a href="#[209]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_SetStayOnTop
+<LI><a href="#[1fb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_CreateWindow
 <LI><a href="#[1d3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_CreateDialogBox
-<LI><a href="#[1f7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BUTTON_SetSkinFlexProps
-<LI><a href="#[207]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BUTTON_SetDefaultSkin
+<LI><a href="#[1f9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BUTTON_SetSkinFlexProps
+<LI><a href="#[208]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BUTTON_SetDefaultSkin
 <LI><a href="#[1cd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;createMultipage
 </UL>
 <BR>[Called By]<UL><LI><a href="#[100]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MainTask
-<LI><a href="#[205]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pageHome
-<LI><a href="#[1f9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pageShuyeDisplay
+<LI><a href="#[206]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pageHome
+<LI><a href="#[1fc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pageShuyeDisplay
 <LI><a href="#[1e1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pageDisplay
 </UL>
 
-<P><STRONG><a name="[100]"></a>MainTask</STRONG> (Thumb, 40 bytes, Stack size 0 bytes, mypage.o(.text))
+<P><STRONG><a name="[100]"></a>MainTask</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, mypage.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 996 + Unknown Stack Size
 <LI>Call Chain = MainTask &rArr; W_pageShuyeSetting &rArr; createMultipage &rArr; MULTIPAGE_AddPage &rArr; MULTIPAGE_SelectPage &rArr; MULTIPAGE__UpdatePositions &rArr; _AddScrollbar &rArr; WM_SetSize &rArr; WM_ResizeWindow &rArr; WM__UpdateChildPositions &rArr;  WM_ResizeWindow (Cycle)
 </UL>
 <BR>[Calls]<UL><LI><a href="#[1e6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_Delay
-<LI><a href="#[1f1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;W_pageShuyeSetting
+<LI><a href="#[1f3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;W_pageShuyeSetting
 </UL>
 <BR>[Called By]<UL><LI><a href="#[ff]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;emwindemo_task
 </UL>
 
-<P><STRONG><a name="[209]"></a>_cbEditAddKey</STRONG> (Thumb, 290 bytes, Stack size 24 bytes, mypage.o(.text))
+<P><STRONG><a name="[20a]"></a>_cbEditAddKey</STRONG> (Thumb, 108 bytes, Stack size 24 bytes, mypage.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 356 + Unknown Stack Size
 <LI>Call Chain = _cbEditAddKey &rArr; EDIT_SetText &rArr; WM_InvalidateWindow &rArr; WM_InvalidateRect &rArr; WM__InvalidateRectEx &rArr; WM__InvalidateRect &rArr;  WM__InvalidateRect (Cycle)
 </UL>
-<BR>[Calls]<UL><LI><a href="#[20a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EDIT_SetpfAddKeyEx
+<BR>[Calls]<UL><LI><a href="#[20b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EDIT_SetpfAddKeyEx
 <LI><a href="#[1c5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EDIT_SetText
-<LI><a href="#[20c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EDIT_SetCursorAtChar
-<LI><a href="#[20b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EDIT_GetNumChars
+<LI><a href="#[20d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EDIT_SetCursorAtChar
+<LI><a href="#[20c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EDIT_GetNumChars
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> mypage.o(.text)
 </UL>
-<P><STRONG><a name="[20d]"></a>_cbEdit</STRONG> (Thumb, 114 bytes, Stack size 16 bytes, mypage.o(.text), UNUSED)
-<BR><BR>[Calls]<UL><LI><a href="#[20f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_SetFocus
-<LI><a href="#[20e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_GetFocussedWindow
-<LI><a href="#[20a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EDIT_SetpfAddKeyEx
-<LI><a href="#[210]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EDIT_SetSel
+<P><STRONG><a name="[20e]"></a>_cbEdit</STRONG> (Thumb, 114 bytes, Stack size 16 bytes, mypage.o(.text), UNUSED)
+<BR><BR>[Calls]<UL><LI><a href="#[210]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_SetFocus
+<LI><a href="#[20f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_GetFocussedWindow
+<LI><a href="#[20b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EDIT_SetpfAddKeyEx
+<LI><a href="#[211]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EDIT_SetSel
 </UL>
 
-<P><STRONG><a name="[211]"></a>stepMotor_Read</STRONG> (Thumb, 14 bytes, Stack size 8 bytes, step_motor.o(.text))
+<P><STRONG><a name="[1fa]"></a>stepMotor_Read</STRONG> (Thumb, 14 bytes, Stack size 8 bytes, step_motor.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 152 + Unknown Stack Size
 <LI>Call Chain = stepMotor_Read &rArr; AT24CXX_ReadLenByte &rArr; AT24CXX_ReadOneByte &rArr; IIC_Read_Byte &rArr; IIC_NAck &rArr; delay_us &rArr; delay_osschedunlock &rArr; OSSchedUnlock &rArr; OSSched &rArr; OS_PrioGetHighest
 </UL>
@@ -1937,6 +1947,7 @@ Global Symbols
 </UL>
 <BR>[Called By]<UL><LI><a href="#[113]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;stepMotor_Init
 <LI><a href="#[f5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;stepMotor_Distance
+<LI><a href="#[1f8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;W_pageDisplay
 </UL>
 
 <P><STRONG><a name="[113]"></a>stepMotor_Init</STRONG> (Thumb, 218 bytes, Stack size 16 bytes, step_motor.o(.text))
@@ -1946,7 +1957,7 @@ Global Symbols
 <BR>[Calls]<UL><LI><a href="#[120]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RCC_APB2PeriphClockCmd
 <LI><a href="#[121]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_Init
 <LI><a href="#[f7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;AT24CXX_ReadOneByte
-<LI><a href="#[211]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;stepMotor_Read
+<LI><a href="#[1fa]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;stepMotor_Read
 <LI><a href="#[1b7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_ResetBits
 <LI><a href="#[f8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2printf
 </UL>
@@ -1963,23 +1974,23 @@ Global Symbols
 <LI><a href="#[f5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;stepMotor_Distance
 </UL>
 
-<P><STRONG><a name="[f5]"></a>stepMotor_Distance</STRONG> (Thumb, 138 bytes, Stack size 32 bytes, step_motor.o(.text))
+<P><STRONG><a name="[f5]"></a>stepMotor_Distance</STRONG> (Thumb, 142 bytes, Stack size 32 bytes, step_motor.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 804 + Unknown Stack Size
 <LI>Call Chain = stepMotor_Distance &rArr; stepMotor_Run &rArr; GUI_Delay &rArr; GUI_Exec &rArr; GUI_Exec1 &rArr; WM_Exec &rArr; _DrawNext &rArr; WM__Paint &rArr; GUI_MEMDEV_Draw &rArr; GUI_MEMDEV_CopyToLCD &rArr; GUI_MEMDEV_CopyToLCDAt &rArr; GUI_MEMDEV__WriteToActiveOpaque &rArr; _WriteToActiveOpaque_8 &rArr; GUI_MEMDEV_GetDataPtr &rArr; GUI_Lock &rArr; GUI_X_Lock &rArr; OSSemPend &rArr; OS_Pend &rArr; OS_TaskBlock &rArr; OS_TickListInsert
 </UL>
 <BR>[Calls]<UL><LI><a href="#[14d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;AT24CXX_WriteLenByte
 <LI><a href="#[f7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;AT24CXX_ReadOneByte
 <LI><a href="#[212]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;stepMotor_Run
-<LI><a href="#[211]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;stepMotor_Read
+<LI><a href="#[1fa]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;stepMotor_Read
 <LI><a href="#[f8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2printf
 </UL>
 <BR>[Called By]<UL><LI><a href="#[f9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;stepMotor_Reset
 <LI><a href="#[f3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;fontupdata_task
-<LI><a href="#[1f6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;W_pageDisplay
+<LI><a href="#[1f8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;W_pageDisplay
 <LI><a href="#[1e1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pageDisplay
 </UL>
 
-<P><STRONG><a name="[f9]"></a>stepMotor_Reset</STRONG> (Thumb, 172 bytes, Stack size 16 bytes, step_motor.o(.text))
+<P><STRONG><a name="[f9]"></a>stepMotor_Reset</STRONG> (Thumb, 176 bytes, Stack size 16 bytes, step_motor.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 820 + Unknown Stack Size
 <LI>Call Chain = stepMotor_Reset &rArr; stepMotor_Distance &rArr; stepMotor_Run &rArr; GUI_Delay &rArr; GUI_Exec &rArr; GUI_Exec1 &rArr; WM_Exec &rArr; _DrawNext &rArr; WM__Paint &rArr; GUI_MEMDEV_Draw &rArr; GUI_MEMDEV_CopyToLCD &rArr; GUI_MEMDEV_CopyToLCDAt &rArr; GUI_MEMDEV__WriteToActiveOpaque &rArr; _WriteToActiveOpaque_8 &rArr; GUI_MEMDEV_GetDataPtr &rArr; GUI_Lock &rArr; GUI_X_Lock &rArr; OSSemPend &rArr; OS_Pend &rArr; OS_TaskBlock &rArr; OS_TickListInsert
 </UL>
@@ -1991,6 +2002,7 @@ Global Symbols
 <LI><a href="#[f8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2printf
 </UL>
 <BR>[Called By]<UL><LI><a href="#[f3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;fontupdata_task
+<LI><a href="#[202]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pageSetting
 </UL>
 
 <P><STRONG><a name="[115]"></a>jumpSign_Init</STRONG> (Thumb, 32 bytes, Stack size 8 bytes, jump_sign.o(.text))
@@ -5838,7 +5850,7 @@ Global Symbols
 <P><STRONG><a name="[398]"></a>f_typetell</STRONG> (Thumb, 188 bytes, Stack size 32 bytes, exfuns.o(.text), UNUSED)
 <BR><BR>[Calls]<UL><LI><a href="#[39a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;char_upper
 <LI><a href="#[399]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;strcpy
-<LI><a href="#[1f2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;strcmp
+<LI><a href="#[1f4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;strcmp
 </UL>
 
 <P><STRONG><a name="[39b]"></a>exf_getfree</STRONG> (Thumb, 74 bytes, Stack size 40 bytes, exfuns.o(.text), UNUSED)
@@ -5964,7 +5976,7 @@ Global Symbols
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = __aeabi_memcpy4
 </UL>
 <BR>[Called By]<UL><LI><a href="#[1d0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MULTIPAGE_SetSkinFlexProps
-<LI><a href="#[1f7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BUTTON_SetSkinFlexProps
+<LI><a href="#[1f9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BUTTON_SetSkinFlexProps
 <LI><a href="#[1cd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;createMultipage
 <LI><a href="#[3fa]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUITASK_CopyContext
 <LI><a href="#[591]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_EnlargeBlocks
@@ -6030,7 +6042,7 @@ Global Symbols
 <LI><a href="#[d1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_Paint
 </UL>
 
-<P><STRONG><a name="[1f2]"></a>strcmp</STRONG> (Thumb, 28 bytes, Stack size 8 bytes, strcmp.o(.text))
+<P><STRONG><a name="[1f4]"></a>strcmp</STRONG> (Thumb, 28 bytes, Stack size 8 bytes, strcmp.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = strcmp
 </UL>
 <BR>[Called By]<UL><LI><a href="#[1e1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pageDisplay
@@ -6105,7 +6117,7 @@ Global Symbols
 </UL>
 <BR>[Called By]<UL><LI><a href="#[2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TP_Adjust
 <LI><a href="#[1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TP_Scan
-<LI><a href="#[1f9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pageShuyeDisplay
+<LI><a href="#[1fc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pageShuyeDisplay
 <LI><a href="#[1e1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pageDisplay
 <LI><a href="#[1b9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_cbBottle4
 <LI><a href="#[39c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;fupd_prog
@@ -6140,6 +6152,7 @@ Global Symbols
 </UL>
 <BR>[Called By]<UL><LI><a href="#[2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TP_Adjust
 <LI><a href="#[1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TP_Scan
+<LI><a href="#[1e1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pageDisplay
 <LI><a href="#[1b9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_cbBottle4
 </UL>
 
@@ -6186,7 +6199,7 @@ Global Symbols
 
 <P><STRONG><a name="[16b]"></a>__aeabi_f2d</STRONG> (Thumb, 38 bytes, Stack size 0 bytes, f2d.o(.text))
 <BR><BR>[Called By]<UL><LI><a href="#[2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TP_Adjust
-<LI><a href="#[1f9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pageShuyeDisplay
+<LI><a href="#[1fc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pageShuyeDisplay
 <LI><a href="#[1b9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_cbBottle4
 </UL>
 
@@ -6418,7 +6431,7 @@ Global Symbols
 <BR><BR>[Stack]<UL><LI>Max Depth = 444 + Unknown Stack Size
 <LI>Call Chain = BUTTON_CreateUser &rArr; WM_CreateWindowAsChild &rArr; WM__SendMsgNoData &rArr; WM__SendMessage &rArr; WM_DefaultProc &rArr; WM_InvalidateWindow &rArr; WM_InvalidateRect &rArr; WM__InvalidateRectEx &rArr; WM__InvalidateRect &rArr;  WM__InvalidateRect (Cycle)
 </UL>
-<BR>[Calls]<UL><LI><a href="#[1ee]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_CreateWindowAsChild
+<BR>[Calls]<UL><LI><a href="#[1f0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_CreateWindowAsChild
 <LI><a href="#[3c5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_Unlock
 <LI><a href="#[3c3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_Lock
 <LI><a href="#[3bb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_ALLOC_UnlockH
@@ -6436,7 +6449,7 @@ Global Symbols
 <BR>[Calls]<UL><LI><a href="#[1bc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_SetFont
 <LI><a href="#[1bd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_SetColor
 <LI><a href="#[1e9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_DrawVLine
-<LI><a href="#[1fb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_DrawHLine
+<LI><a href="#[1fd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_DrawHLine
 <LI><a href="#[3bb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_ALLOC_UnlockH
 <LI><a href="#[3ba]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_ALLOC_LockH
 <LI><a href="#[3ca]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM__IsEnabled
@@ -6467,8 +6480,8 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[63]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_cbDialogNumPad
 </UL>
 
-<P><STRONG><a name="[207]"></a>BUTTON_SetDefaultSkin</STRONG> (Thumb, 16 bytes, Stack size 0 bytes, button_skin.o(i.BUTTON_SetDefaultSkin))
-<BR><BR>[Called By]<UL><LI><a href="#[1f1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;W_pageShuyeSetting
+<P><STRONG><a name="[208]"></a>BUTTON_SetDefaultSkin</STRONG> (Thumb, 16 bytes, Stack size 0 bytes, button_skin.o(i.BUTTON_SetDefaultSkin))
+<BR><BR>[Called By]<UL><LI><a href="#[1f3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;W_pageShuyeSetting
 </UL>
 
 <P><STRONG><a name="[1d6]"></a>BUTTON_SetFocussable</STRONG> (Thumb, 16 bytes, Stack size 0 bytes, button.o(i.BUTTON_SetFocussable))
@@ -6485,7 +6498,7 @@ Global Symbols
 <BR><BR>[Stack]<UL><LI>Max Depth = 308 + Unknown Stack Size
 <LI>Call Chain = BUTTON_SetFont &rArr; WM_InvalidateWindow &rArr; WM_InvalidateRect &rArr; WM__InvalidateRectEx &rArr; WM__InvalidateRect &rArr;  WM__InvalidateRect (Cycle)
 </UL>
-<BR>[Calls]<UL><LI><a href="#[1f3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_InvalidateWindow
+<BR>[Calls]<UL><LI><a href="#[1f5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_InvalidateWindow
 <LI><a href="#[3c5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_Unlock
 <LI><a href="#[3c3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_Lock
 <LI><a href="#[3bb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_ALLOC_UnlockH
@@ -6504,20 +6517,20 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[73]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BUTTON_Callback
 </UL>
 
-<P><STRONG><a name="[1f7]"></a>BUTTON_SetSkinFlexProps</STRONG> (Thumb, 22 bytes, Stack size 0 bytes, button_skinflex.o(i.BUTTON_SetSkinFlexProps))
+<P><STRONG><a name="[1f9]"></a>BUTTON_SetSkinFlexProps</STRONG> (Thumb, 22 bytes, Stack size 0 bytes, button_skinflex.o(i.BUTTON_SetSkinFlexProps))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = BUTTON_SetSkinFlexProps &rArr; __aeabi_memcpy4
 </UL>
 <BR>[Calls]<UL><LI><a href="#[1ce]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memcpy4
 </UL>
-<BR>[Called By]<UL><LI><a href="#[1f1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;W_pageShuyeSetting
-<LI><a href="#[1f6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;W_pageDisplay
+<BR>[Called By]<UL><LI><a href="#[1f3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;W_pageShuyeSetting
+<LI><a href="#[1f8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;W_pageDisplay
 </UL>
 
 <P><STRONG><a name="[3c2]"></a>BUTTON_SetText</STRONG> (Thumb, 90 bytes, Stack size 40 bytes, button.o(i.BUTTON_SetText))
 <BR><BR>[Stack]<UL><LI>Max Depth = 332 + Unknown Stack Size
 <LI>Call Chain = BUTTON_SetText &rArr; WM_InvalidateWindow &rArr; WM_InvalidateRect &rArr; WM__InvalidateRectEx &rArr; WM__InvalidateRect &rArr;  WM__InvalidateRect (Cycle)
 </UL>
-<BR>[Calls]<UL><LI><a href="#[1f3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_InvalidateWindow
+<BR>[Calls]<UL><LI><a href="#[1f5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_InvalidateWindow
 <LI><a href="#[3c5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_Unlock
 <LI><a href="#[3c3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_Lock
 <LI><a href="#[3bb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_ALLOC_UnlockH
@@ -6531,7 +6544,7 @@ Global Symbols
 <BR><BR>[Stack]<UL><LI>Max Depth = 348 + Unknown Stack Size
 <LI>Call Chain = EDIT_AddKey &rArr; _InsertChar &rArr; _IsSpaceInBuffer &rArr; _IncrementBuffer &rArr; GUI_ALLOC_Realloc &rArr; GUI_ALLOC_Free &rArr; GUI_Lock &rArr; GUI_X_Lock &rArr; OSSemPend &rArr; OS_Pend &rArr; OS_TaskBlock &rArr; OS_TickListInsert
 </UL>
-<BR>[Calls]<UL><LI><a href="#[1f3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_InvalidateWindow
+<BR>[Calls]<UL><LI><a href="#[1f5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_InvalidateWindow
 <LI><a href="#[3d8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_UC__NumChars2NumBytes
 <LI><a href="#[3c5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_Unlock
 <LI><a href="#[3c3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_Lock
@@ -6578,8 +6591,8 @@ Global Symbols
 <BR><BR>[Stack]<UL><LI>Max Depth = 444 + Unknown Stack Size
 <LI>Call Chain = EDIT_CreateUser &rArr; WM_CreateWindowAsChild &rArr; WM__SendMsgNoData &rArr; WM__SendMessage &rArr; WM_DefaultProc &rArr; WM_InvalidateWindow &rArr; WM_InvalidateRect &rArr; WM__InvalidateRectEx &rArr; WM__InvalidateRect &rArr;  WM__InvalidateRect (Cycle)
 </UL>
-<BR>[Calls]<UL><LI><a href="#[1f0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_DeleteWindow
-<LI><a href="#[1ee]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_CreateWindowAsChild
+<BR>[Calls]<UL><LI><a href="#[1f2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_DeleteWindow
+<LI><a href="#[1f0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_CreateWindowAsChild
 <LI><a href="#[3c5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_Unlock
 <LI><a href="#[3c3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_Lock
 <LI><a href="#[3bb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_ALLOC_UnlockH
@@ -6591,7 +6604,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EDIT_CreateIndirect
 </UL>
 
-<P><STRONG><a name="[20b]"></a>EDIT_GetNumChars</STRONG> (Thumb, 58 bytes, Stack size 24 bytes, edit_getnumchars.o(i.EDIT_GetNumChars))
+<P><STRONG><a name="[20c]"></a>EDIT_GetNumChars</STRONG> (Thumb, 58 bytes, Stack size 24 bytes, edit_getnumchars.o(i.EDIT_GetNumChars))
 <BR><BR>[Stack]<UL><LI>Max Depth = 196 + Unknown Stack Size
 <LI>Call Chain = EDIT_GetNumChars &rArr; GUI_Lock &rArr; GUI_X_Lock &rArr; OSSemPend &rArr; OS_Pend &rArr; OS_TaskBlock &rArr; OS_TickListInsert
 </UL>
@@ -6601,8 +6614,8 @@ Global Symbols
 <LI><a href="#[3ba]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_ALLOC_LockH
 <LI><a href="#[3e3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI__GetNumChars
 </UL>
-<BR>[Called By]<UL><LI><a href="#[210]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EDIT_SetSel
-<LI><a href="#[209]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_cbEditAddKey
+<BR>[Called By]<UL><LI><a href="#[211]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EDIT_SetSel
+<LI><a href="#[20a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_cbEditAddKey
 </UL>
 
 <P><STRONG><a name="[1c8]"></a>EDIT_GetText</STRONG> (Thumb, 96 bytes, Stack size 32 bytes, edit.o(i.EDIT_GetText))
@@ -6620,23 +6633,23 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[1b9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_cbBottle4
 </UL>
 
-<P><STRONG><a name="[20c]"></a>EDIT_SetCursorAtChar</STRONG> (Thumb, 34 bytes, Stack size 16 bytes, edit_setcursoratchar.o(i.EDIT_SetCursorAtChar))
+<P><STRONG><a name="[20d]"></a>EDIT_SetCursorAtChar</STRONG> (Thumb, 34 bytes, Stack size 16 bytes, edit_setcursoratchar.o(i.EDIT_SetCursorAtChar))
 <BR><BR>[Stack]<UL><LI>Max Depth = 308 + Unknown Stack Size
 <LI>Call Chain = EDIT_SetCursorAtChar &rArr; WM_InvalidateWindow &rArr; WM_InvalidateRect &rArr; WM__InvalidateRectEx &rArr; WM__InvalidateRect &rArr;  WM__InvalidateRect (Cycle)
 </UL>
-<BR>[Calls]<UL><LI><a href="#[1f3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_InvalidateWindow
+<BR>[Calls]<UL><LI><a href="#[1f5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_InvalidateWindow
 <LI><a href="#[3c5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_Unlock
 <LI><a href="#[3c3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_Lock
 <LI><a href="#[3db]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EDIT__SetCursorPos
 </UL>
-<BR>[Called By]<UL><LI><a href="#[209]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_cbEditAddKey
+<BR>[Called By]<UL><LI><a href="#[20a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_cbEditAddKey
 </UL>
 
 <P><STRONG><a name="[3de]"></a>EDIT_SetCursorAtPixel</STRONG> (Thumb, 190 bytes, Stack size 48 bytes, edit.o(i.EDIT_SetCursorAtPixel))
 <BR><BR>[Stack]<UL><LI>Max Depth = 340 + Unknown Stack Size
 <LI>Call Chain = EDIT_SetCursorAtPixel &rArr; WM_InvalidateWindow &rArr; WM_InvalidateRect &rArr; WM__InvalidateRectEx &rArr; WM__InvalidateRect &rArr;  WM__InvalidateRect (Cycle)
 </UL>
-<BR>[Calls]<UL><LI><a href="#[1f3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_InvalidateWindow
+<BR>[Calls]<UL><LI><a href="#[1f5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_InvalidateWindow
 <LI><a href="#[1bc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_SetFont
 <LI><a href="#[3c5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_Unlock
 <LI><a href="#[3c3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_Lock
@@ -6655,7 +6668,7 @@ Global Symbols
 <BR><BR>[Stack]<UL><LI>Max Depth = 308 + Unknown Stack Size
 <LI>Call Chain = EDIT_SetFont &rArr; WM_InvalidateWindow &rArr; WM_InvalidateRect &rArr; WM__InvalidateRectEx &rArr; WM__InvalidateRect &rArr;  WM__InvalidateRect (Cycle)
 </UL>
-<BR>[Calls]<UL><LI><a href="#[1f3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_InvalidateWindow
+<BR>[Calls]<UL><LI><a href="#[1f5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_InvalidateWindow
 <LI><a href="#[3c5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_Unlock
 <LI><a href="#[3c3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_Lock
 <LI><a href="#[3bb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_ALLOC_UnlockH
@@ -6668,7 +6681,7 @@ Global Symbols
 <BR><BR>[Stack]<UL><LI>Max Depth = 316 + Unknown Stack Size
 <LI>Call Chain = EDIT_SetMaxLen &rArr; WM_InvalidateWindow &rArr; WM_InvalidateRect &rArr; WM__InvalidateRectEx &rArr; WM__InvalidateRect &rArr;  WM__InvalidateRect (Cycle)
 </UL>
-<BR>[Calls]<UL><LI><a href="#[1f3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_InvalidateWindow
+<BR>[Calls]<UL><LI><a href="#[1f5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_InvalidateWindow
 <LI><a href="#[3d8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_UC__NumChars2NumBytes
 <LI><a href="#[3c5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_Unlock
 <LI><a href="#[3c3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_Lock
@@ -6680,21 +6693,21 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[1b9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_cbBottle4
 </UL>
 
-<P><STRONG><a name="[210]"></a>EDIT_SetSel</STRONG> (Thumb, 80 bytes, Stack size 24 bytes, edit_setsel.o(i.EDIT_SetSel), UNUSED)
-<BR><BR>[Calls]<UL><LI><a href="#[20b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EDIT_GetNumChars
+<P><STRONG><a name="[211]"></a>EDIT_SetSel</STRONG> (Thumb, 80 bytes, Stack size 24 bytes, edit_setsel.o(i.EDIT_SetSel), UNUSED)
+<BR><BR>[Calls]<UL><LI><a href="#[20c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EDIT_GetNumChars
 <LI><a href="#[3c5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_Unlock
 <LI><a href="#[3c3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_Lock
 <LI><a href="#[3bb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_ALLOC_UnlockH
 <LI><a href="#[3ba]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_ALLOC_LockH
 </UL>
-<BR>[Called By]<UL><LI><a href="#[20d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_cbEdit
+<BR>[Called By]<UL><LI><a href="#[20e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_cbEdit
 </UL>
 
 <P><STRONG><a name="[1c5]"></a>EDIT_SetText</STRONG> (Thumb, 202 bytes, Stack size 40 bytes, edit.o(i.EDIT_SetText))
 <BR><BR>[Stack]<UL><LI>Max Depth = 332 + Unknown Stack Size
 <LI>Call Chain = EDIT_SetText &rArr; WM_InvalidateWindow &rArr; WM_InvalidateRect &rArr; WM__InvalidateRectEx &rArr; WM__InvalidateRect &rArr;  WM__InvalidateRect (Cycle)
 </UL>
-<BR>[Calls]<UL><LI><a href="#[1f3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_InvalidateWindow
+<BR>[Calls]<UL><LI><a href="#[1f5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_InvalidateWindow
 <LI><a href="#[3d8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_UC__NumChars2NumBytes
 <LI><a href="#[3c5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_Unlock
 <LI><a href="#[3c3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_Lock
@@ -6706,7 +6719,7 @@ Global Symbols
 <LI><a href="#[3d1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;strlen
 <LI><a href="#[1a6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memcpy
 </UL>
-<BR>[Called By]<UL><LI><a href="#[209]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_cbEditAddKey
+<BR>[Called By]<UL><LI><a href="#[20a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_cbEditAddKey
 <LI><a href="#[1b9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_cbBottle4
 </UL>
 
@@ -6714,7 +6727,7 @@ Global Symbols
 <BR><BR>[Stack]<UL><LI>Max Depth = 308 + Unknown Stack Size
 <LI>Call Chain = EDIT_SetTextAlign &rArr; WM_InvalidateWindow &rArr; WM_InvalidateRect &rArr; WM__InvalidateRectEx &rArr; WM__InvalidateRect &rArr;  WM__InvalidateRect (Cycle)
 </UL>
-<BR>[Calls]<UL><LI><a href="#[1f3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_InvalidateWindow
+<BR>[Calls]<UL><LI><a href="#[1f5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_InvalidateWindow
 <LI><a href="#[3c5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_Unlock
 <LI><a href="#[3c3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_Lock
 <LI><a href="#[3bb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_ALLOC_UnlockH
@@ -6723,7 +6736,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EDIT_CreateIndirect
 </UL>
 
-<P><STRONG><a name="[20a]"></a>EDIT_SetpfAddKeyEx</STRONG> (Thumb, 34 bytes, Stack size 16 bytes, edit_setpfaddkeyex.o(i.EDIT_SetpfAddKeyEx))
+<P><STRONG><a name="[20b]"></a>EDIT_SetpfAddKeyEx</STRONG> (Thumb, 34 bytes, Stack size 16 bytes, edit_setpfaddkeyex.o(i.EDIT_SetpfAddKeyEx))
 <BR><BR>[Stack]<UL><LI>Max Depth = 188 + Unknown Stack Size
 <LI>Call Chain = EDIT_SetpfAddKeyEx &rArr; GUI_Lock &rArr; GUI_X_Lock &rArr; OSSemPend &rArr; OS_Pend &rArr; OS_TaskBlock &rArr; OS_TickListInsert
 </UL>
@@ -6732,8 +6745,8 @@ Global Symbols
 <LI><a href="#[3bb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_ALLOC_UnlockH
 <LI><a href="#[3ba]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_ALLOC_LockH
 </UL>
-<BR>[Called By]<UL><LI><a href="#[20d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_cbEdit
-<LI><a href="#[209]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_cbEditAddKey
+<BR>[Called By]<UL><LI><a href="#[20e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_cbEdit
+<LI><a href="#[20a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_cbEditAddKey
 </UL>
 
 <P><STRONG><a name="[3db]"></a>EDIT__SetCursorPos</STRONG> (Thumb, 84 bytes, Stack size 16 bytes, edit.o(i.EDIT__SetCursorPos))
@@ -6743,7 +6756,7 @@ Global Symbols
 <LI><a href="#[3ba]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_ALLOC_LockH
 <LI><a href="#[3e3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI__GetNumChars
 </UL>
-<BR>[Called By]<UL><LI><a href="#[20c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EDIT_SetCursorAtChar
+<BR>[Called By]<UL><LI><a href="#[20d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EDIT_SetCursorAtChar
 <LI><a href="#[3de]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EDIT_SetCursorAtPixel
 <LI><a href="#[3d5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EDIT_AddKey
 </UL>
@@ -6753,7 +6766,7 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[3e9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GL_DrawLineEx
 </UL>
-<BR>[Called By]<UL><LI><a href="#[201]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_DrawLine
+<BR>[Called By]<UL><LI><a href="#[1ed]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_DrawLine
 </UL>
 
 <P><STRONG><a name="[3ea]"></a>GL_DrawLine1Ex</STRONG> (Thumb, 456 bytes, Stack size 64 bytes, gui_drawline.o(i.GL_DrawLine1Ex))
@@ -6807,7 +6820,7 @@ Global Symbols
 <BR><BR>[Stack]<UL><LI>Max Depth = 196 + Unknown Stack Size
 <LI>Call Chain = GL_SetDefault &rArr; GUI_SetPenSize &rArr; GUI_Lock &rArr; GUI_X_Lock &rArr; OSSemPend &rArr; OS_Pend &rArr; OS_TaskBlock &rArr; OS_TickListInsert
 </UL>
-<BR>[Calls]<UL><LI><a href="#[1fa]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_SetPenSize
+<BR>[Calls]<UL><LI><a href="#[1ec]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_SetPenSize
 <LI><a href="#[1bc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_SetFont
 <LI><a href="#[1bd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_SetColor
 <LI><a href="#[1ba]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_SetBkColor
@@ -6966,8 +6979,8 @@ Global Symbols
 <LI><a href="#[3ba]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_ALLOC_LockH
 <LI><a href="#[3ff]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_ALLOC_AllocNoInit
 </UL>
-<BR>[Called By]<UL><LI><a href="#[1ee]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_CreateWindowAsChild
-<LI><a href="#[1ed]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_CreateTimer
+<BR>[Called By]<UL><LI><a href="#[1f0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_CreateWindowAsChild
+<LI><a href="#[1ef]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_CreateTimer
 <LI><a href="#[497]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_TIMER_Create
 <LI><a href="#[505]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TEXT_CreateUser
 <LI><a href="#[40e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_ARRAY_Create
@@ -6988,9 +7001,9 @@ Global Symbols
 <LI><a href="#[404]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_PushFreeBlock
 <LI><a href="#[403]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_AddFreeMemory
 </UL>
-<BR>[Called By]<UL><LI><a href="#[1f0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_DeleteWindow
-<LI><a href="#[1f4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_DeleteTimer
-<LI><a href="#[1ed]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_CreateTimer
+<BR>[Called By]<UL><LI><a href="#[1f2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_DeleteWindow
+<LI><a href="#[1f6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_DeleteTimer
+<LI><a href="#[1ef]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_CreateTimer
 <LI><a href="#[3bc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_ALLOC_FreePtr
 <LI><a href="#[591]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_EnlargeBlocks
 <LI><a href="#[499]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_TIMER_Delete
@@ -7080,14 +7093,14 @@ Global Symbols
 <BR><BR>[Calls]<UL><LI><a href="#[409]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_ALLOC_h2p
 </UL>
 <BR>[Called By]<UL><LI><a href="#[1e4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_ShowWindow
-<LI><a href="#[208]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_SetStayOnTop
+<LI><a href="#[209]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_SetStayOnTop
 <LI><a href="#[1e8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_RestartTimer
 <LI><a href="#[1e7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_InvalidateRect
 <LI><a href="#[1e3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_HideWindow
-<LI><a href="#[1f0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_DeleteWindow
-<LI><a href="#[1f4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_DeleteTimer
-<LI><a href="#[1ee]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_CreateWindowAsChild
-<LI><a href="#[1ed]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_CreateTimer
+<LI><a href="#[1f2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_DeleteWindow
+<LI><a href="#[1f6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_DeleteTimer
+<LI><a href="#[1f0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_CreateWindowAsChild
+<LI><a href="#[1ef]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_CreateTimer
 <LI><a href="#[1d9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TEXT_SetTextColor
 <LI><a href="#[1da]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TEXT_SetFont
 <LI><a href="#[1d2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MULTIPAGE_SetFont
@@ -7095,13 +7108,13 @@ Global Symbols
 <LI><a href="#[1c7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MULTIPAGE_GetSelection
 <LI><a href="#[60]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MULTIPAGE_DrawSkinFlex
 <LI><a href="#[1d4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MULTIPAGE_AddPage
-<LI><a href="#[20a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EDIT_SetpfAddKeyEx
+<LI><a href="#[20b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EDIT_SetpfAddKeyEx
 <LI><a href="#[1c5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EDIT_SetText
-<LI><a href="#[210]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EDIT_SetSel
+<LI><a href="#[211]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EDIT_SetSel
 <LI><a href="#[1c1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EDIT_SetMaxLen
 <LI><a href="#[1c0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EDIT_SetFont
 <LI><a href="#[1c8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EDIT_GetText
-<LI><a href="#[20b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EDIT_GetNumChars
+<LI><a href="#[20c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EDIT_GetNumChars
 <LI><a href="#[1db]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BUTTON_SetFont
 <LI><a href="#[1d7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BUTTON_GetText
 <LI><a href="#[62]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BUTTON_DrawSkinFlex
@@ -7316,14 +7329,14 @@ Global Symbols
 
 <P><STRONG><a name="[3bb]"></a>GUI_ALLOC_UnlockH</STRONG> (Thumb, 42 bytes, Stack size 0 bytes, gui_alloc.o(i.GUI_ALLOC_UnlockH))
 <BR><BR>[Called By]<UL><LI><a href="#[1e4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_ShowWindow
-<LI><a href="#[208]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_SetStayOnTop
+<LI><a href="#[209]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_SetStayOnTop
 <LI><a href="#[1e8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_RestartTimer
 <LI><a href="#[1e7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_InvalidateRect
 <LI><a href="#[1e3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_HideWindow
-<LI><a href="#[1f0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_DeleteWindow
-<LI><a href="#[1f4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_DeleteTimer
-<LI><a href="#[1ee]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_CreateWindowAsChild
-<LI><a href="#[1ed]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_CreateTimer
+<LI><a href="#[1f2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_DeleteWindow
+<LI><a href="#[1f6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_DeleteTimer
+<LI><a href="#[1f0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_CreateWindowAsChild
+<LI><a href="#[1ef]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_CreateTimer
 <LI><a href="#[1d9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TEXT_SetTextColor
 <LI><a href="#[1da]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TEXT_SetFont
 <LI><a href="#[1d2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MULTIPAGE_SetFont
@@ -7331,13 +7344,13 @@ Global Symbols
 <LI><a href="#[1c7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MULTIPAGE_GetSelection
 <LI><a href="#[60]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MULTIPAGE_DrawSkinFlex
 <LI><a href="#[1d4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MULTIPAGE_AddPage
-<LI><a href="#[20a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EDIT_SetpfAddKeyEx
+<LI><a href="#[20b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EDIT_SetpfAddKeyEx
 <LI><a href="#[1c5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EDIT_SetText
-<LI><a href="#[210]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EDIT_SetSel
+<LI><a href="#[211]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EDIT_SetSel
 <LI><a href="#[1c1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EDIT_SetMaxLen
 <LI><a href="#[1c0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EDIT_SetFont
 <LI><a href="#[1c8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EDIT_GetText
-<LI><a href="#[20b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EDIT_GetNumChars
+<LI><a href="#[20c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EDIT_GetNumChars
 <LI><a href="#[1db]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BUTTON_SetFont
 <LI><a href="#[1d7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BUTTON_GetText
 <LI><a href="#[62]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BUTTON_DrawSkinFlex
@@ -7513,7 +7526,7 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[409]"></a>GUI_ALLOC_h2p</STRONG> (Thumb, 20 bytes, Stack size 0 bytes, gui_alloc.o(i.GUI_ALLOC_h2p))
-<BR><BR>[Called By]<UL><LI><a href="#[1ee]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_CreateWindowAsChild
+<BR><BR>[Called By]<UL><LI><a href="#[1f0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_CreateWindowAsChild
 <LI><a href="#[1d3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_CreateDialogBox
 <LI><a href="#[3ba]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_ALLOC_LockH
 <LI><a href="#[8b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_cbTimer
@@ -7675,11 +7688,11 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[418]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_GotoXY
 </UL>
-<BR>[Called By]<UL><LI><a href="#[206]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pageShuyeSetting
-<LI><a href="#[205]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pageHome
-<LI><a href="#[200]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pageSetting
-<LI><a href="#[1fd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_cbaboutus
-<LI><a href="#[1f9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pageShuyeDisplay
+<BR>[Called By]<UL><LI><a href="#[207]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pageShuyeSetting
+<LI><a href="#[206]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pageHome
+<LI><a href="#[202]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pageSetting
+<LI><a href="#[1ff]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_cbaboutus
+<LI><a href="#[1fc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pageShuyeDisplay
 <LI><a href="#[1e1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pageDisplay
 <LI><a href="#[1de]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_cbchild1
 <LI><a href="#[1b9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_cbBottle4
@@ -7702,11 +7715,11 @@ Global Symbols
 <LI><a href="#[34d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_SetDrawMode
 <LI><a href="#[351]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_FillRect
 </UL>
-<BR>[Called By]<UL><LI><a href="#[206]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pageShuyeSetting
-<LI><a href="#[205]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pageHome
-<LI><a href="#[200]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pageSetting
-<LI><a href="#[1fd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_cbaboutus
-<LI><a href="#[1f9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pageShuyeDisplay
+<BR>[Called By]<UL><LI><a href="#[207]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pageShuyeSetting
+<LI><a href="#[206]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pageHome
+<LI><a href="#[202]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pageSetting
+<LI><a href="#[1ff]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_cbaboutus
+<LI><a href="#[1fc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pageShuyeDisplay
 <LI><a href="#[1e1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pageDisplay
 <LI><a href="#[61]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_cbdialogAlert
 <LI><a href="#[50e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WIDGET__FillStringInRect
@@ -7727,8 +7740,8 @@ Global Symbols
 <LI>Call Chain = GUI_CreateDialogBox &rArr; WM_SetFocusOnNextChild &rArr; _SetFocusOnNextChild &rArr; WM_SetFocus &rArr; WM__SendMessage &rArr; WM_DefaultProc &rArr; WM_InvalidateWindow &rArr; WM_InvalidateRect &rArr; WM__InvalidateRectEx &rArr; WM__InvalidateRect &rArr;  WM__InvalidateRect (Cycle)
 </UL>
 <BR>[Calls]<UL><LI><a href="#[1e4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_ShowWindow
-<LI><a href="#[20e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_GetFocussedWindow
-<LI><a href="#[1f0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_DeleteWindow
+<LI><a href="#[20f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_GetFocussedWindow
+<LI><a href="#[1f2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_DeleteWindow
 <LI><a href="#[41c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_GetDesktopWindow
 <LI><a href="#[3c5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_Unlock
 <LI><a href="#[3c3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_Lock
@@ -7738,8 +7751,8 @@ Global Symbols
 <LI><a href="#[41d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_GetClientWindow
 <LI><a href="#[3d2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WIDGET_OrState
 </UL>
-<BR>[Called By]<UL><LI><a href="#[1ef]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_ExecDialogBox
-<LI><a href="#[1f1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;W_pageShuyeSetting
+<BR>[Called By]<UL><LI><a href="#[1f1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_ExecDialogBox
+<LI><a href="#[1f3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;W_pageShuyeSetting
 <LI><a href="#[1cd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;createMultipage
 </UL>
 
@@ -7855,7 +7868,7 @@ Global Symbols
 <BR><BR>[Stack]<UL><LI>Max Depth = 756 + Unknown Stack Size
 <LI>Call Chain = GUI_Delay &rArr; GUI_Exec &rArr; GUI_Exec1 &rArr; WM_Exec &rArr; _DrawNext &rArr; WM__Paint &rArr; GUI_MEMDEV_Draw &rArr; GUI_MEMDEV_CopyToLCD &rArr; GUI_MEMDEV_CopyToLCDAt &rArr; GUI_MEMDEV__WriteToActiveOpaque &rArr; _WriteToActiveOpaque_8 &rArr; GUI_MEMDEV_GetDataPtr &rArr; GUI_Lock &rArr; GUI_X_Lock &rArr; OSSemPend &rArr; OS_Pend &rArr; OS_TaskBlock &rArr; OS_TickListInsert
 </UL>
-<BR>[Calls]<UL><LI><a href="#[204]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_Exec
+<BR>[Calls]<UL><LI><a href="#[205]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_Exec
 <LI><a href="#[31d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_X_Delay
 <LI><a href="#[31c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_X_GetTime
 <LI><a href="#[3c5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_Unlock
@@ -7894,8 +7907,8 @@ Global Symbols
 <LI><a href="#[3c3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_Lock
 </UL>
 <BR>[Called By]<UL><LI><a href="#[1e0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_DispStringHCenterAt
-<LI><a href="#[200]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pageSetting
-<LI><a href="#[1f9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pageShuyeDisplay
+<LI><a href="#[202]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pageSetting
+<LI><a href="#[1fc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pageShuyeDisplay
 <LI><a href="#[1e1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pageDisplay
 <LI><a href="#[1b9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_cbBottle4
 <LI><a href="#[50e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WIDGET__FillStringInRect
@@ -7908,11 +7921,11 @@ Global Symbols
 <BR>[Calls]<UL><LI><a href="#[1be]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_DispStringAt
 <LI><a href="#[3f6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_SetTextAlign
 </UL>
-<BR>[Called By]<UL><LI><a href="#[206]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pageShuyeSetting
-<LI><a href="#[205]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pageHome
-<LI><a href="#[200]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pageSetting
-<LI><a href="#[1fd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_cbaboutus
-<LI><a href="#[1f9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pageShuyeDisplay
+<BR>[Called By]<UL><LI><a href="#[207]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pageShuyeSetting
+<LI><a href="#[206]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pageHome
+<LI><a href="#[202]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pageSetting
+<LI><a href="#[1ff]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_cbaboutus
+<LI><a href="#[1fc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pageShuyeDisplay
 <LI><a href="#[1e1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pageDisplay
 <LI><a href="#[1de]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_cbchild1
 </UL>
@@ -8018,7 +8031,7 @@ Global Symbols
 <LI><a href="#[62]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BUTTON_DrawSkinFlex
 </UL>
 
-<P><STRONG><a name="[1fb]"></a>GUI_DrawHLine</STRONG> (Thumb, 82 bytes, Stack size 32 bytes, gui_drawhline.o(i.GUI_DrawHLine))
+<P><STRONG><a name="[1fd]"></a>GUI_DrawHLine</STRONG> (Thumb, 82 bytes, Stack size 32 bytes, gui_drawhline.o(i.GUI_DrawHLine))
 <BR><BR>[Stack]<UL><LI>Max Depth = 204 + Unknown Stack Size
 <LI>Call Chain = GUI_DrawHLine &rArr; GUI_Lock &rArr; GUI_X_Lock &rArr; OSSemPend &rArr; OS_Pend &rArr; OS_TaskBlock &rArr; OS_TickListInsert
 </UL>
@@ -8029,16 +8042,16 @@ Global Symbols
 </UL>
 <BR>[Called By]<UL><LI><a href="#[60]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MULTIPAGE_DrawSkinFlex
 <LI><a href="#[62]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BUTTON_DrawSkinFlex
-<LI><a href="#[205]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pageHome
-<LI><a href="#[200]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pageSetting
-<LI><a href="#[1fd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_cbaboutus
-<LI><a href="#[1f9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pageShuyeDisplay
+<LI><a href="#[206]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pageHome
+<LI><a href="#[202]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pageSetting
+<LI><a href="#[1ff]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_cbaboutus
+<LI><a href="#[1fc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pageShuyeDisplay
 <LI><a href="#[509]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WIDGET__DrawTriangle
 <LI><a href="#[ee]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_DrawUpRect
 <LI><a href="#[f0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_DrawDownRect
 </UL>
 
-<P><STRONG><a name="[201]"></a>GUI_DrawLine</STRONG> (Thumb, 68 bytes, Stack size 24 bytes, gui_drawline.o(i.GUI_DrawLine))
+<P><STRONG><a name="[1ed]"></a>GUI_DrawLine</STRONG> (Thumb, 68 bytes, Stack size 24 bytes, gui_drawline.o(i.GUI_DrawLine))
 <BR><BR>[Stack]<UL><LI>Max Depth = 196 + Unknown Stack Size
 <LI>Call Chain = GUI_DrawLine &rArr; GUI_Lock &rArr; GUI_X_Lock &rArr; OSSemPend &rArr; OS_Pend &rArr; OS_TaskBlock &rArr; OS_TickListInsert
 </UL>
@@ -8048,7 +8061,8 @@ Global Symbols
 <LI><a href="#[3c5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_Unlock
 <LI><a href="#[3c3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_Lock
 </UL>
-<BR>[Called By]<UL><LI><a href="#[200]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pageSetting
+<BR>[Called By]<UL><LI><a href="#[202]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pageSetting
+<LI><a href="#[1e1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pageDisplay
 </UL>
 
 <P><STRONG><a name="[3c8]"></a>GUI_DrawRect</STRONG> (Thumb, 124 bytes, Stack size 32 bytes, gui_2dlib.o(i.GUI_DrawRect))
@@ -8080,8 +8094,8 @@ Global Symbols
 </UL>
 <BR>[Called By]<UL><LI><a href="#[60]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MULTIPAGE_DrawSkinFlex
 <LI><a href="#[62]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BUTTON_DrawSkinFlex
-<LI><a href="#[206]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pageShuyeSetting
-<LI><a href="#[1f9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pageShuyeDisplay
+<LI><a href="#[207]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pageShuyeSetting
+<LI><a href="#[1fc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pageShuyeDisplay
 <LI><a href="#[1e1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pageDisplay
 <LI><a href="#[85]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MULTIPAGE__DrawTextItemH
 <LI><a href="#[509]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WIDGET__DrawTriangle
@@ -8101,15 +8115,15 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[61]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_cbdialogAlert
 </UL>
 
-<P><STRONG><a name="[204]"></a>GUI_Exec</STRONG> (Thumb, 20 bytes, Stack size 8 bytes, gui_exec.o(i.GUI_Exec))
+<P><STRONG><a name="[205]"></a>GUI_Exec</STRONG> (Thumb, 20 bytes, Stack size 8 bytes, gui_exec.o(i.GUI_Exec))
 <BR><BR>[Stack]<UL><LI>Max Depth = 732 + Unknown Stack Size
 <LI>Call Chain = GUI_Exec &rArr; GUI_Exec1 &rArr; WM_Exec &rArr; _DrawNext &rArr; WM__Paint &rArr; GUI_MEMDEV_Draw &rArr; GUI_MEMDEV_CopyToLCD &rArr; GUI_MEMDEV_CopyToLCDAt &rArr; GUI_MEMDEV__WriteToActiveOpaque &rArr; _WriteToActiveOpaque_8 &rArr; GUI_MEMDEV_GetDataPtr &rArr; GUI_Lock &rArr; GUI_X_Lock &rArr; OSSemPend &rArr; OS_Pend &rArr; OS_TaskBlock &rArr; OS_TickListInsert
 </UL>
 <BR>[Calls]<UL><LI><a href="#[441]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_Exec1
 </UL>
 <BR>[Called By]<UL><LI><a href="#[1e6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_Delay
-<LI><a href="#[203]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;W_pageHome
-<LI><a href="#[1fe]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;W_pageSetting
+<LI><a href="#[204]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;W_pageHome
+<LI><a href="#[200]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;W_pageSetting
 <LI><a href="#[443]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_ExecCreatedDialog
 </UL>
 
@@ -8119,21 +8133,21 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[442]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_Exec
 </UL>
-<BR>[Called By]<UL><LI><a href="#[204]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_Exec
+<BR>[Called By]<UL><LI><a href="#[205]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_Exec
 </UL>
 
 <P><STRONG><a name="[443]"></a>GUI_ExecCreatedDialog</STRONG> (Thumb, 36 bytes, Stack size 16 bytes, dialog.o(i.GUI_ExecCreatedDialog))
 <BR><BR>[Stack]<UL><LI>Max Depth = 748 + Unknown Stack Size
 <LI>Call Chain = GUI_ExecCreatedDialog &rArr; GUI_Exec &rArr; GUI_Exec1 &rArr; WM_Exec &rArr; _DrawNext &rArr; WM__Paint &rArr; GUI_MEMDEV_Draw &rArr; GUI_MEMDEV_CopyToLCD &rArr; GUI_MEMDEV_CopyToLCDAt &rArr; GUI_MEMDEV__WriteToActiveOpaque &rArr; _WriteToActiveOpaque_8 &rArr; GUI_MEMDEV_GetDataPtr &rArr; GUI_Lock &rArr; GUI_X_Lock &rArr; OSSemPend &rArr; OS_Pend &rArr; OS_TaskBlock &rArr; OS_TickListInsert
 </UL>
-<BR>[Calls]<UL><LI><a href="#[204]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_Exec
+<BR>[Calls]<UL><LI><a href="#[205]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_Exec
 <LI><a href="#[445]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_WaitEvent
 <LI><a href="#[444]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_SetDialogStatusPtr
 </UL>
-<BR>[Called By]<UL><LI><a href="#[1ef]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_ExecDialogBox
+<BR>[Called By]<UL><LI><a href="#[1f1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_ExecDialogBox
 </UL>
 
-<P><STRONG><a name="[1ef]"></a>GUI_ExecDialogBox</STRONG> (Thumb, 22 bytes, Stack size 24 bytes, dialog.o(i.GUI_ExecDialogBox))
+<P><STRONG><a name="[1f1]"></a>GUI_ExecDialogBox</STRONG> (Thumb, 22 bytes, Stack size 24 bytes, dialog.o(i.GUI_ExecDialogBox))
 <BR><BR>[Stack]<UL><LI>Max Depth = 772 + Unknown Stack Size
 <LI>Call Chain = GUI_ExecDialogBox &rArr; GUI_ExecCreatedDialog &rArr; GUI_Exec &rArr; GUI_Exec1 &rArr; WM_Exec &rArr; _DrawNext &rArr; WM__Paint &rArr; GUI_MEMDEV_Draw &rArr; GUI_MEMDEV_CopyToLCD &rArr; GUI_MEMDEV_CopyToLCDAt &rArr; GUI_MEMDEV__WriteToActiveOpaque &rArr; _WriteToActiveOpaque_8 &rArr; GUI_MEMDEV_GetDataPtr &rArr; GUI_Lock &rArr; GUI_X_Lock &rArr; OSSemPend &rArr; OS_Pend &rArr; OS_TaskBlock &rArr; OS_TickListInsert
 </UL>
@@ -8320,7 +8334,7 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[31c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_X_GetTime
 </UL>
-<BR>[Called By]<UL><LI><a href="#[1ed]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_CreateTimer
+<BR>[Called By]<UL><LI><a href="#[1ef]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_CreateTimer
 <LI><a href="#[49d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_TIMER_Restart
 <LI><a href="#[4a1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_TIMER__GetPeriod
 <LI><a href="#[7a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_TIMER_Exec
@@ -8413,45 +8427,45 @@ Global Symbols
 <LI><a href="#[424]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_DEVICE_LinkDevices
 </UL>
 <BR>[Called By]<UL><LI><a href="#[1e4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_ShowWindow
-<LI><a href="#[208]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_SetStayOnTop
-<LI><a href="#[20f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_SetFocus
+<LI><a href="#[209]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_SetStayOnTop
+<LI><a href="#[210]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_SetFocus
 <LI><a href="#[1e8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_RestartTimer
 <LI><a href="#[1e7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_InvalidateRect
 <LI><a href="#[1e3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_HideWindow
-<LI><a href="#[20e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_GetFocussedWindow
+<LI><a href="#[20f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_GetFocussedWindow
 <LI><a href="#[1bf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_GetDialogItem
-<LI><a href="#[1f0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_DeleteWindow
-<LI><a href="#[1f4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_DeleteTimer
-<LI><a href="#[1ee]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_CreateWindowAsChild
-<LI><a href="#[1ed]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_CreateTimer
+<LI><a href="#[1f2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_DeleteWindow
+<LI><a href="#[1f6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_DeleteTimer
+<LI><a href="#[1f0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_CreateWindowAsChild
+<LI><a href="#[1ef]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_CreateTimer
 <LI><a href="#[1d9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TEXT_SetTextColor
 <LI><a href="#[1da]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TEXT_SetFont
 <LI><a href="#[1d2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MULTIPAGE_SetFont
 <LI><a href="#[1d5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MULTIPAGE_SelectPage
 <LI><a href="#[1c7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MULTIPAGE_GetSelection
 <LI><a href="#[1d4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MULTIPAGE_AddPage
-<LI><a href="#[1fa]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_SetPenSize
+<LI><a href="#[1ec]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_SetPenSize
 <LI><a href="#[1bc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_SetFont
 <LI><a href="#[1bd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_SetColor
 <LI><a href="#[1ba]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_SetBkColor
 <LI><a href="#[1ea]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_GotoY
 <LI><a href="#[1dd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_EndDialog
 <LI><a href="#[1e9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_DrawVLine
-<LI><a href="#[201]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_DrawLine
-<LI><a href="#[1fb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_DrawHLine
+<LI><a href="#[1ed]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_DrawLine
+<LI><a href="#[1fd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_DrawHLine
 <LI><a href="#[1be]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_DispStringAt
 <LI><a href="#[1eb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_DispString
 <LI><a href="#[1e6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_Delay
 <LI><a href="#[1d3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_CreateDialogBox
 <LI><a href="#[1dc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_ClearRect
-<LI><a href="#[20a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EDIT_SetpfAddKeyEx
+<LI><a href="#[20b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EDIT_SetpfAddKeyEx
 <LI><a href="#[1c5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EDIT_SetText
-<LI><a href="#[210]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EDIT_SetSel
+<LI><a href="#[211]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EDIT_SetSel
 <LI><a href="#[1c1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EDIT_SetMaxLen
 <LI><a href="#[1c0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EDIT_SetFont
-<LI><a href="#[20c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EDIT_SetCursorAtChar
+<LI><a href="#[20d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EDIT_SetCursorAtChar
 <LI><a href="#[1c8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EDIT_GetText
-<LI><a href="#[20b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EDIT_GetNumChars
+<LI><a href="#[20c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EDIT_GetNumChars
 <LI><a href="#[1db]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BUTTON_SetFont
 <LI><a href="#[1d7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BUTTON_GetText
 <LI><a href="#[48a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_OnKey
@@ -8653,7 +8667,7 @@ Global Symbols
 <LI><a href="#[468]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_SelectLCD
 <LI><a href="#[469]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_USAGE_DecUseCnt
 </UL>
-<BR>[Called By]<UL><LI><a href="#[1f0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_DeleteWindow
+<BR>[Called By]<UL><LI><a href="#[1f2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_DeleteWindow
 <LI><a href="#[46a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_MEMDEV_Draw
 <LI><a href="#[543]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM__InvalidateDrawAndDescs
 </UL>
@@ -8996,12 +9010,12 @@ Global Symbols
 <LI><a href="#[3c5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_Unlock
 <LI><a href="#[3c3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_Lock
 </UL>
-<BR>[Called By]<UL><LI><a href="#[206]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pageShuyeSetting
-<LI><a href="#[205]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pageHome
-<LI><a href="#[1fe]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;W_pageSetting
-<LI><a href="#[200]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pageSetting
-<LI><a href="#[1fd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_cbaboutus
-<LI><a href="#[1f9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pageShuyeDisplay
+<BR>[Called By]<UL><LI><a href="#[207]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pageShuyeSetting
+<LI><a href="#[206]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pageHome
+<LI><a href="#[200]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;W_pageSetting
+<LI><a href="#[202]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pageSetting
+<LI><a href="#[1ff]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_cbaboutus
+<LI><a href="#[1fc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pageShuyeDisplay
 <LI><a href="#[1e1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pageDisplay
 <LI><a href="#[1de]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_cbchild1
 <LI><a href="#[1b9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_cbBottle4
@@ -9021,12 +9035,12 @@ Global Symbols
 </UL>
 <BR>[Called By]<UL><LI><a href="#[60]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MULTIPAGE_DrawSkinFlex
 <LI><a href="#[62]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BUTTON_DrawSkinFlex
-<LI><a href="#[206]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pageShuyeSetting
-<LI><a href="#[205]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pageHome
-<LI><a href="#[1fe]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;W_pageSetting
-<LI><a href="#[200]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pageSetting
-<LI><a href="#[1fd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_cbaboutus
-<LI><a href="#[1f9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pageShuyeDisplay
+<LI><a href="#[207]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pageShuyeSetting
+<LI><a href="#[206]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pageHome
+<LI><a href="#[200]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;W_pageSetting
+<LI><a href="#[202]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pageSetting
+<LI><a href="#[1ff]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_cbaboutus
+<LI><a href="#[1fc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pageShuyeDisplay
 <LI><a href="#[1e1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pageDisplay
 <LI><a href="#[1de]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_cbchild1
 <LI><a href="#[1b9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_cbBottle4
@@ -9072,11 +9086,11 @@ Global Symbols
 </UL>
 <BR>[Called By]<UL><LI><a href="#[60]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MULTIPAGE_DrawSkinFlex
 <LI><a href="#[62]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BUTTON_DrawSkinFlex
-<LI><a href="#[206]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pageShuyeSetting
-<LI><a href="#[205]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pageHome
-<LI><a href="#[200]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pageSetting
-<LI><a href="#[1fd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_cbaboutus
-<LI><a href="#[1f9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pageShuyeDisplay
+<LI><a href="#[207]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pageShuyeSetting
+<LI><a href="#[206]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pageHome
+<LI><a href="#[202]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pageSetting
+<LI><a href="#[1ff]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_cbaboutus
+<LI><a href="#[1fc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pageShuyeDisplay
 <LI><a href="#[1e1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pageDisplay
 <LI><a href="#[1de]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_cbchild1
 <LI><a href="#[1b9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_cbBottle4
@@ -9121,17 +9135,18 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[106]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_Init
 </UL>
 
-<P><STRONG><a name="[1fa]"></a>GUI_SetPenSize</STRONG> (Thumb, 24 bytes, Stack size 16 bytes, gui_pen.o(i.GUI_SetPenSize))
+<P><STRONG><a name="[1ec]"></a>GUI_SetPenSize</STRONG> (Thumb, 24 bytes, Stack size 16 bytes, gui_pen.o(i.GUI_SetPenSize))
 <BR><BR>[Stack]<UL><LI>Max Depth = 188 + Unknown Stack Size
 <LI>Call Chain = GUI_SetPenSize &rArr; GUI_Lock &rArr; GUI_X_Lock &rArr; OSSemPend &rArr; OS_Pend &rArr; OS_TaskBlock &rArr; OS_TickListInsert
 </UL>
 <BR>[Calls]<UL><LI><a href="#[3c5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_Unlock
 <LI><a href="#[3c3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_Lock
 </UL>
-<BR>[Called By]<UL><LI><a href="#[205]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pageHome
-<LI><a href="#[200]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pageSetting
-<LI><a href="#[1fd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_cbaboutus
-<LI><a href="#[1f9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pageShuyeDisplay
+<BR>[Called By]<UL><LI><a href="#[206]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pageHome
+<LI><a href="#[202]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pageSetting
+<LI><a href="#[1ff]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_cbaboutus
+<LI><a href="#[1fc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pageShuyeDisplay
+<LI><a href="#[1e1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pageDisplay
 <LI><a href="#[3f5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GL_SetDefault
 </UL>
 
@@ -9198,7 +9213,7 @@ Global Symbols
 <LI><a href="#[401]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_ALLOC_AllocZero
 <LI><a href="#[498]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_Link
 </UL>
-<BR>[Called By]<UL><LI><a href="#[1ed]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_CreateTimer
+<BR>[Called By]<UL><LI><a href="#[1ef]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_CreateTimer
 </UL>
 
 <P><STRONG><a name="[499]"></a>GUI_TIMER_Delete</STRONG> (Thumb, 38 bytes, Stack size 8 bytes, gui_timer.o(i.GUI_TIMER_Delete))
@@ -9211,7 +9226,7 @@ Global Symbols
 <LI><a href="#[49b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_Unlink
 <LI><a href="#[49a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_RemoveFromLinList
 </UL>
-<BR>[Called By]<UL><LI><a href="#[1f4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_DeleteTimer
+<BR>[Called By]<UL><LI><a href="#[1f6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_DeleteTimer
 </UL>
 
 <P><STRONG><a name="[7a]"></a>GUI_TIMER_Exec</STRONG> (Thumb, 112 bytes, Stack size 56 bytes, gui_timer.o(i.GUI_TIMER_Exec))
@@ -9263,7 +9278,7 @@ Global Symbols
 <LI><a href="#[3ba]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_ALLOC_LockH
 </UL>
 <BR>[Called By]<UL><LI><a href="#[1e8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_RestartTimer
-<LI><a href="#[1ed]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_CreateTimer
+<LI><a href="#[1ef]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_CreateTimer
 </UL>
 
 <P><STRONG><a name="[49f]"></a>GUI_TIMER__GetFirstTimer</STRONG> (Thumb, 36 bytes, Stack size 16 bytes, gui_timer.o(i.GUI_TIMER__GetFirstTimer))
@@ -9478,45 +9493,45 @@ Global Symbols
 <BR>[Calls]<UL><LI><a href="#[320]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_X_Unlock
 </UL>
 <BR>[Called By]<UL><LI><a href="#[1e4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_ShowWindow
-<LI><a href="#[208]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_SetStayOnTop
-<LI><a href="#[20f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_SetFocus
+<LI><a href="#[209]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_SetStayOnTop
+<LI><a href="#[210]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_SetFocus
 <LI><a href="#[1e8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_RestartTimer
 <LI><a href="#[1e7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_InvalidateRect
 <LI><a href="#[1e3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_HideWindow
-<LI><a href="#[20e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_GetFocussedWindow
+<LI><a href="#[20f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_GetFocussedWindow
 <LI><a href="#[1bf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_GetDialogItem
-<LI><a href="#[1f0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_DeleteWindow
-<LI><a href="#[1f4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_DeleteTimer
-<LI><a href="#[1ee]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_CreateWindowAsChild
-<LI><a href="#[1ed]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_CreateTimer
+<LI><a href="#[1f2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_DeleteWindow
+<LI><a href="#[1f6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_DeleteTimer
+<LI><a href="#[1f0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_CreateWindowAsChild
+<LI><a href="#[1ef]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_CreateTimer
 <LI><a href="#[1d9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TEXT_SetTextColor
 <LI><a href="#[1da]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TEXT_SetFont
 <LI><a href="#[1d2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MULTIPAGE_SetFont
 <LI><a href="#[1d5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MULTIPAGE_SelectPage
 <LI><a href="#[1c7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MULTIPAGE_GetSelection
 <LI><a href="#[1d4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MULTIPAGE_AddPage
-<LI><a href="#[1fa]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_SetPenSize
+<LI><a href="#[1ec]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_SetPenSize
 <LI><a href="#[1bc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_SetFont
 <LI><a href="#[1bd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_SetColor
 <LI><a href="#[1ba]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_SetBkColor
 <LI><a href="#[1ea]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_GotoY
 <LI><a href="#[1dd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_EndDialog
 <LI><a href="#[1e9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_DrawVLine
-<LI><a href="#[201]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_DrawLine
-<LI><a href="#[1fb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_DrawHLine
+<LI><a href="#[1ed]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_DrawLine
+<LI><a href="#[1fd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_DrawHLine
 <LI><a href="#[1be]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_DispStringAt
 <LI><a href="#[1eb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_DispString
 <LI><a href="#[1e6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_Delay
 <LI><a href="#[1d3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_CreateDialogBox
 <LI><a href="#[1dc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_ClearRect
-<LI><a href="#[20a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EDIT_SetpfAddKeyEx
+<LI><a href="#[20b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EDIT_SetpfAddKeyEx
 <LI><a href="#[1c5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EDIT_SetText
-<LI><a href="#[210]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EDIT_SetSel
+<LI><a href="#[211]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EDIT_SetSel
 <LI><a href="#[1c1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EDIT_SetMaxLen
 <LI><a href="#[1c0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EDIT_SetFont
-<LI><a href="#[20c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EDIT_SetCursorAtChar
+<LI><a href="#[20d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EDIT_SetCursorAtChar
 <LI><a href="#[1c8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EDIT_GetText
-<LI><a href="#[20b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EDIT_GetNumChars
+<LI><a href="#[20c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EDIT_GetNumChars
 <LI><a href="#[1db]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BUTTON_SetFont
 <LI><a href="#[1d7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BUTTON_GetText
 <LI><a href="#[48a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_OnKey
@@ -9856,7 +9871,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[1c5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EDIT_SetText
 <LI><a href="#[1c1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EDIT_SetMaxLen
 <LI><a href="#[1c8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EDIT_GetText
-<LI><a href="#[20b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EDIT_GetNumChars
+<LI><a href="#[20c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EDIT_GetNumChars
 <LI><a href="#[3e5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_GetStringDistX
 <LI><a href="#[3db]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EDIT__SetCursorPos
 <LI><a href="#[3de]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EDIT_SetCursorAtPixel
@@ -10551,7 +10566,7 @@ Global Symbols
 <BR><BR>[Stack]<UL><LI>Max Depth = 820 + Unknown Stack Size
 <LI>Call Chain = MULTIPAGE_Callback &rArr; _OnTouch &rArr; MULTIPAGE_SelectPage &rArr; MULTIPAGE__UpdatePositions &rArr; _AddScrollbar &rArr; WM_SetSize &rArr; WM_ResizeWindow &rArr; WM__UpdateChildPositions &rArr;  WM_ResizeWindow (Cycle)
 </UL>
-<BR>[Calls]<UL><LI><a href="#[1f3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_InvalidateWindow
+<BR>[Calls]<UL><LI><a href="#[1f5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_InvalidateWindow
 <LI><a href="#[1c6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_GetId
 <LI><a href="#[1cc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_DefaultProc
 <LI><a href="#[1c2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WIDGET_SetEffect
@@ -10580,7 +10595,7 @@ Global Symbols
 <BR><BR>[Stack]<UL><LI>Max Depth = 788 + Unknown Stack Size
 <LI>Call Chain = MULTIPAGE_CreateUser &rArr; MULTIPAGE__UpdatePositions &rArr; _AddScrollbar &rArr; WM_SetSize &rArr; WM_ResizeWindow &rArr; WM__UpdateChildPositions &rArr;  WM_ResizeWindow (Cycle)
 </UL>
-<BR>[Calls]<UL><LI><a href="#[1ee]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_CreateWindowAsChild
+<BR>[Calls]<UL><LI><a href="#[1f0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_CreateWindowAsChild
 <LI><a href="#[3c5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_Unlock
 <LI><a href="#[3c3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_Lock
 <LI><a href="#[3bb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_ALLOC_UnlockH
@@ -10601,7 +10616,7 @@ Global Symbols
 <BR>[Calls]<UL><LI><a href="#[1bc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_SetFont
 <LI><a href="#[1bd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_SetColor
 <LI><a href="#[1e9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_DrawVLine
-<LI><a href="#[1fb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_DrawHLine
+<LI><a href="#[1fd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_DrawHLine
 <LI><a href="#[3bb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_ALLOC_UnlockH
 <LI><a href="#[3ba]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_ALLOC_LockH
 <LI><a href="#[43d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_DrawGradientH
@@ -10669,7 +10684,7 @@ Global Symbols
 <BR><BR>[Stack]<UL><LI>Max Depth = 756 + Unknown Stack Size
 <LI>Call Chain = MULTIPAGE_SelectPage &rArr; MULTIPAGE__UpdatePositions &rArr; _AddScrollbar &rArr; WM_SetSize &rArr; WM_ResizeWindow &rArr; WM__UpdateChildPositions &rArr;  WM_ResizeWindow (Cycle)
 </UL>
-<BR>[Calls]<UL><LI><a href="#[20f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_SetFocus
+<BR>[Calls]<UL><LI><a href="#[210]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_SetFocus
 <LI><a href="#[3c5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_Unlock
 <LI><a href="#[3c3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_Lock
 <LI><a href="#[3bb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_ALLOC_UnlockH
@@ -10740,7 +10755,7 @@ Global Symbols
 <BR><BR>[Stack]<UL><LI>Max Depth = 388 + Unknown Stack Size
 <LI>Call Chain = MULTIPAGE__DeleteScrollbar &rArr; _GetScrollbarH &rArr; WM_GetId &rArr; WM_SendMessage &rArr; WM__SendMessage &rArr; WM_DefaultProc &rArr; WM_InvalidateWindow &rArr; WM_InvalidateRect &rArr; WM__InvalidateRectEx &rArr; WM__InvalidateRect &rArr;  WM__InvalidateRect (Cycle)
 </UL>
-<BR>[Calls]<UL><LI><a href="#[1f0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_DeleteWindow
+<BR>[Calls]<UL><LI><a href="#[1f2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_DeleteWindow
 <LI><a href="#[3bb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_ALLOC_UnlockH
 <LI><a href="#[3ba]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_ALLOC_LockH
 <LI><a href="#[4de]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_GetScrollbarH
@@ -10816,7 +10831,7 @@ Global Symbols
 <BR><BR>[Stack]<UL><LI>Max Depth = 724 + Unknown Stack Size
 <LI>Call Chain = MULTIPAGE__UpdatePositions &rArr; _AddScrollbar &rArr; WM_SetSize &rArr; WM_ResizeWindow &rArr; WM__UpdateChildPositions &rArr;  WM_ResizeWindow (Cycle)
 </UL>
-<BR>[Calls]<UL><LI><a href="#[1f3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_InvalidateWindow
+<BR>[Calls]<UL><LI><a href="#[1f5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_InvalidateWindow
 <LI><a href="#[3bb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_ALLOC_UnlockH
 <LI><a href="#[3ba]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_ALLOC_LockH
 <LI><a href="#[4f4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_SetSize
@@ -10857,7 +10872,7 @@ Global Symbols
 <BR><BR>[Stack]<UL><LI>Max Depth = 580 + Unknown Stack Size
 <LI>Call Chain = SCROLLBAR_Callback &rArr; WIDGET_HandleActive &rArr; WM__UpdateChildPositions &rArr;  WM_ResizeWindow (Cycle)
 </UL>
-<BR>[Calls]<UL><LI><a href="#[1f3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_InvalidateWindow
+<BR>[Calls]<UL><LI><a href="#[1f5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_InvalidateWindow
 <LI><a href="#[1cc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_DefaultProc
 <LI><a href="#[3bb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_ALLOC_UnlockH
 <LI><a href="#[3ba]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_ALLOC_LockH
@@ -10894,7 +10909,7 @@ Global Symbols
 <BR><BR>[Stack]<UL><LI>Max Depth = 484 + Unknown Stack Size
 <LI>Call Chain = SCROLLBAR_CreateUser &rArr; SCROLLBAR__InvalidatePartner &rArr; WM_GetScrollPartner &rArr; WM_GetDialogItem &rArr; _GetDialogItem &rArr;  _GetDialogItem (Cycle)
 </UL>
-<BR>[Calls]<UL><LI><a href="#[1ee]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_CreateWindowAsChild
+<BR>[Calls]<UL><LI><a href="#[1f0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_CreateWindowAsChild
 <LI><a href="#[3c5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_Unlock
 <LI><a href="#[3c3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_Lock
 <LI><a href="#[3bb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_ALLOC_UnlockH
@@ -10940,7 +10955,7 @@ Global Symbols
 <BR><BR>[Stack]<UL><LI>Max Depth = 308 + Unknown Stack Size
 <LI>Call Chain = SCROLLBAR_SetNumItems &rArr; WM_InvalidateWindow &rArr; WM_InvalidateRect &rArr; WM__InvalidateRectEx &rArr; WM__InvalidateRect &rArr;  WM__InvalidateRect (Cycle)
 </UL>
-<BR>[Calls]<UL><LI><a href="#[1f3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_InvalidateWindow
+<BR>[Calls]<UL><LI><a href="#[1f5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_InvalidateWindow
 <LI><a href="#[3c5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_Unlock
 <LI><a href="#[3c3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_Lock
 <LI><a href="#[3bb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_ALLOC_UnlockH
@@ -10953,7 +10968,7 @@ Global Symbols
 <BR><BR>[Stack]<UL><LI>Max Depth = 308 + Unknown Stack Size
 <LI>Call Chain = SCROLLBAR_SetPageSize &rArr; WM_InvalidateWindow &rArr; WM_InvalidateRect &rArr; WM__InvalidateRectEx &rArr; WM__InvalidateRect &rArr;  WM__InvalidateRect (Cycle)
 </UL>
-<BR>[Calls]<UL><LI><a href="#[1f3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_InvalidateWindow
+<BR>[Calls]<UL><LI><a href="#[1f5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_InvalidateWindow
 <LI><a href="#[3c5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_Unlock
 <LI><a href="#[3c3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_Lock
 <LI><a href="#[3bb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_ALLOC_UnlockH
@@ -10966,7 +10981,7 @@ Global Symbols
 <BR><BR>[Stack]<UL><LI>Max Depth = 308 + Unknown Stack Size
 <LI>Call Chain = SCROLLBAR_SetValue &rArr; WM_InvalidateWindow &rArr; WM_InvalidateRect &rArr; WM__InvalidateRectEx &rArr; WM__InvalidateRect &rArr;  WM__InvalidateRect (Cycle)
 </UL>
-<BR>[Calls]<UL><LI><a href="#[1f3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_InvalidateWindow
+<BR>[Calls]<UL><LI><a href="#[1f5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_InvalidateWindow
 <LI><a href="#[3c5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_Unlock
 <LI><a href="#[3c3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_Lock
 <LI><a href="#[3bb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_ALLOC_UnlockH
@@ -10983,7 +10998,7 @@ Global Symbols
 <BR><BR>[Stack]<UL><LI>Max Depth = 420 + Unknown Stack Size
 <LI>Call Chain = SCROLLBAR__InvalidatePartner &rArr; WM_GetScrollPartner &rArr; WM_GetDialogItem &rArr; _GetDialogItem &rArr;  _GetDialogItem (Cycle)
 </UL>
-<BR>[Calls]<UL><LI><a href="#[1f3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_InvalidateWindow
+<BR>[Calls]<UL><LI><a href="#[1f5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_InvalidateWindow
 <LI><a href="#[503]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_GetParent
 <LI><a href="#[41e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_SendMessageNoPara
 <LI><a href="#[502]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_GetScrollPartner
@@ -11024,7 +11039,7 @@ Global Symbols
 <BR><BR>[Stack]<UL><LI>Max Depth = 460 + Unknown Stack Size
 <LI>Call Chain = TEXT_CreateUser &rArr; WM_CreateWindowAsChild &rArr; WM__SendMsgNoData &rArr; WM__SendMessage &rArr; WM_DefaultProc &rArr; WM_InvalidateWindow &rArr; WM_InvalidateRect &rArr; WM__InvalidateRectEx &rArr; WM__InvalidateRect &rArr;  WM__InvalidateRect (Cycle)
 </UL>
-<BR>[Calls]<UL><LI><a href="#[1ee]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_CreateWindowAsChild
+<BR>[Calls]<UL><LI><a href="#[1f0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_CreateWindowAsChild
 <LI><a href="#[3c5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_Unlock
 <LI><a href="#[3c3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_Lock
 <LI><a href="#[3bb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_ALLOC_UnlockH
@@ -11041,7 +11056,7 @@ Global Symbols
 <BR><BR>[Stack]<UL><LI>Max Depth = 308 + Unknown Stack Size
 <LI>Call Chain = TEXT_SetFont &rArr; WM_InvalidateWindow &rArr; WM_InvalidateRect &rArr; WM__InvalidateRectEx &rArr; WM__InvalidateRect &rArr;  WM__InvalidateRect (Cycle)
 </UL>
-<BR>[Calls]<UL><LI><a href="#[1f3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_InvalidateWindow
+<BR>[Calls]<UL><LI><a href="#[1f5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_InvalidateWindow
 <LI><a href="#[3c5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_Unlock
 <LI><a href="#[3c3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_Lock
 <LI><a href="#[3bb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_ALLOC_UnlockH
@@ -11054,7 +11069,7 @@ Global Symbols
 <BR><BR>[Stack]<UL><LI>Max Depth = 308 + Unknown Stack Size
 <LI>Call Chain = TEXT_SetTextColor &rArr; WM_InvalidateWindow &rArr; WM_InvalidateRect &rArr; WM__InvalidateRectEx &rArr; WM__InvalidateRect &rArr;  WM__InvalidateRect (Cycle)
 </UL>
-<BR>[Calls]<UL><LI><a href="#[1f3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_InvalidateWindow
+<BR>[Calls]<UL><LI><a href="#[1f5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_InvalidateWindow
 <LI><a href="#[3c5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_Unlock
 <LI><a href="#[3c3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_Lock
 <LI><a href="#[3bb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_ALLOC_UnlockH
@@ -11067,7 +11082,7 @@ Global Symbols
 <BR><BR>[Stack]<UL><LI>Max Depth = 308 + Unknown Stack Size
 <LI>Call Chain = WIDGET_AndState &rArr; WM_InvalidateWindow &rArr; WM_InvalidateRect &rArr; WM__InvalidateRectEx &rArr; WM__InvalidateRect &rArr;  WM__InvalidateRect (Cycle)
 </UL>
-<BR>[Calls]<UL><LI><a href="#[1f3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_InvalidateWindow
+<BR>[Calls]<UL><LI><a href="#[1f5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_InvalidateWindow
 <LI><a href="#[3c5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_Unlock
 <LI><a href="#[3c3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_Lock
 <LI><a href="#[3bb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_ALLOC_UnlockH
@@ -11092,8 +11107,8 @@ Global Symbols
 <BR><BR>[Stack]<UL><LI>Max Depth = 556 + Unknown Stack Size
 <LI>Call Chain = WIDGET_HandleActive &rArr; WM__UpdateChildPositions &rArr;  WM_ResizeWindow (Cycle)
 </UL>
-<BR>[Calls]<UL><LI><a href="#[20f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_SetFocus
-<LI><a href="#[1f3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_InvalidateWindow
+<BR>[Calls]<UL><LI><a href="#[210]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_SetFocus
+<LI><a href="#[1f5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_InvalidateWindow
 <LI><a href="#[3c5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_Unlock
 <LI><a href="#[3c3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_Lock
 <LI><a href="#[3bb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_ALLOC_UnlockH
@@ -11116,7 +11131,7 @@ Global Symbols
 <BR><BR>[Stack]<UL><LI>Max Depth = 308 + Unknown Stack Size
 <LI>Call Chain = WIDGET_OrState &rArr; WM_InvalidateWindow &rArr; WM_InvalidateRect &rArr; WM__InvalidateRectEx &rArr; WM__InvalidateRect &rArr;  WM__InvalidateRect (Cycle)
 </UL>
-<BR>[Calls]<UL><LI><a href="#[1f3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_InvalidateWindow
+<BR>[Calls]<UL><LI><a href="#[1f5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_InvalidateWindow
 <LI><a href="#[3c5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_Unlock
 <LI><a href="#[3c3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_Lock
 <LI><a href="#[3bb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_ALLOC_UnlockH
@@ -11144,7 +11159,7 @@ Global Symbols
 <BR><BR>[Stack]<UL><LI>Max Depth = 308 + Unknown Stack Size
 <LI>Call Chain = WIDGET_SetState &rArr; WM_InvalidateWindow &rArr; WM_InvalidateRect &rArr; WM__InvalidateRectEx &rArr; WM__InvalidateRect &rArr;  WM__InvalidateRect (Cycle)
 </UL>
-<BR>[Calls]<UL><LI><a href="#[1f3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_InvalidateWindow
+<BR>[Calls]<UL><LI><a href="#[1f5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_InvalidateWindow
 <LI><a href="#[3c5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_Unlock
 <LI><a href="#[3c3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_Lock
 <LI><a href="#[3bb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_ALLOC_UnlockH
@@ -11158,7 +11173,7 @@ Global Symbols
 <LI>Call Chain = WIDGET__DrawTriangle &rArr; GUI_DrawHLine &rArr; GUI_Lock &rArr; GUI_X_Lock &rArr; OSSemPend &rArr; OS_Pend &rArr; OS_TaskBlock &rArr; OS_TickListInsert
 </UL>
 <BR>[Calls]<UL><LI><a href="#[1e9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_DrawVLine
-<LI><a href="#[1fb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_DrawHLine
+<LI><a href="#[1fd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_DrawHLine
 </UL>
 <BR>[Called By]<UL><LI><a href="#[eb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_Paint
 </UL>
@@ -11258,7 +11273,7 @@ Global Symbols
 <BR><BR>[Stack]<UL><LI>Max Depth = 588 + Unknown Stack Size
 <LI>Call Chain = WINDOW_Callback &rArr; WIDGET_HandleActive &rArr; WM__UpdateChildPositions &rArr;  WM_ResizeWindow (Cycle)
 </UL>
-<BR>[Calls]<UL><LI><a href="#[20f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_SetFocus
+<BR>[Calls]<UL><LI><a href="#[210]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_SetFocus
 <LI><a href="#[1cc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_DefaultProc
 <LI><a href="#[1bb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_Clear
 <LI><a href="#[492]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_SetBkColor
@@ -11286,7 +11301,7 @@ Global Symbols
 <BR><BR>[Stack]<UL><LI>Max Depth = 444 + Unknown Stack Size
 <LI>Call Chain = WINDOW_CreateUser &rArr; WM_CreateWindowAsChild &rArr; WM__SendMsgNoData &rArr; WM__SendMessage &rArr; WM_DefaultProc &rArr; WM_InvalidateWindow &rArr; WM_InvalidateRect &rArr; WM__InvalidateRectEx &rArr; WM__InvalidateRect &rArr;  WM__InvalidateRect (Cycle)
 </UL>
-<BR>[Calls]<UL><LI><a href="#[1ee]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_CreateWindowAsChild
+<BR>[Calls]<UL><LI><a href="#[1f0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_CreateWindowAsChild
 <LI><a href="#[3c5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_Unlock
 <LI><a href="#[3c3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_Lock
 <LI><a href="#[3bb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_ALLOC_UnlockH
@@ -11306,7 +11321,7 @@ Global Symbols
 <BR><BR>[Stack]<UL><LI>Max Depth = 516 + Unknown Stack Size
 <LI>Call Chain = WM_AttachWindow &rArr; WM_DetachWindow &rArr; WM_MoveWindow &rArr; WM__MoveWindow &rArr; _MoveDescendents &rArr;  _MoveDescendents (Cycle)
 </UL>
-<BR>[Calls]<UL><LI><a href="#[1f3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_InvalidateWindow
+<BR>[Calls]<UL><LI><a href="#[1f5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_InvalidateWindow
 <LI><a href="#[3c5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_Unlock
 <LI><a href="#[3c3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_Lock
 <LI><a href="#[3bb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_ALLOC_UnlockH
@@ -11315,7 +11330,7 @@ Global Symbols
 <LI><a href="#[519]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_MoveWindow
 <LI><a href="#[517]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_DetachWindow
 </UL>
-<BR>[Called By]<UL><LI><a href="#[208]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_SetStayOnTop
+<BR>[Called By]<UL><LI><a href="#[209]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_SetStayOnTop
 <LI><a href="#[4da]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_AttachWindowAt
 </UL>
 
@@ -11342,7 +11357,7 @@ Global Symbols
 <LI><a href="#[503]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_GetParent
 <LI><a href="#[51c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM__GetPrevSibling
 </UL>
-<BR>[Called By]<UL><LI><a href="#[1ee]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_CreateWindowAsChild
+<BR>[Called By]<UL><LI><a href="#[1f0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_CreateWindowAsChild
 </UL>
 
 <P><STRONG><a name="[507]"></a>WM_BringToTop</STRONG> (Thumb, 22 bytes, Stack size 8 bytes, wm_bringtotop.o(i.WM_BringToTop))
@@ -11358,7 +11373,7 @@ Global Symbols
 <LI><a href="#[3b9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WIDGET_HandleActive
 </UL>
 
-<P><STRONG><a name="[1ed]"></a>WM_CreateTimer</STRONG> (Thumb, 88 bytes, Stack size 32 bytes, wm_timer.o(i.WM_CreateTimer))
+<P><STRONG><a name="[1ef]"></a>WM_CreateTimer</STRONG> (Thumb, 88 bytes, Stack size 32 bytes, wm_timer.o(i.WM_CreateTimer))
 <BR><BR>[Stack]<UL><LI>Max Depth = 260 + Unknown Stack Size
 <LI>Call Chain = WM_CreateTimer &rArr; GUI_TIMER_Create &rArr; GUI_ALLOC_AllocZero &rArr; GUI_ALLOC_AllocNoInit &rArr; GUI_Lock &rArr; GUI_X_Lock &rArr; OSSemPend &rArr; OS_Pend &rArr; OS_TaskBlock &rArr; OS_TickListInsert
 </UL>
@@ -11376,25 +11391,25 @@ Global Symbols
 <LI><a href="#[4f8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_OnTouch
 </UL>
 
-<P><STRONG><a name="[1f8]"></a>WM_CreateWindow</STRONG> (Thumb, 32 bytes, Stack size 40 bytes, wm.o(i.WM_CreateWindow))
+<P><STRONG><a name="[1fb]"></a>WM_CreateWindow</STRONG> (Thumb, 32 bytes, Stack size 40 bytes, wm.o(i.WM_CreateWindow))
 <BR><BR>[Stack]<UL><LI>Max Depth = 428 + Unknown Stack Size
 <LI>Call Chain = WM_CreateWindow &rArr; WM_CreateWindowAsChild &rArr; WM__SendMsgNoData &rArr; WM__SendMessage &rArr; WM_DefaultProc &rArr; WM_InvalidateWindow &rArr; WM_InvalidateRect &rArr; WM__InvalidateRectEx &rArr; WM__InvalidateRect &rArr;  WM__InvalidateRect (Cycle)
 </UL>
-<BR>[Calls]<UL><LI><a href="#[1ee]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_CreateWindowAsChild
+<BR>[Calls]<UL><LI><a href="#[1f0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_CreateWindowAsChild
 </UL>
-<BR>[Called By]<UL><LI><a href="#[1f1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;W_pageShuyeSetting
-<LI><a href="#[203]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;W_pageHome
-<LI><a href="#[1fe]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;W_pageSetting
-<LI><a href="#[1ff]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;W_aboutUs
-<LI><a href="#[1fc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;W_pageShuyeDisplay
-<LI><a href="#[1f6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;W_pageDisplay
+<BR>[Called By]<UL><LI><a href="#[1f3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;W_pageShuyeSetting
+<LI><a href="#[204]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;W_pageHome
+<LI><a href="#[200]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;W_pageSetting
+<LI><a href="#[201]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;W_aboutUs
+<LI><a href="#[1fe]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;W_pageShuyeDisplay
+<LI><a href="#[1f8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;W_pageDisplay
 </UL>
 
-<P><STRONG><a name="[1ee]"></a>WM_CreateWindowAsChild</STRONG> (Thumb, 324 bytes, Stack size 48 bytes, wm.o(i.WM_CreateWindowAsChild))
+<P><STRONG><a name="[1f0]"></a>WM_CreateWindowAsChild</STRONG> (Thumb, 324 bytes, Stack size 48 bytes, wm.o(i.WM_CreateWindowAsChild))
 <BR><BR>[Stack]<UL><LI>Max Depth = 388 + Unknown Stack Size
 <LI>Call Chain = WM_CreateWindowAsChild &rArr; WM__SendMsgNoData &rArr; WM__SendMessage &rArr; WM_DefaultProc &rArr; WM_InvalidateWindow &rArr; WM_InvalidateRect &rArr; WM__InvalidateRectEx &rArr; WM__InvalidateRect &rArr;  WM__InvalidateRect (Cycle)
 </UL>
-<BR>[Calls]<UL><LI><a href="#[1f3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_InvalidateWindow
+<BR>[Calls]<UL><LI><a href="#[1f5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_InvalidateWindow
 <LI><a href="#[3c5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_Unlock
 <LI><a href="#[3c3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_Lock
 <LI><a href="#[409]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_ALLOC_h2p
@@ -11406,7 +11421,7 @@ Global Symbols
 <LI><a href="#[518]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM__InsertWindowIntoList
 <LI><a href="#[3dc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_SelectWindow
 </UL>
-<BR>[Called By]<UL><LI><a href="#[1f8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_CreateWindow
+<BR>[Called By]<UL><LI><a href="#[1fb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_CreateWindow
 <LI><a href="#[1e1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pageDisplay
 <LI><a href="#[45b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_Init
 <LI><a href="#[515]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WINDOW_CreateUser
@@ -11432,11 +11447,11 @@ Global Symbols
 <BR><BR>[Stack]<UL><LI>Max Depth = 300 + Unknown Stack Size
 <LI>Call Chain = WM_DefaultProc &rArr; WM_InvalidateWindow &rArr; WM_InvalidateRect &rArr; WM__InvalidateRectEx &rArr; WM__InvalidateRect &rArr;  WM__InvalidateRect (Cycle)
 </UL>
-<BR>[Calls]<UL><LI><a href="#[1f3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_InvalidateWindow
+<BR>[Calls]<UL><LI><a href="#[1f5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_InvalidateWindow
 <LI><a href="#[520]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM__GetClientRectEx
 <LI><a href="#[521]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_SendToParent
 </UL>
-<BR>[Called By]<UL><LI><a href="#[1fd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_cbaboutus
+<BR>[Called By]<UL><LI><a href="#[1ff]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_cbaboutus
 <LI><a href="#[1de]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_cbchild1
 <LI><a href="#[63]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_cbDialogNumPad
 <LI><a href="#[1b9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_cbBottle4
@@ -11452,7 +11467,7 @@ Global Symbols
 <LI><a href="#[88]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SCROLLBAR_Callback
 </UL>
 
-<P><STRONG><a name="[1f4]"></a>WM_DeleteTimer</STRONG> (Thumb, 42 bytes, Stack size 16 bytes, wm_timer.o(i.WM_DeleteTimer))
+<P><STRONG><a name="[1f6]"></a>WM_DeleteTimer</STRONG> (Thumb, 42 bytes, Stack size 16 bytes, wm_timer.o(i.WM_DeleteTimer))
 <BR><BR>[Stack]<UL><LI>Max Depth = 204 + Unknown Stack Size
 <LI>Call Chain = WM_DeleteTimer &rArr; GUI_TIMER_Delete &rArr; GUI_ALLOC_Free &rArr; GUI_Lock &rArr; GUI_X_Lock &rArr; OSSemPend &rArr; OS_Pend &rArr; OS_TaskBlock &rArr; OS_TickListInsert
 </UL>
@@ -11468,7 +11483,7 @@ Global Symbols
 <LI><a href="#[581]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_DeleteTimer
 </UL>
 
-<P><STRONG><a name="[1f0]"></a>WM_DeleteWindow</STRONG> (Thumb, 202 bytes, Stack size 24 bytes, wm.o(i.WM_DeleteWindow))
+<P><STRONG><a name="[1f2]"></a>WM_DeleteWindow</STRONG> (Thumb, 202 bytes, Stack size 24 bytes, wm.o(i.WM_DeleteWindow))
 <BR><BR>[Stack]<UL><LI>Max Depth = 364 + Unknown Stack Size
 <LI>Call Chain = WM_DeleteWindow &rArr; WM__SendMsgNoData &rArr; WM__SendMessage &rArr; WM_DefaultProc &rArr; WM_InvalidateWindow &rArr; WM_InvalidateRect &rArr; WM__InvalidateRectEx &rArr; WM__InvalidateRect &rArr;  WM__InvalidateRect (Cycle)
 </UL>
@@ -11489,11 +11504,11 @@ Global Symbols
 <LI><a href="#[3df]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_NotifyParent
 </UL>
 <BR>[Called By]<UL><LI><a href="#[1d3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_CreateDialogBox
-<LI><a href="#[206]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pageShuyeSetting
-<LI><a href="#[205]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pageHome
-<LI><a href="#[200]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pageSetting
-<LI><a href="#[1fd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_cbaboutus
-<LI><a href="#[1f9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pageShuyeDisplay
+<LI><a href="#[207]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pageShuyeSetting
+<LI><a href="#[206]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pageHome
+<LI><a href="#[202]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pageSetting
+<LI><a href="#[1ff]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_cbaboutus
+<LI><a href="#[1fc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pageShuyeDisplay
 <LI><a href="#[1e1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pageDisplay
 <LI><a href="#[528]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_Exec1Input
 <LI><a href="#[525]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_DeleteAllChildren
@@ -11617,7 +11632,7 @@ Global Symbols
 <LI><a href="#[549]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_InvalidateWindowAndDescsEx
 </UL>
 
-<P><STRONG><a name="[20e]"></a>WM_GetFocussedWindow</STRONG> (Thumb, 24 bytes, Stack size 8 bytes, wm_getfocussedwindow.o(i.WM_GetFocussedWindow))
+<P><STRONG><a name="[20f]"></a>WM_GetFocussedWindow</STRONG> (Thumb, 24 bytes, Stack size 8 bytes, wm_getfocussedwindow.o(i.WM_GetFocussedWindow))
 <BR><BR>[Stack]<UL><LI>Max Depth = 180 + Unknown Stack Size
 <LI>Call Chain = WM_GetFocussedWindow &rArr; GUI_Lock &rArr; GUI_X_Lock &rArr; OSSemPend &rArr; OS_Pend &rArr; OS_TaskBlock &rArr; OS_TickListInsert
 </UL>
@@ -11625,7 +11640,7 @@ Global Symbols
 <LI><a href="#[3c3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_Lock
 </UL>
 <BR>[Called By]<UL><LI><a href="#[1d3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_CreateDialogBox
-<LI><a href="#[20d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_cbEdit
+<LI><a href="#[20e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_cbEdit
 <LI><a href="#[4e7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_ShowPage
 </UL>
 
@@ -11673,8 +11688,8 @@ Global Symbols
 <LI><a href="#[3c3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_Lock
 <LI><a href="#[409]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_ALLOC_h2p
 </UL>
-<BR>[Called By]<UL><LI><a href="#[208]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_SetStayOnTop
-<LI><a href="#[20f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_SetFocus
+<BR>[Called By]<UL><LI><a href="#[209]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_SetStayOnTop
+<LI><a href="#[210]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_SetFocus
 <LI><a href="#[521]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_SendToParent
 <LI><a href="#[51b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_BringToBottom
 <LI><a href="#[4f3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_MoveChildTo
@@ -11842,8 +11857,8 @@ Global Symbols
 <BR><BR>[Stack]<UL><LI>Max Depth = 444 + Unknown Stack Size
 <LI>Call Chain = WM_Init &rArr; WM_CreateWindowAsChild &rArr; WM__SendMsgNoData &rArr; WM__SendMessage &rArr; WM_DefaultProc &rArr; WM_InvalidateWindow &rArr; WM_InvalidateRect &rArr; WM__InvalidateRectEx &rArr; WM__InvalidateRect &rArr;  WM__InvalidateRect (Cycle)
 </UL>
-<BR>[Calls]<UL><LI><a href="#[1f3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_InvalidateWindow
-<LI><a href="#[1ee]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_CreateWindowAsChild
+<BR>[Calls]<UL><LI><a href="#[1f5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_InvalidateWindow
+<LI><a href="#[1f0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_CreateWindowAsChild
 <LI><a href="#[465]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_DEVICE__GetpDriver
 <LI><a href="#[3fc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI__RegisterExit
 <LI><a href="#[53b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM__AddCriticalHandle
@@ -11868,24 +11883,24 @@ Global Symbols
 <LI><a href="#[546]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM__ClipAtParentBorders
 <LI><a href="#[544]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM__Client2Screen
 </UL>
-<BR>[Called By]<UL><LI><a href="#[1f3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_InvalidateWindow
+<BR>[Called By]<UL><LI><a href="#[1f5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_InvalidateWindow
 <LI><a href="#[1e1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pageDisplay
 </UL>
 
-<P><STRONG><a name="[1f3]"></a>WM_InvalidateWindow</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, wm.o(i.WM_InvalidateWindow))
+<P><STRONG><a name="[1f5]"></a>WM_InvalidateWindow</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, wm.o(i.WM_InvalidateWindow))
 <BR><BR>[Stack]<UL><LI>Max Depth = 292 + Unknown Stack Size
 <LI>Call Chain = WM_InvalidateWindow &rArr; WM_InvalidateRect &rArr; WM__InvalidateRectEx &rArr; WM__InvalidateRect &rArr;  WM__InvalidateRect (Cycle)
 </UL>
 <BR>[Calls]<UL><LI><a href="#[1e7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_InvalidateRect
 </UL>
 <BR>[Called By]<UL><LI><a href="#[1cc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_DefaultProc
-<LI><a href="#[1ee]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_CreateWindowAsChild
+<LI><a href="#[1f0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_CreateWindowAsChild
 <LI><a href="#[1d9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TEXT_SetTextColor
 <LI><a href="#[1da]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TEXT_SetFont
 <LI><a href="#[1c5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EDIT_SetText
 <LI><a href="#[1c1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EDIT_SetMaxLen
 <LI><a href="#[1c0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EDIT_SetFont
-<LI><a href="#[20c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EDIT_SetCursorAtChar
+<LI><a href="#[20d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EDIT_SetCursorAtChar
 <LI><a href="#[1db]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BUTTON_SetFont
 <LI><a href="#[1e1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pageDisplay
 <LI><a href="#[45b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_Init
@@ -11916,7 +11931,7 @@ Global Symbols
  + In Cycle
 <LI>Call Chain = WM_InvalidateWindowAndDescs &rArr;  WM_InvalidateWindowAndDescs (Cycle)
 </UL>
-<BR>[Calls]<UL><LI><a href="#[1f3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_InvalidateWindow
+<BR>[Calls]<UL><LI><a href="#[1f5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_InvalidateWindow
 <LI><a href="#[3c5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_Unlock
 <LI><a href="#[3c3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_Lock
 <LI><a href="#[409]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_ALLOC_h2p
@@ -11962,7 +11977,7 @@ Global Symbols
 <LI><a href="#[3c3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_Lock
 <LI><a href="#[522]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM__IsWindow
 </UL>
-<BR>[Called By]<UL><LI><a href="#[20f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_SetFocus
+<BR>[Called By]<UL><LI><a href="#[210]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_SetFocus
 <LI><a href="#[8a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WINDOW_Callback
 <LI><a href="#[56f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM__SendPIDMessage
 <LI><a href="#[79]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_HandlePID
@@ -12013,7 +12028,7 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[521]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_SendToParent
 </UL>
-<BR>[Called By]<UL><LI><a href="#[1f0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_DeleteWindow
+<BR>[Called By]<UL><LI><a href="#[1f2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_DeleteWindow
 <LI><a href="#[4f6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SCROLLBAR_SetValue
 <LI><a href="#[4db]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_OnTouch
 <LI><a href="#[74]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EDIT_Callback
@@ -12123,8 +12138,8 @@ Global Symbols
 <LI><a href="#[47a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_SetClipRectMax
 <LI><a href="#[554]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM__SelectTopLevelLayer
 </UL>
-<BR>[Called By]<UL><LI><a href="#[1f0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_DeleteWindow
-<LI><a href="#[1ee]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_CreateWindowAsChild
+<BR>[Called By]<UL><LI><a href="#[1f2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_DeleteWindow
+<LI><a href="#[1f0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_CreateWindowAsChild
 <LI><a href="#[45b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_Init
 <LI><a href="#[569]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM__Paint
 <LI><a href="#[74]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EDIT_Callback
@@ -12195,7 +12210,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[96]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM__Paint1
 </UL>
 
-<P><STRONG><a name="[20f]"></a>WM_SetFocus</STRONG> (Thumb, 158 bytes, Stack size 48 bytes, wm_setfocus.o(i.WM_SetFocus))
+<P><STRONG><a name="[210]"></a>WM_SetFocus</STRONG> (Thumb, 158 bytes, Stack size 48 bytes, wm_setfocus.o(i.WM_SetFocus))
 <BR><BR>[Stack]<UL><LI>Max Depth = 364 + Unknown Stack Size
 <LI>Call Chain = WM_SetFocus &rArr; WM__SendMessage &rArr; WM_DefaultProc &rArr; WM_InvalidateWindow &rArr; WM_InvalidateRect &rArr; WM__InvalidateRectEx &rArr; WM__InvalidateRect &rArr;  WM__InvalidateRect (Cycle)
 </UL>
@@ -12206,7 +12221,7 @@ Global Symbols
 <LI><a href="#[503]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_GetParent
 </UL>
 <BR>[Called By]<UL><LI><a href="#[1d5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MULTIPAGE_SelectPage
-<LI><a href="#[20d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_cbEdit
+<LI><a href="#[20e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_cbEdit
 <LI><a href="#[514]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_SetFocusOnPrevChild
 <LI><a href="#[8a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WINDOW_Callback
 <LI><a href="#[4e7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_ShowPage
@@ -12231,7 +12246,7 @@ Global Symbols
 <BR><BR>[Stack]<UL><LI>Max Depth = 380 + Unknown Stack Size
 <LI>Call Chain = WM_SetFocusOnPrevChild &rArr; WM_SetFocus &rArr; WM__SendMessage &rArr; WM_DefaultProc &rArr; WM_InvalidateWindow &rArr; WM_InvalidateRect &rArr; WM__InvalidateRectEx &rArr; WM__InvalidateRect &rArr;  WM__InvalidateRect (Cycle)
 </UL>
-<BR>[Calls]<UL><LI><a href="#[20f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_SetFocus
+<BR>[Calls]<UL><LI><a href="#[210]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_SetFocus
 <LI><a href="#[3c5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_Unlock
 <LI><a href="#[3c3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_Lock
 <LI><a href="#[55a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_GetPrevChild
@@ -12245,7 +12260,7 @@ Global Symbols
 <BR><BR>[Stack]<UL><LI>Max Depth = 308 + Unknown Stack Size
 <LI>Call Chain = WM_SetHasTrans &rArr; WM_InvalidateWindow &rArr; WM_InvalidateRect &rArr; WM__InvalidateRectEx &rArr; WM__InvalidateRect &rArr;  WM__InvalidateRect (Cycle)
 </UL>
-<BR>[Calls]<UL><LI><a href="#[1f3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_InvalidateWindow
+<BR>[Calls]<UL><LI><a href="#[1f5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_InvalidateWindow
 <LI><a href="#[3c5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_Unlock
 <LI><a href="#[3c3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_Lock
 <LI><a href="#[3bb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_ALLOC_UnlockH
@@ -12270,7 +12285,7 @@ Global Symbols
 <LI><a href="#[476]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_CreateStaticDevice
 </UL>
 
-<P><STRONG><a name="[208]"></a>WM_SetStayOnTop</STRONG> (Thumb, 80 bytes, Stack size 16 bytes, wm_stayontop.o(i.WM_SetStayOnTop))
+<P><STRONG><a name="[209]"></a>WM_SetStayOnTop</STRONG> (Thumb, 80 bytes, Stack size 16 bytes, wm_stayontop.o(i.WM_SetStayOnTop))
 <BR><BR>[Stack]<UL><LI>Max Depth = 532 + Unknown Stack Size
 <LI>Call Chain = WM_SetStayOnTop &rArr; WM_AttachWindow &rArr; WM_DetachWindow &rArr; WM_MoveWindow &rArr; WM__MoveWindow &rArr; _MoveDescendents &rArr;  _MoveDescendents (Cycle)
 </UL>
@@ -12281,7 +12296,7 @@ Global Symbols
 <LI><a href="#[516]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_AttachWindow
 <LI><a href="#[503]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_GetParent
 </UL>
-<BR>[Called By]<UL><LI><a href="#[1f1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;W_pageShuyeSetting
+<BR>[Called By]<UL><LI><a href="#[1f3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;W_pageShuyeSetting
 </UL>
 
 <P><STRONG><a name="[433]"></a>WM_SetUserClipRect</STRONG> (Thumb, 28 bytes, Stack size 16 bytes, wm_setusercliprect.o(i.WM_SetUserClipRect))
@@ -12382,7 +12397,7 @@ Global Symbols
 <BR><BR>[Stack]<UL><LI>Max Depth = 228 + Unknown Stack Size
 <LI>Call Chain = WM__DeleteAssocTimer &rArr; WM_DeleteTimer &rArr; GUI_TIMER_Delete &rArr; GUI_ALLOC_Free &rArr; GUI_Lock &rArr; GUI_X_Lock &rArr; OSSemPend &rArr; OS_Pend &rArr; OS_TaskBlock &rArr; OS_TickListInsert
 </UL>
-<BR>[Calls]<UL><LI><a href="#[1f4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_DeleteTimer
+<BR>[Calls]<UL><LI><a href="#[1f6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_DeleteTimer
 <LI><a href="#[3c5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_Unlock
 <LI><a href="#[3c3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_Lock
 <LI><a href="#[409]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_ALLOC_h2p
@@ -12390,7 +12405,7 @@ Global Symbols
 <LI><a href="#[49f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_TIMER__GetFirstTimer
 <LI><a href="#[49c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_TIMER_GetFlag
 </UL>
-<BR>[Called By]<UL><LI><a href="#[1f0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_DeleteWindow
+<BR>[Called By]<UL><LI><a href="#[1f2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_DeleteWindow
 </UL>
 
 <P><STRONG><a name="[440]"></a>WM__DeleteSecure</STRONG> (Thumb, 22 bytes, Stack size 8 bytes, wm.o(i.WM__DeleteSecure))
@@ -12410,7 +12425,7 @@ Global Symbols
 <LI><a href="#[560]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM__RemoveWindowFromList
 <LI><a href="#[51d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM__InvalidateRectEx
 </UL>
-<BR>[Called By]<UL><LI><a href="#[1f0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_DeleteWindow
+<BR>[Called By]<UL><LI><a href="#[1f2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_DeleteWindow
 <LI><a href="#[517]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_DetachWindow
 </UL>
 
@@ -12476,8 +12491,8 @@ Global Symbols
 <LI><a href="#[564]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_FindNext_IVR
 </UL>
 <BR>[Called By]<UL><LI><a href="#[1e9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_DrawVLine
-<LI><a href="#[201]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_DrawLine
-<LI><a href="#[1fb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_DrawHLine
+<LI><a href="#[1ed]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_DrawLine
+<LI><a href="#[1fd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_DrawHLine
 <LI><a href="#[1dc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_ClearRect
 <LI><a href="#[430]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI__DispLine
 <LI><a href="#[419]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM__InitIVRSearch
@@ -12511,7 +12526,7 @@ Global Symbols
 <BR>[Calls]<UL><LI><a href="#[409]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_ALLOC_h2p
 <LI><a href="#[55f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_DesktopHandle2Index
 </UL>
-<BR>[Called By]<UL><LI><a href="#[1f0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_DeleteWindow
+<BR>[Called By]<UL><LI><a href="#[1f2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_DeleteWindow
 <LI><a href="#[554]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM__SelectTopLevelLayer
 <LI><a href="#[558]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_SetFocusOnNextChild
 </UL>
@@ -12542,8 +12557,8 @@ Global Symbols
 <LI><a href="#[55c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM__ActivateClipRect
 </UL>
 <BR>[Called By]<UL><LI><a href="#[1e9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_DrawVLine
-<LI><a href="#[201]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_DrawLine
-<LI><a href="#[1fb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_DrawHLine
+<LI><a href="#[1ed]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_DrawLine
+<LI><a href="#[1fd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_DrawHLine
 <LI><a href="#[1dc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_ClearRect
 <LI><a href="#[430]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI__DispLine
 <LI><a href="#[96]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM__Paint1
@@ -12566,7 +12581,7 @@ Global Symbols
 <LI><a href="#[3bb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_ALLOC_UnlockH
 <LI><a href="#[3ba]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_ALLOC_LockH
 </UL>
-<BR>[Called By]<UL><LI><a href="#[1ee]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_CreateWindowAsChild
+<BR>[Called By]<UL><LI><a href="#[1f0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_CreateWindowAsChild
 <LI><a href="#[516]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_AttachWindow
 <LI><a href="#[51e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_BringToTop
 </UL>
@@ -12692,7 +12707,7 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[409]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_ALLOC_h2p
 </UL>
-<BR>[Called By]<UL><LI><a href="#[1f0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_DeleteWindow
+<BR>[Called By]<UL><LI><a href="#[1f2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_DeleteWindow
 <LI><a href="#[511]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_IsWindow
 </UL>
 
@@ -12766,7 +12781,7 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[409]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_ALLOC_h2p
 </UL>
-<BR>[Called By]<UL><LI><a href="#[1f0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_DeleteWindow
+<BR>[Called By]<UL><LI><a href="#[1f2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_DeleteWindow
 </UL>
 
 <P><STRONG><a name="[560]"></a>WM__RemoveWindowFromList</STRONG> (Thumb, 64 bytes, Stack size 16 bytes, wm.o(i.WM__RemoveWindowFromList))
@@ -12801,7 +12816,7 @@ Global Symbols
 <BR>[Calls]<UL><LI><a href="#[1cc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_DefaultProc
 <LI><a href="#[409]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_ALLOC_h2p
 </UL>
-<BR>[Called By]<UL><LI><a href="#[20f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_SetFocus
+<BR>[Called By]<UL><LI><a href="#[210]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_SetFocus
 <LI><a href="#[48a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_OnKey
 <LI><a href="#[521]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_SendToParent
 <LI><a href="#[51f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM__SendMsgNoData
@@ -12838,8 +12853,8 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[54e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM__SendMessage
 </UL>
-<BR>[Called By]<UL><LI><a href="#[1f0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_DeleteWindow
-<LI><a href="#[1ee]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_CreateWindowAsChild
+<BR>[Called By]<UL><LI><a href="#[1f2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_DeleteWindow
+<LI><a href="#[1f0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_CreateWindowAsChild
 <LI><a href="#[550]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_ResizeWindow
 </UL>
 
@@ -12908,6 +12923,7 @@ Global Symbols
 <LI><a href="#[110]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TFTLCD_Init
 <LI><a href="#[fb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;led0_task
 <LI><a href="#[f3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;fontupdata_task
+<LI><a href="#[202]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pageSetting
 <LI><a href="#[1e1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pageDisplay
 <LI><a href="#[1b2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;W25QXX_Erase_Sector
 </UL>
@@ -12926,7 +12942,7 @@ Global Symbols
 <P><STRONG><a name="[1c4]"></a>__2sprintf</STRONG> (Thumb, 0 bytes, Stack size 24 bytes, printfa.o(i.__0sprintf))
 <BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = __2sprintf
 </UL>
-<BR>[Called By]<UL><LI><a href="#[1f9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pageShuyeDisplay
+<BR>[Called By]<UL><LI><a href="#[1fc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pageShuyeDisplay
 <LI><a href="#[1e1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pageDisplay
 <LI><a href="#[1de]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_cbchild1
 <LI><a href="#[1b9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_cbBottle4
@@ -12965,13 +12981,13 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[106]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_Init
 </UL>
 
-<P><STRONG><a name="[1f5]"></a>free</STRONG> (Thumb, 76 bytes, Stack size 8 bytes, malloc.o(i.free))
+<P><STRONG><a name="[1f7]"></a>free</STRONG> (Thumb, 76 bytes, Stack size 8 bytes, malloc.o(i.free))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = free
 </UL>
 <BR>[Called By]<UL><LI><a href="#[1e1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pageDisplay
 </UL>
 
-<P><STRONG><a name="[1ec]"></a>malloc</STRONG> (Thumb, 92 bytes, Stack size 20 bytes, malloc.o(i.malloc))
+<P><STRONG><a name="[1ee]"></a>malloc</STRONG> (Thumb, 92 bytes, Stack size 20 bytes, malloc.o(i.malloc))
 <BR><BR>[Stack]<UL><LI>Max Depth = 20<LI>Call Chain = malloc
 </UL>
 <BR>[Called By]<UL><LI><a href="#[1e1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pageDisplay
@@ -14254,7 +14270,7 @@ Local Symbols
 <BR><BR>[Stack]<UL><LI>Max Depth = 820 + Unknown Stack Size
 <LI>Call Chain = _ClientCallback &rArr; _MoveSel &rArr; MULTIPAGE_SelectPage &rArr; MULTIPAGE__UpdatePositions &rArr; _AddScrollbar &rArr; WM_SetSize &rArr; WM_ResizeWindow &rArr; WM__UpdateChildPositions &rArr;  WM_ResizeWindow (Cycle)
 </UL>
-<BR>[Calls]<UL><LI><a href="#[20f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_SetFocus
+<BR>[Calls]<UL><LI><a href="#[210]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_SetFocus
 <LI><a href="#[1cc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_DefaultProc
 <LI><a href="#[1bb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_Clear
 <LI><a href="#[492]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_SetBkColor
@@ -14359,9 +14375,9 @@ Local Symbols
 <LI>Call Chain = _ShowPage &rArr; WM_SetFocus &rArr; WM__SendMessage &rArr; WM_DefaultProc &rArr; WM_InvalidateWindow &rArr; WM_InvalidateRect &rArr; WM__InvalidateRectEx &rArr; WM__InvalidateRect &rArr;  WM__InvalidateRect (Cycle)
 </UL>
 <BR>[Calls]<UL><LI><a href="#[1e4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_ShowWindow
-<LI><a href="#[20f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_SetFocus
+<LI><a href="#[210]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_SetFocus
 <LI><a href="#[1e3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_HideWindow
-<LI><a href="#[20e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_GetFocussedWindow
+<LI><a href="#[20f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_GetFocussedWindow
 <LI><a href="#[3bb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_ALLOC_UnlockH
 <LI><a href="#[3ba]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_ALLOC_LockH
 <LI><a href="#[562]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM__IsChild
@@ -14437,9 +14453,9 @@ Local Symbols
 <BR><BR>[Stack]<UL><LI>Max Depth = 8 + In Cycle
 <LI>Call Chain = _DeleteAllChildren &rArr;  WM_DeleteWindow (Cycle)
 </UL>
-<BR>[Calls]<UL><LI><a href="#[1f0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_DeleteWindow
+<BR>[Calls]<UL><LI><a href="#[1f2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_DeleteWindow
 </UL>
-<BR>[Called By]<UL><LI><a href="#[1f0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_DeleteWindow
+<BR>[Called By]<UL><LI><a href="#[1f2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_DeleteWindow
 </UL>
 
 <P><STRONG><a name="[55f]"></a>_DesktopHandle2Index</STRONG> (Thumb, 28 bytes, Stack size 0 bytes, wm.o(i._DesktopHandle2Index))
@@ -14466,7 +14482,7 @@ Local Symbols
 <BR><BR>[Stack]<UL><LI>Max Depth = 396 + Unknown Stack Size
 <LI>Call Chain = _Exec1Input &rArr; GUI_PollKeyMsg &rArr; WM_OnKey &rArr; WM__SendMessage &rArr; WM_DefaultProc &rArr; WM_InvalidateWindow &rArr; WM_InvalidateRect &rArr; WM__InvalidateRectEx &rArr; WM__InvalidateRect &rArr;  WM__InvalidateRect (Cycle)
 </UL>
-<BR>[Calls]<UL><LI><a href="#[1f0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_DeleteWindow
+<BR>[Calls]<UL><LI><a href="#[1f2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_DeleteWindow
 <LI><a href="#[488]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_PollKeyMsg
 <LI><a href="#[3c5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_Unlock
 <LI><a href="#[3c3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_Lock
@@ -14997,7 +15013,7 @@ Local Symbols
 <BR><BR>[Stack]<UL><LI>Max Depth = 212 + Unknown Stack Size
 <LI>Call Chain = _DeleteTimer &rArr; WM_DeleteTimer &rArr; GUI_TIMER_Delete &rArr; GUI_ALLOC_Free &rArr; GUI_Lock &rArr; GUI_X_Lock &rArr; OSSemPend &rArr; OS_Pend &rArr; OS_TaskBlock &rArr; OS_TickListInsert
 </UL>
-<BR>[Calls]<UL><LI><a href="#[1f4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_DeleteTimer
+<BR>[Calls]<UL><LI><a href="#[1f6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_DeleteTimer
 <LI><a href="#[3bb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_ALLOC_UnlockH
 <LI><a href="#[3ba]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_ALLOC_LockH
 </UL>
@@ -15022,7 +15038,7 @@ Local Symbols
 <BR><BR>[Stack]<UL><LI>Max Depth = 476 + Unknown Stack Size
 <LI>Call Chain = _OnTouch &rArr; WM_SetCapture &rArr; WM__ReleaseCapture &rArr; WM__SendMessage &rArr; WM_DefaultProc &rArr; WM_InvalidateWindow &rArr; WM_InvalidateRect &rArr; WM__InvalidateRectEx &rArr; WM__InvalidateRect &rArr;  WM__InvalidateRect (Cycle)
 </UL>
-<BR>[Calls]<UL><LI><a href="#[1ed]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_CreateTimer
+<BR>[Calls]<UL><LI><a href="#[1ef]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_CreateTimer
 <LI><a href="#[3bb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_ALLOC_UnlockH
 <LI><a href="#[3ba]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_ALLOC_LockH
 <LI><a href="#[4f6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SCROLLBAR_SetValue
@@ -15067,7 +15083,7 @@ Local Symbols
 <BR><BR>[Stack]<UL><LI>Max Depth = 316 + Unknown Stack Size
 <LI>Call Chain = _BringToTop &rArr; WM_InvalidateWindow &rArr; WM_InvalidateRect &rArr; WM__InvalidateRectEx &rArr; WM__InvalidateRect &rArr;  WM__InvalidateRect (Cycle)
 </UL>
-<BR>[Calls]<UL><LI><a href="#[1f3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_InvalidateWindow
+<BR>[Calls]<UL><LI><a href="#[1f5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_InvalidateWindow
 <LI><a href="#[3bb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_ALLOC_UnlockH
 <LI><a href="#[3ba]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_ALLOC_LockH
 <LI><a href="#[560]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM__RemoveWindowFromList
@@ -15081,7 +15097,7 @@ Local Symbols
 <BR><BR>[Stack]<UL><LI>Max Depth = 292 + Unknown Stack Size
 <LI>Call Chain = _cbInvalidateOne &rArr; WM_InvalidateWindow &rArr; WM_InvalidateRect &rArr; WM__InvalidateRectEx &rArr; WM__InvalidateRect &rArr;  WM__InvalidateRect (Cycle)
 </UL>
-<BR>[Calls]<UL><LI><a href="#[1f3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_InvalidateWindow
+<BR>[Calls]<UL><LI><a href="#[1f5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_InvalidateWindow
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> wm_bringtotop.o(i._BringToTop)
 </UL>
@@ -15143,7 +15159,7 @@ Local Symbols
 <BR><BR>[Stack]<UL><LI>Max Depth = 380 + Unknown Stack Size
 <LI>Call Chain = _SetFocusOnNextChild &rArr; WM_SetFocus &rArr; WM__SendMessage &rArr; WM_DefaultProc &rArr; WM_InvalidateWindow &rArr; WM_InvalidateRect &rArr; WM__InvalidateRectEx &rArr; WM__InvalidateRect &rArr;  WM__InvalidateRect (Cycle)
 </UL>
-<BR>[Calls]<UL><LI><a href="#[20f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_SetFocus
+<BR>[Calls]<UL><LI><a href="#[210]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_SetFocus
 <LI><a href="#[523]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM__GetTopLevelLayer
 <LI><a href="#[559]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM__GetFocussedChild
 <LI><a href="#[54b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WM_IsFocussable
@@ -15439,7 +15455,7 @@ Local Symbols
 <LI>Call Chain = _DrawDownRect &rArr; GUI_DrawHLine &rArr; GUI_Lock &rArr; GUI_X_Lock &rArr; OSSemPend &rArr; OS_Pend &rArr; OS_TaskBlock &rArr; OS_TickListInsert
 </UL>
 <BR>[Calls]<UL><LI><a href="#[1e9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_DrawVLine
-<LI><a href="#[1fb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_DrawHLine
+<LI><a href="#[1fd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_DrawHLine
 <LI><a href="#[493]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_SetColor
 </UL>
 <BR>[Called By]<UL><LI><a href="#[ef]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_DrawDown
@@ -15451,7 +15467,7 @@ Local Symbols
 <LI>Call Chain = _DrawUpRect &rArr; GUI_DrawHLine &rArr; GUI_Lock &rArr; GUI_X_Lock &rArr; OSSemPend &rArr; OS_Pend &rArr; OS_TaskBlock &rArr; OS_TickListInsert
 </UL>
 <BR>[Calls]<UL><LI><a href="#[1e9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_DrawVLine
-<LI><a href="#[1fb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_DrawHLine
+<LI><a href="#[1fd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_DrawHLine
 <LI><a href="#[493]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_SetColor
 <LI><a href="#[3c8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUI_DrawRect
 </UL>

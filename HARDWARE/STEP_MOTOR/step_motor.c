@@ -69,7 +69,7 @@ void stepMotor_Distance(u8 id,int speed,int distance){
 	if(distance<0){ //如果是往里则在原来基础上减
 		dir=STEPMOTOR_IN;
 		if(i+distance<STEPMOTOR_MIN){//如果剩下的值比减小的值少
-			distance=-i;//负号很重要
+			distance=STEPMOTOR_MIN-i;
 		}
 	}else{//否则加
 		dir=STEPMOTOR_OUT;

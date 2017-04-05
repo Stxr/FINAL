@@ -3,11 +3,11 @@
 /*
 	id		电机初始值   量程
 	
-	1      
+	1                                  374  3ml     
 	
-	2				150				 400
+	2				150				 400             351  8ml
 	
-	3				100				 350
+	3				100				 350             360 9ml
 	
 	4				100				 350
 */
@@ -18,8 +18,8 @@
 #include "includes.h"
 #define STEPMOTOR_OUT 1
 #define STEPMOTOR_IN 0
-#define STEPMOTOR_MAX  400
-#define STEPMOTOR_MIN 120
+#define STEPMOTOR_MAX  500
+#define STEPMOTOR_MIN  280
 #define stepMotor_dir1 PFout(13)
 #define stepMotor_step1 PFout(11)
 #define stepMotor_enable1 PFout(14)

@@ -289,11 +289,11 @@ void led0_task(void *p_arg)
 	while(1)
 	{
 		
-		if(i>=10 * 3){ //3s 取样一次
+		if(i>=10){ //1s 取样一次
 			i=0;
 			testSpeed = count;
 			count=0;
-			printf("count:%d\r\n",testSpeed);
+			printf("testSpeed:%d\r\n",testSpeed);
 			LED0 = !LED0;
 		}
 		i++;
