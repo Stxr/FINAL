@@ -7,6 +7,7 @@
 ..\obj\fattester.o: ..\USER\stm32f10x_conf.h
 ..\obj\fattester.o: ..\FWLIB\STM32F10x_FWLib\inc\stm32f10x_dma.h
 ..\obj\fattester.o: ..\USER\stm32f10x.h
+..\obj\fattester.o: ..\FWLIB\STM32F10x_FWLib\inc\stm32f10x_exti.h
 ..\obj\fattester.o: ..\FWLIB\STM32F10x_FWLib\inc\stm32f10x_fsmc.h
 ..\obj\fattester.o: ..\FWLIB\STM32F10x_FWLib\inc\stm32f10x_gpio.h
 ..\obj\fattester.o: ..\FWLIB\STM32F10x_FWLib\inc\stm32f10x_rcc.h

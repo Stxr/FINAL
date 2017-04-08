@@ -14,8 +14,8 @@ __align(8) char buffer1[20]; //8字节对齐
 char buffer3[5];//三个公用内存空间
 //char buttonString[6]="暂停";
 char  *buttonString, *buffer2;
-u8 i;//计数用
-WM_HTIMER hTimer;
+//u8 i;//计数用
+
 WM_HWIN hchild[4];
 MULTIPAGE_Handle aMultipage;
 //typedef  void (*fun)(void);				//定义一个函数类型的参数.   
@@ -78,13 +78,13 @@ BUTTON_SKINFLEX_PROPS MY_BUTTON_SKIN_PRESSED = {
 void MainTask(void) {
 	// GUI_Init();
 //	WM_EnableMemdev(WM_HBKWIN); //启用储存设备
-	W_pageShuyeSetting(0);
+	W_pageHome();
 	while (1) {
-//		if(testSpeed >=30){
-//			BEEP=1;
-//		}else{
-//			BEEP=0;
-//		}
+		if(testSpeed >=20|| BEEP_SIGN!=0){
+			BEEP=1;
+		}else{
+			BEEP=0;
+		}
 		GUI_Delay(1000);
 //		printf("use:%d\n",my_mem_perused(SRAMIN));
 //		printf("id_bottle:%d\n",id_bottle);
@@ -101,21 +101,35 @@ void W_pageDisplay(void) {
 	//memset(buffer1, 0, sizeof(char));
 	buffer1[0] = '\0'; //数组假清零
 	buffer3[0] = '\0'; //数组假清零
-	stepMotor_Distance(1,5,STEPMOTOR_MAX-20-stepMotor_Read(1));
-	stepMotor_Distance(2,5,STEPMOTOR_MAX-stepMotor_Read(2)-100);
-	stepMotor_Distance(3,5,STEPMOTOR_MAX-stepMotor_Read(3)-100);
+	//电机打开
+	stepMotor_enable1 = 0;
+	stepMotor_enable2 = 0;
+	stepMotor_enable3 = 0;
+	stepMotor_enable4 = 0;
+	stepMotor_Distance(1,5,STEPMOTOR_MAX-stepMotor_Read(1));
+	stepMotor_Distance(2,5,STEPMOTOR_MAX-stepMotor_Read(2)-60);
+	stepMotor_Distance(3,5,STEPMOTOR_MAX-stepMotor_Read(3)-80);
 	stepMotor_Distance(4,5,STEPMOTOR_MAX-stepMotor_Read(4)-100);
 	WM_CreateWindow(0, 0, 320, 240, WM_CF_SHOW, pageDisplay, 0);
 }
 void W_pageHome(void) {
+	//电机关闭
+	stepMotor_enable1 = 1;
+	stepMotor_enable2 = 1;
+	stepMotor_enable3 = 1;
+	stepMotor_enable4 = 1;
 	WM_CreateWindow(0, 0, 320, 240, WM_CF_SHOW, pageHome, 0);
 	GUI_Exec();
+		
+
 }
 void W_pageSetting(void) {
+	//电机打开
+	stepMotor_enable1 = 0;
+	stepMotor_enable2 = 0;
+	stepMotor_enable3 = 0;
+	stepMotor_enable4 = 0;
 	WM_CreateWindow(0, 0, 320, 240, WM_CF_SHOW, pageSetting, 0);
-	GUI_Exec();
-	GUI_SetColor(MYCOLOR_TITLE_TEXT);
-	GUI_SetBkColor(MYCOLOR_TITLE_BACKGROUND);
 
 }
 void W_pageShuyeSetting(int page) {
@@ -156,10 +170,28 @@ void pageDisplay(WM_MESSAGE *pMsg) {
 	static int *Time_Left=NULL,*Time_Used=NULL;
 	static u8 *speed=NULL,*isChange=NULL;
 	GUI_RECT InvalidateRect = { 175,206,222,225 };
+	static u8 lastSpeed=110;
+	static WM_HTIMER hTimer;
+	u8 i=0;
 	switch (pMsg->MsgId)
 	{
 	case WM_TIMER:
 		if (shuyeData[id_bottle][0] == 0 || (shuyeData[id_bottle][3] <= 0 && shuyeData[id_bottle][4] <= 0)) { //shuyeData[][3]和shuyeData[][4]有可能小于0
+			switch (id_bottle){
+				case 1:
+					stepMotor_Distance(1,10,STEPMOTOR_MAX-20-stepMotor_Read(1));
+					break;
+				case 2:
+					stepMotor_Distance(2,10,STEPMOTOR_MAX-stepMotor_Read(2)-100);
+					break; 
+				case 3:
+					stepMotor_Distance(3,10,STEPMOTOR_MAX-stepMotor_Read(3)-100);
+					break;
+				case 4:
+					stepMotor_Distance(4,10,STEPMOTOR_MAX-stepMotor_Read(4)-120);
+				default:
+					break;
+			}
 			id_bottle++;
 			if (id_bottle >= 4) id_bottle = 0;
 		}
@@ -180,8 +212,10 @@ void pageDisplay(WM_MESSAGE *pMsg) {
 				if(*Time_Left ==0){
 				 	*speed = shuyeData[id_bottle][1]; 
 					BEEP_ms(500);			//切换的时候长响
-					stepMotor_Distance(id_bottle+1,5,  -(*speed)*10); //speed越大，distance越小，流量越大。
+//					stepMotor_Distance(id_bottle+1,5,  -(*speed)*10); //speed越大，distance越小，流量越大。
+					stepMotor_Distance(id_bottle+1,10,  -30);//往后退30，等待调节
 					*Time_Left = shuyeData[id_bottle][3];
+					WM_InvalidateWindow(pMsg->hWin);
 				}
 				shuyeData[id_bottle][3]=--(*Time_Left);
 			}
@@ -191,19 +225,29 @@ void pageDisplay(WM_MESSAGE *pMsg) {
 				WM_SetUserData(hchild[id_bottle], &change_data, sizeof(mydata));
 				if(*Time_Left == 0){
 					BEEP_ms(100);    //切换速率短响
-					stepMotor_Distance(id_bottle+1,5,(*speed-shuyeData[id_bottle][2])*10); //切换速率2
+					
+					stepMotor_Distance(id_bottle+1,10,(*speed-shuyeData[id_bottle][2])*5); //切换速率2
 					*speed = shuyeData[id_bottle][2];
 					*Time_Left = shuyeData[id_bottle][4];
+					WM_InvalidateWindow(pMsg->hWin);
 				}
 				shuyeData[id_bottle][4]=--(*Time_Left);
 
 				//测试
 
 			}
-			if(  *speed >	testSpeed*3 + 3 || *speed < testSpeed*3  - 3 ){  //速度调节
-						stepMotor_Distance(id_bottle+1,5, (testSpeed*3 - (*speed))*1.5f); //如果比实际大，则挤压，一次前进0.01*3mm
-					printf("testSpeed:%d   speed:%d\r\n  ",testSpeed*3, *speed);
-				}			
+			if(*Time_Used %3 ==0){
+				if(  *speed >	testSpeed + 2 || *speed < testSpeed  - 2 ){  //速度调节
+						stepMotor_Distance(id_bottle+1,10, 1+(int)((testSpeed - (*speed))*0.7)); //如果比实际大，则挤压，一次前进0.01*3mm	
+						if(lastSpeed == testSpeed){
+							stepMotor_Distance(id_bottle+1,10, abs(testSpeed - (*speed))*(testSpeed - (*speed))*0.3f);
+							printf("差太大了\r\n");
+						}
+						lastSpeed = testSpeed;
+						printf("速度调整了\r\n");
+					}	
+			}
+				printf("测速:%d   实际速度:%d\r\n  ",testSpeed, *speed);			
 			if(id_bottle == last_bottle){  //如果是最后一瓶了
 				if(shuyeData[id_bottle][3] ==0 || shuyeData[id_bottle][4]==0){ //最后的速率
 					if(*Time_Left==60){ //最后一分钟响两声
@@ -227,8 +271,8 @@ void pageDisplay(WM_MESSAGE *pMsg) {
 			}
 		}
 		sprintf(buffer3, "%d", *speed);
-		sprintf(buffer1, "%02d:%02d:%02d", (*Time_Left) / 3600, ((*Time_Left)-(*Time_Left) / 3600)/60, (*Time_Left)%60);
-		sprintf(buffer2, "%02d:%02d:%02d", (*Time_Used) / 3600, ((*Time_Left)-(*Time_Left) / 3600)/60, (*Time_Used) % 60);
+		sprintf(buffer1, "%02d:%02d:%02d", (*Time_Left) / 3600, ((*Time_Left) % 3600)/60, (*Time_Left)%60);
+		sprintf(buffer2, "%02d:%02d:%02d", (*Time_Used) / 3600, ((*Time_Left) % 3600)/60, (*Time_Used)%60);
 		//Time_Left--;
 
 		//由于单片机的速度问题，只更新部分窗口，以达到视觉优化
@@ -240,7 +284,7 @@ void pageDisplay(WM_MESSAGE *pMsg) {
 		InvalidateRect.y0 = 190;
 		InvalidateRect.y1 = 224;
 		WM_InvalidateRect(pMsg->hWin, &InvalidateRect);
-		if (*isChange != *speed) { //更新速度
+		if (*isChange != *speed) { //更新输液	速度
 			*isChange = *speed;
 			InvalidateRect.x0 = 169;
 			InvalidateRect.y0 = 20;
@@ -333,10 +377,26 @@ void pageDisplay(WM_MESSAGE *pMsg) {
 				else //pause
 				{
 					if (!strcmp("暂停", buttonString)) {
+						
 						BEEP_ms(200);
 						sprintf(buttonString, "%s","开始");
 						printf("%s",buttonString);
 						WM_InvalidateWindow(pMsg->hWin); //使窗口无效，从而进行更新 致敬ios
+						switch (id_bottle){
+						case 1:
+							stepMotor_Distance(1,10,STEPMOTOR_MAX-20-stepMotor_Read(1));
+							break;
+						case 2:
+							stepMotor_Distance(2,10,STEPMOTOR_MAX-stepMotor_Read(2)-100);
+							break; 
+						case 3:
+							stepMotor_Distance(3,10,STEPMOTOR_MAX-stepMotor_Read(3)-100);
+							break;
+						case 4:
+							stepMotor_Distance(4,10,STEPMOTOR_MAX-stepMotor_Read(4)-120);
+						default:
+							break;
+					}
 						WM_DeleteTimer(hTimer);
 					}
 					else {
@@ -344,12 +404,14 @@ void pageDisplay(WM_MESSAGE *pMsg) {
 						sprintf(buttonString, "%s", "暂停");
 						printf("%s",buttonString);
 						WM_InvalidateWindow(pMsg->hWin); //使窗口无效，从而进行更新
+						stepMotor_Distance(id_bottle,10,-30);
 						hTimer = WM_CreateTimer(pMsg->hWin, 0, 1000, 0);
 					}
 				}
 			}
 			else if (pState->y >= 30 && pState->y <= 87) {
 				if (pState->x >= 112 && pState->x <= 129) { //左边，减小speed
+					stepMotor_Distance(id_bottle+1,10,-2);
 					if (*speed <= 1) {
 						*speed = 1;
 						break;
@@ -357,9 +419,11 @@ void pageDisplay(WM_MESSAGE *pMsg) {
 					if(*Time_Left != 0){
 						(*Time_Left)=(*Time_Left)*(*speed)/((*speed)-1);
 						(*speed)--;
+						
 					}
 				}
 				else if (pState->x >= 289 && pState->x <= 307) {//右边，增大speed
+					stepMotor_Distance(id_bottle+1,10,2);
 					if (*speed >= 20) {
 						*speed = 20;
 						break;
@@ -367,6 +431,7 @@ void pageDisplay(WM_MESSAGE *pMsg) {
 					if(*Time_Left != 0){
 						(*Time_Left)=(*Time_Left)*(*speed)/((*speed)+1);
 						(*speed)++;
+						
 					}
 					
 				}
@@ -390,6 +455,7 @@ void pageDisplay(WM_MESSAGE *pMsg) {
 }
 void pageShuyeDisplay(WM_MESSAGE *pMsg) {
 	WM_PID_STATE_CHANGED_INFO  *pState;
+	u8 i=0;
 	// char *buffer1=(char *)mymalloc(SRAMIN,sizeof(char)*20);
 //	char buffer1[20];
 	switch (pMsg->MsgId)
@@ -754,6 +820,7 @@ void _cbBottle4(WM_MESSAGE *pMsg) {
 	WM_HWIN hEdit;
 	unsigned Id;
 	int NCode;
+	u8 i=0;
 	// char buff[5];
 	switch (pMsg->MsgId)
 	{
@@ -946,59 +1013,59 @@ void _cbDialogNumPad(WM_MESSAGE * pMsg) {
 			WM_DefaultProc(pMsg);
 	}
 }
-void _cbEditAddKey(EDIT_Handle hObj, int Key) {
-	char acBuffer[2] = { 0 };
+//void _cbEditAddKey(EDIT_Handle hObj, int Key) {
+//	char acBuffer[2] = { 0 };
 
-	switch (Key) {
-	case GUI_KEY_LEFT:
-		EDIT_SetpfAddKeyEx(hObj, 0);                            // Clear user defined AddKey function
-		EDIT_SetCursorAtChar(hObj, EDIT_GetNumChars(hObj) - 1); // Set cursor if GUI_KEY_LEFT has been pressed
-		break;
-	case GUI_KEY_RIGHT:
-		EDIT_SetpfAddKeyEx(hObj, 0);                            // Clear user defined AddKey function
-		EDIT_SetCursorAtChar(hObj, 1);                          // Set cursor if GUI_KEY_RIGHT has been pressed
-		break;
-	case GUI_KEY_UP:                                          // Do not react on GUI_KEY_UP and GUI_KEY_DOWN
-	case GUI_KEY_DOWN:
-		break;
-	default:
-		if (Key >= 0x20) {
-			acBuffer[0] = (U8)Key;
-			EDIT_SetpfAddKeyEx(hObj, 0);                          // Clear user defined AddKey function
-			EDIT_SetText(hObj, acBuffer);                         // Overwrite contents of edit widget with pressed key
-		}
-	}
-}
+//	switch (Key) {
+//	case GUI_KEY_LEFT:
+//		EDIT_SetpfAddKeyEx(hObj, 0);                            // Clear user defined AddKey function
+//		EDIT_SetCursorAtChar(hObj, EDIT_GetNumChars(hObj) - 1); // Set cursor if GUI_KEY_LEFT has been pressed
+//		break;
+//	case GUI_KEY_RIGHT:
+//		EDIT_SetpfAddKeyEx(hObj, 0);                            // Clear user defined AddKey function
+//		EDIT_SetCursorAtChar(hObj, 1);                          // Set cursor if GUI_KEY_RIGHT has been pressed
+//		break;
+//	case GUI_KEY_UP:                                          // Do not react on GUI_KEY_UP and GUI_KEY_DOWN
+//	case GUI_KEY_DOWN:
+//		break;
+//	default:
+//		if (Key >= 0x20) {
+//			acBuffer[0] = (U8)Key;
+//			EDIT_SetpfAddKeyEx(hObj, 0);                          // Clear user defined AddKey function
+//			EDIT_SetText(hObj, acBuffer);                         // Overwrite contents of edit widget with pressed key
+//		}
+//	}
+//}
 
-void _cbEdit(WM_MESSAGE * pMsg) {
-	switch (pMsg->MsgId) {
-	case WM_PID_STATE_CHANGED:
-		if (((const WM_PID_STATE_CHANGED_INFO*)pMsg->Data.p)->State) {
-			return;            // Do not call edit callback
-		}
-		break;
-	case WM_TOUCH:
-		if (pMsg->Data.p) {  // Something happened in our area (pressed or released)
-			const GUI_PID_STATE* pState;
-			pState = (const GUI_PID_STATE*)pMsg->Data.p;
-			if (pState->Pressed) {
-				if (WM_GetFocussedWindow() != pMsg->hWin) {
-					WM_SetFocus(pMsg->hWin);
-					return;        // Do not call edit callback
-				}
-			}
-		}
-		break;
-	case WM_SET_FOCUS:
-		if (pMsg->Data.v == 1) {
-			EDIT_SetpfAddKeyEx(pMsg->hWin, _cbEditAddKey); // Set function pointer for a user defined AddKey function
-			EDIT_SetSel(pMsg->hWin, 0, -1);                // Select the whole contents of the edit field
-		}
-	}
-	if (_pEditCallback) {
-		_pEditCallback(pMsg);
-	}
-}
+//void _cbEdit(WM_MESSAGE * pMsg) {
+//	switch (pMsg->MsgId) {
+//	case WM_PID_STATE_CHANGED:
+//		if (((const WM_PID_STATE_CHANGED_INFO*)pMsg->Data.p)->State) {
+//			return;            // Do not call edit callback
+//		}
+//		break;
+//	case WM_TOUCH:
+//		if (pMsg->Data.p) {  // Something happened in our area (pressed or released)
+//			const GUI_PID_STATE* pState;
+//			pState = (const GUI_PID_STATE*)pMsg->Data.p;
+//			if (pState->Pressed) {
+//				if (WM_GetFocussedWindow() != pMsg->hWin) {
+//					WM_SetFocus(pMsg->hWin);
+//					return;        // Do not call edit callback
+//				}
+//			}
+//		}
+//		break;
+//	case WM_SET_FOCUS:
+//		if (pMsg->Data.v == 1) {
+//			EDIT_SetpfAddKeyEx(pMsg->hWin, _cbEditAddKey); // Set function pointer for a user defined AddKey function
+//			EDIT_SetSel(pMsg->hWin, 0, -1);                // Select the whole contents of the edit field
+//		}
+//	}
+//	if (_pEditCallback) {
+//		_pEditCallback(pMsg);
+//	}
+//}
 void W_aboutUs(void) {
 	WM_CreateWindow(0, 0, 320, 240, WM_CF_SHOW, _cbaboutus, 0);
 }

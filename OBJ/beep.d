@@ -8,6 +8,7 @@
 ..\obj\beep.o: ..\USER\stm32f10x_conf.h
 ..\obj\beep.o: ..\FWLIB\STM32F10x_FWLib\inc\stm32f10x_dma.h
 ..\obj\beep.o: ..\USER\stm32f10x.h
+..\obj\beep.o: ..\FWLIB\STM32F10x_FWLib\inc\stm32f10x_exti.h
 ..\obj\beep.o: ..\FWLIB\STM32F10x_FWLib\inc\stm32f10x_fsmc.h
 ..\obj\beep.o: ..\FWLIB\STM32F10x_FWLib\inc\stm32f10x_gpio.h
 ..\obj\beep.o: ..\FWLIB\STM32F10x_FWLib\inc\stm32f10x_rcc.h

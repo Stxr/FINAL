@@ -21,13 +21,19 @@ void stepMotor_Init(void){
 	GPIO_Init(GPIOG, &GPIO_InitStructure);
 	GPIO_ResetBits(GPIOG,GPIO_Pin_2|GPIO_Pin_3|GPIO_Pin_4|GPIO_Pin_5|GPIO_Pin_6);
 	printf("stepInit:0X%0X\r\n",AT24CXX_ReadOneByte(0));//打印初始化信息
+	//电机关闭
+	stepMotor_enable1 = 1;
+	stepMotor_enable2 = 1;
+	stepMotor_enable3 = 1;
+	stepMotor_enable4 = 1;
+	
 	printf("stepmotor%d distance:%d\r\n",1,stepMotor_Read(1));
 	printf("stepmotor%d distance:%d\r\n",2,stepMotor_Read(2));
 	printf("stepmotor%d distance:%d\r\n",3,stepMotor_Read(3));
 	printf("stepmotor%d distance:%d\r\n",4,stepMotor_Read(4));
 	printf("stepMotor_Init OK!\r\n");
 }
-int stepMotor_Run(u8 id,u8 dir,int speed){
+void stepMotor_Run(u8 id,u8 dir,int speed){
 	switch (id) {
 		case 1:
 			stepMotor_dir1=dir;
@@ -60,7 +66,6 @@ int stepMotor_Run(u8 id,u8 dir,int speed){
 		default:
 			break;
 	}
-	return 0;
 }
 void stepMotor_Distance(u8 id,int speed,int distance){
 	int i=0;
@@ -85,7 +90,7 @@ void stepMotor_Distance(u8 id,int speed,int distance){
 	}
 	
 }
-u8 stepMotor_Reset(u8 id){
+void stepMotor_Reset(u8 id){
 	int i=0;
 	i=AT24CXX_ReadOneByte(0);
 	if((i&(0xf0|1<<(id-1)))==(0xf0|1<<(id-1))){ //如果之前已经初始化了 高四位为1
@@ -95,7 +100,7 @@ u8 stepMotor_Reset(u8 id){
 		printf("第一次初始化\r\n");
 		AT24CXX_WriteOneByte(0,(i|0xf0)|1<<(id-1));//初始化 ，低四位哪一位初始化就把哪一位置一
 		for(i=0;i<333;i++){ //复位为0
-			stepMotor_Run(id,STEPMOTOR_IN,5); 
+			stepMotor_Run(id,STEPMOTOR_IN,10); //慢速复位
 		}
 	for(i=0;i<abs(STEPMOTOR_MIN)/3;i++){ //复位到最小值
 		stepMotor_Run(id,STEPMOTOR_OUT,5);
@@ -104,7 +109,6 @@ u8 stepMotor_Reset(u8 id){
 	}
 	printf("stepInit%d:0X%0X \r\n",id,AT24CXX_ReadOneByte(0));//打印初始化信息
 	printf("stepMotor_Reset OK!\r\n");
-	return 0;
 }
 int stepMotor_Read(u8 id){
 	return AT24CXX_ReadLenByte(id*2,2);

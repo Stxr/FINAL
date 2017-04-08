@@ -7,6 +7,7 @@
 ..\obj\sdio_sdcard.o: ..\USER\stm32f10x_conf.h
 ..\obj\sdio_sdcard.o: ..\FWLIB\STM32F10x_FWLib\inc\stm32f10x_dma.h
 ..\obj\sdio_sdcard.o: ..\USER\stm32f10x.h
+..\obj\sdio_sdcard.o: ..\FWLIB\STM32F10x_FWLib\inc\stm32f10x_exti.h
 ..\obj\sdio_sdcard.o: ..\FWLIB\STM32F10x_FWLib\inc\stm32f10x_fsmc.h
 ..\obj\sdio_sdcard.o: ..\FWLIB\STM32F10x_FWLib\inc\stm32f10x_gpio.h
 ..\obj\sdio_sdcard.o: ..\FWLIB\STM32F10x_FWLib\inc\stm32f10x_rcc.h

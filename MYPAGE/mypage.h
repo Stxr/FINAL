@@ -11,9 +11,9 @@
 #include "GUI.h"
 #include "includes.h"
 #include  "beep.h"
+#include "jump_sign.h"
 #include "step_motor.h"
 //#include "bitmapdisplay.h"
-#include "bmpdisplay.h"
 #include "EmWinHZFont.h"
 #include "WM.h"
 #include "DIALOG.h"
@@ -46,7 +46,7 @@
 #define SCREEN_Y 1
 
 
-static WM_CALLBACK * _pEditCallback;
+//static WM_CALLBACK * _pEditCallback;
 void pageSetting(WM_MESSAGE *pMsg);
 void pageHome(WM_MESSAGE *pMsg);
 void pageShuyeSetting(WM_MESSAGE *pMsg);
@@ -54,8 +54,8 @@ void pageDisplay(WM_MESSAGE *pMsg);
 void pageShuyeDisplay(WM_MESSAGE *pMsg);
 void _cbBottle4(WM_MESSAGE *pMsg);
 void _cbDialogNumPad(WM_MESSAGE *pMsg);
-void _cbEdit(WM_MESSAGE * pMsg);
-void _cbEditAddKey(EDIT_Handle hObj, int Key);
+//void _cbEdit(WM_MESSAGE * pMsg);
+//void _cbEditAddKey(EDIT_Handle hObj, int Key);
 void _cbchild1(WM_MESSAGE *pMsg);
 void W_pageHome(void);
 void W_pageShuyeSetting(int page);

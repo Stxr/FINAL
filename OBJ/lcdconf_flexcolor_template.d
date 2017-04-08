@@ -15,6 +15,7 @@
 ..\obj\lcdconf_flexcolor_template.o: ..\USER\stm32f10x_conf.h
 ..\obj\lcdconf_flexcolor_template.o: ..\FWLIB\STM32F10x_FWLib\inc\stm32f10x_dma.h
 ..\obj\lcdconf_flexcolor_template.o: ..\USER\stm32f10x.h
+..\obj\lcdconf_flexcolor_template.o: ..\FWLIB\STM32F10x_FWLib\inc\stm32f10x_exti.h
 ..\obj\lcdconf_flexcolor_template.o: ..\FWLIB\STM32F10x_FWLib\inc\stm32f10x_fsmc.h
 ..\obj\lcdconf_flexcolor_template.o: ..\FWLIB\STM32F10x_FWLib\inc\stm32f10x_gpio.h
 ..\obj\lcdconf_flexcolor_template.o: ..\FWLIB\STM32F10x_FWLib\inc\stm32f10x_rcc.h

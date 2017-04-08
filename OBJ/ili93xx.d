@@ -8,6 +8,7 @@
 ..\obj\ili93xx.o: ..\USER\stm32f10x_conf.h
 ..\obj\ili93xx.o: ..\FWLIB\STM32F10x_FWLib\inc\stm32f10x_dma.h
 ..\obj\ili93xx.o: ..\USER\stm32f10x.h
+..\obj\ili93xx.o: ..\FWLIB\STM32F10x_FWLib\inc\stm32f10x_exti.h
 ..\obj\ili93xx.o: ..\FWLIB\STM32F10x_FWLib\inc\stm32f10x_fsmc.h
 ..\obj\ili93xx.o: ..\FWLIB\STM32F10x_FWLib\inc\stm32f10x_gpio.h
 ..\obj\ili93xx.o: ..\FWLIB\STM32F10x_FWLib\inc\stm32f10x_rcc.h

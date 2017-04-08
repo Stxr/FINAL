@@ -8,6 +8,7 @@
 ..\obj\main.o: ..\USER\stm32f10x_conf.h
 ..\obj\main.o: ..\FWLIB\STM32F10x_FWLib\inc\stm32f10x_dma.h
 ..\obj\main.o: ..\USER\stm32f10x.h
+..\obj\main.o: ..\FWLIB\STM32F10x_FWLib\inc\stm32f10x_exti.h
 ..\obj\main.o: ..\FWLIB\STM32F10x_FWLib\inc\stm32f10x_fsmc.h
 ..\obj\main.o: ..\FWLIB\STM32F10x_FWLib\inc\stm32f10x_gpio.h
 ..\obj\main.o: ..\FWLIB\STM32F10x_FWLib\inc\stm32f10x_rcc.h
@@ -47,7 +48,6 @@
 ..\obj\main.o: ..\HARDWARE\W25QXX\w25qxx.h
 ..\obj\main.o: ..\TEXT\fontupd.h
 ..\obj\main.o: ..\EMWIN\STemWinHZ\EmWinHZFont.h
-..\obj\main.o: ..\EMWIN_DEMO\EMWIN_PICTURE\BMP\bmpdisplay.h
 ..\obj\main.o: ..\UCOSIII\uCOS_CONFIG\includes.h
 ..\obj\main.o: E:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
 ..\obj\main.o: E:\Keil_v5\ARM\ARMCC\Bin\..\include\ctype.h
@@ -110,5 +110,5 @@
 ..\obj\main.o: ..\EMWIN\STemWin\inc\KNOB.h
 ..\obj\main.o: ..\MYPAGE\mypage.h
 ..\obj\main.o: ..\HARDWARE\FLASH\flash.h
-..\obj\main.o: ..\HARDWARE\STEP_MOTOR\step_motor.h
 ..\obj\main.o: ..\HARDWARE\SIGN\jump_sign.h
+..\obj\main.o: ..\HARDWARE\STEP_MOTOR\step_motor.h

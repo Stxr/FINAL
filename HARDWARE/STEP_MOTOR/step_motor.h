@@ -1,15 +1,16 @@
 #ifndef __STEPMOTOR_H
 #define __STEPMOTOR_H
 /*
+	
 	id		电机初始值   量程
 	
 	1                                  374  3ml     
 	
 	2				150				 400             351  8ml
 	
-	3				100				 350             360 9ml
+	3				100				 350             365最低速度    420完全压死
 	
-	4				100				 350
+	4				100				 350             315             380
 */
 #include "sys.h"
 #include "delay.h"
@@ -36,8 +37,8 @@
 #define stepMotor_step4 PGout(6)
 #define stepMotor_enable4 PDout(7)
 void stepMotor_Init(void);
-int stepMotor_Run(u8 id,u8 dir,int speed);//序号，转动方向，速度 速度越小越快，5ms为一个单位  一次前进0.03m
+void stepMotor_Run(u8 id,u8 dir,int speed);//序号，转动方向，速度 速度越小越快，5ms为一个单位  一次前进0.03m
 void stepMotor_Distance(u8 id,int speed,int distance);//distance (0.01mm) 精度+-0.05mm
-u8 stepMotor_Reset(u8 id); //电机复位
+void stepMotor_Reset(u8 id); //电机复位
 int stepMotor_Read(u8 id);
 #endif

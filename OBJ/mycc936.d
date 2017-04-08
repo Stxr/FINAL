@@ -10,6 +10,7 @@
 ..\obj\mycc936.o: ..\USER\stm32f10x_conf.h
 ..\obj\mycc936.o: ..\FWLIB\STM32F10x_FWLib\inc\stm32f10x_dma.h
 ..\obj\mycc936.o: ..\USER\stm32f10x.h
+..\obj\mycc936.o: ..\FWLIB\STM32F10x_FWLib\inc\stm32f10x_exti.h
 ..\obj\mycc936.o: ..\FWLIB\STM32F10x_FWLib\inc\stm32f10x_fsmc.h
 ..\obj\mycc936.o: ..\FWLIB\STM32F10x_FWLib\inc\stm32f10x_gpio.h
 ..\obj\mycc936.o: ..\FWLIB\STM32F10x_FWLib\inc\stm32f10x_rcc.h

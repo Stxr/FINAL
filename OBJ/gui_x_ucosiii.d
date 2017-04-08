@@ -37,6 +37,7 @@
 ..\obj\gui_x_ucosiii.o: E:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
 ..\obj\gui_x_ucosiii.o: ..\USER\system_stm32f10x.h
 ..\obj\gui_x_ucosiii.o: ..\USER\stm32f10x_conf.h
+..\obj\gui_x_ucosiii.o: ..\FWLIB\STM32F10x_FWLib\inc\stm32f10x_exti.h
 ..\obj\gui_x_ucosiii.o: ..\FWLIB\STM32F10x_FWLib\inc\stm32f10x_fsmc.h
 ..\obj\gui_x_ucosiii.o: ..\FWLIB\STM32F10x_FWLib\inc\stm32f10x_gpio.h
 ..\obj\gui_x_ucosiii.o: ..\FWLIB\STM32F10x_FWLib\inc\stm32f10x_rcc.h

@@ -8,6 +8,7 @@
 ..\obj\touch.o: ..\USER\stm32f10x_conf.h
 ..\obj\touch.o: ..\FWLIB\STM32F10x_FWLib\inc\stm32f10x_dma.h
 ..\obj\touch.o: ..\USER\stm32f10x.h
+..\obj\touch.o: ..\FWLIB\STM32F10x_FWLib\inc\stm32f10x_exti.h
 ..\obj\touch.o: ..\FWLIB\STM32F10x_FWLib\inc\stm32f10x_fsmc.h
 ..\obj\touch.o: ..\FWLIB\STM32F10x_FWLib\inc\stm32f10x_gpio.h
 ..\obj\touch.o: ..\FWLIB\STM32F10x_FWLib\inc\stm32f10x_rcc.h

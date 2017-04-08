@@ -18,7 +18,7 @@
 #include "w25qxx.h"
 #include "fontupd.h"
 #include "EmWinHZFont.h"
-#include "bmpdisplay.h"
+//#include "bmpdisplay.h"
 #include "includes.h"
 #include "WM.h"
 #include "DIALOG.h"
@@ -65,17 +65,17 @@ CPU_STK TOUCH_TASK_STK[TOUCH_STK_SIZE];
 //touch任务
 void touch_task(void *p_arg);
 
-//按键任务
-//设置任务优先级
-#define KEY_TASK_PRIO 				5
-//任务堆栈大小
-#define KEY_STK_SIZE				128
-//任务控制块
-OS_TCB KeyTaskTCB;
-//任务堆栈
-CPU_STK KEY_TASK_STK[KEY_STK_SIZE];
-//led0任务
-void key_task(void *p_arg);
+////按键任务
+////设置任务优先级
+//#define KEY_TASK_PRIO 				5
+////任务堆栈大小
+//#define KEY_STK_SIZE				128
+////任务控制块
+//OS_TCB KeyTaskTCB;
+////任务堆栈
+//CPU_STK KEY_TASK_STK[KEY_STK_SIZE];
+////led0任务
+//void key_task(void *p_arg);
 
 //LED0任务
 //设置任务优先级
@@ -89,17 +89,17 @@ CPU_STK LED0_TASK_STK[LED0_STK_SIZE];
 //led0任务
 void led0_task(void *p_arg);
 
-//字库更新任务
-//设置任务优先级
-#define FONTUPDATA_TASK_PRIO		6
-//任务堆栈大小
-#define FONTUPDATA_STK_SIZE			128
-//任务控制块
-OS_TCB FontupdataTaskTCB;
-//任务堆栈
-CPU_STK FONTUPDATA_TASK_STK[FONTUPDATA_STK_SIZE];
-//字库更新任务
-void fontupdata_task(void *p_arg);
+////字库更新任务
+////设置任务优先级
+//#define FONTUPDATA_TASK_PRIO		6
+////任务堆栈大小
+//#define FONTUPDATA_STK_SIZE			128
+////任务控制块
+//OS_TCB FontupdataTaskTCB;
+////任务堆栈
+//CPU_STK FONTUPDATA_TASK_STK[FONTUPDATA_STK_SIZE];
+////字库更新任务
+//void fontupdata_task(void *p_arg);
 
 //EMWINDEMO任务
 //设置任务优先级
@@ -112,7 +112,8 @@ OS_TCB EmwindemoTaskTCB;
 CPU_STK EMWINDEMO_TASK_STK[EMWINDEMO_STK_SIZE];
 //emwindemo_task任务
 void emwindemo_task(void *p_arg);
-int testSpeed=0;
+u8 count=0;
+u8 testSpeed=0;
 int main(void)
 {	
 	OS_ERR err;
@@ -246,19 +247,19 @@ void start_task(void *p_arg)
                  (OS_OPT      )OS_OPT_TASK_STK_CHK|OS_OPT_TASK_STK_CLR,
                  (OS_ERR*     )&err);
 								 
-	OSTaskCreate((OS_TCB*     )&FontupdataTaskTCB,		
-				 (CPU_CHAR*   )"Fontupdata task", 		
-								 (OS_TASK_PTR )fontupdata_task, 			
-								 (void*       )0,					
-								 (OS_PRIO	  )FONTUPDATA_TASK_PRIO,     
-								 (CPU_STK*    )&FONTUPDATA_TASK_STK[0],	
-								 (CPU_STK_SIZE)FONTUPDATA_STK_SIZE/10,	
-								 (CPU_STK_SIZE)FONTUPDATA_STK_SIZE,		
-								 (OS_MSG_QTY  )0,					
-								 (OS_TICK	  )0,  					
-								 (void*       )0,					
-								 (OS_OPT      )OS_OPT_TASK_STK_CHK|OS_OPT_TASK_STK_CLR,
-								 (OS_ERR*     )&err);
+//	OSTaskCreate((OS_TCB*     )&FontupdataTaskTCB,		
+//				 (CPU_CHAR*   )"Fontupdata task", 		
+//								 (OS_TASK_PTR )fontupdata_task, 			
+//								 (void*       )0,					
+//								 (OS_PRIO	  )FONTUPDATA_TASK_PRIO,     
+//								 (CPU_STK*    )&FONTUPDATA_TASK_STK[0],	
+//								 (CPU_STK_SIZE)FONTUPDATA_STK_SIZE/10,	
+//								 (CPU_STK_SIZE)FONTUPDATA_STK_SIZE,		
+//								 (OS_MSG_QTY  )0,					
+//								 (OS_TICK	  )0,  					
+//								 (void*       )0,					
+//								 (OS_OPT      )OS_OPT_TASK_STK_CHK|OS_OPT_TASK_STK_CLR,
+//								 (OS_ERR*     )&err);
 
 	OS_TaskSuspend((OS_TCB*)&StartTaskTCB,&err);		//挂起开始任务
 	OS_CRITICAL_EXIT();	//退出临界区
@@ -285,58 +286,85 @@ void touch_task(void *p_arg)
 void led0_task(void *p_arg)
 {
 	OS_ERR err;
-	u8 i=0,count=0;
+	u8 i=0;
 	while(1)
 	{
-		
-		if(i>=10){ //1s 取样一次
+			if(BEEP_SIGN!=0){
+				count=0;
+			}
+		if(i>=10*3){ //1s 取样一次
 			i=0;
-			testSpeed = count;
+			if(count<35 && BEEP_SIGN==0){
+				testSpeed = count;
+			}
 			count=0;
-			printf("testSpeed:%d\r\n",testSpeed);
+//			printf("testSpeed:%d\r\n",testSpeed);
 			LED0 = !LED0;
 		}
 		i++;
-		if(JUMP_SIGN==0){
-			count++;
-			while(JUMP_SIGN == 0){
-				delay_ms(5);
-			}
-		}
+//		if(JUMP_SIGN==1){
+//			delay_ms(10);
+//			if(JUMP_SIGN==0){ //下降沿
+//				count++;
+//				printf("计数一次\r\n");
+//			}
+//		}
 		OSTimeDlyHMSM(0,0,0,100,OS_OPT_TIME_PERIODIC,&err);//延时200ms
 	}
 }
-void fontupdata_task(void *pdata)
+//void fontupdata_task(void *pdata)
+//{
+//	OS_ERR err;
+//	while(1)
+//	{
+//		LED1 = !LED1;
+//		if(WK_UP == 0)				//KEY_UP键按下
+//		{
+////			OSTimeDlyHMSM(0,0,2,0,OS_OPT_TIME_PERIODIC,&err);//延时2s
+////			if(WK_UP == 0)			//还是KEY_UP键
+////			{
+////				LCD_Clear(WHITE);
+////				OSSchedLock(&err);		//调度器上锁
+////				LCD_ShowString(10,50,250,30,16,"Font Updataing,Please Wait...");
+////				update_font(10,70,16,"0:");//更新字库
+////				LCD_Clear(WHITE);
+////				POINT_COLOR = RED;
+////				LCD_ShowString(10,50,280,30,16,"Font Updata finshed,Please Restart!");
+////				OSSchedUnlock(&err);	//调度器解锁
+////			}
+//			stepMotor_Distance(1,5,150);
+//		}else if(KEY1==0){
+//			stepMotor_Distance(1,5,-250);
+//		}else if(KEY2==0){
+//			AT24CXX_WriteOneByte(0,0); //清除初始化
+//			printf("stepInit:0X%0X\r\n",AT24CXX_ReadOneByte(0));//打印初始化信息
+//			stepMotor_Reset(1);
+//			stepMotor_Reset(2);
+//			stepMotor_Reset(3);
+//			stepMotor_Reset(4);
+//		}
+//		OSTimeDlyHMSM(0,0,0,50,OS_OPT_TIME_PERIODIC,&err);//延时10ms
+//	}
+//}
+void EXTI9_5_IRQHandler(void)
 {
-	OS_ERR err;
-	while(1)
-	{
-		LED1 = !LED1;
-		if(WK_UP == 0)				//KEY_UP键按下
-		{
-//			OSTimeDlyHMSM(0,0,2,0,OS_OPT_TIME_PERIODIC,&err);//延时2s
-//			if(WK_UP == 0)			//还是KEY_UP键
-//			{
-//				LCD_Clear(WHITE);
-//				OSSchedLock(&err);		//调度器上锁
-//				LCD_ShowString(10,50,250,30,16,"Font Updataing,Please Wait...");
-//				update_font(10,70,16,"0:");//更新字库
-//				LCD_Clear(WHITE);
-//				POINT_COLOR = RED;
-//				LCD_ShowString(10,50,280,30,16,"Font Updata finshed,Please Restart!");
-//				OSSchedUnlock(&err);	//调度器解锁
-//			}
-			stepMotor_Distance(1,5,150);
-		}else if(KEY1==0){
-			stepMotor_Distance(1,5,-250);
-		}else if(KEY2==0){
-			AT24CXX_WriteOneByte(0,0); //清除初始化
-			printf("stepInit:0X%0X\r\n",AT24CXX_ReadOneByte(0));//打印初始化信息
-			stepMotor_Reset(1);
-			stepMotor_Reset(2);
-			stepMotor_Reset(3);
-			stepMotor_Reset(4);
-		}
-		OSTimeDlyHMSM(0,0,0,50,OS_OPT_TIME_PERIODIC,&err);//延时10ms
-	}
+	int i=0;
+//	printf("进入中断了\r\n");
+	if(EXTI_GetITStatus(EXTI_Line5)!=RESET)
+        {
+            if(GPIO_ReadInputDataBit(GPIOC,GPIO_Pin_5)==RESET){
+//							delay_ms(5);
+							for(i=0;i<1000;i++);
+			 				if(GPIO_ReadInputDataBit(GPIOC,GPIO_Pin_5)==RESET)
+									{
+										if(BEEP_SIGN==0){ //正常输液
+												count++; //测试用
+//											printf("count=%d\r\n",count);
+										}
+
+									}
+							}
+
+        }
+    EXTI_ClearITPendingBit(EXTI_Line5);
 }

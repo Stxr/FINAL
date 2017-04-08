@@ -33,6 +33,7 @@
 "..\obj\stm32f10x_usart.o"
 "..\obj\stm32f10x_sdio.o"
 "..\obj\stm32f10x_dma.o"
+"..\obj\stm32f10x_exti.o"
 "..\obj\bsp.o"
 "..\obj\lib_ascii.o"
 "..\obj\lib_math.o"

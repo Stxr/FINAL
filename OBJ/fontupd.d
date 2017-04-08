@@ -7,6 +7,7 @@
 ..\obj\fontupd.o: ..\USER\stm32f10x_conf.h
 ..\obj\fontupd.o: ..\FWLIB\STM32F10x_FWLib\inc\stm32f10x_dma.h
 ..\obj\fontupd.o: ..\USER\stm32f10x.h
+..\obj\fontupd.o: ..\FWLIB\STM32F10x_FWLib\inc\stm32f10x_exti.h
 ..\obj\fontupd.o: ..\FWLIB\STM32F10x_FWLib\inc\stm32f10x_fsmc.h
 ..\obj\fontupd.o: ..\FWLIB\STM32F10x_FWLib\inc\stm32f10x_gpio.h
 ..\obj\fontupd.o: ..\FWLIB\STM32F10x_FWLib\inc\stm32f10x_rcc.h

@@ -9,6 +9,7 @@
 ..\obj\mypage.o: ..\USER\stm32f10x_conf.h
 ..\obj\mypage.o: ..\FWLIB\STM32F10x_FWLib\inc\stm32f10x_dma.h
 ..\obj\mypage.o: ..\USER\stm32f10x.h
+..\obj\mypage.o: ..\FWLIB\STM32F10x_FWLib\inc\stm32f10x_exti.h
 ..\obj\mypage.o: ..\FWLIB\STM32F10x_FWLib\inc\stm32f10x_fsmc.h
 ..\obj\mypage.o: ..\FWLIB\STM32F10x_FWLib\inc\stm32f10x_gpio.h
 ..\obj\mypage.o: ..\FWLIB\STM32F10x_FWLib\inc\stm32f10x_rcc.h
@@ -56,8 +57,8 @@
 ..\obj\mypage.o: ..\UCOSIII\uCOS_CONFIG\app_cfg.h
 ..\obj\mypage.o: ..\UCOSIII\UCOS_BSP\bsp.h
 ..\obj\mypage.o: ..\HARDWARE\BEEP\beep.h
+..\obj\mypage.o: ..\HARDWARE\SIGN\jump_sign.h
 ..\obj\mypage.o: ..\HARDWARE\STEP_MOTOR\step_motor.h
-..\obj\mypage.o: ..\EMWIN_DEMO\EMWIN_PICTURE\BMP\bmpdisplay.h
 ..\obj\mypage.o: ..\EMWIN\STemWinHZ\EmWinHZFont.h
 ..\obj\mypage.o: ..\EMWIN\STemWin\inc\WM.h
 ..\obj\mypage.o: ..\EMWIN\STemWin\inc\WM_GUI.h
